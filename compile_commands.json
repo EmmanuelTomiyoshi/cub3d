@@ -1,0 +1,36 @@
+[
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-Wextra",
+            "-g",
+            "-I",
+            "inc/",
+            "-o",
+            "obj/other.o",
+            "src/other.c"
+        ],
+        "directory": "/home/etomiyos/42projetos/cub3d",
+        "file": "src/other.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Werror",
+            "-Wextra",
+            "-g",
+            "-I",
+            "inc/",
+            "-o",
+            "obj/main.o",
+            "src/main.c"
+        ],
+        "directory": "/home/etomiyos/42projetos/cub3d",
+        "file": "src/main.c"
+    }
+]
