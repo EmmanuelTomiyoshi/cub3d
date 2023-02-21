@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 .clangd
 *.json
+cub3d
+bin/cub3d
