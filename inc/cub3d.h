@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/21 12:12:36 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:29:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 # include <stdio.h>
 # include <mlx.h>
 # include "../libft/libft.h"
-
-# define WIDTH 1200
-# define HEIGHT 900
 
 typedef enum e_bool
 {
@@ -45,8 +42,5 @@ typedef struct s_cub3d
 	void		*mlx;
 	void		*win;
 }	t_cub3d;
-
-void	init(t_cub3d *c);
-void	invalid_args(int argc);
 
 #endif
