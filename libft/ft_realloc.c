@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/21 12:40:17 by mtomomit         ###   ########.fr       */
+/*   Created: 2022/07/25 17:21:38 by mtomomit          #+#    #+#             */
+/*   Updated: 2022/08/12 22:50:08 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-void	exit_error(char *msg)
+char	*ft_realloc(char *str, size_t size)
 {
-	printf("Error\n");
-	printf("%s\n", msg);
-	exit(EXIT_FAILURE);
-}
+	char	*temp;
 
-void	invalid_args(int argc)
-{
-	if (argc < 2)
-		exit_error("Invalid args #1");
-	if (argc > 2)
-		exit_error("Invalid args #2");
+	if (!str)
+		return (NULL);
+	else
+	{
+		temp = (char *)malloc(sizeof(char) * (size));
+		ft_strlcpy(temp, str, size + 1);
+		free(str);
+	}
+	if (!temp)
+		return (NULL);
+	return (temp);
 }
