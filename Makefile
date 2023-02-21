@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/21 12:26:38 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/02/21 15:43:52 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,13 @@ CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
-FILES				=	main.c init.c parse.c destroy.c
+FILES				=	destroy.c	\
+						init.c		\
+						loop.c		\
+						main.c		\
+						parse.c		\
+						render.c	\
+						validations.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
@@ -46,7 +52,7 @@ $(REQUIRED_DIRS):
 	mkdir -p $@
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
-	@echo -n "$(YELLOW)Compiling $(WHITE)$$(( $(PROGRESS) * 100 / $(NUMBER_SRC_FILES)))%\r"
+	@echo -n "$(COLOR_YELLOW)Compiling $(COLOR_WHITE)$$(( $(PROGRESS) * 100 / $(NUMBER_SRC_FILES)))%\r"
 	$(eval PROGRESS=$(shell echo $$(($(PROGRESS)+1))))
 	@$(CC) $(CFLAGS) -c $< -o $@
 

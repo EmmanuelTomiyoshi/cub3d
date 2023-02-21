@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/21 15:47:06 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/02/21 15:41:38 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/02/21 15:46:48 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	exit_error(char *msg)
+static int	end_loop(t_cub3d *c);
+
+void	loop(t_cub3d *c)
 {
-	printf(MSG_ERROR);
-	printf("%s\n", msg);
-	printf(MSG_USAGE);
-	exit(EXIT_FAILURE);
+	mlx_expose_hook(c->win, &render, c);
+	mlx_hook(c->win, 17, 1L << 24, end_loop, c);
+	mlx_loop(c->mlx);
 }
 
-void	invalid_args(int argc, char **argv)
+static int	end_loop(t_cub3d *c)
 {
-	if (argc < 2)
-		exit_error(MSG_FEW_ARGS);
-	if (argc > 2)
-		exit_error(MSG_MANY_ARGS);
-	if (is_valid_file_extension(argv[1]) == FALSE)
-		exit_error(MSG_INVALID_MAP);
+	mlx_loop_end(c->mlx);
+	return (0);
 }
