@@ -6,26 +6,29 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/21 15:47:06 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/21 21:27:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	exit_error(char *msg)
+t_bool	is_valid_file_extension(char *filename)
 {
-	printf(MSG_ERROR);
-	printf("%s\n", msg);
-	printf(MSG_USAGE);
-	exit(EXIT_FAILURE);
+	if (!ft_strchr(filename, '.') || ft_strlen(filename) < 5)
+		return (FALSE);
+	if (filename[ft_strlen(filename) - 1] != 'b')
+		return (FALSE);
+	if (ft_strcmp(ft_strchr(filename, '.'), ".cub"))
+		return (FALSE);
+	return (TRUE);
 }
 
 void	invalid_args(int argc, char **argv)
 {
 	if (argc < 2)
-		exit_error(MSG_FEW_ARGS);
+		exit_error(MSG_FEW_ARGS, TRUE);
 	if (argc > 2)
-		exit_error(MSG_MANY_ARGS);
+		exit_error(MSG_MANY_ARGS, TRUE);
 	if (is_valid_file_extension(argv[1]) == FALSE)
-		exit_error(MSG_INVALID_MAP);
+		exit_error(MSG_INVALID_MAP, TRUE);
 }
