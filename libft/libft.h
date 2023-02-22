@@ -63,6 +63,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size);
 
 int				ft_atoi(const char *nptr);
 void			*ft_calloc(size_t nelem, size_t elsize);
+char			*ft_realloc(char *str, size_t size)
 
 void			ft_strupdate(char **str, char *newstr);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
@@ -91,5 +92,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 int				ft_lstcount_nodes(t_list *lst);
 void			ft_free_int_array(int **my_array, int count);
+
+char			*get_next_line(int fd);
 
 #endif

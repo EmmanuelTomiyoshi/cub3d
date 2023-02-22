@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/21 15:43:52 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/02/22 03:37:31 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ FILES				=	destroy.c	\
 						main.c		\
 						parse.c		\
 						render.c	\
-						validations.c
+						validations.c \
+						get_data.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
