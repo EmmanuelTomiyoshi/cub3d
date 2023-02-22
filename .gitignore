@@ -54,3 +54,5 @@ dkms.conf
 *.json
 cub3d
 bin/cub3d
+fonts.txt
+compile_commands.json

@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/21 21:08:31 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/02/22 10:30:06 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
 FILES				=	destroy.c	\
 						init.c		\
-						loop.c		\
 						main.c		\
 						parse.c		\
 						render.c

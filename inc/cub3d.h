@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 09:45:58 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:42:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include "printf_colors.h"
+# include "fonts.h"
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
