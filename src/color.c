@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 13:09:50 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/22 16:30:51 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:08:51 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 int	free_all(t_file_data *file_data, char **splited_line, int exit_code, char **rgb)
 {
+	char	*line;
+
 	free_split(rgb);
 	free_split(splited_line);
 	if (exit_code == 0)
 	{
+		line = get_next_line(file_data->fd);
+		while (line)
+		{
+			free(line);
+			line = get_next_line(file_data->fd);
+		}
+		free(line);
 		free_file_data(file_data);
 		exit_error(MSG_INVALID_FILE_FORMAT, FALSE);
 	}
