@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/22 17:08:01 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:15:11 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,5 @@ t_file_data	*get_data(char *file)
 		line = get_next_line(fd);
 	}
 	free(line);
-	printf("%s\n", file_data->ea_path);
-	printf("%s\n", file_data->so_path);
-	printf("%s\n", file_data->no_path);
-	printf("%s\n", file_data->we_path);
-	printf("%i\n", file_data->c_color);
-	printf("%i\n", file_data->f_color);
 	return (file_data);
 }

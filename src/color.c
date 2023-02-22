@@ -6,13 +6,14 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 13:09:50 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/22 17:09:24 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:14:00 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	free_all(t_file_data *file_data, char **splited_line, int exit_code, char **rgb)
+int	free_all(t_file_data *file_data, char **splited_line, \
+	int exit_code, char **rgb)
 {
 	char	*line;
 
@@ -80,30 +81,30 @@ t_bool	verify_only_number(char *rgb)
 		return (FALSE);
 }
 
-int	get_color(t_file_data *file_data, char **splited_line)
+int	get_color(t_file_data *fdata, char **splited_line)
 {
 	char	**rgb;
 	char	*color;
 
 	rgb = NULL;
-	if ((!ft_strcmp("F\0", splited_line[0]) && file_data->f_color == 0) || \
-		(!ft_strcmp("C\0", splited_line[0]) && file_data->c_color == 0))
+	if ((!ft_strcmp("F\0", splited_line[0]) && fdata->f_color == 0) || \
+		(!ft_strcmp("C\0", splited_line[0]) && fdata->c_color == 0))
 	{
 		color = ft_strtrim(splited_line[1], "\n");
 		rgb = ft_split(color, ',');
 		free(color);
 		if (!verify_only_number(rgb[0]) && !verify_only_number(rgb[1]) && \
 			!verify_only_number(rgb[2]) && rgb[3] == NULL)
-			free_all(file_data, splited_line, 0, rgb);
+			free_all(fdata, splited_line, 0, rgb);
 		if (!ft_strcmp("C\0", splited_line[0]))
-			file_data->c_color = get_rgb(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
+			fdata->c_color = get_rgb(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
 		if (!ft_strcmp("F\0", splited_line[0]))
-			file_data->f_color = get_rgb(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
-		if ((!ft_strcmp("F\0", splited_line[0]) && file_data->f_color == 0) || \
-			(!ft_strcmp("C\0", splited_line[0]) && file_data->c_color == 0))
-				free_all(file_data, splited_line, 0, rgb);
-		return (free_all(file_data, splited_line, 1, rgb));
+			fdata->f_color = get_rgb(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
+		if ((!ft_strcmp("F\0", splited_line[0]) && fdata->f_color == 0) || \
+			(!ft_strcmp("C\0", splited_line[0]) && fdata->c_color == 0))
+			free_all(fdata, splited_line, 0, rgb);
+		return (free_all(fdata, splited_line, 1, rgb));
 	}
-	free_all(file_data, splited_line, 0, rgb);
+	free_all(fdata, splited_line, 0, rgb);
 	return (0);
 }
