@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 17:09:33 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:22:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include "printf_colors.h"
+# include "fonts.h"
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
@@ -23,16 +24,25 @@
 # include <mlx.h>
 # include "../libft/libft.h"
 
+# define WIN_NAME "cub3d"
 # define WIDTH 1200
 # define HEIGHT 900
+
 # define MSG_ERROR "Error\n"
 # define MSG_USAGE "\n---Usage---\n./cub3d <filename.cub>\n"
 # define MSG_FEW_ARGS "Too few arguments"
 # define MSG_MANY_ARGS "Too many arguments"
-# define MSG_INVALID_MAP "Map filename is invalid"
 # define MSG_INVALID_FILE "File is invalid\n"
 # define MSG_INVALID_FILE_FORMAT "File format is invalid\n"
+# define MSG_ERR_FILENAME "Map filename is invalid"
 # define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
+# define MSG_ERR_OPEN_FILE "Map has wrongs permissions or doesn't exist\n"
+
+# define A_KEY 97
+# define W_KEY 119
+# define S_KEY 115
+# define D_KEY 100
+# define ESC_KEY 65307
 
 typedef enum e_bool
 {

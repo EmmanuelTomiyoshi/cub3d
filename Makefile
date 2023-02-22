@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/22 14:27:08 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/02/22 17:21:53 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
 FILES				=	destroy.c	\
 						init.c		\
-						loop.c		\
 						main.c		\
 						parse.c		\
 						render.c	\
