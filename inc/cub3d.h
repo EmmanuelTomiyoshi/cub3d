@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 09:37:55 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:45:58 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@
 # define MSG_USAGE "\n---Usage---\n./cub3d <filename.cub>\n"
 # define MSG_FEW_ARGS "Too few arguments"
 # define MSG_MANY_ARGS "Too many arguments"
-# define MSG_INVALID_MAP "Map filename is invalid"
+# define MSG_ERR_FILENAME "Map filename is invalid"
 # define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
+# define MSG_ERR_OPEN_FILE "Map has wrongs permissions or doesn't exist\n"
 
 # define A_KEY 97
 # define W_KEY 119
