@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 16:30:52 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:09:33 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_image
 
 typedef struct s_file_data
 {
+	int		fd;
 	int		f_color;
 	int		c_color;
 	char	*ea_path;

@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/22 16:30:54 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:08:01 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_file_data	*get_data(char *file)
 	if (fd == -1)
 		exit_error(MSG_INVALID_FILE, 0);
 	file_data = (t_file_data *)ft_calloc(1, sizeof(t_file_data));
+	file_data->fd = fd;
 	line = get_next_line(fd);
 	while (line && data < 6)
 	{
