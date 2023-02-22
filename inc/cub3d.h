@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/21 21:32:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:30:52 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define MSG_FEW_ARGS "Too few arguments"
 # define MSG_MANY_ARGS "Too many arguments"
 # define MSG_INVALID_MAP "Map filename is invalid"
+# define MSG_INVALID_FILE "File is invalid\n"
+# define MSG_INVALID_FILE_FORMAT "File format is invalid\n"
 # define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
 
 typedef enum e_bool
@@ -47,6 +49,16 @@ typedef struct s_image
 	int			endian;
 }	t_image;
 
+typedef struct s_file_data
+{
+	int		f_color;
+	int		c_color;
+	char	*ea_path;
+	char	*we_path;
+	char	*so_path;
+	char	*no_path;
+}	t_file_data;
+
 typedef struct s_cub3d
 {
 	t_image		img;
@@ -56,22 +68,30 @@ typedef struct s_cub3d
 }	t_cub3d;
 
 //destroy.c
-void	destroy_all(t_cub3d *c);
+void		destroy_all(t_cub3d *c);
 
 //init.c
-void	init(char **argv, t_cub3d *c);
+void		init(char **argv, t_cub3d *c);
 
 //loop.c
-void	loop(t_cub3d *c);
+void		loop(t_cub3d *c);
 
 //parse.c
-void	invalid_args(int argc, char **argv);
-void	exit_error(char *msg, t_bool usage);
+void		invalid_args(int argc, char **argv);
+void		exit_error(char *msg, t_bool usage);
 
 //render.c
-int		render(t_cub3d *c);
+int			render(t_cub3d *c);
 
 //validations.c
-t_bool	is_valid_file_extension(char *filename);
+t_bool		is_valid_file_extension(char *filename);
+
+//color.c
+int			get_color(t_file_data *file_data, char **splited_line);
+void		free_split(char **split);
+
+//get_data.c
+t_file_data	*get_data(char *file);
+void		free_file_data(t_file_data *file_data);
 
 #endif
