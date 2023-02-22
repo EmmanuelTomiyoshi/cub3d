@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 13:11:56 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:30:52 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,11 @@ int			render(t_cub3d *c);
 t_bool		is_valid_file_extension(char *filename);
 
 //color.c
-int			get_color(t_file_data *file_data, char **splited_line, char *line);
+int			get_color(t_file_data *file_data, char **splited_line);
+void		free_split(char **split);
 
 //get_data.c
 t_file_data	*get_data(char *file);
+void		free_file_data(t_file_data *file_data);
 
 #endif

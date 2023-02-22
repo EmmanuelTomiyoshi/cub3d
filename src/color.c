@@ -6,22 +6,39 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 13:09:50 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/22 13:24:13 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:30:51 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	free_color(char **rgb)
+#include "cub3d.h"
+
+int	free_all(t_file_data *file_data, char **splited_line, int exit_code, char **rgb)
+{
+	free_split(rgb);
+	free_split(splited_line);
+	if (exit_code == 0)
+	{
+		free_file_data(file_data);
+		exit_error(MSG_INVALID_FILE_FORMAT, FALSE);
+	}
+	return (exit_code);
+}
+
+void	free_split(char **split)
 {
 	size_t	i;
 
 	i = 0;
-	while (rgb[i])
+	if (split != NULL)
 	{
-		free(rgb[i]);
-		i++;
+		while (split[i])
+		{
+			free(split[i]);
+			i++;
+		}
+		free(split[i]);
 	}
-	free(rgb[i]);
-	free(rgb);
+	free(split);
 }
 
 int	get_rgb(int r, int g, int b)
@@ -29,7 +46,7 @@ int	get_rgb(int r, int g, int b)
 	int	rgb;
 
 	rgb = 0;
-	if (r == 0, b == 0, g == 0)
+	if (r == 0 && b == 0 && g == 0)
 		r = 1;
 	if ((r > 255 || r < 0) || (b > 255 || b < 0) || (g > 255 || g < 0))
 		return (0);
@@ -39,20 +56,45 @@ int	get_rgb(int r, int g, int b)
 	return (rgb);
 }
 
-int	get_color(t_file_data *file_data, char **splited_line, char *line)
+t_bool	verify_only_number(char *rgb)
+{
+	size_t	i;
+
+	i = 0;
+	if (rgb == NULL)
+		return (FALSE);
+	while (rgb[i] && ft_isdigit(rgb[i]))
+		i++;
+	if (!rgb[i])
+		return (TRUE);
+	else
+		return (FALSE);
+}
+
+int	get_color(t_file_data *file_data, char **splited_line)
 {
 	char	**rgb;
 	char	*color;
 
-	if (!ft_strcmp("F\0", splited_line[0]) && file_data->f_color == 0)
+	rgb = NULL;
+	if ((!ft_strcmp("F\0", splited_line[0]) && file_data->f_color == 0) || \
+		(!ft_strcmp("C\0", splited_line[0]) && file_data->c_color == 0))
 	{
 		color = ft_strtrim(splited_line[1], "\n");
 		rgb = ft_split(color, ',');
-		return (1);
+		free(color);
+		if (!verify_only_number(rgb[0]) && !verify_only_number(rgb[1]) && \
+			!verify_only_number(rgb[2]) && rgb[3] == NULL)
+			free_all(file_data, splited_line, 0, rgb);
+		if (!ft_strcmp("C\0", splited_line[0]))
+			file_data->c_color = get_rgb(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
+		if (!ft_strcmp("F\0", splited_line[0]))
+			file_data->f_color = get_rgb(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
+		if ((!ft_strcmp("F\0", splited_line[0]) && file_data->f_color == 0) || \
+			(!ft_strcmp("C\0", splited_line[0]) && file_data->c_color == 0))
+				free_all(file_data, splited_line, 0, rgb);
+		return (free_all(file_data, splited_line, 1, rgb));
 	}
-	if (!ft_strcmp("C\0", splited_line[0]) && file_data->c_color == 0)
-	{
-		file_data->we_path = ft_strtrim(splited_line[1], "\n");
-		return (1);
-	}
+	free_all(file_data, splited_line, 0, rgb);
+	return (0);
 }

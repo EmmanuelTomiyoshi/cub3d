@@ -6,7 +6,7 @@
 #    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/22 12:00:42 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/02/22 14:27:08 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ FILES				=	destroy.c	\
 						main.c		\
 						parse.c		\
 						render.c	\
-						get_data.c
+						get_data.c	\
+						color.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 

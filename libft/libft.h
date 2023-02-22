@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define BUFFER_SIZE 42
+# define OPEN_MAX 20
+
 typedef struct s_list
 {
 	void			*content;
@@ -63,7 +66,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size);
 
 int				ft_atoi(const char *nptr);
 void			*ft_calloc(size_t nelem, size_t elsize);
-char			*ft_realloc(char *str, size_t size)
+char			*ft_realloc(char *str, size_t size);
 
 void			ft_strupdate(char **str, char *newstr);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
