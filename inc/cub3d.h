@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/21 21:32:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:37:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,22 @@
 # include <mlx.h>
 # include "../libft/libft.h"
 
+# define WIN_NAME "cub3d"
 # define WIDTH 1200
 # define HEIGHT 900
+
 # define MSG_ERROR "Error\n"
 # define MSG_USAGE "\n---Usage---\n./cub3d <filename.cub>\n"
 # define MSG_FEW_ARGS "Too few arguments"
 # define MSG_MANY_ARGS "Too many arguments"
 # define MSG_INVALID_MAP "Map filename is invalid"
 # define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
+
+# define A_KEY 97
+# define W_KEY 119
+# define S_KEY 115
+# define D_KEY 100
+# define ESC_KEY 65307
 
 typedef enum e_bool
 {
