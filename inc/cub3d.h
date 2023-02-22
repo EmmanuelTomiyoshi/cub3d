@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 10:30:22 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:01:01 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define MSG_MANY_ARGS "Too many arguments"
 # define MSG_INVALID_MAP "Map filename is invalid"
 # define MSG_INVALID_FILE "File is invalid"
+# define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
 
 typedef enum e_bool
 {
@@ -76,7 +77,7 @@ void	loop(t_cub3d *c);
 
 //parse.c
 void	invalid_args(int argc, char **argv);
-void	exit_error(char *msg);
+void	exit_error(char *msg, t_bool usage);
 
 //render.c
 int		render(t_cub3d *c);
