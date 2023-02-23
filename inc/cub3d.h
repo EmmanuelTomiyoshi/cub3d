@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 17:22:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 00:17:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define MSG_ERR_FILENAME "Map filename is invalid"
 # define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
 # define MSG_ERR_OPEN_FILE "Map has wrongs permissions or doesn't exist\n"
+# define MSG_ERR_TYPE_ID "invalid coordinate/floor/ceiling"
+# define MSG_ERR_COLOR "color value must be in the range of 0-255"
 
 # define A_KEY 97
 # define W_KEY 119
@@ -73,7 +75,9 @@ typedef struct s_file_data
 typedef struct s_cub3d
 {
 	t_image		img;
+	t_file_data	*file_data;
 	char		*map;
+	int			map_fd;
 	void		*mlx;
 	void		*win;
 }	t_cub3d;
@@ -88,7 +92,7 @@ void		init(char **argv, t_cub3d *c);
 void		loop(t_cub3d *c);
 
 //parse.c
-void		invalid_args(int argc, char **argv);
+void		invalid_args(t_cub3d *c, int argc, char **argv);
 void		exit_error(char *msg, t_bool usage);
 
 //render.c
@@ -102,7 +106,8 @@ int			get_color(t_file_data *file_data, char **splited_line);
 void		free_split(char **split);
 
 //get_data.c
-t_file_data	*get_data(char *file);
+// t_file_data	*get_data(char *file);
+void		get_data(t_cub3d *c);
 void		free_file_data(t_file_data *file_data);
 
 #endif

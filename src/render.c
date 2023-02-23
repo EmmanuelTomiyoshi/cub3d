@@ -6,13 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 16:42:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 00:56:03 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "fonts.h"
-#include <mlx.h>
 
 void	improved_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
@@ -50,11 +48,10 @@ int	render(t_cub3d *c)
 {
 	mlx_put_image_to_window(c->mlx, c->win, c->img.image, 0, 0);
 	fill_window(c);
-
-	mlx_set_font(c->mlx, c->win,"10x20");
+	mlx_set_font(c->mlx, c->win, "10x20");
 	mlx_string_put(c->mlx, c->win, 200, 300, 0x0FFFF00, "FONT TEST");
 	mlx_set_font(c->mlx, c->win, "7x13eurobold");
-	mlx_string_put(c->mlx, c->win, 200, 600, 0x0FF00FF, "14The quick brown fox jumps over the lazy dog 0123456789");
+	mlx_string_put(c->mlx, c->win, 200, 600, 0x0FF00FF, "14The quick brown fox");
 	return (0);
 }
 
@@ -70,4 +67,3 @@ void	loop(t_cub3d *c)
 	mlx_expose_hook(c->win, &render, c);
 	mlx_loop(c->mlx);
 }
-

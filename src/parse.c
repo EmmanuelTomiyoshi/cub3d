@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 17:21:44 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:55:41 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ t_bool	is_valid_file_extension(char *filename)
 	return (TRUE);
 }
 
-t_bool	can_open_file(char	*filename)
+t_bool	can_open_file(t_cub3d *c, char	*filename)
 {
 	int	fd;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (FALSE);
-	close (fd);
+	c->map_fd = fd;
 	return (TRUE);
 }
 
-void	invalid_args(int argc, char **argv)
+void	invalid_args(t_cub3d *c, int argc, char **argv)
 {
 	if (argc < 2)
 		exit_error(MSG_FEW_ARGS, TRUE);
@@ -42,6 +42,6 @@ void	invalid_args(int argc, char **argv)
 		exit_error(MSG_MANY_ARGS, TRUE);
 	if (is_valid_file_extension(argv[1]) == FALSE)
 		exit_error(MSG_ERR_FILENAME, TRUE);
-	if (can_open_file(argv[1]) == FALSE)
+	if (can_open_file(c, argv[1]) == FALSE)
 		exit_error(MSG_ERR_OPEN_FILE, TRUE);
 }

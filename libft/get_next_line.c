@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:17:35 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/22 10:47:28 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:21:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ char	*get_next_line(int fd)
 		free(buffer[fd]);
 		buffer[fd] = NULL;
 	}
+	free(buffer[fd]);
 	return (line);
 }
