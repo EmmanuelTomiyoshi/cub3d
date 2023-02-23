@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 01:28:07 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:55:15 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_cub3d
 
 //destroy.c
 void		destroy_all(t_cub3d *c);
+void		free_array(char **array);
 
 //init.c
 void		init(char **argv, t_cub3d *c);
@@ -110,5 +111,12 @@ void		free_split(char **split);
 // t_file_data	*get_data(char *file);
 void		get_data(t_cub3d *c);
 void		free_file_data(t_file_data *file_data);
+
+void		ignore_spaces(char *line, int *i);
+int			is_coordinate(int c);
+void		get_coordinates(char *line, int *i, int id, t_cub3d *c);
+
+void		get_colors(char *line, int *i, int id, t_cub3d *c);
+int			is_floor_or_ceiling(int c);
 
 #endif

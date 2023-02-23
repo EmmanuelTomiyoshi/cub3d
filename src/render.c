@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 00:56:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:58:37 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void	improved_mlx_pixel_put(t_image *img, int x, int y, int color)
 	dest = img->addr;
 	dest += (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dest = color;
-}
-
-int	create_rgb(int r, int g, int b)
-{
-	return (r << 16 | g << 8 | b);
 }
 
 void	fill_window(t_cub3d *c)
@@ -42,16 +37,16 @@ void	fill_window(t_cub3d *c)
 		}
 		j++;
 	}
+	mlx_set_font(c->mlx, c->win, "10x20");
+	mlx_string_put(c->mlx, c->win, 200, 300, 0x0FFFF00, "FONT TEST");
+	mlx_set_font(c->mlx, c->win, "7x13eurobold");
+	mlx_string_put(c->mlx, c->win, 200, 600, 0x0FF00FF, "01234567890");
 }
 
 int	render(t_cub3d *c)
 {
 	mlx_put_image_to_window(c->mlx, c->win, c->img.image, 0, 0);
 	fill_window(c);
-	mlx_set_font(c->mlx, c->win, "10x20");
-	mlx_string_put(c->mlx, c->win, 200, 300, 0x0FFFF00, "FONT TEST");
-	mlx_set_font(c->mlx, c->win, "7x13eurobold");
-	mlx_string_put(c->mlx, c->win, 200, 600, 0x0FF00FF, "14The quick brown fox");
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 01:46:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:54:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ void	free_file_data(t_file_data *file_data)
 	free(file_data->no_path);
 	free(file_data->so_path);
 	free(file_data);
+}
+
+void	free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	if (array == NULL || *array == NULL)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 
 void	destroy_all(t_cub3d *c)

@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/22 17:21:53 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/02/23 01:55:31 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,14 @@ CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
-FILES				=	destroy.c	\
-						init.c		\
-						main.c		\
-						parse.c		\
-						render.c	\
-						get_data.c	\
+FILES				=	destroy.c			\
+						init.c				\
+						main.c				\
+						parse.c				\
+						render.c			\
+						get_data.c			\
+						get_coordinates.c	\
+						get_colors.c		\
 						color.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
