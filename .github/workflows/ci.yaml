@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: dependencies
+      run: sudo apt install gcc make xorg libxext-dev libbsd-dev
     - name: make
       run: make
     - name: make tests
