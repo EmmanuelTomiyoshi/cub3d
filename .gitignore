@@ -45,6 +45,8 @@
 # Kernel Module Compile Results
 *.mod*
 *.cmd
+*.idx
+*.cache/*
 .tmp_versions/
 modules.order
 Module.symvers
@@ -52,7 +54,7 @@ Mkfile.old
 dkms.conf
 .clangd
 *.json
-cub3d
-bin/cub3d
+cub3D
+bin/cub3D
 fonts.txt
 compile_commands.json
