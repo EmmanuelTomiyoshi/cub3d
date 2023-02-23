@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/23 01:42:06 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:47:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ void	free_array(char **array)
 		i++;
 	}
 	free(array);
-}
-
-void	free_file_data(t_file_data *file_data)
-{
-	// free(file_data->ea_path);
-	// free(file_data->we_path);
-	free(file_data->no_path);
-	// free(file_data->so_path);
-	free(file_data);
 }
 
 // int	free_and_return(char **splited_line)
@@ -202,7 +193,10 @@ void	get_colors(char *line, int *i, int id, t_cub3d *c)
 		printf("|%s|\n", rgb[j]);
 		ignore_spaces(line, i);
 		if (line[*i] != ',' && line[*i] != '\n')
+		{
+			destroy_all(c);
 			exit_error(MSG_ERR_TYPE_ID, FALSE);
+		}
 		*i += 1;
 		j++;
 	}
@@ -210,6 +204,7 @@ void	get_colors(char *line, int *i, int id, t_cub3d *c)
 	if (ft_atoi(rgb[0]) > 255 || ft_atoi(rgb[1]) > 255 || ft_atoi(rgb[2]) > 255)
 	{
 		free_array(rgb);
+		destroy_all(c);
 		exit_error(MSG_ERR_COLOR, FALSE);
 	}
 	get_color_value(id, rgb, c);
@@ -235,7 +230,10 @@ void	get_coordinates(char *line, int *i, int id, t_cub3d *c)
 
 	*i += 1;
 	if (line[*i] != 'O' && line[*i] != 'E' && line[*i] != 'A')
+	{
+		destroy_all(c);
 		exit_error(MSG_ERR_TYPE_ID, FALSE);
+	}
 	path = ft_calloc(255, sizeof(char));
 	j = 0;
 	*i += 1;
@@ -269,7 +267,10 @@ int	check_type_identifier(char *line, t_cub3d *c)
 	else if (id_coordinate > 0 && ft_strlen(line) > 2) //2 min coordinates
 		get_coordinates(line, &i, id_coordinate, c);
 	else
+	{
+		destroy_all(c);
 		exit_error(MSG_ERR_TYPE_ID, FALSE);
+	}
 	return (1);
 }
 
@@ -283,8 +284,7 @@ void	get_data(t_cub3d *c)
 	{
 		line = get_next_line(c->map_fd);
 		if (check_type_identifier(line, c) == 1)
-			c->file_data->infos++;;
+			c->file_data->infos++;
 		free(line);
 	}
-	free_file_data(c->file_data);
 }
