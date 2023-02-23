@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 00:17:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/23 01:28:07 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_file_data
 	int		fd;
 	int		f_color;
 	int		c_color;
+	int		infos;
 	char	*ea_path;
 	char	*we_path;
 	char	*so_path;
