@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 02:23:20 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:06:29 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
+
+# include <stdio.h>
 
 typedef enum e_bool
 {
@@ -40,11 +42,19 @@ typedef struct s_file_data
 	char	*no_path;
 }	t_file_data;
 
+typedef struct s_queue
+{
+	size_t			m;
+	size_t			n;
+	struct s_queue	*next;
+}	t_queue;
+
 typedef struct s_cub3d
 {
 	t_image		img;
 	t_file_data	*file_data;
-	char		*map;
+	char		*map_file;
+	char		**map;
 	int			map_fd;
 	void		*mlx;
 	void		*win;
@@ -65,5 +75,8 @@ typedef struct s_cub3d
 # define MSG_ERR_OPEN_FILE "Map has wrongs permissions or doesn't exist\n"
 # define MSG_ERR_TYPE_ID "invalid coordinate/floor/ceiling"
 # define MSG_ERR_COLOR "color value must be in the range of 0-255"
+# define MSG_ERR_NO_PLAYER "Player not found in the map"
+# define MSG_ERR_TWO_PLAYERS "Two players found in the map"
+# define MSG_ERR_UNEXPECTED_CHAR "Unexpected charactere found in the map"
 
 #endif

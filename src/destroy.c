@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 02:15:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/25 05:21:22 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ void	destroy_all(t_cub3d *c)
 	mlx_destroy_display(c->mlx);
 	free_file_data(c->file_data);
 	free(c->mlx);
-	free(c->map);
+	free(c->map_file);
+	if (c->map)
+		free_array(c->map);
 }

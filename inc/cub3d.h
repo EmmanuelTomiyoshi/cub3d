@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 02:23:30 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/25 04:24:00 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,13 @@ void		loop(t_cub3d *c);
 //parse.c
 void		invalid_args(t_cub3d *c, int argc, char **argv);
 
-
 //render.c
 int			render(t_cub3d *c);
 
 //validations.c
 t_bool		is_valid_file_extension(char *filename);
 
-//color.c
-int			get_color(t_file_data *file_data, char **splited_line);
-void		free_split(char **split);
-
 //get_data.c
-// t_file_data	*get_data(char *file);
 void		ignore_spaces(char *line, int *i);
 void		get_data(t_cub3d *c);
 
@@ -65,5 +59,22 @@ void		get_coordinates(char *line, int *i, int id, t_cub3d *c);
 //get_colors.c
 void		get_colors(char *line, int *i, int id, t_cub3d *c);
 int			is_floor_or_ceiling(int c);
+
+//map.c
+void		init_map(t_cub3d *c, char *one_line);
+
+//queue.c
+t_queue		*queue_put(t_queue *f_queue, size_t m, size_t n);
+t_queue		*queue_get(t_queue *f_queue, size_t *m, size_t *n);
+int			queue_empty(t_queue *f_queue);
+void		queue_clear(t_queue *f_queue);
+
+//flood_fill.c
+void		flood_fill(t_cub3d *c, size_t n, size_t i, size_t j);
+void		verify_map(t_cub3d *c);
+
+//map_utils.c
+char		*ft_merge(char *str1, char *str2);
+size_t		count_lines(t_cub3d *c);
 
 #endif

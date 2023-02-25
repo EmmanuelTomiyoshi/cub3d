@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 22:56:45 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/25 05:21:16 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init(char **argv, t_cub3d *c)
 {
-	c->map = ft_strdup(argv[1]);
+	c->map_file = ft_strdup(argv[1]);
 	c->mlx = mlx_init();
 	c->win = mlx_new_window(c->mlx, WIDTH, HEIGHT, WIN_NAME);
 	c->img.image = mlx_new_image(c->mlx, WIDTH, HEIGHT);

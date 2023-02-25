@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/23 02:17:08 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/02/25 04:23:34 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
-FILES				=	color.c				\
-						destroy.c			\
+FILES				=	destroy.c			\
 						exit.c				\
 						get_colors.c		\
 						get_coordinates.c	\
@@ -36,7 +35,11 @@ FILES				=	color.c				\
 						init.c				\
 						main.c				\
 						parse.c				\
-						render.c
+						render.c			\
+						map.c				\
+						queue.c				\
+						flood_fill.c		\
+						map_utils.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
