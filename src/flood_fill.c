@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 12:05:29 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:12:04 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,19 @@ void	verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j)
 	n = count_lines(c);
 	if (verify_char (c, i, j))
 	{
-		queue_clear(queue);
+		if (queue)
+			queue_clear(queue);
 		destroy_all(c);
 		exit_error("Map fail", FALSE);
 	}
 	if (i < n)
-	{
-		if (verify_char (c, i + 1, j))
-		{
-			queue_clear(queue);
-			destroy_all(c);
-			exit_error("Map fail", FALSE);
-		}
-	}
+		verify_up(c, queue, i, j);
 	if (i > 0)
 	{
 		if (verify_char (c, i - 1, j))
 		{
-			queue_clear(queue);
+			if (queue)
+				queue_clear(queue);
 			destroy_all(c);
 			exit_error("Map fail", FALSE);
 		}
@@ -123,6 +118,8 @@ void	verify_map(t_cub3d *c)
 	{
 		while (c->map[i][j])
 		{
+			if (strchr("NESW", c->map[i][j]))
+				verify_surrounding(c, NULL, i, j);
 			if (c->map[i][j] == '0')
 				flood_fill(c, n, i, j);
 			j++;
