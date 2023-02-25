@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/22 22:55:41 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:34:42 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_bool	is_valid_file_extension(char *filename)
 		return (FALSE);
 	if (filename[ft_strlen(filename) - 1] != 'b')
 		return (FALSE);
-	if (ft_strcmp(ft_strchr(filename, '.'), ".cub"))
+	if (ft_strcmp(ft_strrchr(filename, '.'), ".cub"))
 		return (FALSE);
 	return (TRUE);
 }

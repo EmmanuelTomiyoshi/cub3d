@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/25 16:10:17 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:38:38 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ typedef struct s_cub3d
 # define MSG_ERR_TYPE_ID "invalid coordinate/floor/ceiling"
 # define MSG_ERR_COLOR "color value must be in the range of 0-255"
 # define MSG_ERR_NO_PLAYER "Player not found in the map"
-# define MSG_ERR_TWO_PLAYERS "Two players found in the map"
+# define MSG_ERR_TWO_PLAYERS "Multiple players found in the map"
 # define MSG_ERR_UNEXPECTED_CHAR "Unexpected charactere found in the map"
+# define MSG_ERR_MAP_BORDER "The map has no enclosing borders"
 
 #endif

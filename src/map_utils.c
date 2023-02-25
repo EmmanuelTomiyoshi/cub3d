@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 04:22:48 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 16:12:15 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:38:16 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	verify_up(t_cub3d *c, t_queue *queue, size_t i, size_t j)
 		if (queue)
 			queue_clear(queue);
 		destroy_all(c);
-		exit_error("Map fail", FALSE);
+		exit_error(MSG_ERR_MAP_BORDER, FALSE);
 	}
 }

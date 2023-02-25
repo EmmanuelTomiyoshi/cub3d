@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 16:12:04 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:38:41 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j)
 		if (queue)
 			queue_clear(queue);
 		destroy_all(c);
-		exit_error("Map fail", FALSE);
+		exit_error(MSG_ERR_MAP_BORDER, FALSE);
 	}
 	if (i < n)
 		verify_up(c, queue, i, j);
@@ -76,7 +76,7 @@ void	verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j)
 			if (queue)
 				queue_clear(queue);
 			destroy_all(c);
-			exit_error("Map fail", FALSE);
+			exit_error(MSG_ERR_MAP_BORDER, FALSE);
 		}
 	}
 }
