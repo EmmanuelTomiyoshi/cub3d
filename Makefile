@@ -6,7 +6,7 @@
 #    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/02/25 16:08:46 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/06 15:58:31 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ FILES				=	destroy.c			\
 						map.c				\
 						queue.c				\
 						flood_fill.c		\
-						map_utils.c
+						map_utils.c			\
+						get_player_data.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 

@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/25 16:08:05 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:19:19 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,14 @@ void		queue_clear(t_queue *f_queue);
 void		flood_fill(t_cub3d *c, size_t n, size_t i, size_t j);
 void		verify_map(t_cub3d *c);
 t_bool		verify_char(t_cub3d *c, size_t i, size_t j);
+void		verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j);
 
 //map_utils.c
 char		*ft_merge(char *str1, char *str2);
 size_t		count_lines(t_cub3d *c);
 void		verify_up(t_cub3d *c, t_queue *queue, size_t i, size_t j);
+
+//get_player_data.c
+void	get_player_data(t_cub3d *c, int x, int y);
 
 #endif

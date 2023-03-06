@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/25 16:28:47 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:19:34 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	init(char **argv, t_cub3d *c)
 	c->img.addr = mlx_get_data_addr(c->img.image, &c->img.bits_per_pixel,
 			&c->img.line_length, &c->img.endian);
 	c->map = NULL;
+	c->player = (t_player) {0};
 }

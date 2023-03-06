@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/25 16:38:38 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:11:36 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,18 @@ typedef struct s_queue
 	struct s_queue	*next;
 }	t_queue;
 
+typedef struct s_vector
+{
+	double		y;
+	double		x;
+}	t_vector;
+
+typedef struct s_player
+{
+	t_vector	dir;
+	t_vector	pos;
+} t_player;
+
 typedef struct s_cub3d
 {
 	t_image		img;
@@ -58,6 +70,7 @@ typedef struct s_cub3d
 	int			map_fd;
 	void		*mlx;
 	void		*win;
+	t_player	player;
 }	t_cub3d;
 
 # define WIN_NAME "cub3d"

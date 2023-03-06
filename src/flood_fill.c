@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 16:38:41 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:16:55 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	verify_map(t_cub3d *c)
 		while (c->map[i][j])
 		{
 			if (strchr("NESW", c->map[i][j]))
-				verify_surrounding(c, NULL, i, j);
+				get_player_data(c, i, j);
 			if (c->map[i][j] == '0')
 				flood_fill(c, n, i, j);
 			j++;
