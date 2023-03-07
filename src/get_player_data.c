@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/06 16:20:40 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:17:57 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,6 @@ void	get_player_data(t_cub3d *c, int x, int y)
 	c->player.pos.y = y + 0.5;
 	c->player.dir.x = 0;
 	c->player.dir.y = -1;
+	c->player.camera.plane.x = 0.66;
+	c->player.camera.plane.y = 0;
 }

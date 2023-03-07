@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/06 16:19:19 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:40:07 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ size_t		count_lines(t_cub3d *c);
 void		verify_up(t_cub3d *c, t_queue *queue, size_t i, size_t j);
 
 //get_player_data.c
-void	get_player_data(t_cub3d *c, int x, int y);
+void		get_player_data(t_cub3d *c, int x, int y);
+
+//dda.c
+int			draw(t_cub3d *c);
+
+//bresenham.c
+void		bresenham(t_point *point1, t_point *point2, t_cub3d *c, int color);
+void		my_pixel_put(t_cub3d *c, int x, int y, int color);
 
 #endif

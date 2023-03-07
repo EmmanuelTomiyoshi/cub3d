@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/06 16:11:36 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:43:27 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,18 @@ typedef struct s_vector
 	double		x;
 }	t_vector;
 
+typedef struct s_camera
+{
+	t_vector	pixel;
+	t_vector	plane;
+}	t_camera;
+
 typedef struct s_player
 {
 	t_vector	dir;
 	t_vector	pos;
-} t_player;
+	t_camera	camera;
+}	t_player;
 
 typedef struct s_cub3d
 {
@@ -73,9 +80,25 @@ typedef struct s_cub3d
 	t_player	player;
 }	t_cub3d;
 
+typedef struct s_point
+{
+	double		x;
+	double		y;
+}	t_point;
+
+typedef struct s_line
+{
+	int			start_x;
+	int			start_y;
+	int			end_x;
+	int			end_y;
+	int			dy;
+	int			dx;
+}	t_line;
+
 # define WIN_NAME "cub3d"
-# define WIDTH 1200
-# define HEIGHT 900
+# define WIDTH 1280
+# define HEIGHT 960
 
 # define MSG_ERROR "Error\n"
 # define MSG_USAGE "\n---Usage---\n./cub3d <filename.cub>\n"

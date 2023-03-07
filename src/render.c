@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 01:58:37 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:13:39 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	end_loop(t_cub3d *c)
 void	loop(t_cub3d *c)
 {
 	mlx_hook(c->win, 17, 0, end_loop, c);
-	mlx_expose_hook(c->win, &render, c);
+	mlx_expose_hook(c->win, &draw, c);
 	mlx_loop(c->mlx);
 }
