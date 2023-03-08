@@ -111,6 +111,6 @@ int	draw(t_cub3d *c)
 		init_dist(c, &dist, &dist.raydir);
 		pixel++;
 	}
-	mlx_put_image_to_window(c->mlx, c->win, c->img.image, 0, 0);
+	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win, c->mlx.img.image, 0, 0);
 	return (0);
 }

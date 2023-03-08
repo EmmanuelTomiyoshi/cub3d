@@ -18,8 +18,8 @@ void	my_pixel_put(t_cub3d *c, int x, int y, int color)
 
 	if (x <= WIDTH && y <= HEIGHT && y >= 0 && x >= 0)
 	{
-		dst = c->img.addr + (y * c->img.line_length + x
-				* (c->img.bits_per_pixel) / 8);
+		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + x
+				* (c->mlx.img.bits_per_pixel) / 8);
 		*(unsigned int *) dst = color;
 	}
 }

@@ -38,12 +38,12 @@ void	free_array(char **array)
 
 void	destroy_all(t_cub3d *c)
 {
-	mlx_destroy_image(c->mlx, c->img.image);
-	mlx_destroy_window(c->mlx, c->win);
-	mlx_destroy_display(c->mlx);
+	mlx_destroy_image(c->mlx.ptr, c->mlx.img.image);
+	mlx_destroy_window(c->mlx.ptr, c->mlx.win);
+	mlx_destroy_display(c->mlx.ptr);
 	free_file_data(c->file_data);
-	free(c->mlx);
-	free(c->map.map_file);
-	if (c->map.map_file)
+	free(c->mlx.ptr);
+	free(c->map.file);
+	if (c->map.file)
 		free_array(c->map.map);
 }

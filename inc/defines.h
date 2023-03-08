@@ -30,17 +30,6 @@ typedef struct s_image
 	int			endian;
 }	t_image;
 
-typedef struct s_file_data
-{
-	int		fd;
-	int		f_color;
-	int		c_color;
-	int		infos;
-	char	*ea_path;
-	char	*we_path;
-	char	*so_path;
-	char	*no_path;
-}	t_file_data;
 
 typedef struct s_queue
 {
@@ -107,13 +96,30 @@ typedef struct s_map
 	char		**map;
 }	t_map;
 
+typedef struct s_mlx
+{
+	t_image		img;
+	void		*ptr;
+	void		*win;
+}	t_mlx;
+
+typedef struct s_file_data
+{
+	int		fd;
+	int		f_color;
+	int		c_color;
+	int		infos;
+	char	*ea_path;
+	char	*we_path;
+	char	*so_path;
+	char	*no_path;
+}	t_file_data;
+
 typedef struct s_cub3d
 {
+	t_mlx		mlx;
 	t_map		map;
-	t_image		img;
 	t_file_data	*file_data;
-	void		*mlx;
-	void		*win;
 	t_player	player;
 }	t_cub3d;
 

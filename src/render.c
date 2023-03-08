@@ -32,33 +32,33 @@ void	fill_window(t_cub3d *c)
 		i = 0;
 		while (i < WIDTH)
 		{
-			improved_mlx_pixel_put(&(c->img), i, j, 0x0000020);
+			improved_mlx_pixel_put(&(c->mlx.img), i, j, 0x0000020);
 			i++;
 		}
 		j++;
 	}
-	mlx_set_font(c->mlx, c->win, "10x20");
-	mlx_string_put(c->mlx, c->win, 200, 300, 0x0FFFF00, "FONT TEST");
-	mlx_set_font(c->mlx, c->win, "7x13eurobold");
-	mlx_string_put(c->mlx, c->win, 200, 600, 0x0FF00FF, "01234567890");
+	mlx_set_font(c->mlx.ptr, c->mlx.win, "10x20");
+	mlx_string_put(c->mlx.ptr, c->mlx.win, 200, 300, 0x0FFFF00, "FONT TEST");
+	mlx_set_font(c->mlx.ptr, c->mlx.win, "7x13eurobold");
+	mlx_string_put(c->mlx.ptr, c->mlx.win, 200, 600, 0x0FF00FF, "01234567890");
 }
 
 int	render(t_cub3d *c)
 {
-	mlx_put_image_to_window(c->mlx, c->win, c->img.image, 0, 0);
+	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win, c->mlx.img.image, 0, 0);
 	fill_window(c);
 	return (0);
 }
 
 int	end_loop(t_cub3d *c)
 {
-	mlx_loop_end(c->mlx);
+	mlx_loop_end(c->mlx.ptr);
 	return (0);
 }
 
 void	loop(t_cub3d *c)
 {
-	mlx_hook(c->win, 17, 0, end_loop, c);
-	mlx_expose_hook(c->win, &draw, c);
-	mlx_loop(c->mlx);
+	mlx_hook(c->mlx.win, 17, 0, end_loop, c);
+	mlx_expose_hook(c->mlx.win, &draw, c);
+	mlx_loop(c->mlx.ptr);
 }
