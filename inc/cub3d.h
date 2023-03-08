@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 20:32:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:36:20 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ void	init_step_xy(t_cub3d *c, t_dist *dist, t_vector *raydir);
 void	init_dist(t_cub3d *c);
 void	init_camera(t_cub3d *c);
 void	init_raydir(t_cub3d *c);
+
+int	draw(t_cub3d *c);
 
 #endif

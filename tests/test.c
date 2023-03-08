@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:10:53 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 18:32:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:35:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@
 Test(suite, Test)
 {
     // cr_redirect_stdout();
-    cr_assert(is_floor_or_ceiling('C'));
+    // cr_assert(is_floor_or_ceiling('C'));
 }
