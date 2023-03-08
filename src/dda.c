@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 18:53:31 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:17:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,41 +75,48 @@ void	init_stepXY(t_cub3d *c, t_dist *dist, t_vector *raydir)
 		dist->step.y = 1;
 }
 
-void	init_dist(t_cub3d *c, t_dist *dist, t_vector *raydir)
+void	init_dist(t_cub3d *c)
 {
 	t_vector	map_pos;
 
-	dist->delta.x = fabs(1 / raydir->x);
-	dist->delta.y = fabs(1 / raydir->y);
+	c->dist.delta.x = fabs(1 / c->dist.raydir.x);
+	c->dist.delta.y = fabs(1 / c->dist.raydir.y);
 	map_pos.x = floor(c->player.pos.x);
 	map_pos.y = floor(c->player.pos.y);
-	if (raydir->x < 0)
-		dist->to_side.x = (c->player.pos.x - map_pos.x) * dist->delta.x;
+	if (c->dist.raydir.x < 0)
+		c->dist.to_side.x = (c->player.pos.x - map_pos.x) * c->dist.delta.x;
 	else
-		dist->to_side.x = (map_pos.x + 1 - c->player.pos.x) * dist->delta.x;
-	if (raydir->y < 0)
-		dist->to_side.y = (c->player.pos.y - map_pos.y) * dist->delta.y;
+		c->dist.to_side.x = (map_pos.x + 1 - c->player.pos.x) * c->dist.delta.x;
+	if (c->dist.raydir.y < 0)
+		c->dist.to_side.y = (c->player.pos.y - map_pos.y) * c->dist.delta.y;
 	else
-		dist->to_side.y = (map_pos.y + 1 - c->player.pos.y) * dist->delta.y;
+		c->dist.to_side.y = (map_pos.y + 1 - c->player.pos.y) * c->dist.delta.y;
+}
+
+void	init_camera(t_cub3d *c)
+{
+	double	multiplier;
+
+	multiplier = 2 * (c->dist.pixel / WIDTH) - 1;
+	c->player.camera.pixel.x = c->player.camera.plane.x * multiplier;
+	c->player.camera.pixel.y = c->player.camera.plane.y * multiplier;
+}
+
+void	init_raydir(t_cub3d *c)
+{
+	c->dist.raydir.x = c->player.camera.pixel.x + c->player.dir.x;
+	c->dist.raydir.y = c->player.camera.pixel.y + c->player.dir.y;
 }
 
 int	draw(t_cub3d *c)
 {
-	int			pixel;
-	double		multiplier;
-	t_dist		dist;
-
-	pixel = 0;
 	background(c);
-	while (pixel <= WIDTH)
+	while (c->dist.pixel <= WIDTH)
 	{
-		multiplier = 2 * (pixel / WIDTH) - 1;
-		c->player.camera.pixel.x = c->player.camera.plane.x * multiplier;
-		c->player.camera.pixel.y = c->player.camera.plane.y * multiplier;
-		dist.raydir.x = c->player.camera.pixel.x + c->player.dir.x;
-		dist.raydir.y = c->player.camera.pixel.y + c->player.dir.y;
-		init_dist(c, &dist, &dist.raydir);
-		pixel++;
+		init_camera(c);
+		init_raydir(c);
+		init_dist(c);
+		c->dist.pixel++;
 	}
 	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win, c->mlx.img.image, 0, 0);
 	return (0);

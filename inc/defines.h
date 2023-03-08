@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:02:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:10:12 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_dist
 	t_vector	to_side;
 	t_vector	step;
 	t_vector	raydir;
+	int			pixel;
 }	t_dist;
 
 typedef struct s_camera
@@ -90,6 +91,7 @@ typedef struct s_cub3d
 {
 	t_mlx		mlx;
 	t_map		map;
+	t_dist		dist;
 	t_player	player;
 }	t_cub3d;
 
