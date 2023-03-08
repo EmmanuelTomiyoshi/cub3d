@@ -57,7 +57,7 @@ void	dda(t_cub3d *c, t_dist *dist, t_vector *raydir)
 			wallMapPos.y += dist->step.y;
 			ddaLineSizeY += dist->delta.y;
 		}
-		if (c->map[(int)wallMapPos.x][(int)wallMapPos.y] == '1')
+		if (c->map.map[(int)wallMapPos.x][(int)wallMapPos.y] == '1')
 			hit = TRUE;
 	}
 }
@@ -95,9 +95,8 @@ void	init_dist(t_cub3d *c, t_dist *dist, t_vector *raydir)
 
 int	draw(t_cub3d *c)
 {
-	int	pixel;
-	double	multiplier;
-	t_vector	raydir;
+	int			pixel;
+	double		multiplier;
 	t_dist		dist;
 
 	pixel = 0;
@@ -107,9 +106,9 @@ int	draw(t_cub3d *c)
 		multiplier = 2 * (pixel / WIDTH) - 1;
 		c->player.camera.pixel.x = c->player.camera.plane.x * multiplier;
 		c->player.camera.pixel.y = c->player.camera.plane.y * multiplier;
-		raydir.x = c->player.camera.pixel.x + c->player.dir.x;
-		raydir.y = c->player.camera.pixel.y + c->player.dir.y;
-		init_dist(c, &dist, &raydir);
+		dist.raydir.x = c->player.camera.pixel.x + c->player.dir.x;
+		dist.raydir.y = c->player.camera.pixel.y + c->player.dir.y;
+		init_dist(c, &dist, &dist.raydir);
 		pixel++;
 	}
 	mlx_put_image_to_window(c->mlx, c->win, c->img.image, 0, 0);

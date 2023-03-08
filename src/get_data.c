@@ -52,18 +52,18 @@ void	get_data(t_cub3d *c)
 	c->file_data->infos = 0;
 	while (c->file_data->infos != 6)
 	{
-		line = get_next_line(c->map_fd);
+		line = get_next_line(c->map.map_fd);
 		if (check_type_identifier(line, c) == 1)
 			c->file_data->infos++;
 		free(line);
 	}
-	line = get_next_line(c->map_fd);
+	line = get_next_line(c->map.map_fd);
 	one_line = ft_strdup("");
 	while (line)
 	{
 		one_line = ft_merge(one_line, line);
 		free(line);
-		line = get_next_line(c->map_fd);
+		line = get_next_line(c->map.map_fd);
 	}
 	free(line);
 	init_map(c, one_line);

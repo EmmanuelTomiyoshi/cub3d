@@ -17,7 +17,7 @@ size_t	count_lines(t_cub3d *c)
 	size_t	i;
 
 	i = 0;
-	while (c->map[i])
+	while (c->map.map[i])
 		i++;
 	return (i);
 }

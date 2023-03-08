@@ -43,7 +43,7 @@ void	destroy_all(t_cub3d *c)
 	mlx_destroy_display(c->mlx);
 	free_file_data(c->file_data);
 	free(c->mlx);
-	free(c->map_file);
-	if (c->map)
-		free_array(c->map);
+	free(c->map.map_file);
+	if (c->map.map_file)
+		free_array(c->map.map);
 }

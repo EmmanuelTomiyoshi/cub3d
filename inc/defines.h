@@ -55,6 +55,14 @@ typedef struct s_vector
 	double		x;
 }	t_vector;
 
+typedef struct s_dist
+{
+	t_vector	delta;
+	t_vector	to_side;
+	t_vector	step;
+	t_vector	raydir;
+}	t_dist;
+
 typedef struct s_step
 {
 	double		y;
@@ -67,12 +75,6 @@ typedef struct s_camera
 	t_vector	plane;
 }	t_camera;
 
-typedef struct s_dist
-{
-	t_vector	delta;
-	t_vector	to_side;
-	t_vector	step;
-}	t_dist;
 
 typedef struct s_player
 {
@@ -81,17 +83,6 @@ typedef struct s_player
 	t_camera	camera;
 }	t_player;
 
-typedef struct s_cub3d
-{
-	t_image		img;
-	t_file_data	*file_data;
-	char		*map_file;
-	char		**map;
-	int			map_fd;
-	void		*mlx;
-	void		*win;
-	t_player	player;
-}	t_cub3d;
 
 typedef struct s_point
 {
@@ -108,6 +99,23 @@ typedef struct s_line
 	int			dy;
 	int			dx;
 }	t_line;
+
+typedef struct s_map
+{
+	int			fd;
+	char		*file;
+	char		**map;
+}	t_map;
+
+typedef struct s_cub3d
+{
+	t_map		map;
+	t_image		img;
+	t_file_data	*file_data;
+	void		*mlx;
+	void		*win;
+	t_player	player;
+}	t_cub3d;
 
 # define WIN_NAME "cub3d"
 # define WIDTH 1280
