@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/07 16:43:27 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:49:14 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,24 @@ typedef struct s_vector
 	double		x;
 }	t_vector;
 
+typedef struct s_step
+{
+	double		y;
+	double		x;
+}	t_step;
+
 typedef struct s_camera
 {
 	t_vector	pixel;
 	t_vector	plane;
 }	t_camera;
+
+typedef struct s_dist
+{
+	t_vector	delta;
+	t_vector	to_side;
+	t_vector	step;
+}	t_dist;
 
 typedef struct s_player
 {
