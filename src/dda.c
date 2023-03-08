@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 15:58:40 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:01:31 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	background(t_cub3d *c)
 	}
 }
 
-void	dda(t_cub3d *c, t_dist *dist, t_vector *raydir)
+void	dda(t_cub3d *c, t_dist *dist)
 {
 	t_bool		hit;
 	double		ddaLineSizeX;
@@ -61,7 +61,7 @@ void	dda(t_cub3d *c, t_dist *dist, t_vector *raydir)
 	}
 }
 
-void	init_stepXY(t_cub3d *c, t_dist *dist, t_vector *raydir)
+void	init_stepXY(t_dist *dist, t_vector *raydir)
 {
 	if (raydir->x < 0)
 		dist->step.x = -1;
@@ -89,6 +89,7 @@ void	init_dist(t_cub3d *c, t_dist *dist, t_vector *raydir)
 		dist->to_side.y = (c->player.pos.y - map_pos.y) * dist->delta.y;
 	else
 		dist->to_side.y = (map_pos.y + 1 - c->player.pos.y) * dist->delta.y;
+	init_stepXY(dist, raydir);
 }
 
 int	draw(t_cub3d *c)
@@ -108,6 +109,7 @@ int	draw(t_cub3d *c)
 		raydir.x = c->player.camera.pixel.x + c->player.dir.x;
 		raydir.y = c->player.camera.pixel.y + c->player.dir.y;
 		init_dist(c, &dist, &raydir);
+		dda(c, &dist);
 		pixel++;
 	}
 	mlx_put_image_to_window(c->mlx, c->win, c->img.image, 0, 0);

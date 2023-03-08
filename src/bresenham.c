@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:03:24 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 15:26:11 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:00:05 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ void	lower_slope(t_line *l, t_cub3d *c, int color)
 	else
 		o = 1;
 	my_pixel_put(c, l->start_x, l->start_y, color);
-	d = (2 * fabs(l->dy)) - fabs(l->dx);
-	while (++i < fabs(l->dx))
+	d = (2 * fabs((double)l->dy)) - fabs((double)l->dx);
+	while (++i < fabs((double)l->dx))
 	{
 		l->start_x = l->start_x + 1;
 		if (d < 0)
-			d = d + (2 * fabs(l->dy));
+			d = d + (2 * fabs((double)l->dy));
 		else
 		{
 			l->start_y = l->start_y + o;
-			d = d + (2 * fabs(l->dy)) - (2 * fabs(l->dx));
+			d = d + (2 * fabs((double)l->dy)) - (2 * fabs((double)l->dx));
 		}
 		my_pixel_put(c, l->start_x, l->start_y, color);
 	}
@@ -63,16 +63,16 @@ void	bigger_slope(t_line *l, t_cub3d *c, int color)
 	else
 		o = 1;
 	my_pixel_put(c, l->start_x, l->start_y, color);
-	d = (2 * fabs(l->dx) - fabs(l->dy));
-	while (++i < fabs(l->dy))
+	d = (2 * fabs((double)l->dx) - fabs((double)l->dy));
+	while (++i < fabs((double)l->dy))
 	{
 		l->start_y = l->start_y + o;
 		if (d < 0)
-			d = d + (2 * fabs(l->dx));
+			d = d + (2 * fabs((double)l->dx));
 		else
 		{
 			l->start_x = l->start_x + 1;
-			d = d + (2 * fabs(l->dx)) - (2 * fabs(l->dy));
+			d = d + (2 * fabs((double)l->dx)) - (2 * fabs((double)l->dy));
 		}
 		my_pixel_put(c, l->start_x, l->start_y, color);
 	}
@@ -82,7 +82,7 @@ void	drawline(t_line *line, t_cub3d *c, int color)
 {
 	line->dx = line->end_x - line->start_x;
 	line->dy = line->end_y - line->start_y;
-	if (fabs(line->dx) > fabs(line->dy))
+	if (fabs((double)line->dx) > fabs((double)line->dy))
 		lower_slope(line, c, color);
 	else
 		bigger_slope(line, c, color);
