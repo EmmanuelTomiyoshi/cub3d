@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 15:49:14 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:42:25 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
-
-typedef struct s_image
-{
-	void		*image;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-}	t_image;
-
 
 typedef struct s_queue
 {
@@ -92,23 +82,16 @@ typedef struct s_line
 typedef struct s_map
 {
 	int		fd;
-	char	*file;
-	char	**map;
+	int		infos;
 	int		f_color;
 	int		c_color;
-	int		infos;
+	char	*file;
+	char	**map;
 	char	*ea_path;
 	char	*we_path;
 	char	*so_path;
 	char	*no_path;
 }	t_map;
-
-typedef struct s_mlx
-{
-	t_image		img;
-	void		*ptr;
-	void		*win;
-}	t_mlx;
 
 typedef struct s_cub3d
 {
