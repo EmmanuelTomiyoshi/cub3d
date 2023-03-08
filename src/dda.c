@@ -39,6 +39,7 @@ void	dda(t_cub3d *c, t_dist *dist, t_vector *raydir)
 	double		ddaLineSizeY;
 	t_vector	wallMapPos;
 
+	(void)raydir;
 	wallMapPos.x = floor(c->player.pos.x);
 	wallMapPos.y = floor(c->player.pos.y);
 	hit = FALSE;
@@ -63,6 +64,7 @@ void	dda(t_cub3d *c, t_dist *dist, t_vector *raydir)
 
 void	init_stepXY(t_cub3d *c, t_dist *dist, t_vector *raydir)
 {
+	(void)c;
 	if (raydir->x < 0)
 		dist->step.x = -1;
 	else
