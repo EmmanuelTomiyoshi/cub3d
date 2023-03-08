@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 18:42:25 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:02:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,6 @@ typedef struct s_dist
 	t_vector	raydir;
 }	t_dist;
 
-typedef struct s_step
-{
-	double		y;
-	double		x;
-}	t_step;
-
 typedef struct s_camera
 {
 	t_vector	pixel;
@@ -61,7 +55,6 @@ typedef struct s_player
 	t_vector	pos;
 	t_camera	camera;
 }	t_player;
-
 
 typedef struct s_point
 {
@@ -103,21 +96,5 @@ typedef struct s_cub3d
 # define WIN_NAME "cub3d"
 # define WIDTH 1280
 # define HEIGHT 960
-
-# define MSG_ERROR "Error\n"
-# define MSG_USAGE "\n---Usage---\n./cub3d <filename.cub>\n"
-# define MSG_FEW_ARGS "Too few arguments"
-# define MSG_MANY_ARGS "Too many arguments"
-# define MSG_INVALID_FILE "File is invalid\n"
-# define MSG_INVALID_FILE_FORMAT "File format is invalid\n"
-# define MSG_ERR_FILENAME "Map filename is invalid"
-# define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
-# define MSG_ERR_OPEN_FILE "Map has wrongs permissions or doesn't exist\n"
-# define MSG_ERR_TYPE_ID "invalid coordinate/floor/ceiling"
-# define MSG_ERR_COLOR "color value must be in the range of 0-255"
-# define MSG_ERR_NO_PLAYER "Player not found in the map"
-# define MSG_ERR_TWO_PLAYERS "Multiple players found in the map"
-# define MSG_ERR_UNEXPECTED_CHAR "Unexpected charactere found in the map"
-# define MSG_ERR_MAP_BORDER "The map has no enclosing borders"
 
 #endif
