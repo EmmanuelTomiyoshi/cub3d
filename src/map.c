@@ -51,13 +51,13 @@ void	init_map(t_cub3d *c, char *one_line)
 	size_t	i;
 
 	verify_map_char(one_line, c);
-	c->map = ft_split(one_line, '\n');
+	c->map.map = ft_split(one_line, '\n');
 	free(one_line);
 	verify_map(c);
 	i = 0;
-	while (c->map[i])
+	while (c->map.map[i])
 	{
-		printf("%s\n", c->map[i]);
+		printf("%s\n", c->map.map[i]);
 		i++;
 	}
 }

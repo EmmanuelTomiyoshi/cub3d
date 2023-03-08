@@ -15,7 +15,7 @@
 void	get_player_data(t_cub3d *c, int x, int y)
 {
 	verify_surrounding(c, NULL, x, y);
-	c->map[x][y] = '8';
+	c->map.map[x][y] = '8';
 	c->player.pos.x = x + 0.5;
 	c->player.pos.y = y + 0.5;
 	c->player.dir.x = 0;

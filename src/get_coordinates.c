@@ -22,13 +22,13 @@ int	is_coordinate(int c)
 void	get_path(int id, char *path, t_cub3d *c)
 {
 	if (id == 'N')
-		c->file_data->no_path = ft_strdup(path);
+		c->map.no_path = ft_strdup(path);
 	if (id == 'S')
-		c->file_data->so_path = ft_strdup(path);
+		c->map.so_path = ft_strdup(path);
 	if (id == 'W')
-		c->file_data->we_path = ft_strdup(path);
+		c->map.we_path = ft_strdup(path);
 	if (id == 'E')
-		c->file_data->ea_path = ft_strdup(path);
+		c->map.ea_path = ft_strdup(path);
 }
 
 void	get_coordinates(char *line, int *i, int id, t_cub3d *c)

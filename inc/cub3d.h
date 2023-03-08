@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/07 16:40:07 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:02:49 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define CUB3D_H
 
 # include "printf_colors.h"
+# include "mlx_data.h"
 # include "fonts.h"
 # include "defines.h"
+# include "messages.h"
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
@@ -28,7 +30,7 @@
 //destroy.c
 void		destroy_all(t_cub3d *c);
 void		free_array(char **array);
-void		free_file_data(t_file_data *file_data);
+void		free_file_data(t_cub3d *c);
 
 //exit.c
 void		exit_error(char *msg, t_bool usage);

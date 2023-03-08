@@ -30,7 +30,7 @@ t_bool	can_open_file(t_cub3d *c, char	*filename)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (FALSE);
-	c->map_fd = fd;
+	c->map.fd = fd;
 	return (TRUE);
 }
 
