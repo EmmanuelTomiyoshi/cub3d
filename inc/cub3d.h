@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:02:49 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:41:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "fonts.h"
 # include "defines.h"
 # include "messages.h"
+# include "bresenham.h"
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>

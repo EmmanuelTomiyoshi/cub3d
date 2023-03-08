@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 19:17:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:43:43 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,29 @@ void	background(t_cub3d *c)
 	}
 }
 
-void	dda(t_cub3d *c, t_dist *dist, t_vector *raydir)
+void	dda(t_cub3d *c)
 {
 	t_bool		hit;
 	double		ddaLineSizeX;
 	double		ddaLineSizeY;
 	t_vector	wallMapPos;
 
-	(void)raydir;
 	wallMapPos.x = floor(c->player.pos.x);
 	wallMapPos.y = floor(c->player.pos.y);
 	hit = FALSE;
-	ddaLineSizeX = dist->to_side.x;
-	ddaLineSizeY = dist->to_side.y;
+	ddaLineSizeX = c->dist.to_side.x;
+	ddaLineSizeY = c->dist.to_side.y;
 	while (hit == FALSE)
 	{
 		if (ddaLineSizeX < ddaLineSizeY)
 		{
-			wallMapPos.x += dist->step.x;
-			ddaLineSizeX += dist->delta.x;
+			wallMapPos.x += c->dist.step.x;
+			ddaLineSizeX += c->dist.delta.x;
 		}
 		else
 		{
-			wallMapPos.y += dist->step.y;
-			ddaLineSizeY += dist->delta.y;
+			wallMapPos.y += c->dist.step.y;
+			ddaLineSizeY += c->dist.delta.y;
 		}
 		if (c->map.map[(int)wallMapPos.x][(int)wallMapPos.y] == '1')
 			hit = TRUE;
