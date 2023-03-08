@@ -48,13 +48,12 @@ void	get_data(t_cub3d *c)
 	char	*line;
 	char	*one_line;
 
-	c->file_data = (t_file_data *)ft_calloc(1, sizeof(t_file_data));
-	c->file_data->infos = 0;
-	while (c->file_data->infos != 6)
+	c->map.infos = 0;
+	while (c->map.infos != 6)
 	{
 		line = get_next_line(c->map.fd);
 		if (check_type_identifier(line, c) == 1)
-			c->file_data->infos++;
+			c->map.infos++;
 		free(line);
 	}
 	line = get_next_line(c->map.fd);

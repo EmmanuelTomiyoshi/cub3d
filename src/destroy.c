@@ -12,13 +12,12 @@
 
 #include "cub3d.h"
 
-void	free_file_data(t_file_data *file_data)
+void	free_file_data(t_cub3d *c)
 {
-	free(file_data->ea_path);
-	free(file_data->we_path);
-	free(file_data->no_path);
-	free(file_data->so_path);
-	free(file_data);
+	free(c->map.ea_path);
+	free(c->map.we_path);
+	free(c->map.no_path);
+	free(c->map.so_path);
 }
 
 void	free_array(char **array)
@@ -41,7 +40,7 @@ void	destroy_all(t_cub3d *c)
 	mlx_destroy_image(c->mlx.ptr, c->mlx.img.image);
 	mlx_destroy_window(c->mlx.ptr, c->mlx.win);
 	mlx_destroy_display(c->mlx.ptr);
-	free_file_data(c->file_data);
+	free_file_data(c);
 	free(c->mlx.ptr);
 	free(c->map.file);
 	if (c->map.file)

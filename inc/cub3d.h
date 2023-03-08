@@ -28,7 +28,7 @@
 //destroy.c
 void		destroy_all(t_cub3d *c);
 void		free_array(char **array);
-void		free_file_data(t_file_data *file_data);
+void		free_file_data(t_cub3d *c);
 
 //exit.c
 void		exit_error(char *msg, t_bool usage);

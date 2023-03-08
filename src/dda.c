@@ -24,9 +24,9 @@ void	background(t_cub3d *c)
 	while (point1.y <= HEIGHT)
 	{
 		if (point1.y <= HEIGHT / 2)
-			bresenham(&point1, &point2, c, c->file_data->c_color);
+			bresenham(&point1, &point2, c, c->map.c_color);
 		else
-			bresenham(&point1, &point2, c, c->file_data->f_color);
+			bresenham(&point1, &point2, c, c->map.f_color);
 		point1.y++;
 		point2.y++;
 	}

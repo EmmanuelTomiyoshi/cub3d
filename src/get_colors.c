@@ -44,12 +44,9 @@ void	get_color_value(int id, char **rgb, t_cub3d *c)
 	g = ft_atoi(rgb[1]);
 	b = ft_atoi(rgb[2]);
 	if (id == 'C')
-		c->file_data->c_color = get_rgb(r, g, b);
+		c->map.c_color = get_rgb(r, g, b);
 	if (id == 'F')
-		c->file_data->f_color = get_rgb(r, g, b);
-	//----check if the value is right----
-	//printf("c: |%d| f: |%d|\n", c->file_data->c_color, c->file_data->f_color);
-	//https://www.checkyourmath.com/convert/color/decimal_rgb.php
+		c->map.f_color = get_rgb(r, g, b);
 }
 
 char	**init_rgb(char *line, int *i)
