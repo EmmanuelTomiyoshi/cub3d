@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/06 16:16:55 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:55:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_queue	*verify_line(t_queue *f_queue, size_t i, t_cub3d *c, size_t j)
+static t_queue	*verify_line(t_queue *f_queue, size_t i, t_cub3d *c, size_t j)
 {
 	size_t	m;
 

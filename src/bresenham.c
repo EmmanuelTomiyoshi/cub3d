@@ -3,28 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bresenham.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:03:24 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 15:26:11 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:49:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	my_pixel_put(t_cub3d *c, int x, int y, int color)
-{
-	char	*dst;
-
-	if (x <= WIDTH && y <= HEIGHT && y >= 0 && x >= 0)
-	{
-		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + x
-				* (c->mlx.img.bits_per_pixel) / 8);
-		*(unsigned int *) dst = color;
-	}
-}
-
-void	lower_slope(t_line *l, t_cub3d *c, int color)
+static void	lower_slope(t_line *l, t_cub3d *c, int color)
 {
 	int	d;
 	int	i;
@@ -51,7 +39,7 @@ void	lower_slope(t_line *l, t_cub3d *c, int color)
 	}
 }
 
-void	bigger_slope(t_line *l, t_cub3d *c, int color)
+static void	bigger_slope(t_line *l, t_cub3d *c, int color)
 {
 	int	d;
 	int	i;
@@ -78,7 +66,7 @@ void	bigger_slope(t_line *l, t_cub3d *c, int color)
 	}
 }
 
-void	drawline(t_line *line, t_cub3d *c, int color)
+static void	drawline(t_line *line, t_cub3d *c, int color)
 {
 	line->dx = line->end_x - line->start_x;
 	line->dy = line->end_y - line->start_y;

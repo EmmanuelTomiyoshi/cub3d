@@ -1,67 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dda.c                                              :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 19:43:43 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/08 20:23:34 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	background(t_cub3d *c)
-{
-	t_point	point1;
-	t_point	point2;
-
-	point1.x = 0;
-	point1.y = 0;
-	point2.x = WIDTH;
-	point2.y = 0;
-	while (point1.y <= HEIGHT)
-	{
-		if (point1.y <= HEIGHT / 2)
-			bresenham(&point1, &point2, c, c->map.c_color);
-		else
-			bresenham(&point1, &point2, c, c->map.f_color);
-		point1.y++;
-		point2.y++;
-	}
-}
-
-void	dda(t_cub3d *c)
-{
-	t_bool		hit;
-	double		ddaLineSizeX;
-	double		ddaLineSizeY;
-	t_vector	wallMapPos;
-
-	wallMapPos.x = floor(c->player.pos.x);
-	wallMapPos.y = floor(c->player.pos.y);
-	hit = FALSE;
-	ddaLineSizeX = c->dist.to_side.x;
-	ddaLineSizeY = c->dist.to_side.y;
-	while (hit == FALSE)
-	{
-		if (ddaLineSizeX < ddaLineSizeY)
-		{
-			wallMapPos.x += c->dist.step.x;
-			ddaLineSizeX += c->dist.delta.x;
-		}
-		else
-		{
-			wallMapPos.y += c->dist.step.y;
-			ddaLineSizeY += c->dist.delta.y;
-		}
-		if (c->map.map[(int)wallMapPos.x][(int)wallMapPos.y] == '1')
-			hit = TRUE;
-	}
-}
-
-void	init_stepXY(t_cub3d *c, t_dist *dist, t_vector *raydir)
+void	init_step_xy(t_cub3d *c, t_dist *dist, t_vector *raydir)
 {
 	(void)c;
 	if (raydir->x < 0)
@@ -105,18 +56,4 @@ void	init_raydir(t_cub3d *c)
 {
 	c->dist.raydir.x = c->player.camera.pixel.x + c->player.dir.x;
 	c->dist.raydir.y = c->player.camera.pixel.y + c->player.dir.y;
-}
-
-int	draw(t_cub3d *c)
-{
-	background(c);
-	while (c->dist.pixel <= WIDTH)
-	{
-		init_camera(c);
-		init_raydir(c);
-		init_dist(c);
-		c->dist.pixel++;
-	}
-	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win, c->mlx.img.image, 0, 0);
-	return (0);
 }

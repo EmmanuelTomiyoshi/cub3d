@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 12:05:14 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:00:51 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 void	ignore_spaces(char *line, int *i)
 {
@@ -31,9 +30,9 @@ int	check_type_identifier(char *line, t_cub3d *c)
 		return (0);
 	id_floor_ceiling = is_floor_or_ceiling(line[i]);
 	id_coordinate = is_coordinate(line[i]);
-	if (id_floor_ceiling > 0 && ft_strlen(line) > 5) //5 are the minimum of chars of this id
+	if (id_floor_ceiling > 0 && ft_strlen(line) > 5)
 		get_colors(line, &i, id_floor_ceiling, c);
-	else if (id_coordinate > 0 && ft_strlen(line) > 2) //2 are the minimum of chars of this id
+	else if (id_coordinate > 0 && ft_strlen(line) > 2)
 		get_coordinates(line, &i, id_coordinate, c);
 	else
 	{

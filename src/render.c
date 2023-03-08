@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/07 17:13:39 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:47:42 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	improved_mlx_pixel_put(t_image *img, int x, int y, int color)
-{
-	char	*dest;
-
-	dest = img->addr;
-	dest += (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int *)dest = color;
-}
 
 void	fill_window(t_cub3d *c)
 {

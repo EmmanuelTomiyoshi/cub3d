@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 01:52:56 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:59:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	get_coordinates(char *line, int *i, int id, t_cub3d *c)
 		*i += 1;
 		j++;
 	}
-	//----check if the value is right----
 	printf("|%s|\n", path);
 	get_path(id, path, c);
 	free(path);

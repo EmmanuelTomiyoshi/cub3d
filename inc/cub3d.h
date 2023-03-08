@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:41:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:24:34 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,15 @@ int			draw(t_cub3d *c);
 //bresenham.c
 void		bresenham(t_point *point1, t_point *point2, t_cub3d *c, int color);
 void		my_pixel_put(t_cub3d *c, int x, int y, int color);
+
+//mlx.c
+void	improved_mlx_pixel_put(t_image *img, int x, int y, int color);
+void	my_pixel_put(t_cub3d *c, int x, int y, int color);
+
+///dda/init.c
+void	init_step_xy(t_cub3d *c, t_dist *dist, t_vector *raydir);
+void	init_dist(t_cub3d *c);
+void	init_camera(t_cub3d *c);
+void	init_raydir(t_cub3d *c);
 
 #endif

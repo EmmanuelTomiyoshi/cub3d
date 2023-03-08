@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 02:12:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:52:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ void	get_colors(char *line, int *i, int id, t_cub3d *c)
 	handle_rgb(rgb, line, i, c);
 	if (ft_atoi(rgb[0]) > 255 || ft_atoi(rgb[1]) > 255 || ft_atoi(rgb[2]) > 255)
 	{
-		free_array(rgb);
+		ft_free_array(rgb);
 		destroy_all(c);
 		exit_error(MSG_ERR_COLOR, FALSE);
 	}
 	get_color_value(id, rgb, c);
-	free_array(rgb);
+	ft_free_array(rgb);
 }

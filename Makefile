@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/07 16:10:58 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/08 20:26:04 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,9 @@ FILES				=	destroy.c			\
 						map_utils.c			\
 						get_player_data.c	\
 						bresenham.c			\
-						dda.c
+						dda/dda.c			\
+						dda/init.c			\
+						mlx.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
@@ -59,6 +61,7 @@ all: $(NAME)
 
 $(REQUIRED_DIRS):
 	mkdir -p $@
+	mkdir -p $@dda
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@echo -n "$(COLOR_YELLOW)Compiling $(COLOR_WHITE)$$(( $(PROGRESS) * 100 / $(NUMBER_SRC_FILES)))%\r"
