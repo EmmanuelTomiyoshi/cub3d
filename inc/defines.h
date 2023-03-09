@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:41:21 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:04:09 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,30 @@ typedef struct s_vector
 	double		x;
 }	t_vector;
 
-typedef struct s_dist
+typedef struct s_hit
+{
+	t_bool		hit;
+	int			side;
+}	t_hit;
+
+typedef struct s_dda
 {
 	t_vector	delta;
 	t_vector	to_side;
 	t_vector	step;
 	t_vector	raydir;
 	int			pixel;
-}	t_dist;
+	t_vector	line_size;
+	t_hit		hit;
+	t_vector	wall_pos;
+	double		perpendicular;
+}	t_dda;
 
 typedef struct s_camera
 {
 	t_vector	pixel;
 	t_vector	plane;
 }	t_camera;
-
 
 typedef struct s_player
 {
@@ -78,7 +87,7 @@ typedef struct s_cub3d
 {
 	t_mlx		mlx;
 	t_map		map;
-	t_dist		dist;
+	t_dda		dda;
 	t_player	player;
 }	t_cub3d;
 

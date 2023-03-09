@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 20:11:51 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:34:44 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	init(char **argv, t_cub3d *c)
 			&c->mlx.img.bits_per_pixel, &c->mlx.img.line_length,
 			&c->mlx.img.endian);
 	c->map.map = NULL;
-	c->dist.pixel = 0;
+	c->dda.pixel = 0;
 	c->player = (t_player){0};
 }

@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:03:24 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/09 10:05:00 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:59:51 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	drawline(t_line *line, t_cub3d *c, int color)
 		bigger_slope(line, c, color);
 }
 
-void	bresenham(t_point *point1, t_point *point2, t_cub3d *c, int color)
+void	bresenham(t_vector *point1, t_vector *point2, t_cub3d *c, int color)
 {
 	t_line	*line;
 
