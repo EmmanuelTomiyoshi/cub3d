@@ -5,72 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD:src/dda.c
-/*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/09 10:02:32 by mtomomit         ###   ########.fr       */
-=======
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 20:23:34 by etomiyos         ###   ########.fr       */
->>>>>>> main:src/dda/init.c
+/*   Updated: 2023/03/09 10:07:01 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-<<<<<<< HEAD:src/dda.c
-void	background(t_cub3d *c)
-{
-	t_point	point1;
-	t_point	point2;
-
-	point1.x = 0;
-	point1.y = 0;
-	point2.x = WIDTH;
-	point2.y = 0;
-	while (point1.y <= HEIGHT)
-	{
-		if (point1.y <= HEIGHT / 2)
-			bresenham(&point1, &point2, c, c->map.c_color);
-		else
-			bresenham(&point1, &point2, c, c->map.f_color);
-		point1.y++;
-		point2.y++;
-	}
-}
-
-void	dda(t_cub3d *c, t_dist *dist)
-{
-	t_bool		hit;
-	double		ddaLineSizeX;
-	double		ddaLineSizeY;
-	t_vector	wallMapPos;
-
-	wallMapPos.x = floor(c->player.pos.x);
-	wallMapPos.y = floor(c->player.pos.y);
-	hit = FALSE;
-	ddaLineSizeX = dist->to_side.x;
-	ddaLineSizeY = dist->to_side.y;
-	while (hit == FALSE)
-	{
-		if (ddaLineSizeX < ddaLineSizeY)
-		{
-			wallMapPos.x += dist->step.x;
-			ddaLineSizeX += dist->delta.x;
-		}
-		else
-		{
-			wallMapPos.y += dist->step.y;
-			ddaLineSizeY += dist->delta.y;
-		}
-		if (c->map.map[(int)wallMapPos.x][(int)wallMapPos.y] == '1')
-			hit = TRUE;
-	}
-}
-
-void	init_stepXY(t_dist *dist, t_vector *raydir)
-=======
 void	init_step_xy(t_cub3d *c, t_dist *dist, t_vector *raydir)
->>>>>>> main:src/dda/init.c
 {
 	if (raydir->x < 0)
 		dist->step.x = -1;
