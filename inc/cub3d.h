@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/09 18:03:49 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:16:44 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,6 @@ void		verify_up(t_cub3d *c, t_queue *queue, size_t i, size_t j);
 //get_player_data.c
 void		get_player_data(t_cub3d *c, int x, int y);
 
-//dda.c
-int			draw(t_cub3d *c);
-
 //bresenham.c
 void		bresenham(t_vector *point1, t_vector *point2, \
 					t_cub3d *c, int color);
@@ -106,6 +103,7 @@ void		init_raydir_and_delta(t_cub3d *c);
 void		init_step_xy(t_cub3d *c);
 void		init_perpendicular(t_cub3d *c);
 
+///dda/dda.c
 int			draw(t_cub3d *c);
 
 #endif
