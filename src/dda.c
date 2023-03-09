@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 19:44:47 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:02:32 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	dda(t_cub3d *c, t_dist *dist)
 	double		ddaLineSizeY;
 	t_vector	wallMapPos;
 
-	(void)raydir;
 	wallMapPos.x = floor(c->player.pos.x);
 	wallMapPos.y = floor(c->player.pos.y);
 	hit = FALSE;
@@ -64,7 +63,6 @@ void	dda(t_cub3d *c, t_dist *dist)
 
 void	init_stepXY(t_dist *dist, t_vector *raydir)
 {
-	(void)c;
 	if (raydir->x < 0)
 		dist->step.x = -1;
 	else
