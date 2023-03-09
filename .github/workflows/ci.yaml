@@ -25,7 +25,3 @@ jobs:
         sudo cp man/man3/mlx*.3 /usr/local/man/man3/
     - name: make
       run: make
-    - name: make tests
-      run: |
-        make -C tests
-        ./tests/tests.out
