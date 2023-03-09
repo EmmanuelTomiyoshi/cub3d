@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   bresenham.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 18:10:53 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 20:35:27 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/08 19:40:49 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/08 19:41:59 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/cub3d.h"
-# include <criterion/criterion.h>
-# include <criterion/internal/assert.h>
-# include <criterion/internal/test.h>
-# include <criterion/redirect.h>
+#ifndef BRESENHAM_H
+# define BRESENHAM_H
 
-Test(suite, Test)
+typedef struct s_queue
 {
-    // cr_redirect_stdout();
-    // cr_assert(is_floor_or_ceiling('C'));
-}
+	size_t			m;
+	size_t			n;
+	struct s_queue	*next;
+}	t_queue;
+
+typedef struct s_point
+{
+	double		x;
+	double		y;
+}	t_point;
+
+#endif

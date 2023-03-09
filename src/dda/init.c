@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dda.c                                              :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD:src/dda.c
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
 /*   Updated: 2023/03/09 10:02:32 by mtomomit         ###   ########.fr       */
+=======
+/*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/08 20:23:34 by etomiyos         ###   ########.fr       */
+>>>>>>> main:src/dda/init.c
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+<<<<<<< HEAD:src/dda.c
 void	background(t_cub3d *c)
 {
 	t_point	point1;
@@ -62,6 +68,9 @@ void	dda(t_cub3d *c, t_dist *dist)
 }
 
 void	init_stepXY(t_dist *dist, t_vector *raydir)
+=======
+void	init_step_xy(t_cub3d *c, t_dist *dist, t_vector *raydir)
+>>>>>>> main:src/dda/init.c
 {
 	if (raydir->x < 0)
 		dist->step.x = -1;
@@ -104,18 +113,4 @@ void	init_raydir(t_cub3d *c)
 {
 	c->dist.raydir.x = c->player.camera.pixel.x + c->player.dir.x;
 	c->dist.raydir.y = c->player.camera.pixel.y + c->player.dir.y;
-}
-
-int	draw(t_cub3d *c)
-{
-	background(c);
-	while (c->dist.pixel <= WIDTH)
-	{
-		init_camera(c);
-		init_raydir(c);
-		init_dist(c);
-		c->dist.pixel++;
-	}
-	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win, c->mlx.img.image, 0, 0);
-	return (0);
 }

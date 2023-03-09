@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:10:12 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:41:21 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
-
-typedef struct s_queue
-{
-	size_t			m;
-	size_t			n;
-	struct s_queue	*next;
-}	t_queue;
 
 typedef struct s_vector
 {
@@ -56,12 +49,6 @@ typedef struct s_player
 	t_vector	pos;
 	t_camera	camera;
 }	t_player;
-
-typedef struct s_point
-{
-	double		x;
-	double		y;
-}	t_point;
 
 typedef struct s_line
 {
