@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/09 18:32:22 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:07:07 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	end_loop(t_cub3d *c)
 void	loop(t_cub3d *c)
 {
 	mlx_hook(c->mlx.win, 17, 0, end_loop, c);
+	mlx_key_hook(c->mlx.win, key_handle, c);
 	mlx_expose_hook(c->mlx.win, &draw, c);
 	mlx_loop(c->mlx.ptr);
 }

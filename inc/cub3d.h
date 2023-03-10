@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/10 08:39:28 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:07:40 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "defines.h"
 # include "messages.h"
 # include "bresenham.h"
+# include "keys.h"
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
@@ -47,6 +48,7 @@ void		invalid_args(t_cub3d *c, int argc, char **argv);
 
 //render.c
 int			render(t_cub3d *c);
+int			end_loop(t_cub3d *c);
 
 //validations.c
 t_bool		is_valid_file_extension(char *filename);
@@ -107,6 +109,9 @@ void		init_perpendicular(t_cub3d *c);
 int			draw(t_cub3d *c);
 
 //rotate.c
-void	rotate_vector(t_vector *vector, double ang);
+void		rotate_vector(t_vector *vector, double ang);
+
+//key_handle.c
+int			key_handle(int keycode, t_cub3d *c);
 
 #endif

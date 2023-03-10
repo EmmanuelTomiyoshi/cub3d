@@ -6,7 +6,7 @@
 #    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/10 08:42:37 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/10 10:05:43 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ FILES				=	destroy.c			\
 						dda/dda.c			\
 						dda/init.c			\
 						mlx.c				\
-						rotate.c
+						rotate.c			\
+						key_handle.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
