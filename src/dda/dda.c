@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/09 18:04:38 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/10 08:58:06 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	raycasting(t_cub3d *c, int pixel)
 	t_vector	point2;
 
 	wall_line_height = HEIGHT / c->dda.perpendicular;
-	point1.x = (double)pixel;
+	point1.x = WIDTH - (double)pixel;
 	point1.y = HEIGHT / 2 - wall_line_height / 2;
-	point2.x = (double)pixel;
+	point2.x = WIDTH - (double)pixel;
 	point2.y = HEIGHT / 2 + wall_line_height / 2;
 	if (c->dda.hit.side == 0)
 		bresenham(&point1, &point2, c, 16777215);
