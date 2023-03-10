@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/09 18:16:44 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/10 08:39:28 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,8 @@ void		init_perpendicular(t_cub3d *c);
 
 ///dda/dda.c
 int			draw(t_cub3d *c);
+
+//rotate.c
+void	rotate_vector(t_vector *vector, double ang);
 
 #endif
