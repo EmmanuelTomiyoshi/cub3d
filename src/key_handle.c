@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/10 15:04:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:04:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,12 @@ int	key_handle(int keycode, t_cub3d *c)
 		look_left(c);
 	if (keycode == KEY_ARROW_RIGHT)
 		look_right(c);
+	return (0);
+}
+
+int	key_press(int keycode, void *c)
+{
+	(void)c;
+	(void)keycode;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/10 16:59:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:03:59 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,6 @@ int	render(t_cub3d *c)
 int	end_loop(t_cub3d *c)
 {
 	mlx_loop_end(c->mlx.ptr);
-	return (0);
-}
-
-int	key_press(int keycode, void *c)
-{
-	(void)c;
-	(void)keycode;
 	return (0);
 }
 
