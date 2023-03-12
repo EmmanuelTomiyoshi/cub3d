@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/09 18:04:09 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:41:04 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_camera
 {
 	t_vector	pixel;
 	t_vector	plane;
+	t_vector	speed;
 }	t_camera;
 
 typedef struct s_player
@@ -92,7 +93,7 @@ typedef struct s_cub3d
 }	t_cub3d;
 
 # define WIN_NAME "cub3d"
-# define WIDTH 1280
-# define HEIGHT 960
+# define WIDTH 1080
+# define HEIGHT 720
 
 #endif

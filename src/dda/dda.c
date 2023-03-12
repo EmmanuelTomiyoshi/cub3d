@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/10 16:43:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:37:00 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	background(t_cub3d *c)
 
 	point1.x = 0;
 	point1.y = 0;
-	point2.x = WIDTH;
+	point2.x = (double) WIDTH;
 	point2.y = 0;
-	while (point1.y <= HEIGHT)
+	while (point1.y <= (double) HEIGHT)
 	{
-		if (point1.y <= HEIGHT / 2)
+		if (point1.y <= (double) HEIGHT / 2)
 			bresenham(&point1, &point2, c, c->map.c_color);
 		else
 			bresenham(&point1, &point2, c, c->map.f_color);
@@ -64,11 +64,11 @@ void	raycasting(t_cub3d *c, int pixel)
 	t_vector	point1;
 	t_vector	point2;
 
-	wall_line_height = HEIGHT / c->dda.perpendicular;
-	point1.x = WIDTH - (double)pixel;
-	point1.y = HEIGHT / 2 - wall_line_height / 2;
+	wall_line_height = (double) HEIGHT / c->dda.perpendicular;
+	point1.x = WIDTH - (double) pixel;
+	point1.y = (double) HEIGHT / 2 - wall_line_height / 2;
 	point2.x = WIDTH - (double)pixel;
-	point2.y = HEIGHT / 2 + wall_line_height / 2;
+	point2.y = (double) HEIGHT / 2 + wall_line_height / 2;
 	if (c->dda.hit.side == 0)
 		bresenham(&point1, &point2, c, 16777215);
 	if (c->dda.hit.side == 1)
