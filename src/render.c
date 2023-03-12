@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 18:50:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:57:53 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <mlx.h>
 
 void	fill_window(t_cub3d *c)
 {
@@ -52,6 +53,8 @@ int	handle_mouse(int x, int y, t_cub3d *c)
 	static int	prev = 0;
 
 	(void)y;
+	// mlx_mouse_move(c->mlx.ptr, c->mlx.win.ptr, 400, 400);
+	// mlx_mouse_hide(c->mlx.ptr, c->mlx.win.ptr);
 	if (x < prev)
 		camera_move(KEY_ARROW_LEFT, 1.7, 358.3, c);
 	else if (x > prev)
@@ -65,6 +68,8 @@ void	loop(t_cub3d *c)
 	mlx_hook(c->mlx.win.ptr, 17, 0, end_loop, c);
 	mlx_hook(c->mlx.win.ptr, 2, 1L << 0, key_press, c);
 	mlx_hook(c->mlx.win.ptr, MotionNotify, PointerMotionMask, handle_mouse, c);
+	// mlx_hook(c->mlx.win.ptr, KeyPress, KeyPressMask, key_handle, c);
+	// mlx_hook(c->mlx.win.ptr, KeyRelease, KeyReleaseMask, key_press, c);
 	mlx_key_hook(c->mlx.win.ptr, key_handle, c);
 	mlx_loop_hook(c->mlx.ptr, &draw, c);
 	mlx_loop(c->mlx.ptr);
