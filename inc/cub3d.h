@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 16:51:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:43:58 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB3D_H
 
 # include "printf_colors.h"
-# include "mlx_data.h"
+# include "display_resolution.h"
 # include "fonts.h"
 # include "defines.h"
 # include "messages.h"
@@ -27,6 +27,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <mlx.h>
+# include <X11/X.h>
 # include "../libft/libft.h"
 
 //destroy.c
@@ -116,15 +117,15 @@ int			key_handle(int keycode, t_cub3d *c);
 int			key_press(int keycode, void *c);
 
 //movements.c
-void	walk_left(t_cub3d *c);
-void	walk_forward(t_cub3d *c);
-void	walk_backward(t_cub3d *c);
-void	walk_right(t_cub3d *c);
+void		walk_left(t_cub3d *c);
+void		walk_forward(t_cub3d *c);
+void		walk_backward(t_cub3d *c);
+void		walk_right(t_cub3d *c);
 
 //camera.c
-void	look_left(t_cub3d *c);
-void	look_right(t_cub3d *c);
-void	change_camera_speed(double x, double y, t_cub3d *c);
-void	camera_move(int keycode, double x, double y, t_cub3d *c);
+void		look_left(t_cub3d *c);
+void		look_right(t_cub3d *c);
+void		change_camera_speed(double x, double y, t_cub3d *c);
+void		camera_move(int keycode, double x, double y, t_cub3d *c);
 
 #endif

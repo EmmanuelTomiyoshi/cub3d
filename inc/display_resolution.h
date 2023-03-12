@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_data.h                                         :+:      :+:    :+:   */
+/*   display_resolution.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:38:45 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 18:41:38 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/12 18:24:46 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/12 18:28:02 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_DATA_H
-# define MLX_DATA_H
+#ifndef DISPLAY_RESOLUTION_H
+# define DISPLAY_RESOLUTION_H
 
-typedef struct s_image
-{
-	void		*image;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-}	t_image;
-
-typedef struct s_mlx
-{
-	t_image		img;
-	void		*ptr;
-	void		*win;
-}	t_mlx;
+# define DR_W_1280  1280
+# define DR_W_1152  1152
+# define DR_W_1024  1024
+# define DR_W_800   800
+# define DR_H_1024  1024
+# define DR_H_960   960
+# define DR_H_768   768
+# define DR_H_720   720
+# define DR_H_864   864
+# define DR_H_768   768
+# define DR_H_600   600
 
 #endif

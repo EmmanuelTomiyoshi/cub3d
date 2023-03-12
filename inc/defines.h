@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 16:41:04 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:46:30 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,31 @@ typedef struct s_map
 	char	*so_path;
 	char	*no_path;
 }	t_map;
+
+typedef struct s_image
+{
+	void		*image;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}	t_image;
+
+typedef struct s_win
+{
+	void	*ptr;
+	int		width;
+	int		height;
+}	t_win;
+
+typedef struct s_mlx
+{
+	t_image		img;
+	t_win		win;
+	void		*ptr;
+	int			screen_width;
+	int			screen_height;
+}	t_mlx;
 
 typedef struct s_cub3d
 {
