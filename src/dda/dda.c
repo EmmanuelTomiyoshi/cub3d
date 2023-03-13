@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/12 18:52:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:23:02 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	raycasting(t_cub3d *c, int pixel)
 	point2.x = c->mlx.win.width - (double)pixel;
 	point2.y = (double) c->mlx.win.height / 2 + wall_line_height / 2;
 	if (c->dda.hit.side == 0)
-		bresenham(&point1, &point2, c, 16777215);
+		bresenham(&point1, &point2, c, c->map.cube1);
 	if (c->dda.hit.side == 1)
-		bresenham(&point1, &point2, c, 0);
+		bresenham(&point1, &point2, c, c->map.cube2);
 }
 
 int	draw(t_cub3d *c)

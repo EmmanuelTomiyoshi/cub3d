@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 22:44:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:30:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ typedef struct s_map
 	int		infos;
 	int		f_color;
 	int		c_color;
+	int		cube1;
+	int		cube2;
+	t_rgb	c_cube1;
+	t_rgb	c_cube2;
 	t_rgb	floor;
 	t_rgb	ceiling;
 	char	*file;
@@ -129,5 +133,8 @@ typedef struct s_cub3d
 # define WIN_NAME "cub3d"
 # define WIDTH 1080
 # define HEIGHT 720
+# define LIGHT_BLUE	10735345
+# define DARK_BLUE 6330042
+# define MENU_OPACITY 0.25
 
 #endif
