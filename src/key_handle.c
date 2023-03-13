@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/12 23:28:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:53:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	show_menu(t_cub3d *c)
 	c->map.cube1 = get_rgb(c->map.c_cube1.r, c->map.c_cube1.g, c->map.c_cube1.b);
 	blend(foreground, c->map.c_cube2, MENU_OPACITY, &c->map.c_cube2);
 	c->map.cube2 = get_rgb(c->map.c_cube2.r, c->map.c_cube2.g, c->map.c_cube2.b);
+	c->menu = TRUE;
 }
 
 int	key_handle(int keycode, t_cub3d *c)

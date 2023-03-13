@@ -6,42 +6,40 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 21:08:51 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:32:45 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
-#include <mlx.h>
 
-void	fill_window(t_cub3d *c)
-{
-	int	i;
-	int	j;
+// void	fill_window(t_cub3d *c)
+// {
+// 	int	i;
+// 	int	j;
 
-	j = 0;
-	while (j < c->mlx.win.height)
-	{
-		i = 0;
-		while (i < c->mlx.win.width)
-		{
-			improved_mlx_pixel_put(&(c->mlx.img), i, j, 0x0000020);
-			i++;
-		}
-		j++;
-	}
-	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "10x20");
-	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 200, 300, 0x0FFFF00, "FONT TEST");
-	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "7x13eurobold");
-	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 200, 600, 0x0FF00FF, "01234567890");
-}
+// 	j = 0;
+// 	while (j < c->mlx.win.height)
+// 	{
+// 		i = 0;
+// 		while (i < c->mlx.win.width)
+// 		{
+// 			improved_mlx_pixel_put(&(c->mlx.img), i, j, 0x0000020);
+// 			i++;
+// 		}
+// 		j++;
+// 	}
+// 	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "10x20");
+// 	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 200, 300, 0x0FFFF00, "FONT TEST");
+// 	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "7x13eurobold");
+// 	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 200, 600, 0x0FF00FF, "01234567890");
+// }
 
-int	render(t_cub3d *c)
-{
-	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.image, 0, 0);
-	fill_window(c);
-	return (0);
-}
+// int	render(t_cub3d *c)
+// {
+// 	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.image, 0, 0);
+// 	fill_window(c);
+// 	return (0);
+// }
 
 int	end_loop(t_cub3d *c)
 {

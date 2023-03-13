@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/12 23:23:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:57:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,11 @@ int	draw(t_cub3d *c)
 	}
 	c->dda.pixel = 0;
 	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.image, 0, 0);
+	// if (c->menu == TRUE)
+	// {
+	// 	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "10x20");
+	// 	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 486, 64, 0x0FFFF00, "CUB3D MENU");
+	// 	c->menu = FALSE;
+	// }
 	return (0);
 }

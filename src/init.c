@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 23:26:43 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:53:53 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init(char **argv, t_cub3d *c)
 	c->mlx.win.width = WIDTH;
 	c->mlx.win.height = HEIGHT;
 	c->player = (t_player){0};
+	c->menu = FALSE;
 	init_square_colors(c);
 	mlx_get_screen_size(c->mlx.ptr, &c->mlx.screen_width, &c->mlx.screen_height);
 }
