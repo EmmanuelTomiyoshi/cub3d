@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 11:10:34 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:58:29 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
+
+typedef struct s_button
+{
+    int x;
+    int y;
+    int width;
+    int height;
+    // int color_active;
+    // int color_normal;
+    // t_bool  hover;
+}   t_button;
+
+typedef struct s_menu
+{
+	t_bool		active;
+    t_button    fullscreen;
+	t_button	crosshair;
+}   t_menu;
+
 
 typedef struct	s_rgb
 {
@@ -106,6 +125,7 @@ typedef struct s_map
 typedef struct s_image
 {
 	void		*image;
+	void		*original;
 	char		*addr;
 	int			bits_per_pixel;
 	int			line_length;
@@ -134,15 +154,21 @@ typedef struct s_cub3d
 	t_map		map;
 	t_dda		dda;
 	t_player	player;
-	t_bool		menu;
+	t_menu		menu;
+
+	//
+	t_bool		hovering;
 }	t_cub3d;
 
 # define WIN_NAME "cub3d"
 # define WIDTH 1080
 # define HEIGHT 720
+# define LEFT_CLICK 1
+# define MOUSE_RELEASE 0
 # define LIGHT_BLUE	10735345
 # define DARK_BLUE 6330042
-# define RANDOM_COLOR 2090042
+# define DARK_GREEN 2090042
+# define RED_PANTONE 15087942
 # define MENU_OPACITY 0.25
 
 #endif

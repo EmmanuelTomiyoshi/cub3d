@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/10 17:10:07 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/13 18:04:21 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
 FILES				=	destroy.c				\
 						exit.c					\
+						button.c				\
 						get_data/colors.c		\
 						get_data/coordinates.c	\
 						get_data/data.c			\
@@ -45,6 +46,7 @@ FILES				=	destroy.c				\
 						dda/dda.c				\
 						dda/init.c				\
 						mlx.c					\
+						menu.c					\
 						rotate.c				\
 						key_handle.c			\
 						player/movements.c		\

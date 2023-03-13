@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 09:20:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:19:00 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,10 @@ void		camera_move(int keycode, double x, double y, t_cub3d *c);
 
 void		blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
 void		itorgb(int color, t_rgb *result);
+
+int			mouse_callback(int button, int x, int y, t_cub3d *c);
+int			draw_button(t_button button, t_cub3d *c);
+
+int			show_menu(t_cub3d *c);
 
 #endif

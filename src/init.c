@@ -6,18 +6,45 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 09:38:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:18:28 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "defines.h"
 
-void	init_square_colors(t_cub3d *c)
+static void	square_colors(t_cub3d *c)
 {
 	itorgb(DARK_BLUE, &c->map.c_cube1);
 	itorgb(LIGHT_BLUE, &c->map.c_cube2);
 	c->map.cube1 = DARK_BLUE;
 	c->map.cube2 = LIGHT_BLUE;
+}
+
+void	get_btn_pos(t_button *btn, int x, int y)
+{
+	if (!btn)
+		return ;
+	btn->x = x;
+	btn->y = y;
+	if (btn->x)
+		return ;
+}
+
+void	get_btn_size(t_button *btn, int width, int height)
+{
+	if (!btn)
+		return ;
+	btn->width = width;
+	btn->height = height;
+}
+
+static void		menu(t_cub3d *c)
+{
+	get_btn_pos(&c->menu.fullscreen, 711, 389);
+	get_btn_pos(&c->menu.crosshair, 711, 487);
+	get_btn_size(&c->menu.fullscreen, 144, 45);
+	get_btn_size(&c->menu.crosshair, 144, 45);
 }
 
 void	init(char **argv, t_cub3d *c)
@@ -36,9 +63,10 @@ void	init(char **argv, t_cub3d *c)
 	c->mlx.win.width = WIDTH;
 	c->mlx.win.height = HEIGHT;
 	c->player = (t_player){0};
-	c->menu = FALSE;
 	c->player.camera.speed.x = 3.14;
 	c->player.camera.speed.y = 356.86;
-	init_square_colors(c);
+	c->hovering = FALSE;
+	square_colors(c);
+	menu(c);
 	mlx_get_screen_size(c->mlx.ptr, &c->mlx.screen_width, &c->mlx.screen_height);
 }

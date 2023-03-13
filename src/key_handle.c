@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 09:37:04 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:21:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,11 @@ int	change_win_size(int width, int height, t_cub3d *c)
 	return (0);
 }
 
-void	show_menu(t_cub3d *c)
-{
-	t_rgb	foreground;
-
-	itorgb(0, &foreground);
-	blend(foreground, c->map.floor, MENU_OPACITY, &c->map.floor);
-	c->map.f_color = get_rgb(c->map.floor.r, c->map.floor.g, c->map.floor.b);
-	blend(foreground, c->map.ceiling, MENU_OPACITY, &c->map.ceiling);
-	c->map.c_color = get_rgb(c->map.ceiling.r, c->map.ceiling.g, c->map.ceiling.b);
-	blend(foreground, c->map.c_cube1, MENU_OPACITY, &c->map.c_cube1);
-	c->map.cube1 = get_rgb(c->map.c_cube1.r, c->map.c_cube1.g, c->map.c_cube1.b);
-	blend(foreground, c->map.c_cube2, MENU_OPACITY, &c->map.c_cube2);
-	c->map.cube2 = get_rgb(c->map.c_cube2.r, c->map.c_cube2.g, c->map.c_cube2.b);
-	c->menu = TRUE;
-}
-
 int	key_press(int keycode, t_cub3d *c)
 {
 	if (keycode == KEY_ESC)
-		end_loop(c);
-	else if (keycode == 112)
 		show_menu(c);
-	else if (keycode == KEY_A)
+	if (keycode == KEY_A)
 		c->player.move_left = TRUE;
 	else if (keycode == KEY_W)
 		c->player.move_foward = TRUE;
@@ -75,9 +57,9 @@ int	key_press(int keycode, t_cub3d *c)
 
 int	key_release(int keycode, t_cub3d *c)
 {
-	if (keycode == KEY_ESC)
-		end_loop(c);
-	else if (keycode == KEY_A)
+	// if (keycode == KEY_ESC)
+	// 	end_loop(c);
+	if (keycode == KEY_A)
 		c->player.move_left = FALSE;
 	else if (keycode == KEY_W)
 		c->player.move_foward = FALSE;
