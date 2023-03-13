@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 22:47:05 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:02:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 			rgb[j][k++] = line[*i];
 			*i += 1;
 		}
-		printf("|%s|\n", rgb[j]);
 		ignore_spaces(line, i);
 		if (line[*i] != ',' && line[*i] != '\n')
 		{

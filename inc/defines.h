@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 09:20:34 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:10:34 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct s_cub3d
 # define HEIGHT 720
 # define LIGHT_BLUE	10735345
 # define DARK_BLUE 6330042
+# define RANDOM_COLOR 2090042
 # define MENU_OPACITY 0.25
 
 #endif
