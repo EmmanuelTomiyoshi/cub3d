@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 00:07:27 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 09:20:49 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	background(t_cub3d *c)
 
 	point1.x = 0;
 	point1.y = 0;
-	point2.x = (double) WIDTH;
+	point2.x = (double) c->mlx.win.width;
 	point2.y = 0;
-	while (point1.y <= (double) HEIGHT)
+	while (point1.y <= (double) c->mlx.win.height)
 	{
-		if (point1.y <= (double) HEIGHT / 2)
+		if (point1.y <= (double) c->mlx.win.height / 2)
 			bresenham(&point1, &point2, c, c->map.c_color);
 		else
 			bresenham(&point1, &point2, c, c->map.f_color);
@@ -64,15 +64,15 @@ void	raycasting(t_cub3d *c, int pixel)
 	t_vector	point1;
 	t_vector	point2;
 
-	wall_line_height = (double) HEIGHT / c->dda.perpendicular;
-	point1.x = WIDTH - (double) pixel;
-	point1.y = (double) HEIGHT / 2 - wall_line_height / 2;
-	point2.x = WIDTH - (double)pixel;
-	point2.y = (double) HEIGHT / 2 + wall_line_height / 2;
+	wall_line_height = (double) c->mlx.win.height / c->dda.perpendicular;
+	point1.x = c->mlx.win.width - (double) pixel;
+	point1.y = (double) c->mlx.win.height / 2 - wall_line_height / 2;
+	point2.x = c->mlx.win.width - (double)pixel;
+	point2.y = (double) c->mlx.win.height / 2 + wall_line_height / 2;
 	if (c->dda.hit.side == 0)
-		bresenham(&point1, &point2, c, 16777215);
+		bresenham(&point1, &point2, c, c->map.cube1);
 	if (c->dda.hit.side == 1)
-		bresenham(&point1, &point2, c, 0);
+		bresenham(&point1, &point2, c, c->map.cube2);
 }
 
 void	movements(t_cub3d *c)
@@ -95,7 +95,7 @@ int	draw(t_cub3d *c)
 {
 	background(c);
 	movements(c);
-	while (c->dda.pixel < WIDTH)
+	while (c->dda.pixel < c->mlx.win.width)
 	{
 		init_camera(c);
 		init_raydir_and_delta(c);
@@ -106,6 +106,12 @@ int	draw(t_cub3d *c)
 		c->dda.pixel++;
 	}
 	c->dda.pixel = 0;
-	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win, c->mlx.img.image, 0, 0);
+	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.image, 0, 0);
+	// if (c->menu == TRUE)
+	// {
+	// 	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "10x20");
+	// 	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 486, 64, 0x0FFFF00, "CUB3D MENU");
+	// 	c->menu = FALSE;
+	// }
 	return (0);
 }

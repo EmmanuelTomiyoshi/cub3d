@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_colors.c                                       :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 20:31:43 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 22:47:05 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	itorgb(int color, t_rgb *result)
+{
+	result->r = (color >> 16) & 0xFF;
+	result->g = (color >> 8) & 0xFF;
+	result->b = color & 0xFF;
+	// printf("Result color: (%d, %d, %d)\n", result->r, result->g, result->b);
+}
 
 int	is_floor_or_ceiling(int c)
 {
@@ -29,9 +37,19 @@ void	get_color_value(int id, char **rgb, t_cub3d *c)
 	g = ft_atoi(rgb[1]);
 	b = ft_atoi(rgb[2]);
 	if (id == 'C')
+	{
+		c->map.ceiling.r = r;
+		c->map.ceiling.g = g;
+		c->map.ceiling.b = b;
 		c->map.c_color = get_rgb(r, g, b);
+	}
 	if (id == 'F')
+	{
+		c->map.floor.r = r;
+		c->map.floor.g = g;
+		c->map.floor.b = b;
 		c->map.f_color = get_rgb(r, g, b);
+	}
 }
 
 char	**init_rgb(char *line, int *i)

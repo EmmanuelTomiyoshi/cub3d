@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   display_resolution.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 12:07:58 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 17:50:32 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/12 18:24:46 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/12 18:28:02 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef DISPLAY_RESOLUTION_H
+# define DISPLAY_RESOLUTION_H
 
-int	main(int argc, char **argv)
-{
-	t_cub3d		cub3d;
+# define DR_W_1280  1280
+# define DR_W_1152  1152
+# define DR_W_1024  1024
+# define DR_W_800   800
+# define DR_H_1024  1024
+# define DR_H_960   960
+# define DR_H_768   768
+# define DR_H_720   720
+# define DR_H_864   864
+# define DR_H_768   768
+# define DR_H_600   600
 
-	invalid_args(&cub3d, argc, argv);
-	init(argv, &cub3d);
-	get_data(&cub3d);
-	loop(&cub3d);
-	destroy_all(&cub3d);
-	return (EXIT_SUCCESS);
-}
+#endif
