@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/10 16:59:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:03:13 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,11 @@ int	end_loop(t_cub3d *c)
 	return (0);
 }
 
-int	key_press(int keycode, void *c)
-{
-	(void)c;
-	(void)keycode;
-	return (0);
-}
-
 void	loop(t_cub3d *c)
 {
-	mlx_hook(c->mlx.win, 17, 0, end_loop, c);
-	mlx_hook(c->mlx.win, 2, 1L << 00, key_press, c);
-	mlx_key_hook(c->mlx.win, key_handle, c);
+	mlx_hook(c->mlx.win, 17, 0, &end_loop, c);
+	mlx_hook(c->mlx.win, 02, 1L << 0, key_press, c);
+	mlx_hook(c->mlx.win, 03, 1L << 1, key_release, c);
 	mlx_loop_hook(c->mlx.ptr, &draw, c);
 	mlx_loop(c->mlx.ptr);
 }

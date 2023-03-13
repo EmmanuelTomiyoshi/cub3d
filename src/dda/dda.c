@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/10 16:43:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:03:03 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,26 @@ void	raycasting(t_cub3d *c, int pixel)
 		bresenham(&point1, &point2, c, 0);
 }
 
+void	movements(t_cub3d *c)
+{
+	if (c->player.look_left)
+		look_left(c);
+	if (c->player.look_right)
+		look_right(c);
+	if (c->player.move_backwards)
+		walk_backward(c);
+	if (c->player.move_foward)
+		walk_forward(c);
+	if (c->player.move_left)
+		walk_left(c);
+	if (c->player.move_right)
+		walk_right(c);
+}
+
 int	draw(t_cub3d *c)
 {
 	background(c);
+	movements(c);
 	while (c->dda.pixel < WIDTH)
 	{
 		init_camera(c);

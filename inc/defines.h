@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/09 18:04:09 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:03:01 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ typedef struct s_player
 	t_vector	dir;
 	t_vector	pos;
 	t_camera	camera;
+	t_bool		move_left;
+	t_bool		move_right;
+	t_bool		move_foward;
+	t_bool		move_backwards;
+	t_bool		look_right;
+	t_bool		look_left;
 }	t_player;
 
 typedef struct s_line

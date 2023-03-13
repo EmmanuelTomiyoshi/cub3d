@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/10 15:02:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:03:00 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,17 @@ int			draw(t_cub3d *c);
 void		rotate_vector(t_vector *vector, double ang);
 
 //key_handle.c
-int			key_handle(int keycode, t_cub3d *c);
+int			key_press(int keycode, t_cub3d *c);
+int			key_release(int keycode, t_cub3d *c);
 
 //movements.c
-void	walk_left(t_cub3d *c);
-void	walk_forward(t_cub3d *c);
-void	walk_backward(t_cub3d *c);
-void	walk_right(t_cub3d *c);
+void		walk_left(t_cub3d *c);
+void		walk_forward(t_cub3d *c);
+void		walk_backward(t_cub3d *c);
+void		walk_right(t_cub3d *c);
 
 //camera.c
-void	look_left(t_cub3d *c);
-void	look_right(t_cub3d *c);
+void		look_left(t_cub3d *c);
+void		look_right(t_cub3d *c);
 
 #endif
