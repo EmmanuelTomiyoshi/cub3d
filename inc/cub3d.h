@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 00:11:05 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:16:28 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,9 @@ void		walk_backward(t_cub3d *c);
 void		walk_right(t_cub3d *c);
 
 //camera.c
-void	look_left(t_cub3d *c);
-void	look_right(t_cub3d *c);
-void	change_camera_speed(double x, double y, t_cub3d *c);
-void	camera_move(int keycode, double x, double y, t_cub3d *c);
+void		look_left(t_cub3d *c);
+void		look_right(t_cub3d *c);
+void		change_camera_speed(double x, double y, t_cub3d *c);
+void		camera_move(int keycode, double x, double y, t_cub3d *c);
 
 #endif
