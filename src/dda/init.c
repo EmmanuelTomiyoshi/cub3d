@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 15:14:48 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:51:23 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_camera(t_cub3d *c)
 {
 	double	multiplier;
 
-	multiplier = 2 * ((double)c->dda.pixel / (double) WIDTH) - 1;
+	multiplier = 2 * ((double)c->dda.pixel / (double) c->mlx.win.width) - 1;
 	c->player.camera.pixel.x = c->player.camera.plane.x * multiplier;
 	c->player.camera.pixel.y = c->player.camera.plane.y * multiplier;
 }

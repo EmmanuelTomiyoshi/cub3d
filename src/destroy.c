@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:52:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:47:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_file_data(t_cub3d *c)
 void	destroy_all(t_cub3d *c)
 {
 	mlx_destroy_image(c->mlx.ptr, c->mlx.img.image);
-	mlx_destroy_window(c->mlx.ptr, c->mlx.win);
+	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
 	mlx_destroy_display(c->mlx.ptr);
 	free_file_data(c);
 	free(c->mlx.ptr);
