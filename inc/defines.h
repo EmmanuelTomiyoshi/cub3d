@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 00:03:01 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:11:21 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_camera
 {
 	t_vector	pixel;
 	t_vector	plane;
+	t_vector	speed;
 }	t_camera;
 
 typedef struct s_player
@@ -98,7 +99,7 @@ typedef struct s_cub3d
 }	t_cub3d;
 
 # define WIN_NAME "cub3d"
-# define WIDTH 1280
-# define HEIGHT 960
+# define WIDTH 1080
+# define HEIGHT 720
 
 #endif

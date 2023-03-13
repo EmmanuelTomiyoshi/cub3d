@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 00:03:09 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 00:12:12 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ int	key_release(int keycode, t_cub3d *c)
 		c->player.look_left = FALSE;
 	else if (keycode == KEY_ARROW_RIGHT)
 		c->player.look_right = FALSE;
+	else if (keycode == KEY_ARROW_LEFT || keycode == KEY_ARROW_RIGHT)
+		camera_move(keycode, 3.14, 356.86, c);
 	return (0);
 }
