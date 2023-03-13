@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/12 19:26:47 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 22:52:43 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,23 @@ int	change_win_size(int width, int height, t_cub3d *c)
 	return (0);
 }
 
-// void	show_menu(t_cub3d *c)
-// {
-	
-// }
+void	show_menu(t_cub3d *c)
+{
+	t_rgb	foreground;
+
+	itorgb(0, &foreground);
+	blend(foreground, c->map.floor, 0.65, &c->map.floor);
+	c->map.f_color = get_rgb(c->map.floor.r, c->map.floor.g, c->map.floor.b);
+	blend(foreground, c->map.ceiling, 0.65, &c->map.ceiling);
+	c->map.c_color = get_rgb(c->map.ceiling.r, c->map.ceiling.g, c->map.ceiling.b);
+}
 
 int	key_handle(int keycode, t_cub3d *c)
 {
 	if (keycode == KEY_ESC)
 		end_loop(c);
-	// if (keycode == KEY_ESC)
-	// 	show_menu(c);
+	if (keycode == 112)
+		show_menu(c);
 	if (keycode == KEY_A)
 		walk_left(c);
 	if (keycode == KEY_W)

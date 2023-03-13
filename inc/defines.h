@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 21:00:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 22:44:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ typedef struct s_map
 	int		infos;
 	int		f_color;
 	int		c_color;
+	t_rgb	floor;
+	t_rgb	ceiling;
 	char	*file;
 	char	**map;
 	char	*ea_path;

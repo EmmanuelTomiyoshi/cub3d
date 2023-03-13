@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 18:43:58 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 22:39:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,8 @@ void		look_left(t_cub3d *c);
 void		look_right(t_cub3d *c);
 void		change_camera_speed(double x, double y, t_cub3d *c);
 void		camera_move(int keycode, double x, double y, t_cub3d *c);
+
+void		blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
+void		itorgb(int color, t_rgb *result);
 
 #endif
