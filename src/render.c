@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 19:57:53 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/12 21:08:51 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "defines.h"
 #include <mlx.h>
 
 void	fill_window(t_cub3d *c)
@@ -63,6 +64,32 @@ int	handle_mouse(int x, int y, t_cub3d *c)
 	return (0);
 }
 
+void	blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result)
+{
+	result->r = fg.r * opacity + bg.r * (1 - opacity);
+	result->g = fg.g * opacity + bg.g * (1 - opacity);
+	result->b = fg.b * opacity + bg.b * (1 - opacity);
+}
+
+void	alpha_blending(t_cub3d *c)
+{
+	(void)c;
+	t_rgb	fg;
+	t_rgb	bg;
+	t_rgb	result;
+	
+	fg.r = 255;
+	fg.g = 0;
+	fg.b = 0;
+	
+	bg.r = 255;
+	bg.g = 255;
+	bg.b = 255;
+	
+	blend(fg, bg, 0.5, &result);
+	printf("Resulting color: (%d, %d, %d)\n", result.r, result.g, result.b);
+}
+
 void	loop(t_cub3d *c)
 {
 	mlx_hook(c->mlx.win.ptr, 17, 0, end_loop, c);
@@ -71,6 +98,7 @@ void	loop(t_cub3d *c)
 	// mlx_hook(c->mlx.win.ptr, KeyPress, KeyPressMask, key_handle, c);
 	// mlx_hook(c->mlx.win.ptr, KeyRelease, KeyReleaseMask, key_press, c);
 	mlx_key_hook(c->mlx.win.ptr, key_handle, c);
+	alpha_blending(c);
 	mlx_loop_hook(c->mlx.ptr, &draw, c);
 	mlx_loop(c->mlx.ptr);
 }
