@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 17:12:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:23:51 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	menu(t_cub3d *c)
 {
 	c->menu.active = FALSE;
 	c->menu.fullscreen.toggle = FALSE;
-	c->menu.crosshair.toggle = FALSE;
 	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
 		"./images/paused.xpm",
 		&c->menu.img.win_width,
@@ -35,9 +34,7 @@ static void	menu(t_cub3d *c)
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
 	get_btn_pos(&c->menu.fullscreen, 790, 389);
-	get_btn_pos(&c->menu.crosshair, 790, 477);
 	get_btn_size(&c->menu.fullscreen, 220, 45);
-	get_btn_size(&c->menu.crosshair, 220, 45);
 }
 
 static void	mlx(t_cub3d *c)
@@ -56,6 +53,8 @@ static void	mlx(t_cub3d *c)
 	c->mlx.img.win_height = HEIGHT;
 	mlx_get_screen_size(c->mlx.ptr,
 		&c->mlx.screen_width, &c->mlx.screen_height);
+	c->mlx.screen_width -= 16;
+	c->mlx.screen_height -= 32;
 }
 
 static void	map_and_player(char *file, t_cub3d *c)

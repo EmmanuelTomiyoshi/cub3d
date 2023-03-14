@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 14:55:12 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:29:06 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void		rotate_vector(t_vector *vector, double ang);
 int			key_press(int keycode, t_cub3d *c);
 int			key_release(int keycode, t_cub3d *c);
 
-int			change_win_size(int width, int height, t_cub3d *c);
+int			change_win_size(t_cub3d *c);
 
 //movements.c
 void		walk_left(t_cub3d *c);

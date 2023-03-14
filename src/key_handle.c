@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/14 15:18:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:31:15 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	key_press(int keycode, t_cub3d *c)
 	else if (keycode == KEY_SHIFT)
 		c->player.run = TRUE;
 	else if (keycode == KEY_F11)
-		change_win_size(1024, 768, c);
+		change_win_size(c);
 	return (0);
 }
 
@@ -95,5 +95,7 @@ int	key_release(int keycode, t_cub3d *c)
 		c->player.run = FALSE;
 		c->player.speed = DEF_PLAYER_SPEED;
 	}
+	else if (keycode == KEY_F11)
+		c->menu.fullscreen.toggle = FALSE;
 	return (0);
 }

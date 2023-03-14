@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 16:19:55 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:05:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_menu
 	t_image		img;
 	t_bool		active;
 	t_button	fullscreen;
-	t_button	crosshair;
 }	t_menu;
 
 typedef struct s_rgb
@@ -189,7 +188,6 @@ typedef struct s_cub3d
 # define MARINE_BLUE 			791333
 # define MENU_OPACITY 			0.25
 # define BTN_FULLSCREEN			0
-# define BTN_CROSSHAIR 			1
 # define COLOR_THRESHOLD_MAX 	224
 # define COLOR_THRESHOLD_MIN 	64
 # define SPEED_THRESHOLD		0.16
