@@ -6,26 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 15:02:32 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:28:45 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	itorgb(int color, t_rgb *result)
-{
-	result->r = (color >> 16) & 0xFF;
-	result->g = (color >> 8) & 0xFF;
-	result->b = color & 0xFF;
-	// printf("Result color: (%d, %d, %d)\n", result->r, result->g, result->b);
-}
-
-int	is_floor_or_ceiling(int c)
-{
-	if (c == 'C' || c == 'F')
-		return (c);
-	return (-1);
-}
 
 void	get_color_value(int id, char **rgb, t_cub3d *c)
 {
@@ -58,7 +43,7 @@ char	**init_rgb(char *line, int *i)
 	int		j;
 
 	*i += 1;
-	ignore_spaces(line, i);
+	ft_ignore_spaces(line, i);
 	rgb = ft_calloc(4, sizeof(char *));
 	j = 0;
 	while (j != 3)
@@ -78,14 +63,14 @@ void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 	k = 0;
 	while (line[*i])
 	{
-		ignore_spaces(line, i);
+		ft_ignore_spaces(line, i);
 		k = 0;
 		while (ft_isdigit(line[*i]) && k != 3)
 		{
 			rgb[j][k++] = line[*i];
 			*i += 1;
 		}
-		ignore_spaces(line, i);
+		ft_ignore_spaces(line, i);
 		if (line[*i] != ',' && line[*i] != '\n')
 		{
 			destroy_all(c);

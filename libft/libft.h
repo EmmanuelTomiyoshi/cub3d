@@ -96,6 +96,7 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 int				ft_lstcount_nodes(t_list *lst);
 void			ft_free_int_array(int **my_array, int count);
 void			ft_free_array(char **array);
+void			ft_ignore_spaces(char *line, int *i);
 
 char			*get_next_line(int fd);
 

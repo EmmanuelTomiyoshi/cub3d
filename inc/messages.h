@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:01:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 23:46:53 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:33:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define MSG_MANY_ARGS "Too many arguments"
 # define MSG_INVALID_FILE "File is invalid\n"
 # define MSG_INVALID_FILE_FORMAT "File format is invalid\n"
-# define MSG_ERR_FILENAME "Map filename is invalid"
+# define MSG_ERR_FILENAME "Map filename or path is invalid"
 # define MSG_ERR_MLX_INIT "Error at mlx init. Please try again\n"
 # define MSG_ERR_OPEN_FILE "Map has wrongs permissions or doesn't exist\n"
 # define MSG_ERR_TYPE_ID "invalid coordinate/floor/ceiling"

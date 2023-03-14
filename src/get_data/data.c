@@ -6,26 +6,20 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/14 00:01:12 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:30:15 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ignore_spaces(char *line, int *i)
-{
-	while (line[*i] == ' ')
-		*i += 1;
-}
-
-int	check_type_identifier(char *line, t_cub3d *c)
+static int	check_type_identifier(char *line, t_cub3d *c)
 {
 	int	i;
 	int	id_floor_ceiling;
 	int	id_coordinate;
 
 	i = 0;
-	ignore_spaces(line, &i);
+	ft_ignore_spaces(line, &i);
 	if (line[i] == '\n')
 		return (0);
 	id_floor_ceiling = is_floor_or_ceiling(line[i]);

@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/13 18:04:21 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/14 00:26:21 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,10 @@ FILES				=	destroy.c				\
 						map_utils.c				\
 						bresenham.c				\
 						dda/dda.c				\
+						draw/draw.c				\
 						dda/init.c				\
+						color/itorgb.c			\
+						get_data/validations.c	\
 						mlx.c					\
 						menu.c					\
 						rotate.c				\
@@ -70,6 +73,8 @@ $(REQUIRED_DIRS):
 	mkdir -p $@dda
 	mkdir -p $@get_data
 	mkdir -p $@player
+	mkdir -p $@draw
+	mkdir -p $@color
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@echo -n "$(COLOR_YELLOW)Compiling $(COLOR_WHITE)$$(( $(PROGRESS) * 100 / $(NUMBER_SRC_FILES)))%\r"

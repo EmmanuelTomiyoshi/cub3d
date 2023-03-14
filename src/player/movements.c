@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 00:03:11 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:30:52 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	movements(t_cub3d *c)
+{
+	if (c->player.move_backwards)
+		walk_backwards(c);
+	if (c->player.move_foward)
+		walk_forward(c);
+	if (c->player.move_left)
+		walk_left(c);
+	if (c->player.move_right)
+		walk_right(c);
+}
 
 void	walk_left(t_cub3d *c)
 {
@@ -44,7 +56,7 @@ void	walk_forward(t_cub3d *c)
 		c->player.pos.x = temp_pos.x;
 }
 
-void	walk_backward(t_cub3d *c)
+void	walk_backwards(t_cub3d *c)
 {
 	t_vector	temp_dir;
 	t_vector	temp_pos;

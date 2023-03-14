@@ -6,18 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 00:01:14 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:28:53 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	is_coordinate(int c)
-{
-	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
-		return (c);
-	return (-1);
-}
 
 void	get_path(int id, char *path, t_cub3d *c)
 {
@@ -45,7 +38,7 @@ void	get_coordinates(char *line, int *i, int id, t_cub3d *c)
 	path = ft_calloc(255, sizeof(char));
 	j = 0;
 	*i += 1;
-	ignore_spaces(line, i);
+	ft_ignore_spaces(line, i);
 	while (line[*i] != ' ' && line[*i] != '\n')
 	{
 		path[j] = line[*i];

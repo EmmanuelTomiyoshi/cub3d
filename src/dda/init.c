@@ -6,13 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 16:10:31 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:20:52 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_step_xy(t_cub3d *c)
+static void	init_step_xy(t_cub3d *c)
 {
 	if (c->dda.raydir.x < 0)
 		c->dda.step.x = -1;

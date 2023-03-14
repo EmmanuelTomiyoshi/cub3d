@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 23:13:43 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:30:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int			end_loop(t_cub3d *c);
 t_bool		is_valid_file_extension(char *filename);
 
 //get_data.c
-void		ignore_spaces(char *line, int *i);
 void		get_data(t_cub3d *c);
 
 //get_coordinates.c
@@ -101,8 +100,9 @@ int			get_rgb(int r, int g, int b);
 void		init_dist_to_side(t_cub3d *c);
 void		init_camera(t_cub3d *c);
 void		init_raydir_and_delta(t_cub3d *c);
-void		init_step_xy(t_cub3d *c);
 void		init_perpendicular(t_cub3d *c);
+
+void	itorgb(int color, t_rgb *result);
 
 ///dda/dda.c
 int			draw(t_cub3d *c);
@@ -117,7 +117,7 @@ int			key_release(int keycode, t_cub3d *c);
 //movements.c
 void		walk_left(t_cub3d *c);
 void		walk_forward(t_cub3d *c);
-void		walk_backward(t_cub3d *c);
+void		walk_backwards(t_cub3d *c);
 void		walk_right(t_cub3d *c);
 
 //camera.c
@@ -127,11 +127,14 @@ void		change_camera_speed(double x, double y, t_cub3d *c);
 void		camera_move(int keycode, double x, double y, t_cub3d *c);
 
 void		blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
-void		itorgb(int color, t_rgb *result);
 
 int			mouse_callback(int button, int x, int y, t_cub3d *c);
 int			draw_button(t_button button, t_cub3d *c);
 
 int			show_menu(t_cub3d *c);
+void		dda(t_cub3d *c);
+void		raycasting(t_cub3d *c, int pixel);
+void		movements(t_cub3d *c);
+void		camera(t_cub3d *c);
 
 #endif
