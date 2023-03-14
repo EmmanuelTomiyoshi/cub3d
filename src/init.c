@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 16:20:14 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:12:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,18 @@ static void	map_and_player(char *file, t_cub3d *c)
 	itorgb(0, &c->map.foreground);
 }
 
+static void	textures(t_cub3d *c)
+{
+	c->mlx.ea_tex = (t_texture){0};
+	c->mlx.so_tex = (t_texture){0};
+	c->mlx.no_tex = (t_texture){0};
+	c->mlx.we_tex = (t_texture){0};
+}
+
 void	init(char **argv, t_cub3d *c)
 {
 	map_and_player(argv[1], c);
+	textures(c);
 	mlx(c);
 	square_colors(c);
 	menu(c);

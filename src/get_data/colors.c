@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 00:28:45 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:29:18 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "defines.h"
 
 void	get_color_value(int id, char **rgb, t_cub3d *c)
 {
@@ -73,6 +74,7 @@ void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 		ft_ignore_spaces(line, i);
 		if (line[*i] != ',' && line[*i] != '\n')
 		{
+			ft_free_array(rgb);
 			destroy_all(c);
 			exit_error(MSG_ERR_TYPE_ID, FALSE);
 		}
@@ -82,12 +84,30 @@ void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 	rgb[j] = NULL;
 }
 
+void	check_color_value(char **rgb, t_cub3d *c)
+{
+	int	i;
+
+	i = 0;
+	while (rgb[i])
+	{
+		if (!rgb[i][0])
+		{
+			ft_free_array(rgb);
+			destroy_all(c);
+			exit_error(MSG_ERR_MISSING_RGB, FALSE);
+		}
+		i++;
+	}
+}
+
 void	get_colors(char *line, int *i, int id, t_cub3d *c)
 {
 	char	**rgb;
 
 	rgb = init_rgb(line, i);
 	handle_rgb(rgb, line, i, c);
+	check_color_value(rgb, c);
 	if (ft_atoi(rgb[0]) > 255 || ft_atoi(rgb[1]) > 255 || ft_atoi(rgb[2]) > 255)
 	{
 		ft_free_array(rgb);
