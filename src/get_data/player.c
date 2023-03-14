@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_player_data.c                                  :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 00:03:05 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:47:41 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	get_player_data(t_cub3d *c, int x, int y)
 	c->player.move_backwards = FALSE;
 	c->player.move_left = FALSE;
 	c->player.move_right = FALSE;
+	c->player.run = FALSE;
 	rotate_player(c, x, y);
 	c->map.map[x][y] = '8';
 }

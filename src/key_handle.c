@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/14 12:34:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:54:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	key_press(int keycode, t_cub3d *c)
 		c->player.look_left = TRUE;
 	else if (keycode == KEY_ARROW_RIGHT)
 		c->player.look_right = TRUE;
+	else if (keycode == KEY_SHIFT)
+		c->player.run = TRUE;
 	else if (keycode == KEY_F11)
 		change_win_size(1024, 768, c);
 	return (0);
@@ -87,5 +89,10 @@ int	key_release(int keycode, t_cub3d *c)
 		c->player.look_right = FALSE;
 	else if (keycode == KEY_ARROW_LEFT || keycode == KEY_ARROW_RIGHT)
 		camera_move(keycode, 3.14, 356.86, c);
+	else if (keycode == KEY_SHIFT)
+	{
+		c->player.run = FALSE;
+		c->player.speed = DEFAULT_SPEED;
+	}
 	return (0);
 }

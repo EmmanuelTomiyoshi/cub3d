@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 12:33:53 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:59:21 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ typedef struct s_player
 	t_bool		move_backwards;
 	t_bool		look_right;
 	t_bool		look_left;
+	t_bool		run;
+	float		speed;
 }	t_player;
 
 typedef struct s_line
@@ -166,24 +168,22 @@ typedef struct s_cub3d
 	t_temp		temp;
 }	t_cub3d;
 
-# define WIN_NAME "cub3d"
-# define WIDTH 1080
-# define HEIGHT 720
-# define LEFT_CLICK 1
-# define MOUSE_RELEASE 0
-# define OPEN_BRACKET 93
-# define CLOSED_BRACKET 92
-# define LIGHT_BLUE	10735345
-# define DARK_BLUE 6330042
-# define DARK_GREEN 2090042
-# define AQUA 1947813
-# define MARINE_BLUE 791333
-# define MENU_OPACITY 0.25
-# define BTN_FULLSCREEN 0
-# define BTN_CROSSHAIR 1
-# define COLOR_THRESHOLD_MAX 224
-# define COLOR_THRESHOLD_MIN 64
-# define ADD_LIGHT 0.10
-# define SUB_LIGHT -0.10
+# define WIN_NAME 				"cub3d"
+# define WIDTH 					1080
+# define HEIGHT 				720
+# define LIGHT_BLUE				10735345
+# define DARK_BLUE 				6330042
+# define DARK_GREEN 			2090042
+# define AQUA 					1947813
+# define MARINE_BLUE 			791333
+# define MENU_OPACITY 			0.25
+# define BTN_FULLSCREEN			0
+# define BTN_CROSSHAIR 			1
+# define COLOR_THRESHOLD_MAX 	224
+# define COLOR_THRESHOLD_MIN 	64
+# define SPEED_THRESHOLD		0.16
+# define ADD_LIGHT 				0.10
+# define SUB_LIGHT 				-0.10
+# define DEFAULT_SPEED 			0.032
 
 #endif

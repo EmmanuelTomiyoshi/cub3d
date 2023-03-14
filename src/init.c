@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 12:25:24 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:54:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static void	map_and_player(char *file, t_cub3d *c)
 	c->player.camera.speed.x = 3.14;
 	c->player.camera.speed.y = 356.86;
 	c->hovering = FALSE;
+	c->player.speed = DEFAULT_SPEED;
 	itorgb(0, &c->map.foreground);
 }
 
