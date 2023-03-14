@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:55:39 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 05:21:19 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:18:47 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,5 @@ void	init_map(t_cub3d *c, char *one_line)
 	verify_map(c);
 	i = 0;
 	while (c->map.map[i])
-	{
-		printf("%s\n", c->map.map[i]);
 		i++;
-	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 15:50:36 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:19:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ typedef struct s_player
 	t_bool		move_backwards;
 	t_bool		look_right;
 	t_bool		look_left;
+	t_bool		run;
+	float		speed;
 }	t_player;
 
 typedef struct s_line
@@ -125,6 +127,7 @@ typedef struct s_map
 	t_rgb	c_cube2;
 	t_rgb	floor;
 	t_rgb	ceiling;
+	t_rgb	foreground;
 	char	*file;
 	char	**map;
 	char	*ea_path;
@@ -176,15 +179,24 @@ typedef struct s_cub3d
 	t_temp		temp;
 }	t_cub3d;
 
-# define WIN_NAME "cub3d"
-# define WIDTH 1080
-# define HEIGHT 720
-# define LEFT_CLICK 1
-# define MOUSE_RELEASE 0
-# define LIGHT_BLUE	10735345
-# define DARK_BLUE 6330042
-# define DARK_GREEN 2090042
-# define AQUA 1148029
-# define MENU_OPACITY 0.25
+# define WIN_NAME 				"cub3d"
+# define WIDTH 					1080
+# define HEIGHT 				720
+# define LIGHT_BLUE				10735345
+# define DARK_BLUE 				6330042
+# define DARK_GREEN 			2090042
+# define AQUA 					1947813
+# define MARINE_BLUE 			791333
+# define MENU_OPACITY 			0.25
+# define BTN_FULLSCREEN			0
+# define BTN_CROSSHAIR 			1
+# define COLOR_THRESHOLD_MAX 	224
+# define COLOR_THRESHOLD_MIN 	64
+# define SPEED_THRESHOLD		0.16
+# define ADD_LIGHT 				0.10
+# define SUB_LIGHT 				-0.10
+# define DEF_PLAYER_SPEED 		0.032
+# define DEF_CAM_SPEED_X		1.2799
+# define DEF_CAM_SPEED_Y		358.7201
 
 #endif

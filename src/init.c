@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 15:50:58 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:20:14 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static void	menu(t_cub3d *c)
 		&c->menu.img.endian);
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
-	get_btn_pos(&c->menu.fullscreen, 711, 389);
-	get_btn_pos(&c->menu.crosshair, 711, 487);
-	get_btn_size(&c->menu.fullscreen, 144, 45);
-	get_btn_size(&c->menu.crosshair, 144, 45);
+	get_btn_pos(&c->menu.fullscreen, 790, 389);
+	get_btn_pos(&c->menu.crosshair, 790, 477);
+	get_btn_size(&c->menu.fullscreen, 220, 45);
+	get_btn_size(&c->menu.crosshair, 220, 45);
 }
 
 static void	mlx(t_cub3d *c)
@@ -73,9 +73,11 @@ static void	map_and_player(char *file, t_cub3d *c)
 	c->map.no_path = NULL;
 	c->dda.pixel = 0;
 	c->dda.perpendicular = 0;
-	c->player.camera.speed.x = 3.14;
-	c->player.camera.speed.y = 356.86;
+	c->player.camera.speed.x = DEF_CAM_SPEED_X;
+	c->player.camera.speed.y = DEF_CAM_SPEED_Y;
 	c->hovering = FALSE;
+	c->player.speed = DEF_PLAYER_SPEED;
+	itorgb(0, &c->map.foreground);
 }
 
 void	init(char **argv, t_cub3d *c)

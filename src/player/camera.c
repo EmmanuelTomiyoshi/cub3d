@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:01:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 00:15:21 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:18:58 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ void	camera(t_cub3d *c)
 		look_right(c);
 }
 
-void	camera_move(int keycode, double x, double y, t_cub3d *c)
+t_bool	check_speed(double x, t_cub3d *c)
 {
-	change_camera_speed(x, y, c);
-	if (keycode == KEY_ARROW_LEFT)
-		look_left(c);
-	if (keycode == KEY_ARROW_RIGHT)
-		look_right(c);
+	if (c->player.camera.speed.x + x > 1 && c->player.camera.speed.x + x < 11)
+		return (TRUE);
+	return (FALSE);
 }
 
-void	change_camera_speed(double x, double y, t_cub3d *c)
+void	camera_speed(double x, double y, t_cub3d *c)
 {
-	c->player.camera.speed.x = x;
-	c->player.camera.speed.y = y;
+	if (check_speed(x, c) == FALSE)
+		return ;
+	c->player.camera.speed.x += x;
+	c->player.camera.speed.y += y;
 }
 
 void	look_left(t_cub3d *c)
