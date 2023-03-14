@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bresenham.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:03:24 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/09 13:59:51 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:03:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	lower_slope(t_line *l, t_cub3d *c, int color)
 		o = -1;
 	else
 		o = 1;
-	my_pixel_put(c, l->start_x, l->start_y, color);
+	my_pixel_put(&c->mlx.img, l->start_x, l->start_y, color);
 	d = (2 * fabs((double)l->dy)) - fabs((double)l->dx);
 	while (++i < fabs((double)l->dx))
 	{
@@ -35,7 +35,7 @@ static void	lower_slope(t_line *l, t_cub3d *c, int color)
 			l->start_y = l->start_y + o;
 			d = d + (2 * fabs((double)l->dy)) - (2 * fabs((double)l->dx));
 		}
-		my_pixel_put(c, l->start_x, l->start_y, color);
+		my_pixel_put(&c->mlx.img, l->start_x, l->start_y, color);
 	}
 }
 
@@ -50,7 +50,7 @@ static void	bigger_slope(t_line *l, t_cub3d *c, int color)
 		o = -1;
 	else
 		o = 1;
-	my_pixel_put(c, l->start_x, l->start_y, color);
+	my_pixel_put(&c->mlx.img, l->start_x, l->start_y, color);
 	d = (2 * fabs((double)l->dx) - fabs((double)l->dy));
 	while (++i < fabs((double)l->dy))
 	{
@@ -62,7 +62,7 @@ static void	bigger_slope(t_line *l, t_cub3d *c, int color)
 			l->start_x = l->start_x + 1;
 			d = d + (2 * fabs((double)l->dx)) - (2 * fabs((double)l->dy));
 		}
-		my_pixel_put(c, l->start_x, l->start_y, color);
+		my_pixel_put(&c->mlx.img, l->start_x, l->start_y, color);
 	}
 }
 

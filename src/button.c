@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 21:27:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:14:31 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	draw_button(t_button button, t_cub3d *c)
 		j = 0;
 		while (j < button.height)
 		{
-			my_pixel_put(c, i + button.x, j + button.y, RED_PANTONE);
+			my_pixel_put(&c->mlx.img, i + button.x, j + button.y, RED_PANTONE);
 			j++;
 		}
 		i++;
@@ -37,7 +37,10 @@ int	draw_button(t_button button, t_cub3d *c)
 t_bool	clickable(t_button btn, int x, int y)
 {
 	if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height)
+	{
+		printf(YELLOW"is clickable\n"RESET);
 		return (TRUE);
+	}
 	return (FALSE);
 }
 

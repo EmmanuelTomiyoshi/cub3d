@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 21:24:25 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:04:41 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,19 @@ typedef struct s_button
 	t_bool	hover;
 }	t_button;
 
+typedef struct s_image
+{
+	void		*image;
+	void		*original;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}	t_image;
+
 typedef struct s_menu
 {
+	t_image		img;
 	t_bool		active;
 	t_button	fullscreen;
 	t_button	crosshair;
@@ -120,16 +131,6 @@ typedef struct s_map
 	char	*so_path;
 	char	*no_path;
 }	t_map;
-
-typedef struct s_image
-{
-	void		*image;
-	void		*original;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-}	t_image;
 
 typedef struct s_win
 {

@@ -6,12 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 20:18:46 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:11:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "libft.h"
 
 void	background(t_cub3d *c)
 {
@@ -108,12 +107,5 @@ int	draw(t_cub3d *c)
 	}
 	c->dda.pixel = 0;
 	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.image, 0, 0);
-	// draw_button(c);
-	// if (c->menu == TRUE)
-	// {
-	// 	mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, "10x20");
-	// 	mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, 486, 64, 0x0FFFF00, "CUB3D MENU");
-	// 	c->menu = FALSE;
-	// }
 	return (0);
 }
