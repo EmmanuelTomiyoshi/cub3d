@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 09:33:37 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:41:11 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void	alpha_blending(t_cub3d *c)
 	t_rgb	fg;
 	t_rgb	bg;
 	t_rgb	result;
-	
+
 	fg.r = 255;
 	fg.g = 0;
 	fg.b = 0;
-	
+
 	bg.r = 255;
 	bg.g = 255;
 	bg.b = 255;
-	
+
 	blend(fg, bg, 0.5, &result);
 	printf("Resulting color: (%d, %d, %d)\n", result.r, result.g, result.b);
 }

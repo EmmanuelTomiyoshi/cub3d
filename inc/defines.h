@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 09:48:21 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:00:39 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,19 @@ typedef struct s_win
 	int		height;
 }	t_win;
 
+typedef struct s_texture
+{
+	t_image	img;
+	int		width;
+	int		height;
+}	t_texture;
+
 typedef struct s_mlx
 {
+	t_texture	ea_tex;
+	t_texture	so_tex;
+	t_texture	no_tex;
+	t_texture	we_tex;
 	t_image		img;
 	t_win		win;
 	void		*ptr;

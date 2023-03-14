@@ -1,9 +1,9 @@
 C           39,      76,       119
-NO ./path_to_the_north_texture
+NO ./src/textures/BRICK_3D.xpm
 F           231,      236,      239
-WE         ./path_to_the_west_texture
-SO ./path_to_the_south_texture
-EA ./path_to_the_east_texture
+WE         ./src/textures/BRICK_3D.xpm
+SO ./src/textures/BRICK_3D.xpm
+EA ./src/textures/BRICK_3D.xpm
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001
