@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 19:21:36 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:24:40 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ int	key_press(int keycode, t_cub3d *c)
 
 int	key_release(int keycode, t_cub3d *c)
 {
-	// if (keycode == KEY_ESC)
-	// 	end_loop(c);
 	if (keycode == KEY_A)
 		c->player.move_left = FALSE;
 	else if (keycode == KEY_W)

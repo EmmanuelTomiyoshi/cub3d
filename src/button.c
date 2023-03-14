@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 20:18:21 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:27:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	draw_button(t_button button, t_cub3d *c)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < button.width)
@@ -28,10 +28,11 @@ int	draw_button(t_button button, t_cub3d *c)
 		}
 		i++;
 	}
-	// mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, FONT_10X20);
-	// mlx_string_put(c->mlx.ptr, c->mlx.win.ptr, button.x, button.y, color, "EXIT");
 	return (0);
 }
+// mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, FONT_10X20);
+// mlx_string_put(c->mlx.ptr,
+//		c->mlx.win.ptr, button.x, button.y, color, "EXIT");
 
 t_bool	clickable(t_button btn, int x, int y)
 {
@@ -60,4 +61,3 @@ int	mouse_callback(int button, int x, int y, t_cub3d *c)
 	}
 	return (0);
 }
-

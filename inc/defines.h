@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 19:58:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:24:25 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,23 @@ typedef enum e_bool
 
 typedef struct s_button
 {
-    int x;
-    int y;
-    int width;
-    int height;
-    // int color_active;
-    // int color_normal;
-    // t_bool  hover;
-}   t_button;
+	int		x;
+	int		y;
+	int		width;
+	int		height;
+	int		color_active;
+	int		color_normal;
+	t_bool	hover;
+}	t_button;
 
 typedef struct s_menu
 {
 	t_bool		active;
-    t_button    fullscreen;
+	t_button	fullscreen;
 	t_button	crosshair;
-}   t_menu;
+}	t_menu;
 
-
-typedef struct	s_rgb
+typedef struct s_rgb
 {
 	int	r;
 	int	g;
@@ -65,10 +64,10 @@ typedef struct s_dda
 	t_vector	to_side;
 	t_vector	step;
 	t_vector	raydir;
-	int			pixel;
 	t_vector	line_size;
-	t_hit		hit;
 	t_vector	wall_pos;
+	t_hit		hit;
+	int			pixel;
 	double		perpendicular;
 }	t_dda;
 
@@ -155,8 +154,6 @@ typedef struct s_cub3d
 	t_dda		dda;
 	t_player	player;
 	t_menu		menu;
-
-	//
 	t_bool		hovering;
 }	t_cub3d;
 

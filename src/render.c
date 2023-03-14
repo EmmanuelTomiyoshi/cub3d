@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 20:18:33 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:27:59 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	alpha_blending(t_cub3d *c)
 	t_rgb	fg;
 	t_rgb	bg;
 	t_rgb	result;
-	
+
 	fg.r = 255;
 	fg.g = 0;
 	fg.b = 0;
