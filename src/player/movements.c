@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 00:30:52 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:52:08 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	walk_left(t_cub3d *c)
 	temp_pos.x = c->player.pos.x + temp_dir.x * 0.05;
 	temp_pos.y = c->player.pos.y + temp_dir.y * 0.05;
 	temp_y = c->player.pos.y;
-	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y)] == '8')
+	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y + \
+		temp_dir.y * 0.15)] == '8')
 		c->player.pos.y = temp_pos.y;
-	if (c->map.map[(int)floor(temp_pos.x)][(int)floor(temp_y)] == '8')
+	if (c->map.map[(int)floor(temp_pos.x + \
+		temp_dir.x * 0.15)][(int)floor(temp_y)] == '8')
 		c->player.pos.x = temp_pos.x;
 }
 
@@ -50,9 +52,11 @@ void	walk_forward(t_cub3d *c)
 	temp_pos.x = c->player.pos.x + c->player.dir.x * 0.05;
 	temp_pos.y = c->player.pos.y + c->player.dir.y * 0.05;
 	temp_y = c->player.pos.y;
-	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y)] == '8')
+	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y + \
+		c->player.dir.y * 0.15)] == '8')
 		c->player.pos.y = temp_pos.y;
-	if (c->map.map[(int)floor(temp_pos.x)][(int)floor(temp_y)] == '8')
+	if (c->map.map[(int)floor(temp_pos.x + \
+		c->player.dir.x * 0.15)][(int)floor(temp_y)] == '8')
 		c->player.pos.x = temp_pos.x;
 }
 
@@ -68,9 +72,11 @@ void	walk_backwards(t_cub3d *c)
 	temp_pos.x = c->player.pos.x + temp_dir.x * 0.05;
 	temp_pos.y = c->player.pos.y + temp_dir.y * 0.05;
 	temp_y = c->player.pos.y;
-	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y)] == '8')
+	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y + \
+		temp_dir.y * 0.15)] == '8')
 		c->player.pos.y = temp_pos.y;
-	if (c->map.map[(int)floor(temp_pos.x)][(int)floor(temp_y)] == '8')
+	if (c->map.map[(int)floor(temp_pos.x + \
+		temp_dir.y * 0.15)][(int)floor(temp_y)] == '8')
 		c->player.pos.x = temp_pos.x;
 }
 
@@ -86,8 +92,10 @@ void	walk_right(t_cub3d *c)
 	temp_pos.x = c->player.pos.x + temp_dir.x * 0.05;
 	temp_pos.y = c->player.pos.y + temp_dir.y * 0.05;
 	temp_y = c->player.pos.y;
-	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y)] == '8')
+	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y +
+		temp_dir.y * 0.15)] == '8')
 		c->player.pos.y = temp_pos.y;
-	if (c->map.map[(int)floor(temp_pos.x)][(int)floor(temp_y)] == '8')
+	if (c->map.map[(int)floor(temp_pos.x + \
+		temp_dir.x * 0.15)][(int)floor(temp_y)] == '8')
 		c->player.pos.x = temp_pos.x;
 }

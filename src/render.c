@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:42:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 10:30:18 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:51:12 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,32 @@ int	handle_mouse(int x, int y, t_cub3d *c)
 		look_right(c);
 	prev = x;
 	return (0);
+}
+
+void	blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result)
+{
+	result->r = fg.r * opacity + bg.r * (1 - opacity);
+	result->g = fg.g * opacity + bg.g * (1 - opacity);
+	result->b = fg.b * opacity + bg.b * (1 - opacity);
+}
+
+void	alpha_blending(t_cub3d *c)
+{
+	(void)c;
+	t_rgb	fg;
+	t_rgb	bg;
+	t_rgb	result;
+
+	fg.r = 255;
+	fg.g = 0;
+	fg.b = 0;
+
+	bg.r = 255;
+	bg.g = 255;
+	bg.b = 255;
+
+	blend(fg, bg, 0.5, &result);
+	printf("Resulting color: (%d, %d, %d)\n", result.r, result.g, result.b);
 }
 
 void	loop(t_cub3d *c)

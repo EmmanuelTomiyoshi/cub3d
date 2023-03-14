@@ -3,44 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 00:22:10 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:37:09 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/08 19:47:01 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/14 15:51:34 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	itorgb(int color, t_rgb *result)
+void	my_pixel_put(t_cub3d *c, int x, int y, int color)
 {
-	result->r = (color >> 16) & 0xFF;
-	result->g = (color >> 8) & 0xFF;
-	result->b = color & 0xFF;
+	char	*dst;
+
+	if (x <= c->mlx.win.width && y <= c->mlx.win.height && y >= 0 && x >= 0)
+	{
+		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + x
+				* (c->mlx.img.bits_per_pixel) / 8);
+		*(unsigned int *) dst = color;
+	}
 }
 
-void	blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result)
+void	improved_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
-	result->r = fg.r * opacity + bg.r * (1 - opacity);
-	result->g = fg.g * opacity + bg.g * (1 - opacity);
-	result->b = fg.b * opacity + bg.b * (1 - opacity);
-}
+	char	*dest;
 
-void	alpha_blending(t_cub3d *c)
-{
-	t_rgb	fg;
-	t_rgb	bg;
-	t_rgb	result;
-
-	(void)c;
-	fg.r = 255;
-	fg.g = 0;
-	fg.b = 0;
-	bg.r = 255;
-	bg.g = 255;
-	bg.b = 255;
-	blend(fg, bg, 0.5, &result);
-	printf("Resulting color: (%d, %d, %d)\n", result.r, result.g, result.b);
+	dest = img->addr;
+	dest += (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dest = color;
 }
 
 int	get_rgb(int r, int g, int b)
