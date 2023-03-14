@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_data.c                                         :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 20:00:51 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:01:12 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,29 @@ int	check_type_identifier(char *line, t_cub3d *c)
 
 void	get_data(t_cub3d *c)
 {
-	char	*line;
 	char	*one_line;
 
 	c->map.infos = 0;
 	while (c->map.infos != 6)
 	{
-		line = get_next_line(c->map.fd);
-		if (check_type_identifier(line, c) == 1)
+		c->temp.line = get_next_line(c->map.fd);
+		if (c->temp.line == NULL)
+		{
+			destroy_all(c);
+			exit_error(MSG_ERR_EMPTY_FILE, FALSE);
+		}
+		if (check_type_identifier(c->temp.line, c) == 1)
 			c->map.infos++;
-		free(line);
+		free(c->temp.line);
 	}
-	line = get_next_line(c->map.fd);
+	c->temp.line = get_next_line(c->map.fd);
 	one_line = ft_strdup("");
-	while (line)
+	while (c->temp.line)
 	{
-		one_line = ft_merge(one_line, line);
-		free(line);
-		line = get_next_line(c->map.fd);
+		one_line = ft_merge(one_line, c->temp.line);
+		free(c->temp.line);
+		c->temp.line = get_next_line(c->map.fd);
 	}
-	free(line);
+	free(c->temp.line);
 	init_map(c, one_line);
 }

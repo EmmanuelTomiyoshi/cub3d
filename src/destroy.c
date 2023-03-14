@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/12 18:47:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:57:59 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	destroy_all(t_cub3d *c)
 	free_file_data(c);
 	free(c->mlx.ptr);
 	free(c->map.file);
+	if (c->temp.line)
+		free(c->temp.line);
 	if (c->map.file)
 		ft_free_array(c->map.map);
 }
