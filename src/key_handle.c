@@ -6,12 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/14 14:48:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:18:26 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
 
 t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 {
@@ -20,7 +19,6 @@ t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 	blend(fg, color, opacity, &color);
 	brightness = sqrt(0.299 * pow(color.r, 2) + 0.587 * pow(color.g, 2)
 	+ 0.114 * pow(color.b, 2));
-	printf("%d\n", brightness);
 	if (brightness < COLOR_THRESHOLD_MAX && brightness > COLOR_THRESHOLD_MIN)
 		return (TRUE);
 	return (FALSE);

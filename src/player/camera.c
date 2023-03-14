@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:01:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 15:00:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:18:58 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	camera_speed(double x, double y, t_cub3d *c)
 		return ;
 	c->player.camera.speed.x += x;
 	c->player.camera.speed.y += y;
-	printf("%f | %f\n", c->player.camera.speed.x, c->player.camera.speed.y);
 }
 
 void	look_left(t_cub3d *c)

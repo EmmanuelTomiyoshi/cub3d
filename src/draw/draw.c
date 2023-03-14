@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 11:59:30 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:12:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,6 @@ static void	background(t_cub3d *c)
 
 int	draw(t_cub3d *c)
 {
-	background(c);
-	movements(c);
-	camera(c);
-	while (c->dda.pixel < c->mlx.win.width)
-	{
-		init_camera(c);
-		init_raydir_and_delta(c);
-		init_dist_to_side(c);
-		dda(c);
-		init_perpendicular(c);
-		raycasting(c, c->dda.pixel);
-		c->dda.pixel++;
-	}
-	c->dda.pixel = 0;
 	if (c->menu.active)
 	{
 		draw_button(c->menu.fullscreen, c);
@@ -55,6 +41,22 @@ int	draw(t_cub3d *c)
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.img.ptr, 0, 0);
 	}
 	else
+	{
+		background(c);
+		movements(c);
+		camera(c);
+		while (c->dda.pixel < c->mlx.win.width)
+		{
+			init_camera(c);
+			init_raydir_and_delta(c);
+			init_dist_to_side(c);
+			dda(c);
+			init_perpendicular(c);
+			raycasting(c, c->dda.pixel);
+			c->dda.pixel++;
+		}
+		c->dda.pixel = 0;
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
+	}
 	return (0);
 }
