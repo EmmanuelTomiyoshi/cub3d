@@ -3,47 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/14 16:26:55 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:38:03 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void    draw_texture(t_cub3d *c, int pixel, int wall_line_height)
+void	draw_texture(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
 {
-    char    *dst;
-    int    draw_start = -wall_line_height / 2 + c->mlx.win.height / 2;
-    if (draw_start < 0)
-        draw_start = 0;
-    int draw_end = wall_line_height / 2 + c->mlx.win.height / 2;
-    if (draw_end >= c->mlx.win.height)
-        draw_end = c->mlx.win.height - 1;
-    double wallX;
-    if (c->dda.hit.side == 0)
-        wallX = c->player.pos.y + c->dda.perpendicular + c->dda.raydir.y;
-    else
-        wallX = c->player.pos.x + c->dda.perpendicular + c->dda.raydir.x;
-    wallX -= floor((wallX));
-    int texX = (int)(wallX * (double)c->mlx.ea_tex.width);
-    if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-        texX = c->mlx.ea_tex.width - texX - 1;
-    if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-        texX = c->mlx.ea_tex.width - texX - 1;
-    double step = 1 * (double)c->mlx.ea_tex.height / wall_line_height;
-    double texPos = (draw_start - (double) c->mlx.win.height / 2 + (double) wall_line_height / 2) * step;
-    for (int y = draw_start; y < draw_end; y++)
-    {
-        int texY = (int)texPos & ((int)c->mlx.ea_tex.height - 1);
-        texPos += step;
-        unsigned int color = *(unsigned int *)(c->mlx.ea_tex.img.addr + (texY * c->mlx.ea_tex.img.line_length + texX
-                * (c->mlx.ea_tex.img.bits_per_pixel) / 8));
-        dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
-                * (c->mlx.img.bits_per_pixel) / 8);
-        *(unsigned int *) dst = color;
-    }
+	char			*dst;
+	t_vector		tex;
+	t_vector		pos;
+	unsigned int	color;
+	int				y;
+
+	tex.x = (double)(wall.x * (double)c->mlx.ea_tex.width);
+	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
+		tex.x = c->mlx.ea_tex.width - tex.x - 1;
+	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
+		tex.x = c->mlx.ea_tex.width - tex.x - 1;
+	pos.y = 1 * (double)c->mlx.ea_tex.height / wall.y;
+	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
+	y = (int)draw.x;
+	while(y < draw.y)
+	{
+		tex.y = (int)pos.x & ((int)c->mlx.ea_tex.height - 1);
+		pos.x += pos.y;
+		color = *(unsigned int *)(c->mlx.ea_tex.img.addr + ((int)tex.y * c->mlx.ea_tex.img.line_length + (int)tex.x
+				* (c->mlx.ea_tex.img.bits_per_pixel) / 8));
+		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
+				* (c->mlx.img.bits_per_pixel) / 8);
+		*(unsigned int *) dst = color;
+		y++;
+	}
+}
+
+void	verify_wall(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
+{
+	if (c->dda.hit.side == 0)
+	{
+		wall.x = c->player.pos.y + c->dda.perpendicular + c->dda.raydir.y;
+		wall.x -= floor((wall.x));
+		if (c->dda.raydir.x < 0)
+			draw_texture_so(c, pixel, wall, draw);
+		else
+			draw_texture_no(c, pixel, wall, draw);
+	}
+	else
+	{
+		wall.x = c->player.pos.x + c->dda.perpendicular + c->dda.raydir.x;
+		wall.x -= floor((wall.x));
+		if (c->dda.raydir.y < 0)
+			draw_texture_we(c, pixel, wall, draw);
+		else
+			draw_texture_ea(c, pixel, wall, draw);
+	}
 }
 
 void	dda(t_cub3d *c)
@@ -72,20 +89,17 @@ void	dda(t_cub3d *c)
 	}
 }
 
-void    raycasting(t_cub3d *c, int pixel)
+void	raycasting(t_cub3d *c, int pixel)
 {
-    int            wall_line_height;
-    //t_vector    point1;
-    //t_vector    point2;
+	t_vector	wall;
+	t_vector	draw;
 
-    wall_line_height = (int) (c->mlx.win.height / c->dda.perpendicular);
-    draw_texture(c, pixel, wall_line_height);
-    /*point1.x = c->mlx.win.width - (double) pixel;
-    point1.y = (double) c->mlx.win.height / 2 - wall_line_height / 2;
-    point2.x = c->mlx.win.width - (double)pixel;
-    point2.y = (double) c->mlx.win.height / 2 + wall_line_height / 2;
-    if (c->dda.hit.side == 0)
-        bresenham(&point1, &point2, c, c->map.cube1);
-    if (c->dda.hit.side == 1)
-        bresenham(&point1, &point2, c, c->map.cube2);*/
+	wall.y = (int) (c->mlx.win.height / c->dda.perpendicular);
+	draw.x = -wall.y / 2 + c->mlx.win.height / 2;
+	if (draw.x < 0)
+		draw.x = 0;
+	draw.y = wall.y / 2 + c->mlx.win.height / 2;
+	if (draw.y >= c->mlx.win.height)
+		draw.y = c->mlx.win.height - 1;
+	verify_wall(c, pixel, wall, draw);
 }
