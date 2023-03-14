@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 11:59:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:55:12 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 
 # include "printf_colors.h"
-# include "display_resolution.h"
 # include "fonts.h"
 # include "defines.h"
 # include "messages.h"
@@ -125,7 +124,7 @@ void		walk_right(t_cub3d *c);
 //camera.c
 void		look_left(t_cub3d *c);
 void		look_right(t_cub3d *c);
-void		change_camera_speed(double x, double y, t_cub3d *c);
+void		camera_speed(double x, double y, t_cub3d *c);
 void		camera_move(int keycode, double x, double y, t_cub3d *c);
 
 void		blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
