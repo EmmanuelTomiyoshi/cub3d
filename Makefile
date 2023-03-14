@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/14 01:25:11 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/14 18:04:25 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ FILES				=	base/destroy.c			\
 						scripts/init.c			\
 						scripts/queue.c			\
 						scripts/dda.c			\
+						scripts/draw_texture.c	\
 						button.c				\
 						change_win_size.c		\
 						init.c					\
