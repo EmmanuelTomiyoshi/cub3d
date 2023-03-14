@@ -6,33 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/13 21:24:40 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:17:17 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	change_win_size(int width, int height, t_cub3d *c)
-{
-	mlx_destroy_image(c->mlx.ptr, c->mlx.img.image);
-	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
-	(void)width;
-	(void)height;
-	c->mlx.win.width = c->mlx.screen_width - 16;
-	c->mlx.win.height = c->mlx.screen_height - 32;
-	c->mlx.win.ptr = mlx_new_window(c->mlx.ptr,
-			c->mlx.win.width,
-			c->mlx.win.height,
-			WIN_NAME);
-	c->mlx.img.image = mlx_new_image(c->mlx.ptr,
-			c->mlx.win.width,
-			c->mlx.win.height);
-	c->mlx.img.addr = mlx_get_data_addr(c->mlx.img.image,
-			&c->mlx.img.bits_per_pixel, &c->mlx.img.line_length,
-			&c->mlx.img.endian);
-	loop(c);
-	return (0);
-}
 
 int	key_press(int keycode, t_cub3d *c)
 {

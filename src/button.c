@@ -6,11 +6,29 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 23:14:31 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:32:03 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	get_btn_pos(t_button *btn, int x, int y)
+{
+	if (!btn)
+		return ;
+	btn->x = x;
+	btn->y = y;
+	if (btn->x)
+		return ;
+}
+
+void	get_btn_size(t_button *btn, int width, int height)
+{
+	if (!btn)
+		return ;
+	btn->width = width;
+	btn->height = height;
+}
 
 int	draw_button(t_button button, t_cub3d *c)
 {
@@ -23,16 +41,13 @@ int	draw_button(t_button button, t_cub3d *c)
 		j = 0;
 		while (j < button.height)
 		{
-			my_pixel_put(&c->mlx.img, i + button.x, j + button.y, RED_PANTONE);
+			my_pixel_put(c, i + button.x, j + button.y, RED_PANTONE);
 			j++;
 		}
 		i++;
 	}
 	return (0);
 }
-// mlx_set_font(c->mlx.ptr, c->mlx.win.ptr, FONT_10X20);
-// mlx_string_put(c->mlx.ptr,
-//		c->mlx.win.ptr, button.x, button.y, color, "EXIT");
 
 t_bool	clickable(t_button btn, int x, int y)
 {

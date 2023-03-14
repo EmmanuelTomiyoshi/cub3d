@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 00:30:46 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:36:44 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <stdio.h>
 # include <mlx.h>
 # include <X11/X.h>
-# include "../libft/libft.h"
+# include "../libs/libft/libft.h"
 
 //destroy.c
 void		destroy_all(t_cub3d *c);
@@ -93,7 +93,7 @@ void		bresenham(t_vector *point1, t_vector *point2, \
 					t_cub3d *c, int color);
 
 //mlx.c
-void		my_pixel_put(t_image *img, int x, int y, int color);
+void		my_pixel_put(t_cub3d *c, int x, int y, int color);
 int			get_rgb(int r, int g, int b);
 
 ///dda/init.c
@@ -102,7 +102,7 @@ void		init_camera(t_cub3d *c);
 void		init_raydir_and_delta(t_cub3d *c);
 void		init_perpendicular(t_cub3d *c);
 
-void	itorgb(int color, t_rgb *result);
+void		itorgb(int color, t_rgb *result);
 
 ///dda/dda.c
 int			draw(t_cub3d *c);
@@ -113,6 +113,8 @@ void		rotate_vector(t_vector *vector, double ang);
 //key_handle.c
 int			key_press(int keycode, t_cub3d *c);
 int			key_release(int keycode, t_cub3d *c);
+
+int			change_win_size(int width, int height, t_cub3d *c);
 
 //movements.c
 void		walk_left(t_cub3d *c);
@@ -136,5 +138,8 @@ void		dda(t_cub3d *c);
 void		raycasting(t_cub3d *c, int pixel);
 void		movements(t_cub3d *c);
 void		camera(t_cub3d *c);
+
+void		get_btn_pos(t_button *btn, int x, int y);
+void		get_btn_size(t_button *btn, int width, int height);
 
 #endif

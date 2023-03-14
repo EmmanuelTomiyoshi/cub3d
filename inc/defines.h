@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/13 23:56:59 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:39:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_button
 
 typedef struct s_image
 {
-	void		*image;
+	void		*ptr;
 	void		*original;
 	char		*addr;
 	int			bits_per_pixel;
