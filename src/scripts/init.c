@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 15:56:09 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:27:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,10 @@ void	init_raydir_and_delta(t_cub3d *c)
 	}
 }
 
-void	init_perpendicular(t_cub3d *c)
+void    init_perpendicular(t_cub3d *c)
 {
-	if (c->dda.hit.side == 0)
-		c->dda.perpendicular = fabs(c->dda.wall_pos.x - c->player.pos.x \
-		+ ((1 - c->dda.step.x) / 2)) / c->dda.raydir.x;
-	else
-		c->dda.perpendicular = fabs(c->dda.wall_pos.y - c->player.pos.y \
-		+ ((1 - c->dda.step.y) / 2)) / c->dda.raydir.y;
+    if (c->dda.hit.side == 0)
+        c->dda.perpendicular = c->dda.line_size.x - c->dda.delta.x;
+    else
+        c->dda.perpendicular = c->dda.line_size.y - c->dda.delta.y;
 }
