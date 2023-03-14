@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:43:40 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:24:52 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ static void	square_colors(t_cub3d *c)
 static void	menu(t_cub3d *c)
 {
 	c->menu.active = FALSE;
+	c->menu.fullscreen.toggle = FALSE;
+	c->menu.crosshair.toggle = FALSE;
+	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
+		"./images/paused.xpm",
+		&c->menu.img.win_width,
+		&c->menu.img.win_height);
+	c->menu.img.addr = mlx_get_data_addr(c->menu.img.ptr,
+		&c->menu.img.bits_per_pixel, &c->menu.img.line_length,
+		&c->menu.img.endian);
+	c->menu.img.win_width = c->mlx.win.width;
+	c->menu.img.win_height = c->mlx.win.height;
 	get_btn_pos(&c->menu.fullscreen, 711, 389);
 	get_btn_pos(&c->menu.crosshair, 711, 487);
 	get_btn_size(&c->menu.fullscreen, 144, 45);
@@ -41,6 +52,8 @@ static void	mlx(t_cub3d *c)
 			&c->mlx.img.endian);
 	c->mlx.win.width = WIDTH;
 	c->mlx.win.height = HEIGHT;
+	c->mlx.img.win_width = WIDTH;
+	c->mlx.img.win_height = HEIGHT;
 	mlx_get_screen_size(c->mlx.ptr,
 		&c->mlx.screen_width, &c->mlx.screen_height);
 }

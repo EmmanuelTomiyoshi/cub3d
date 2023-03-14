@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:46:49 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:46:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	draw_button(t_button button, t_cub3d *c)
 		j = 0;
 		while (j < button.height)
 		{
-			my_pixel_put(c, i + button.x, j + button.y, RED_PANTONE);
+			my_pixel_put(&c->menu.img, i + button.x, j + button.y, AQUA);
 			j++;
 		}
 		i++;
@@ -67,9 +67,9 @@ int	mouse_callback(int button, int x, int y, t_cub3d *c)
 	if (button == LEFT_CLICK)
 	{
 		if (clickable(c->menu.fullscreen, x, y))
-			draw_button(c->menu.fullscreen, c);
+			c->menu.fullscreen.toggle = TRUE;
 		else if (clickable(c->menu.crosshair, x, y))
-			draw_button(c->menu.crosshair, c);
+			c->menu.crosshair.toggle = TRUE;
 	}
 	else if (button == MOUSE_RELEASE)
 	{

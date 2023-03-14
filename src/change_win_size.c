@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 01:17:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:40:05 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:10:31 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int	change_win_size(int width, int height, t_cub3d *c)
 	(void)height;
 	c->mlx.win.width = c->mlx.screen_width - 16;
 	c->mlx.win.height = c->mlx.screen_height - 32;
+	c->menu.img.win_width = c->mlx.screen_width - 16;
+	c->menu.img.win_height = c->mlx.screen_height - 32;
+	c->mlx.img.win_width = c->mlx.screen_width - 16;
+	c->mlx.img.win_height = c->mlx.screen_height - 32;
 	c->mlx.win.ptr = mlx_new_window(c->mlx.ptr,
 			c->mlx.win.width,
 			c->mlx.win.height,

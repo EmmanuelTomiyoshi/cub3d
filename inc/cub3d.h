@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:36:44 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 09:57:24 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void		bresenham(t_vector *point1, t_vector *point2, \
 					t_cub3d *c, int color);
 
 //mlx.c
-void		my_pixel_put(t_cub3d *c, int x, int y, int color);
+void		my_pixel_put(t_image *img, int x, int y, int color);
 int			get_rgb(int r, int g, int b);
 
 ///dda/init.c

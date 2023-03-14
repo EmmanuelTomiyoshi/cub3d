@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:39:46 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:36:11 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,18 @@ typedef struct s_button
 	int		height;
 	int		color_active;
 	int		color_normal;
-	t_bool	hover;
+	t_bool	toggle;
 }	t_button;
 
 typedef struct s_image
 {
 	void		*ptr;
-	void		*original;
 	char		*addr;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
+	int			win_width;
+	int			win_height;
 }	t_image;
 
 typedef struct s_menu
@@ -172,7 +173,7 @@ typedef struct s_cub3d
 # define LIGHT_BLUE	10735345
 # define DARK_BLUE 6330042
 # define DARK_GREEN 2090042
-# define RED_PANTONE 15087942
+# define AQUA 1148029
 # define MENU_OPACITY 0.25
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:40:40 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:49:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ int	draw(t_cub3d *c)
 		c->dda.pixel++;
 	}
 	c->dda.pixel = 0;
-	mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
+	if (c->menu.active)
+	{
+		if (c->menu.fullscreen.toggle)
+			draw_button(c->menu.fullscreen, c);
+		if (c->menu.crosshair.toggle)
+			draw_button(c->menu.crosshair, c);
+		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.img.ptr, 0, 0);
+	}
+	else
+		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
 	return (0);
 }
