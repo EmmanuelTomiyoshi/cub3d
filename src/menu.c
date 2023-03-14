@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:58:53 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:40:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:47:41 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	import_menu_image(t_cub3d *c)
 	c->mlx.img.original = c->mlx.img.ptr;
 	c->mlx.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
 			"./images/paused.xpm", &width, &height);
-	// draw_button(c->menu.fullscreen, c);
-	// draw_button(c->menu.crosshair, c);
 }
+// draw_button(c->menu.fullscreen, c);
+// draw_button(c->menu.crosshair, c);
 
 int	show_menu(t_cub3d *c)
 {
@@ -37,7 +37,6 @@ int	show_menu(t_cub3d *c)
 		mlx_destroy_image(c->mlx.ptr, tmp_img);
 		c->mlx.img.ptr = c->mlx.img.original;
 	}
-	// draw_button(c->menu.fullscreen, c);
 	return (0);
 }
 

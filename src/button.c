@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 01:32:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:46:49 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,13 @@ int	draw_button(t_button button, t_cub3d *c)
 
 t_bool	clickable(t_button btn, int x, int y)
 {
-	if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height)
+	if (x >= btn.x && x <= btn.x + btn.width)
 	{
-		printf(YELLOW"is clickable\n"RESET);
-		return (TRUE);
+		if (y >= btn.y && y <= btn.y + btn.height)
+		{
+			printf(YELLOW"is clickable\n"RESET);
+			return (TRUE);
+		}
 	}
 	return (FALSE);
 }

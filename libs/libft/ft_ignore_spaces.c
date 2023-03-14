@@ -6,13 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:27:10 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 00:27:41 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:48:04 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_ignore_spaces(char *line, int *i)
+void	ft_ignore_spaces(char *line, int *i)
 {
 	while (line[*i] == ' ')
 		*i += 1;
