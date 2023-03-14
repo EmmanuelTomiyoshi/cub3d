@@ -6,12 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 18:31:33 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:15:01 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
 
 void	get_btn_pos(t_button *btn, int x, int y)
 {
@@ -71,8 +70,10 @@ int	mouse_callback(int button, int x, int y, t_cub3d *c)
 {
 	if (button == LEFT_CLICK)
 	{
-		if (clickable(c->menu.fullscreen, x, y))
+		if (clickable(c->menu.fullscreen, x, y) && c->menu.quit.toggle == FALSE)
 			change_win_size(c);
+		// if (clickable(c->menu.quit, x, y))
+		// 	end_loop(c);
 	}
 	// else if (button == MOUSE_RELEASE)
 	// {

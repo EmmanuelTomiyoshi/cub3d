@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 18:05:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:05:54 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_menu
 	t_image		img;
 	t_bool		active;
 	t_button	fullscreen;
+	t_button	quit;
 }	t_menu;
 
 typedef struct s_rgb
