@@ -1,158 +1,81 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_texture.c                                     :+:      :+:    :+:   */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:22:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 12:03:03 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_texture_ea(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
+static unsigned int	return_color(t_image *img, int x, int y)
+{
+	unsigned int	color;
+
+	color = *(unsigned int *)(img->addr + \
+			(y * img->line_length + x * (img->bits_per_pixel) / 8));
+	return (color);
+}
+
+static unsigned int	get_pixel_color(t_cub3d *c, t_draw *draw)
+{
+	unsigned int	color;
+
+	if (c->dda.hit.side == 0)
+	{
+		if (c->dda.raydir.x < 0)
+			color = return_color(&c->mlx.no_tex.img, draw->tex_x, draw->tex_y);
+		else
+			color = return_color(&c->mlx.so_tex.img, draw->tex_x, draw->tex_y);
+	}
+	else
+	{
+		if (c->dda.raydir.y < 0)
+			color = return_color(&c->mlx.we_tex.img, draw->tex_x, draw->tex_y);
+		else
+			color = return_color(&c->mlx.ea_tex.img, draw->tex_x, draw->tex_y);
+	}
+	return (color);
+}
+
+static void	draw_pixel(t_cub3d *c, int pixel, t_draw *draw)
 {
 	char			*dst;
-	t_vector		tex;
-	t_vector		pos;
 	unsigned int	color;
 	int				y;
 
-	tex.x = (double)(wall.x * (double)c->mlx.ea_tex.width);
-	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		tex.x = c->mlx.ea_tex.width - tex.x - 1;
-	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		tex.x = c->mlx.ea_tex.width - tex.x - 1;
-	pos.y = 1 * (double)c->mlx.ea_tex.height / wall.y;
-	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
-	y = (int)draw.x;
-	while(y < draw.y)
+	y = draw->start;
+	while (y < draw->end)
 	{
-		tex.y = (int)pos.x & ((int)c->mlx.ea_tex.height - 1);
-		pos.x += pos.y;
-		color = *(unsigned int *)(c->mlx.ea_tex.img.addr + ((int)tex.y * c->mlx.ea_tex.img.line_length + (int)tex.x
-				* (c->mlx.ea_tex.img.bits_per_pixel) / 8));
-		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
+		draw->tex_y = (int)draw->tex_pos & (c->mlx.ea_tex.height - 1);
+		draw->tex_pos += draw->step;
+		color = get_pixel_color(c, draw);
+		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + \
+				(c->mlx.win.width - pixel) \
 				* (c->mlx.img.bits_per_pixel) / 8);
 		*(unsigned int *) dst = color;
 		y++;
 	}
 }
 
-void	draw_texture_so(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
+void	draw_texture(t_cub3d *c, int pixel, t_draw *draw)
 {
-	char			*dst;
-	t_vector		tex;
-	t_vector		pos;
-	unsigned int	color;
-	int				y;
-
-	tex.x = (double)(wall.x * (double)c->mlx.so_tex.width);
+	if (c->dda.hit.side == 0)
+		draw->wall_x = c->player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
+	else
+		draw->wall_x = c->player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
+	draw->wall_x -= floor((draw->wall_x));
+	draw->tex_x = (double)(draw->wall_x * (double)c->mlx.ea_tex.width);
 	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		tex.x = c->mlx.so_tex.width - tex.x - 1;
+		draw->tex_x = c->mlx.ea_tex.width - draw->tex_x - 1;
 	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		tex.x = c->mlx.so_tex.width - tex.x - 1;
-	pos.y = 1 * (double)c->mlx.so_tex.height / wall.y;
-	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
-	y = (int)draw.x;
-	while(y < draw.y)
-	{
-		tex.y = (int)pos.x & ((int)c->mlx.so_tex.height - 1);
-		pos.x += pos.y;
-		color = *(unsigned int *)(c->mlx.so_tex.img.addr + ((int)tex.y * c->mlx.so_tex.img.line_length + (int)tex.x
-				* (c->mlx.so_tex.img.bits_per_pixel) / 8));
-		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
-				* (c->mlx.img.bits_per_pixel) / 8);
-		*(unsigned int *) dst = color;
-		y++;
-	}
-}
-
-void	draw_texture_no(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
-{
-	char			*dst;
-	t_vector		tex;
-	t_vector		pos;
-	unsigned int	color;
-	int				y;
-
-	tex.x = (double)(wall.x * (double)c->mlx.no_tex.width);
-	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		tex.x = c->mlx.no_tex.width - tex.x - 1;
-	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		tex.x = c->mlx.no_tex.width - tex.x - 1;
-	pos.y = 1 * (double)c->mlx.no_tex.height / wall.y;
-	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
-	y = (int)draw.x;
-	while(y < draw.y)
-	{
-		tex.y = (int)pos.x & ((int)c->mlx.no_tex.height - 1);
-		pos.x += pos.y;
-		color = *(unsigned int *)(c->mlx.no_tex.img.addr + ((int)tex.y * c->mlx.no_tex.img.line_length + (int)tex.x
-				* (c->mlx.no_tex.img.bits_per_pixel) / 8));
-		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
-				* (c->mlx.img.bits_per_pixel) / 8);
-		*(unsigned int *) dst = color;
-		y++;
-	}
-}
-
-void	draw_texture_we(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
-{
-	char			*dst;
-	t_vector		tex;
-	t_vector		pos;
-	unsigned int	color;
-	int				y;
-
-	tex.x = (double)(wall.x * (double)c->mlx.we_tex.width);
-	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		tex.x = c->mlx.we_tex.width - tex.x - 1;
-	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		tex.x = c->mlx.we_tex.width - tex.x - 1;
-	pos.y = 1 * (double)c->mlx.we_tex.height / wall.y;
-	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
-	y = (int)draw.x;
-	while(y < draw.y)
-	{
-		tex.y = (int)pos.x & ((int)c->mlx.we_tex.height - 1);
-		pos.x += pos.y;
-		color = *(unsigned int *)(c->mlx.we_tex.img.addr + ((int)tex.y * c->mlx.we_tex.img.line_length + (int)tex.x
-				* (c->mlx.we_tex.img.bits_per_pixel) / 8));
-		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
-				* (c->mlx.img.bits_per_pixel) / 8);
-		*(unsigned int *) dst = color;
-		y++;
-	}
-}
-
-void	draw_texture(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
-{
-	char			*dst;
-	t_vector		tex;
-	t_vector		pos;
-	unsigned int	color;
-	int				y;
-
-	tex.x = (double)(wall.x * (double)c->mlx.ea_tex.width);
-	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		tex.x = c->mlx.ea_tex.width - tex.x - 1;
-	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		tex.x = c->mlx.ea_tex.width - tex.x - 1;
-	pos.y = 1 * (double)c->mlx.ea_tex.height / wall.y;
-	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
-	y = (int)draw.x;
-	while(y < draw.y)
-	{
-		tex.y = (int)pos.x & ((int)c->mlx.ea_tex.height - 1);
-		pos.x += pos.y;
-		color = *(unsigned int *)(c->mlx.ea_tex.img.addr + ((int)tex.y * c->mlx.ea_tex.img.line_length + (int)tex.x
-				* (c->mlx.ea_tex.img.bits_per_pixel) / 8));
-		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + (c->mlx.win.width - pixel)
-				* (c->mlx.img.bits_per_pixel) / 8);
-		*(unsigned int *) dst = color;
-		y++;
-	}
+		draw->tex_x = c->mlx.ea_tex.width - draw->tex_x - 1;
+	draw->step = 1 * (double)c->mlx.ea_tex.height / draw->wall_line_height;
+	draw->tex_pos = (draw->start - (double) c->mlx.win.height / 2 + \
+		(double) draw->wall_line_height / 2) * draw->step;
+	draw_pixel(c, pixel, draw);
 }

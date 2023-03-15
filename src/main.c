@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:58 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:16:31 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 12:00:10 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*void	test_texture()
-{
-	t_mlx	mlx;
-	int		width;
-	int		height;
-
-	width = 0;
-	height = 0;
-	mlx.ptr = mlx_init();
-	mlx.win.ptr = mlx_new_window(mlx.ptr, WIDTH, HEIGHT, WIN_NAME);
-	mlx.img.image = mlx_xpm_file_to_image(mlx.ptr, "./src/textures/stone01.xpm", &width, &height);
-	printf("%d\n", width);
-	mlx.img.addr = mlx_get_data_addr(mlx.img.image, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
-	mlx_put_image_to_window(mlx.ptr, mlx.win.ptr, mlx.img.image, 0, 0);
-	mlx_loop(mlx.ptr);
-}*/
 
 void	init_texture(t_cub3d *c)
 {

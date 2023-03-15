@@ -6,33 +6,11 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 10:17:44 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/15 11:59:50 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	verify_wall(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
-{
-	if (c->dda.hit.side == 0)
-	{
-		wall.x = c->player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
-		wall.x -= floor((wall.x));
-		if (c->dda.raydir.x < 0)
-			draw_texture_so(c, pixel, wall, draw);
-		else
-			draw_texture_no(c, pixel, wall, draw);
-	}
-	else
-	{
-		wall.x = c->player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
-		wall.x -= floor((wall.x));
-		if (c->dda.raydir.y < 0)
-			draw_texture_we(c, pixel, wall, draw);
-		else
-			draw_texture_ea(c, pixel, wall, draw);
-	}
-}
 
 void	dda(t_cub3d *c)
 {
@@ -62,15 +40,15 @@ void	dda(t_cub3d *c)
 
 void	raycasting(t_cub3d *c, int pixel)
 {
-	t_vector	wall;
-	t_vector	draw;
+	t_draw	draw;
 
-	wall.y = (int) c->mlx.win.height / c->dda.perpendicular;
-	draw.x = -wall.y / 2 + (double) c->mlx.win.height / 2;
-	if (draw.x < 0)
-		draw.x = 0;
-	draw.y = wall.y / 2 + (double) c->mlx.win.height / 2;
-	if (draw.y >= c->mlx.win.height)
-		draw.y = c->mlx.win.height - 1;
-	verify_wall(c, pixel, wall, draw);
+	draw = (t_draw){0};
+	draw.wall_line_height = (int) c->mlx.win.height / c->dda.perpendicular;
+	draw.start = -draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
+	if (draw.start < 0)
+		draw.start = 0;
+	draw.end = draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
+	if (draw.end >= c->mlx.win.height)
+		draw.end = c->mlx.win.height - 1;
+	draw_texture(c, pixel, &draw);
 }

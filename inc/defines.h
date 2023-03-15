@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 23:51:54 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 11:23:21 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,18 @@ typedef struct s_temp
 {
 	char	*line;
 }	t_temp;
+
+typedef struct s_draw
+{
+	int			wall_line_height;
+	int			start;
+	int			end;
+	double		wall_x;
+	int			tex_x;
+	double		step;
+	double		tex_pos;
+	int			tex_y;
+}	t_draw;
 
 typedef struct s_cub3d
 {
