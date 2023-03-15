@@ -6,19 +6,23 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 18:59:38 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:52:37 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "printf_colors.h"
-# include "fonts.h"
-# include "defines.h"
-# include "messages.h"
+//headers
 # include "bresenham.h"
+# include "colors.h"
+# include "defines.h"
+# include "fonts.h"
 # include "keys.h"
+# include "messages.h"
+# include "printf_colors.h"
+
+//libraries
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>

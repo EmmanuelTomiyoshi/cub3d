@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 19:05:54 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:51:54 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,12 @@ typedef struct s_player
 
 typedef struct s_line
 {
-	int			start_x;
-	int			start_y;
-	int			end_x;
-	int			end_y;
-	int			dy;
-	int			dx;
+	int	start_x;
+	int	start_y;
+	int	end_x;
+	int	end_y;
+	int	dy;
+	int	dx;
 }	t_line;
 
 typedef struct s_map
@@ -182,11 +182,6 @@ typedef struct s_cub3d
 # define WIN_NAME 				"cub3d"
 # define WIDTH 					1080
 # define HEIGHT 				720
-# define LIGHT_BLUE				10735345
-# define DARK_BLUE 				6330042
-# define DARK_GREEN 			2090042
-# define AQUA 					1947813
-# define MARINE_BLUE 			791333
 # define MENU_OPACITY 			0.25
 # define BTN_FULLSCREEN			0
 # define COLOR_THRESHOLD_MAX 	224

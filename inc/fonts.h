@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:40:05 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/23 02:01:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:50:50 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@
 # define FONT_RK14 "rk14"
 # define FONT_RK16 "rk16"
 # define FONT_RK24 "rk24"
-
 # define FONT_MICRO "micro"
-
 # define FONT_KANA14 "kana14"
-
 # define FONT_HEB8X13 "heb8x13"
 # define FONT_HEB6X13 "heb6x13"
-
 # define FONT_10X20 "10x20"
 # define FONT_12X24 "12x24"
 # define FONT_12X24KANA "12x24kana"
