@@ -1,9 +1,9 @@
 C           230,      76,   24
-NO ./textures/BRICK_3D.xpm
+NO ./assets/textures/BRICK_3D.xpm
 F           231,      236,      239
-WE         ./textures/BRICK_3D.xpm
-SO ./textures/BRICK_3D.xpm
-EA ./textures/BRICK_3D.xpm
+WE         ./assets/textures/BRICK_3D.xpm
+SO ./assets/textures/BRICK_3D.xpm
+EA ./assets/textures/BRICK_3D.xpm
 
 11111111111111111111111111111
 10000000000011111100000000001

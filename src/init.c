@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 19:15:11 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:02:49 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	menu(t_cub3d *c)
 	c->menu.fullscreen.toggle = FALSE;
 	c->menu.quit.toggle = FALSE;
 	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
-		"./images/paused.xpm",
+		"./assets/images/paused.xpm",
 		&c->menu.img.win_width,
 		&c->menu.img.win_height);
 	c->menu.img.addr = mlx_get_data_addr(c->menu.img.ptr,
