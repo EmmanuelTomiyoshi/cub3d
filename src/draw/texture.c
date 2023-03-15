@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_texture.c                                     :+:      :+:    :+:   */
+/*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:22:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:58:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void	draw_texture(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
 	pos.y = 1 * (double)c->mlx.ea_tex.height / wall.y;
 	pos.x = (draw.x - (double) c->mlx.win.height / 2 + (double) wall.y / 2) * pos.y;
 	y = (int)draw.x;
-	while(y < draw.y)
+	while (y < draw.y)
 	{
 		tex.y = (int)pos.x & ((int)c->mlx.ea_tex.height - 1);
 		pos.x += pos.y;
