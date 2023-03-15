@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 13:00:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:03:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,8 +170,6 @@ typedef struct s_temp
 
 typedef struct s_draw
 {
-	t_bool			lighter;
-	t_bool			darker;
 	unsigned int	color;
 	int				wall_line_height;
 	int				start;
@@ -193,6 +191,10 @@ typedef struct s_cub3d
 	t_bool		hovering;
 	t_draw		draw;
 	t_temp		temp;
+	int			brightness;
+	t_bool		lighter;
+	t_bool		darker;
+	t_bool		exposure;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

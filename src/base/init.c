@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 13:09:41 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:15:26 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,9 +125,11 @@ static void	map_and_player(char *file, t_cub3d *c)
 
 static void	textures(t_cub3d *c)
 {
-	c->draw = (t_draw){0};
-	c->draw.lighter = FALSE;
-	c->draw.darker = FALSE;
+	c->draw = (t_draw){0};//
+	c->exposure = FALSE;
+	c->lighter = FALSE;
+	c->darker = FALSE;
+	c->brightness = 0;
 	c->mlx.ea_tex = (t_texture){0};
 	c->mlx.so_tex = (t_texture){0};
 	c->mlx.no_tex = (t_texture){0};

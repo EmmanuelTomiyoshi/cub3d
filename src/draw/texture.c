@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 13:26:56 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:11:44 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 {
 	char	*dst;
 	int		y;
+	int		light;
 
 	y = c->draw.start;
+	light = 0;
 	while (y < c->draw.end)
 	{
 		c->draw.tex_y = (int)c->draw.tex_pos & (c->mlx.ea_tex.height - 1);
@@ -58,13 +60,19 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 				(c->mlx.win.width - pixel) \
 				* (c->mlx.img.bits_per_pixel) / 8);
 
-		if (c->draw.lighter == TRUE)
+		if (c->brightness != 0 && c->exposure == FALSE)
 		{
-			c->draw.color = increase_brightness(&c->draw.color, OPACITY);
-		}
-		if (c->draw.darker == TRUE)
-		{
-			c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
+			while (light < c->brightness)
+			{
+				c->draw.color = increase_brightness(&c->draw.color, OPACITY);
+				light++;
+			}
+			light = 0;
+			while (light > c->brightness)
+			{
+				c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
+				light--;
+			}
 		}
 		// printf("after: %u\n", c->draw.color);
 		
