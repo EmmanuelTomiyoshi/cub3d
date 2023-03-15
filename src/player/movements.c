@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:20:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:50:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	walk_right(t_cub3d *c)
 	temp_pos.x = c->player.pos.x + temp_dir.x * c->player.speed;
 	temp_pos.y = c->player.pos.y + temp_dir.y * c->player.speed;
 	temp_y = c->player.pos.y;
-	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y +
-		temp_dir.y * 0.15)] == '8')
+	if (c->map.map[(int)floor(c->player.pos.x)][(int)floor(temp_pos.y
+			+ temp_dir.y * 0.15)] == '8')
 		c->player.pos.y = temp_pos.y;
 	if (c->map.map[(int)floor(temp_pos.x + \
 		temp_dir.x * 0.15)][(int)floor(temp_y)] == '8')

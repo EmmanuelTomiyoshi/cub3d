@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:36:16 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:51:25 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,9 +151,13 @@ void		camera(t_cub3d *c);
 void		get_btn_pos(t_button *btn, int x, int y);
 void		get_btn_size(t_button *btn, int width, int height);
 
-void		draw_texture_we(t_cub3d *c, int pixel, t_vector wall, t_vector draw);
-void		draw_texture_no(t_cub3d *c, int pixel, t_vector wall, t_vector draw);
-void		draw_texture_so(t_cub3d *c, int pixel, t_vector wall, t_vector draw);
-void		draw_texture_ea(t_cub3d *c, int pixel, t_vector wall, t_vector draw);
+void		draw_texture_we(t_cub3d *c, int pixel, \
+					t_vector wall, t_vector draw);
+void		draw_texture_no(t_cub3d *c, int pixel, \
+					t_vector wall, t_vector draw);
+void		draw_texture_so(t_cub3d *c, int pixel, \
+					t_vector wall, t_vector draw);
+void		draw_texture_ea(t_cub3d *c, int pixel, \
+					t_vector wall, t_vector draw);
 
 #endif

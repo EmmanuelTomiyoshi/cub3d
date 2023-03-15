@@ -6,25 +6,15 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:29:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:49:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	key_press(int keycode, t_cub3d *c)
+static void	key_movements(int keycode, t_cub3d *c)
 {
-	if (keycode == KEY_ESC)
-		show_menu(c);
-	else if (keycode == OPEN_BRACKET)
-		brightness(c, keycode);
-	else if (keycode == CLOSED_BRACKET)
-		brightness(c, keycode);
-	else if (keycode == KEY_M)
-		camera_speed(0.25, -0.25, c);
-	else if (keycode == KEY_N)
-		camera_speed(-0.25, 0.25, c);
-	else if (keycode == KEY_A)
+	if (keycode == KEY_A)
 		c->player.move_left = TRUE;
 	else if (keycode == KEY_W)
 		c->player.move_foward = TRUE;
@@ -38,6 +28,21 @@ int	key_press(int keycode, t_cub3d *c)
 		c->player.look_right = TRUE;
 	else if (keycode == KEY_SHIFT)
 		c->player.run = TRUE;
+}
+
+int	key_press(int keycode, t_cub3d *c)
+{
+	key_movements(keycode, c);
+	if (keycode == KEY_ESC)
+		show_menu(c);
+	else if (keycode == OPEN_BRACKET)
+		brightness(c, keycode);
+	else if (keycode == CLOSED_BRACKET)
+		brightness(c, keycode);
+	else if (keycode == KEY_M)
+		camera_speed(0.25, -0.25, c);
+	else if (keycode == KEY_N)
+		camera_speed(-0.25, 0.25, c);
 	else if (keycode == KEY_F11)
 		change_win_size(c);
 	return (0);

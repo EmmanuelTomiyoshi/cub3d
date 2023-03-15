@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:21:58 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:45:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	raycasting(t_cub3d *c, int pixel)
 	t_vector	wall;
 	t_vector	draw;
 
-	wall.y = (int) (c->mlx.win.height / c->dda.perpendicular);
+	wall.y = (int) c->mlx.win.height / c->dda.perpendicular;
 	draw.x = -wall.y / 2 + (double) c->mlx.win.height / 2;
 	if (draw.x < 0)
 		draw.x = 0;
