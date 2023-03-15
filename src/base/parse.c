@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/02/25 16:34:42 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:17:18 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	is_valid_file_extension(char *filename)
 	return (TRUE);
 }
 
-t_bool	can_open_file(t_cub3d *c, char	*filename)
+static t_bool	can_open_file(t_cub3d *c, char *filename)
 {
 	int	fd;
 
@@ -34,7 +34,7 @@ t_bool	can_open_file(t_cub3d *c, char	*filename)
 	return (TRUE);
 }
 
-void	invalid_args(t_cub3d *c, int argc, char **argv)
+void	invalid_args(int argc, char **argv, t_cub3d *c)
 {
 	if (argc < 2)
 		exit_error(MSG_FEW_ARGS, TRUE);

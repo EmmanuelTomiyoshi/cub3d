@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 23:52:37 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:36:16 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		init(char **argv, t_cub3d *c);
 void		loop(t_cub3d *c);
 
 //parse.c
-void		invalid_args(t_cub3d *c, int argc, char **argv);
+void		invalid_args(int argc, char **argv, t_cub3d *c);
 
 //render.c
 int			render(t_cub3d *c);
@@ -56,6 +56,10 @@ int			end_loop(t_cub3d *c);
 
 //validations.c
 t_bool		is_valid_file_extension(char *filename);
+
+int			brightness(t_cub3d *c, int keycode);
+
+int			handle_mouse(int x, int y, t_cub3d *c);
 
 //get_data.c
 void		get_data(t_cub3d *c);
@@ -86,7 +90,7 @@ void		verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j);
 //map_utils.c
 char		*ft_merge(char *str1, char *str2);
 size_t		count_lines(t_cub3d *c);
-void		verify_up(t_cub3d *c, t_queue *queue, size_t i, size_t j);
+void		verify_up(t_queue *queue, size_t i, size_t j, t_cub3d *c);
 
 //get_player_data.c
 void		get_player_data(t_cub3d *c, int x, int y);
@@ -104,6 +108,8 @@ void		init_dist_to_side(t_cub3d *c);
 void		init_camera(t_cub3d *c);
 void		init_raydir_and_delta(t_cub3d *c);
 void		init_perpendicular(t_cub3d *c);
+
+void		player_speed(t_cub3d *c);
 
 void		itorgb(int color, t_rgb *result);
 

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/08 19:55:10 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:13:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j)
 		exit_error(MSG_ERR_MAP_BORDER, FALSE);
 	}
 	if (i < n)
-		verify_up(c, queue, i, j);
+		verify_up(queue, i, j, c);
 	if (i > 0)
 	{
 		if (verify_char (c, i - 1, j))

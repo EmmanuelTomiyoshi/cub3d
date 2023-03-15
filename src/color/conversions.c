@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:47:01 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 16:04:53 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:35:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,32 @@ void	itorgb(int color, t_rgb *result)
 	result->r = (color >> 16) & 0xFF;
 	result->g = (color >> 8) & 0xFF;
 	result->b = color & 0xFF;
+}
+
+void	blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result)
+{
+	result->r = fg.r * opacity + bg.r * (1 - opacity);
+	result->g = fg.g * opacity + bg.g * (1 - opacity);
+	result->b = fg.b * opacity + bg.b * (1 - opacity);
+}
+
+void	alpha_blending(t_cub3d *c)
+{
+	(void)c;
+	t_rgb	fg;
+	t_rgb	bg;
+	t_rgb	result;
+
+	fg.r = 255;
+	fg.g = 0;
+	fg.b = 0;
+
+	bg.r = 255;
+	bg.g = 255;
+	bg.b = 255;
+
+	blend(fg, bg, 0.5, &result);
+	printf("Resulting color: (%d, %d, %d)\n", result.r, result.g, result.b);
 }
 
 int	get_rgb(int r, int g, int b)

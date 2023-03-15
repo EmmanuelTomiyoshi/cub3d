@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:58 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 18:53:14 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:16:31 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 {
 	t_cub3d		cub3d;
 
-	invalid_args(&cub3d, argc, argv);
+	invalid_args(argc, argv, &cub3d);
 	init(argv, &cub3d);
 	get_data(&cub3d);
 	init_texture(&cub3d);

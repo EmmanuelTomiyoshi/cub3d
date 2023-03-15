@@ -47,13 +47,15 @@ NUMBER_OF_SRC_FILES	=	$(words $(SRC))
 PROGRESS			=	0
 
 %.o: %.c
-	@echo -n "$(YELLOW)Compiling $(WHITE)$$(( $(PROGRESS) * 100 / $(NUMBER_OF_SRC_FILES)))%\r"
+	@echo -n "$(YELLOW)Compiling libft $(WHITE)$$(( \
+	$(PROGRESS) * 100 / $(NUMBER_OF_SRC_FILES)))%\r"
 	$(eval PROGRESS=$(shell echo $$(($(PROGRESS)+1))))
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(INC)
 	@$(LIB) $(NAME) $(INC) $(OBJ)
-	@echo "$(GREEN)libft has compiled succesfully$(WHITE)"
+	@echo "$(GREEN)libft has compiled succesfully\
+	$(WHITE)"
 
 all: $(NAME)
 
@@ -69,4 +71,4 @@ re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: all clean fclean re bonus rebonus"
+.PHONY: all clean fclean re bonus rebonus

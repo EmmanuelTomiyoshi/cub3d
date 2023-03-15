@@ -58,3 +58,4 @@ cub3D
 bin/cub3D
 fonts.txt
 compile_commands.json
+test_maps_leaks.sh
