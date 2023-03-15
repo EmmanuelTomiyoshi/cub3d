@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:45:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 10:17:44 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	verify_wall(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
 {
 	if (c->dda.hit.side == 0)
 	{
-		wall.x = c->player.pos.y + c->dda.perpendicular + c->dda.raydir.y;
+		wall.x = c->player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
 		wall.x -= floor((wall.x));
 		if (c->dda.raydir.x < 0)
 			draw_texture_so(c, pixel, wall, draw);
@@ -25,7 +25,7 @@ void	verify_wall(t_cub3d *c, int pixel, t_vector wall, t_vector draw)
 	}
 	else
 	{
-		wall.x = c->player.pos.x + c->dda.perpendicular + c->dda.raydir.x;
+		wall.x = c->player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
 		wall.x -= floor((wall.x));
 		if (c->dda.raydir.y < 0)
 			draw_texture_we(c, pixel, wall, draw);
