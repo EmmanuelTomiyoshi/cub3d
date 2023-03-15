@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 14:15:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:23:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,6 @@ unsigned int	decrease_brightness(unsigned int *color, float opacity)
 
 static void	square_colors(t_cub3d *c)
 {
-	unsigned int	color;
-
-	color = 0x7F4F4F;
-	printf("Original color: 0x%X\n", color);
-    increase_brightness(&color, OPACITY); // Increase brightness by 50%
-    printf("Increased brightness: 0x%X\n", color);
-    decrease_brightness(&color, OPACITY); // Decrease brightness by 50%
-    printf("Decreased brightness: 0x%X\n", color);
 	itorgb(DARK_BLUE, &c->map.c_cube1);
 	itorgb(LIGHT_BLUE, &c->map.c_cube2);
 	c->map.cube1 = DARK_BLUE;
@@ -65,7 +57,6 @@ static void	menu(t_cub3d *c)
 {
 	c->menu.active = FALSE;
 	c->menu.fullscreen.toggle = FALSE;
-	c->menu.quit.toggle = FALSE;
 	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
 			"./assets/images/paused.xpm",
 			&c->menu.img.win_width,
@@ -75,10 +66,10 @@ static void	menu(t_cub3d *c)
 			&c->menu.img.endian);
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
-	get_btn_pos(&c->menu.fullscreen, 790, 389);
-	get_btn_size(&c->menu.fullscreen, 220, 45);
-	get_btn_pos(&c->menu.fullscreen, 56, 584);
 	get_btn_size(&c->menu.quit, 180, 64);
+
+	get_btn_pos(&c->menu.quit, 54, 580);
+	get_btn_size(&c->menu.quit, 180, 72);
 }
 
 static void	mlx(t_cub3d *c)
