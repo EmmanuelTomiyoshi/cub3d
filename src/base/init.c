@@ -6,14 +6,55 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:45:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:09:41 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static void	intorgb(int *r, int *g, int *b, unsigned int *color)
+{
+	*r = (*color >> 16) & 0xFF;
+	*g = (*color >> 8) & 0xFF;
+	*b = *color & 0xFF;
+}
+
+unsigned int	increase_brightness(unsigned int *color, float opacity)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	intorgb(&r, &g, &b, color);
+	r *= opacity;
+	g *= opacity;
+	b *= opacity;
+	return (r << 16) | (g << 8) | b;
+}
+
+unsigned int	decrease_brightness(unsigned int *color, float opacity)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	intorgb(&r, &g, &b, color);
+	r /= opacity;
+	g /= opacity;
+	b /= opacity;
+	return (r << 16) | (g << 8) | b;
+}
+
 static void	square_colors(t_cub3d *c)
 {
+	unsigned int	color;
+
+	color = 0x7F4F4F;
+	printf("Original color: 0x%X\n", color);
+    increase_brightness(&color, OPACITY); // Increase brightness by 50%
+    printf("Increased brightness: 0x%X\n", color);
+    decrease_brightness(&color, OPACITY); // Decrease brightness by 50%
+    printf("Decreased brightness: 0x%X\n", color);
 	itorgb(DARK_BLUE, &c->map.c_cube1);
 	itorgb(LIGHT_BLUE, &c->map.c_cube2);
 	c->map.cube1 = DARK_BLUE;
@@ -84,6 +125,9 @@ static void	map_and_player(char *file, t_cub3d *c)
 
 static void	textures(t_cub3d *c)
 {
+	c->draw = (t_draw){0};
+	c->draw.lighter = FALSE;
+	c->draw.darker = FALSE;
 	c->mlx.ea_tex = (t_texture){0};
 	c->mlx.so_tex = (t_texture){0};
 	c->mlx.no_tex = (t_texture){0};

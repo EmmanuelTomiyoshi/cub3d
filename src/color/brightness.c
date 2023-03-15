@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 01:14:14 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:02:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int	brightness(t_cub3d *c, int keycode)
 	update_color(&c->map.c_cube1, &c->map.cube1, light, &c->map);	//
 	update_color(&c->map.c_cube2, &c->map.cube2, light, &c->map);	//
 
-	//textures
+	if (keycode == OPEN_BRACKET)
+		c->draw.lighter = TRUE;
+	else
+		c->draw.darker = TRUE;
 	return (0);
 }

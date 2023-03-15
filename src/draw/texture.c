@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 12:17:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:26:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,61 +21,77 @@ static unsigned int	return_color(t_image *img, int x, int y)
 	return (color);
 }
 
-static unsigned int	get_pixel_color(t_cub3d *c, t_draw *draw)
+static unsigned int	get_pixel_color(t_cub3d *c)
 {
 	unsigned int	color;
 
 	if (c->dda.hit.side == 0)
 	{
 		if (c->dda.raydir.x < 0)
-			color = return_color(&c->mlx.no_tex.img, draw->tex_x, draw->tex_y);
+			color = return_color(&c->mlx.no_tex.img, c->draw.tex_x, c->draw.tex_y);
 		else
-			color = return_color(&c->mlx.so_tex.img, draw->tex_x, draw->tex_y);
+			color = return_color(&c->mlx.so_tex.img, c->draw.tex_x, c->draw.tex_y);
 	}
 	else
 	{
 		if (c->dda.raydir.y < 0)
-			color = return_color(&c->mlx.we_tex.img, draw->tex_x, draw->tex_y);
+			color = return_color(&c->mlx.we_tex.img, c->draw.tex_x, c->draw.tex_y);
 		else
-			color = return_color(&c->mlx.ea_tex.img, draw->tex_x, draw->tex_y);
+			color = return_color(&c->mlx.ea_tex.img, c->draw.tex_x, c->draw.tex_y);
 	}
 	return (color);
 }
 
-static void	draw_pixel(t_cub3d *c, int pixel, t_draw *draw)
+static void	draw_pixel(t_cub3d *c, int pixel)
 {
-	char			*dst;
-	unsigned int	color;
-	int				y;
+	char	*dst;
+	int		y;
 
-	y = draw->start;
-	while (y < draw->end)
+	y = c->draw.start;
+	while (y < c->draw.end)
 	{
-		draw->tex_y = (int)draw->tex_pos & (c->mlx.ea_tex.height - 1);
-		draw->tex_pos += draw->step;
-		color = get_pixel_color(c, draw);
+		c->draw.tex_y = (int)c->draw.tex_pos & (c->mlx.ea_tex.height - 1);
+		c->draw.tex_pos += c->draw.step;
+		
+		c->draw.color = get_pixel_color(c);
 		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + \
 				(c->mlx.win.width - pixel) \
 				* (c->mlx.img.bits_per_pixel) / 8);
-		*(unsigned int *) dst = color;
+
+		if (c->draw.lighter == TRUE)
+		{
+			c->draw.color = increase_brightness(&c->draw.color, OPACITY);
+		}
+		if (c->draw.darker == TRUE)
+		{
+			c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
+		}
+		// printf("after: %u\n", c->draw.color);
+		
+		// else if (c->draw.darker == TRUE)
+		// {
+		// 	c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
+		// 	c->draw.darker = FALSE;
+		// }
+		*(unsigned int *) dst = c->draw.color;
 		y++;
 	}
 }
 
-void	draw_texture(t_cub3d *c, int pixel, t_draw *draw)
+void	draw_texture(t_cub3d *c, int pixel)
 {
 	if (c->dda.hit.side == 0)
-		draw->wall_x = c->player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
+		c->draw.wall_x = c->player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
 	else
-		draw->wall_x = c->player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
-	draw->wall_x -= floor((draw->wall_x));
-	draw->tex_x = (double)(draw->wall_x * (double)c->mlx.ea_tex.width);
+		c->draw.wall_x = c->player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
+	c->draw.wall_x -= floor((c->draw.wall_x));
+	c->draw.tex_x = (double)(c->draw.wall_x * (double)c->mlx.ea_tex.width);
 	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		draw->tex_x = c->mlx.ea_tex.width - draw->tex_x - 1;
+		c->draw.tex_x = c->mlx.ea_tex.width - c->draw.tex_x - 1;
 	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		draw->tex_x = c->mlx.ea_tex.width - draw->tex_x - 1;
-	draw->step = 1 * (double)c->mlx.ea_tex.height / draw->wall_line_height;
-	draw->tex_pos = (draw->start - (double) c->mlx.win.height / 2 + \
-		(double) draw->wall_line_height / 2) * draw->step;
-	draw_pixel(c, pixel, draw);
+		c->draw.tex_x = c->mlx.ea_tex.width - c->draw.tex_x - 1;
+	c->draw.step = 1 * (double)c->mlx.ea_tex.height / c->draw.wall_line_height;
+	c->draw.tex_pos = (c->draw.start - (double) c->mlx.win.height / 2 + \
+		(double) c->draw.wall_line_height / 2) * c->draw.step;
+	draw_pixel(c, pixel);
 }

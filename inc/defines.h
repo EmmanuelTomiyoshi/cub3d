@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 11:23:21 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:00:03 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,14 +170,17 @@ typedef struct s_temp
 
 typedef struct s_draw
 {
-	int			wall_line_height;
-	int			start;
-	int			end;
-	double		wall_x;
-	int			tex_x;
-	double		step;
-	double		tex_pos;
-	int			tex_y;
+	t_bool			lighter;
+	t_bool			darker;
+	unsigned int	color;
+	int				wall_line_height;
+	int				start;
+	int				end;
+	double			wall_x;
+	int				tex_x;
+	double			step;
+	double			tex_pos;
+	int				tex_y;
 }	t_draw;
 
 typedef struct s_cub3d
@@ -188,6 +191,7 @@ typedef struct s_cub3d
 	t_player	player;
 	t_menu		menu;
 	t_bool		hovering;
+	t_draw		draw;
 	t_temp		temp;
 }	t_cub3d;
 
@@ -199,6 +203,7 @@ typedef struct s_cub3d
 # define COLOR_THRESHOLD_MAX 	224
 # define COLOR_THRESHOLD_MIN 	64
 # define SPEED_THRESHOLD		0.16
+# define OPACITY				1.5
 # define ADD_LIGHT 				0.10
 # define SUB_LIGHT 				-0.10
 # define DEF_PLAYER_SPEED 		0.032
