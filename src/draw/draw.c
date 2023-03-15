@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 12:38:00 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:38:18 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ void	pixel(t_cub3d *c)
 
 int	draw(t_cub3d *c)
 {
-	if (c->menu.active && c->menu.fullscreen.toggle == FALSE)
+	if (c->menu.active)
 	{
-		draw_button(c->menu.fullscreen, c);
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.img.ptr, 0, 0);
 	}
 	else

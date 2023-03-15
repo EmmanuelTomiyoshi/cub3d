@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 13:10:50 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:18:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void			init_dist_to_side(t_cub3d *c);
 void			init_camera(t_cub3d *c);
 void			init_raydir_and_delta(t_cub3d *c);
 void			init_perpendicular(t_cub3d *c);
+
+unsigned int	return_color(t_image *img, int x, int y);
 
 void			player_speed(t_cub3d *c);
 

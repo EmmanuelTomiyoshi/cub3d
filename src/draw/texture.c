@@ -6,13 +6,34 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 14:11:44 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:18:16 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static unsigned int	return_color(t_image *img, int x, int y)
+void	change_brightness(t_cub3d *c)
+{
+	int	light;
+
+	light = 0;
+	if (c->brightness != 0 && c->exposure == FALSE)
+	{
+		while (light < c->brightness)
+		{
+			c->draw.color = increase_brightness(&c->draw.color, OPACITY);
+			light++;
+		}
+		light = 0;
+		while (light > c->brightness)
+		{
+			c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
+			light--;
+		}
+	}
+}
+
+unsigned int	return_color(t_image *img, int x, int y)
 {
 	unsigned int	color;
 
@@ -46,41 +67,18 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 {
 	char	*dst;
 	int		y;
-	int		light;
 
 	y = c->draw.start;
-	light = 0;
+	
 	while (y < c->draw.end)
 	{
 		c->draw.tex_y = (int)c->draw.tex_pos & (c->mlx.ea_tex.height - 1);
 		c->draw.tex_pos += c->draw.step;
-		
 		c->draw.color = get_pixel_color(c);
 		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + \
 				(c->mlx.win.width - pixel) \
 				* (c->mlx.img.bits_per_pixel) / 8);
-
-		if (c->brightness != 0 && c->exposure == FALSE)
-		{
-			while (light < c->brightness)
-			{
-				c->draw.color = increase_brightness(&c->draw.color, OPACITY);
-				light++;
-			}
-			light = 0;
-			while (light > c->brightness)
-			{
-				c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
-				light--;
-			}
-		}
-		// printf("after: %u\n", c->draw.color);
-		
-		// else if (c->draw.darker == TRUE)
-		// {
-		// 	c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
-		// 	c->draw.darker = FALSE;
-		// }
+		change_brightness(c);
 		*(unsigned int *) dst = c->draw.color;
 		y++;
 	}
