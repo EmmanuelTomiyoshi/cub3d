@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 14:15:49 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:35:40 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "defines.h"
 
 t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 {
@@ -24,36 +25,32 @@ t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 	return (TRUE);
 }
 
-static void	update_color(t_rgb *object, int *color, float light, t_map *map)
-{
-	blend(map->foreground, *object, light, object);
-	*color = get_rgb(object->r, object->g, object->b);
-}
+// static void	update_color(t_rgb *object, int *color, float light, t_map *map)
+// {
+// 	blend(map->foreground, *object, light, object);
+// 	*color = get_rgb(object->r, object->g, object->b);
+// }
 
-int	brightness(t_cub3d *c, int keycode)
+int	brightness(t_cub3d *c)
 {
-	float	light;
+	static int	light_floor;
+	static int	light_ceiling;
 
-	if (keycode == OPEN_BRACKET)
+	c->light_mode = !c->light_mode;
+
+	if (c->light_mode == TRUE)
 	{
-		c->brightness -= 1;
-		light = ADD_LIGHT;
+		light_floor = c->map.f_color;
+		light_ceiling = c->map.c_color;
+		c->map.c_color = blending(c->map.c_color, ADD_LIGHT);
+		c->map.f_color = blending(c->map.f_color, ADD_LIGHT);
 	}
 	else
 	{
-		c->brightness += 1;
-		light = SUB_LIGHT;
+		c->map.c_color = light_ceiling;
+		c->map.f_color = light_floor;
 	}
-	c->exposure = check_exposure(c->map.foreground, light, c->map.floor);
-	if (c->exposure == TRUE)
-		return (0);
-	else
-		c->exposure = FALSE;
-	printf("%u\n", c->brightness);
-	//floor, ceiling, cubes
-	update_color(&c->map.floor, &c->map.f_color, light, &c->map);
-	update_color(&c->map.ceiling, &c->map.c_color, light, &c->map);
-	update_color(&c->map.c_cube1, &c->map.cube1, light, &c->map);	//
-	update_color(&c->map.c_cube2, &c->map.cube2, light, &c->map);	//
+
+	printf("%d | %d\n", c->map.c_color, c->map.f_color);
 	return (0);
 }

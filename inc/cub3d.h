@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 12:32:07 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:04:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int				end_loop(t_cub3d *c);
 //validations.c
 t_bool			is_valid_file_extension(char *filename);
 
-int				brightness(t_cub3d *c, int keycode);
+int				brightness(t_cub3d *c);
 
 int				handle_mouse(int x, int y, t_cub3d *c);
 
@@ -140,6 +140,7 @@ void			camera_speed(double x, double y, t_cub3d *c);
 void			camera_move(int keycode, double x, double y, t_cub3d *c);
 
 void			blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
+unsigned int	blending(unsigned int color, float opacity);
 void			draw_texture(t_cub3d *c, int pixel);
 
 unsigned int	increase_brightness(unsigned int *color, float opacity);
