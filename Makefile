@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/15 00:43:48 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/16 18:49:57 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,8 @@ FILES				=	base/destroy.c			\
 						algorithms/flood_fill.c	\
 						algorithms/init.c		\
 						algorithms/queue.c		\
+						minimap/minimap.c		\
+						minimap/init_minimap.c	\
 						button.c				\
 						main.c					\
 						menu.c					\
@@ -81,6 +83,7 @@ $(REQUIRED_DIRS):
 	@mkdir -p $@get_data
 	@mkdir -p $@hooks
 	@mkdir -p $@player
+	@mkdir -p $@minimap
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@echo -n "$(COLOR_YELLOW)Compiling $(NAME) $(COLOR_WHITE)$$(( \

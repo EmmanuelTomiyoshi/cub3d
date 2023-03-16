@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:58 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 12:00:10 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 13:38:06 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(int argc, char **argv)
 	init(argv, &cub3d);
 	get_data(&cub3d);
 	init_texture(&cub3d);
+	init_minimap(&cub3d);
 	loop(&cub3d);
 	destroy_all(&cub3d);
 	return (EXIT_SUCCESS);

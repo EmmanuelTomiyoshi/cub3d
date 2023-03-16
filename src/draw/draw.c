@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 17:24:25 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:56:14 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_argb	separate_argb_color(int argb)
 	int	r;
 	int	g;
 	int	b;
-	
+
 	a = (argb >> 24) & 0xFF;
 	r = (argb >> 16) & 0xFF;
 	g = (argb >> 8) & 0xFF;
@@ -165,9 +165,21 @@ int	draw(t_cub3d *c)
 		background(c);
 		movements(c);
 		camera(c);
+		while (c->dda.pixel < c->mlx.win.width)
+		{
+			init_camera(c);
+			init_raydir_and_delta(c);
+			init_dist_to_side(c);
+			dda(c);
+			init_perpendicular(c);
+			raycasting(c, c->dda.pixel);
+			c->dda.pixel++;
+		}
+		c->dda.pixel = 0;
 		pixel(c);
 		// crosshair(c);
 		animate_sprite(c);
+		draw_minimap(c);
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
 		// mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->crosshair.ptr,
 		// 		(c->mlx.win.width - c->crosshair.win_width) / 2,

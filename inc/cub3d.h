@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 15:04:56 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:38:43 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,12 @@ void			camera(t_cub3d *c);
 void			get_btn_pos(t_button *btn, int x, int y);
 void			get_btn_size(t_button *btn, int width, int height);
 
+//draw/draw.c
 void			pixel(t_cub3d *c);
 void			animate_sprite(t_cub3d *c);
+
+//minimap/minimap.c
+void	draw_minimap(t_cub3d *c);
+void	init_minimap(t_cub3d *c);
 
 #endif
