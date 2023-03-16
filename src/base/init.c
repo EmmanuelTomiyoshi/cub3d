@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:09:15 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:57:01 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,6 @@ static void	menu(t_cub3d *c)
 	c->menu.resize.addr = NULL;
 	c->menu.width_ratio = 0;
 	c->menu.height_ratio = 0;
-	c->crosshair.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
-			"./assets/images/crosshair.xpm",
-			&c->crosshair.win_width,
-			&c->crosshair.win_height);
-	c->crosshair.addr = mlx_get_data_addr(c->crosshair.ptr,
-			&c->crosshair.bits_per_pixel, &c->crosshair.line_length,
-			&c->crosshair.endian);
 }
 
 static void	mlx(t_cub3d *c)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 18:56:14 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:57:15 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,31 +118,6 @@ void	mlx_put_image_pixel(t_image *img, int x, int y, int argb)
 	}
 }
 
-// void	crosshair(t_cub3d *c)
-// {
-// 	int		x;
-// 	int		y;
-// 	int		color;
-// 	// t_argb	argb;
-
-// 	x = 0;
-// 	while (x < c->crosshair.win_width)
-// 	{
-// 		y = 0;
-// 		while (y < c->crosshair.win_height)
-// 		{
-// 			color = return_color(&c->crosshair, x, y);
-// 			// argb = transparency(&c->crosshair, x, y);
-// 			//mlx_put_image_pixel(&c->crosshair, x, y, color);
-// 			my_pixel_put(&c->mlx.img, (c->mlx.win.width - x) / 2,
-// 					(c->mlx.win.height - y) / 2, color);
-// 			y++;
-// 		}
-// 		x++;
-// 	}
-// }
-
-
 int	draw(t_cub3d *c)
 {
 	if (c->menu.active)
@@ -177,13 +152,9 @@ int	draw(t_cub3d *c)
 		}
 		c->dda.pixel = 0;
 		pixel(c);
-		// crosshair(c);
 		animate_sprite(c);
 		draw_minimap(c);
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
-		// mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->crosshair.ptr,
-		// 		(c->mlx.win.width - c->crosshair.win_width) / 2,
-		// 		(c->mlx.win.height - c->crosshair.win_height) / 2);
 	}
 	return (0);
 }

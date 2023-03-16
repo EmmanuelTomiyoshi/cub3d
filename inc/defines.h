@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:44:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:01:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,15 +180,15 @@ typedef struct s_minimap
 
 typedef struct s_draw
 {
-	unsigned int	color;
 	int				wall_line_height;
 	int				start;
 	int				end;
-	double			wall_x;
 	int				tex_x;
-	double			step;
-	double			tex_pos;
 	int				tex_y;
+	double			wall_x;
+	double			tex_pos;
+	double			step;
+	unsigned int	color;
 }	t_draw;
 
 typedef struct	s_argb
@@ -210,7 +210,6 @@ typedef struct s_cub3d
 	t_minimap	minimap;
 	t_draw		draw;
 	t_temp		temp;
-	t_image		crosshair;
 	t_bool		distortion;
 	t_bool		light_mode;
 	t_bool		animate;
