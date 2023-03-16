@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:47:01 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:47:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 14:47:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,17 @@ void	blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result)
 	result->b = fg.b * opacity + bg.b * (1 - opacity);
 }
 
-void	alpha_blending(t_cub3d *c)
+unsigned int	blending(unsigned int color, float opacity)
 {
-	t_rgb	fg;
-	t_rgb	bg;
-	t_rgb	result;
+	t_rgb	rgb;
 
-	(void)c;
-	fg.r = 255;
-	fg.g = 0;
-	fg.b = 0;
-	bg.r = 255;
-	bg.g = 255;
-	bg.b = 255;
-	blend(fg, bg, 0.5, &result);
-	printf("Resulting color: (%d, %d, %d)\n", result.r, result.g, result.b);
+	itorgb((int)color, &rgb);
+	rgb.r = 0 * opacity + rgb.r * (1 - opacity);
+	rgb.g = 0 * opacity + rgb.g * (1 - opacity);
+	rgb.b = 0 * opacity + rgb.b * (1 - opacity);
+	return ((unsigned int) get_rgb(rgb.r, rgb.g, rgb.b));
 }
+
 
 int	get_rgb(int r, int g, int b)
 {

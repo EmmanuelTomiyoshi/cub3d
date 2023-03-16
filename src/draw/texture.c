@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 11:00:07 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:35:50 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,9 @@
 
 void	change_brightness(t_cub3d *c)
 {
-	int	light;
-
-	light = 0;
-	if (c->brightness != 0 && c->exposure == FALSE)
+	if (c->light_mode == FALSE)
 	{
-		while (light < c->brightness)
-		{
-			c->draw.color = increase_brightness(&c->draw.color, OPACITY);
-			light++;
-		}
-		light = 0;
-		while (light > c->brightness)
-		{
-			c->draw.color = decrease_brightness(&c->draw.color, OPACITY);
-			light--;
-		}
+		c->draw.color = blending(c->draw.color, SUB_LIGHT);
 	}
 }
 
