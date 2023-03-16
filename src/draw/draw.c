@@ -6,11 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 18:38:18 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:58:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "colors.h"
 #include "cub3d.h"
+#include "defines.h"
 
 static void	background(t_cub3d *c)
 {
@@ -47,11 +49,43 @@ void	pixel(t_cub3d *c)
 	c->dda.pixel = 0;
 }
 
+// void	crosshair(t_cub3d *c)
+// {
+// 	int	x;
+// 	int	y;
+
+// 	x = 0;
+// 	while (x < 8)
+// 	{
+// 		y = 0;
+// 		while (y < 64)
+// 		{
+// 			my_pixel_put(&c->mlx.img, (x - 16) + c->mlx.win.width / 2,
+// 					(y - 32) + c->mlx.win.height / 2, DARK_BLUE);
+// 			y++;
+// 		}
+// 		x++;
+// 	}
+// }
+
 int	draw(t_cub3d *c)
 {
 	if (c->menu.active)
 	{
-		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.img.ptr, 0, 0);
+		if (c->menu.fullscreen.toggle)
+		{
+			// get_btn_pos(&c->menu.quit, (int)(c->menu.quit.x * c->menu.width_ratio), (int)(c->menu.quit.y * c->menu.height_ratio));
+			// get_btn_size(&c->menu.quit, (int)(c->menu.quit.width * c->menu.width_ratio), (int)(c->menu.quit.height * c->menu.height_ratio));
+			draw_button(c->menu.quit, c->menu.resize);
+			mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.resize.ptr, 0, 0);
+		}
+		else
+		{
+			get_btn_pos(&c->menu.quit, BTN_X, BTN_Y);
+			get_btn_size(&c->menu.quit, BTN_WIDTH, BTN_HEIGHT);
+			draw_button(c->menu.quit, c->menu.img);
+			mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.img.ptr, 0, 0);
+		}
 	}
 	else
 	{
@@ -59,6 +93,8 @@ int	draw(t_cub3d *c)
 		movements(c);
 		camera(c);
 		pixel(c);
+		// crosshair(c);
+		animate_sprite(c);
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
 	}
 	return (0);

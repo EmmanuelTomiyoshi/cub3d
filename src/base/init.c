@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 19:49:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:48:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,15 @@ static void	menu(t_cub3d *c)
 			&c->menu.img.endian);
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
-	get_btn_pos(&c->menu.quit, 54, 580);
-	get_btn_size(&c->menu.quit, 180, 72);
+
+	//
+	c->menu.resize.ptr = NULL;
+	c->menu.resize.addr = NULL;
+
+	c->menu.width_ratio = 0;
+	c->menu.height_ratio = 0;
+	// get_btn_pos(&c->menu.quit, BTN_X, BTN_Y);
+	// get_btn_size(&c->menu.quit, BTN_WIDTH, BTN_HEIGHT);
 }
 
 static void	mlx(t_cub3d *c)

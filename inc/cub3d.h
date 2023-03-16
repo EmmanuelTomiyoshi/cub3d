@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 19:18:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:32:07 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void			draw_texture(t_cub3d *c, int pixel);
 unsigned int	increase_brightness(unsigned int *color, float opacity);
 unsigned int	decrease_brightness(unsigned int *color, float opacity);
 int				mouse_callback(int button, int x, int y, t_cub3d *c);
-int				draw_button(t_button button, t_cub3d *c);
+int				draw_button(t_button button, t_image img);
 
 int				show_menu(t_cub3d *c);
 void			dda(t_cub3d *c);
@@ -157,5 +157,6 @@ void			get_btn_pos(t_button *btn, int x, int y);
 void			get_btn_size(t_button *btn, int width, int height);
 
 void			pixel(t_cub3d *c);
+void			animate_sprite(t_cub3d *c);
 
 #endif

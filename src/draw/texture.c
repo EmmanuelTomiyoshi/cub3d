@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 19:18:16 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:00:07 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 	int		y;
 
 	y = c->draw.start;
-	
 	while (y < c->draw.end)
 	{
 		c->draw.tex_y = (int)c->draw.tex_pos & (c->mlx.ea_tex.height - 1);

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:17:51 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:26:02 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ static void	destroy_images(t_cub3d *c)
 	destroy_texture(c->mlx.we_tex.img, c);
 	mlx_destroy_image(c->mlx.ptr, c->mlx.img.ptr);
 	mlx_destroy_image(c->mlx.ptr, c->menu.img.ptr);
+	if (c->menu.resize.ptr)
+		mlx_destroy_image(c->mlx.ptr, c->menu.resize.ptr);
 }
 
 void	destroy_all(t_cub3d *c)

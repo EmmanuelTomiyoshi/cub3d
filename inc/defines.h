@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 14:03:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:47:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ typedef struct s_menu
 {
 	t_image		img;
 	t_bool		active;
+	t_image		resize;
 	t_button	fullscreen;
 	t_button	quit;
+	float		width_ratio;
+	float		height_ratio;
 }	t_menu;
 
 typedef struct s_rgb
@@ -211,5 +214,9 @@ typedef struct s_cub3d
 # define DEF_PLAYER_SPEED 		0.032
 # define DEF_CAM_SPEED_X		1.2799
 # define DEF_CAM_SPEED_Y		358.7201
+# define BTN_X 					54
+# define BTN_Y 					580
+# define BTN_WIDTH 				180
+# define BTN_HEIGHT 			72
 
 #endif
