@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 18:56:29 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:27:38 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	change_brightness(t_cub3d *c)
 {
-	if (c->light_mode == FALSE)
+	if (c->light_mode == TRUE)
 	{
-		c->draw.color = blending(c->draw.color, SUB_LIGHT);
+		c->draw.color = blending(c->draw.color, ADD_LIGHT, c);
 	}
 }
 
