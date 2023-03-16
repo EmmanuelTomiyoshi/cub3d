@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 18:56:00 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:09:15 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ static void	map_and_player(char *file, t_cub3d *c)
 	c->light_mode = FALSE;
 	c->distortion = FALSE;
 	c->animate = FALSE;
+	c->mini_map = FALSE;
 	c->player.speed = DEF_PLAYER_SPEED;
 	itorgb(0, &c->map.foreground);
 }

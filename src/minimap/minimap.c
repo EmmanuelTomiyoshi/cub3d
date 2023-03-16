@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:17:25 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 18:50:17 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:09:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ static void	complete_minimap(t_cub3d *c)
 
 void	draw_minimap(t_cub3d *c)
 {
-	complete_minimap(c);
-	draw_player(c, 11, 11);
+	if (c->mini_map == TRUE)
+	{
+		complete_minimap(c);
+		draw_player(c, 11, 11);
+	}
 }
