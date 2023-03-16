@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 15:35:40 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:37:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,5 @@ int	brightness(t_cub3d *c)
 		c->map.c_color = light_ceiling;
 		c->map.f_color = light_floor;
 	}
-
-	printf("%d | %d\n", c->map.c_color, c->map.f_color);
 	return (0);
 }
