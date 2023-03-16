@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:01:30 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/14 14:37:59 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:48:00 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # define MOUSE_RELEASE		0
 # define OPEN_BRACKET		93
 # define CLOSED_BRACKET		92
+# define KEY_L				108
+# define KEY_J              106
+# define KEY_K              107
 # define KEY_A				97
 # define KEY_S				115
 # define KEY_D				100

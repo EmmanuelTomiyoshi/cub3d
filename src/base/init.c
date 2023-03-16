@@ -6,11 +6,44 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 17:05:00 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:34:39 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	intorgb(int *r, int *g, int *b, unsigned int *color)
+{
+	*r = (*color >> 16) & 0xFF;
+	*g = (*color >> 8) & 0xFF;
+	*b = *color & 0xFF;
+}
+
+unsigned int	increase_brightness(unsigned int *color, float opacity)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	intorgb(&r, &g, &b, color);
+	r *= opacity;
+	g *= opacity;
+	b *= opacity;
+	return (r << 16) | (g << 8) | b;
+}
+
+unsigned int	decrease_brightness(unsigned int *color, float opacity)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	intorgb(&r, &g, &b, color);
+	r /= opacity;
+	g /= opacity;
+	b /= opacity;
+	return (r << 16) | (g << 8) | b;
+}
 
 static void	square_colors(t_cub3d *c)
 {
@@ -24,7 +57,6 @@ static void	menu(t_cub3d *c)
 {
 	c->menu.active = FALSE;
 	c->menu.fullscreen.toggle = FALSE;
-	c->menu.quit.toggle = FALSE;
 	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
 			"./assets/images/paused.xpm",
 			&c->menu.img.win_width,
@@ -34,10 +66,15 @@ static void	menu(t_cub3d *c)
 			&c->menu.img.endian);
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
-	get_btn_pos(&c->menu.fullscreen, 790, 389);
-	get_btn_size(&c->menu.fullscreen, 220, 45);
-	get_btn_pos(&c->menu.fullscreen, 56, 584);
-	get_btn_size(&c->menu.quit, 180, 64);
+
+	//
+	c->menu.resize.ptr = NULL;
+	c->menu.resize.addr = NULL;
+
+	c->menu.width_ratio = 0;
+	c->menu.height_ratio = 0;
+	// get_btn_pos(&c->menu.quit, BTN_X, BTN_Y);
+	// get_btn_size(&c->menu.quit, BTN_WIDTH, BTN_HEIGHT);
 }
 
 static void	mlx(t_cub3d *c)
@@ -78,12 +115,18 @@ static void	map_and_player(char *file, t_cub3d *c)
 	c->player.camera.speed.x = DEF_CAM_SPEED_X;
 	c->player.camera.speed.y = DEF_CAM_SPEED_Y;
 	c->hovering = FALSE;
+	c->light_mode = FALSE;
 	c->player.speed = DEF_PLAYER_SPEED;
 	itorgb(0, &c->map.foreground);
 }
 
 static void	textures(t_cub3d *c)
 {
+	c->draw = (t_draw){0};//
+	c->exposure = FALSE;
+	c->lighter = FALSE;
+	c->darker = FALSE;
+	c->brightness = 0;
 	c->mlx.ea_tex = (t_texture){0};
 	c->mlx.so_tex = (t_texture){0};
 	c->mlx.no_tex = (t_texture){0};

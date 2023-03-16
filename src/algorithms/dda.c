@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 11:59:50 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:06:17 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,12 @@ void	dda(t_cub3d *c)
 
 void	raycasting(t_cub3d *c, int pixel)
 {
-	t_draw	draw;
-
-	draw = (t_draw){0};
-	draw.wall_line_height = (int) c->mlx.win.height / c->dda.perpendicular;
-	draw.start = -draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
-	if (draw.start < 0)
-		draw.start = 0;
-	draw.end = draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
-	if (draw.end >= c->mlx.win.height)
-		draw.end = c->mlx.win.height - 1;
-	draw_texture(c, pixel, &draw);
+	c->draw.wall_line_height = (int) c->mlx.win.height / c->dda.perpendicular;
+	c->draw.start = -c->draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
+	if (c->draw.start < 0)
+		c->draw.start = 0;
+	c->draw.end = c->draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
+	if (c->draw.end >= c->mlx.win.height)
+		c->draw.end = c->mlx.win.height - 1;
+	draw_texture(c, pixel);
 }

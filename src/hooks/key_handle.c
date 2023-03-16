@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:49:32 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:48:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,12 @@ int	key_press(int keycode, t_cub3d *c)
 	key_movements(keycode, c);
 	if (keycode == KEY_ESC)
 		show_menu(c);
-	else if (keycode == OPEN_BRACKET)
-		brightness(c, keycode);
-	else if (keycode == CLOSED_BRACKET)
-		brightness(c, keycode);
-	else if (keycode == KEY_M)
+	else if (keycode == KEY_J)
 		camera_speed(0.25, -0.25, c);
-	else if (keycode == KEY_N)
+	else if (keycode == KEY_K)
 		camera_speed(-0.25, 0.25, c);
+	else if (keycode == KEY_L)
+		brightness(c);
 	else if (keycode == KEY_F11)
 		change_win_size(c);
 	return (0);

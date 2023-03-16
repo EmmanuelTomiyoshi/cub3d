@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 12:44:26 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:34:20 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ typedef struct s_menu
 {
 	t_image		img;
 	t_bool		active;
+	t_image		resize;
 	t_button	fullscreen;
 	t_button	quit;
+	float		width_ratio;
+	float		height_ratio;
 }	t_menu;
 
 typedef struct s_rgb
@@ -177,14 +180,15 @@ typedef struct s_minimap
 
 typedef struct s_draw
 {
-	int			wall_line_height;
-	int			start;
-	int			end;
-	double		wall_x;
-	int			tex_x;
-	double		step;
-	double		tex_pos;
-	int			tex_y;
+	unsigned int	color;
+	int				wall_line_height;
+	int				start;
+	int				end;
+	double			wall_x;
+	int				tex_x;
+	double			step;
+	double			tex_pos;
+	int				tex_y;
 }	t_draw;
 
 typedef struct s_cub3d
@@ -196,7 +200,13 @@ typedef struct s_cub3d
 	t_menu		menu;
 	t_minimap	minimap;
 	t_bool		hovering;
+	t_draw		draw;
 	t_temp		temp;
+	int			brightness;
+	t_bool		lighter;
+	t_bool		darker;
+	t_bool		exposure;
+	t_bool		light_mode;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"
@@ -207,10 +217,14 @@ typedef struct s_cub3d
 # define COLOR_THRESHOLD_MAX 	224
 # define COLOR_THRESHOLD_MIN 	64
 # define SPEED_THRESHOLD		0.16
-# define ADD_LIGHT 				0.10
-# define SUB_LIGHT 				-0.10
-# define DEF_PLAYER_SPEED 		0.032
+# define ADD_LIGHT 				0.6
+# define SUB_LIGHT 				-1.2
+# define DEF_PLAYER_SPEED 		0.054
 # define DEF_CAM_SPEED_X		1.2799
 # define DEF_CAM_SPEED_Y		358.7201
+# define BTN_X 					54
+# define BTN_Y 					580
+# define BTN_WIDTH 				180
+# define BTN_HEIGHT 			72
 
 #endif
