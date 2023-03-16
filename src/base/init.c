@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 14:55:45 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:25:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,17 @@ static void	menu(t_cub3d *c)
 			&c->menu.img.endian);
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
-
-	//
 	c->menu.resize.ptr = NULL;
 	c->menu.resize.addr = NULL;
-
 	c->menu.width_ratio = 0;
 	c->menu.height_ratio = 0;
-	// get_btn_pos(&c->menu.quit, BTN_X, BTN_Y);
-	// get_btn_size(&c->menu.quit, BTN_WIDTH, BTN_HEIGHT);
+	c->crosshair.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
+			"./assets/images/crosshair.xpm",
+			&c->crosshair.win_width,
+			&c->crosshair.win_height);
+	c->crosshair.addr = mlx_get_data_addr(c->crosshair.ptr,
+			&c->crosshair.bits_per_pixel, &c->crosshair.line_length,
+			&c->crosshair.endian);
 }
 
 static void	mlx(t_cub3d *c)
@@ -114,7 +116,6 @@ static void	map_and_player(char *file, t_cub3d *c)
 	c->dda.perpendicular = 0;
 	c->player.camera.speed.x = DEF_CAM_SPEED_X;
 	c->player.camera.speed.y = DEF_CAM_SPEED_Y;
-	c->hovering = FALSE;
 	c->light_mode = FALSE;
 	c->player.speed = DEF_PLAYER_SPEED;
 	itorgb(0, &c->map.foreground);
@@ -122,11 +123,7 @@ static void	map_and_player(char *file, t_cub3d *c)
 
 static void	textures(t_cub3d *c)
 {
-	c->draw = (t_draw){0};//
-	c->exposure = FALSE;
-	c->lighter = FALSE;
-	c->darker = FALSE;
-	c->brightness = 0;
+	c->draw = (t_draw){0};
 	c->mlx.ea_tex = (t_texture){0};
 	c->mlx.so_tex = (t_texture){0};
 	c->mlx.no_tex = (t_texture){0};
