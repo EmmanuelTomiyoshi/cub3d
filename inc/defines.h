@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 18:32:15 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:38:59 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,6 +205,7 @@ typedef struct s_cub3d
 	t_image		crosshair;
 	t_bool		distortion;
 	t_bool		light_mode;
+	t_bool		animate;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"
