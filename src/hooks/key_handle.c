@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 15:48:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:35:54 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ static void	key_movements(int keycode, t_cub3d *c)
 		c->player.run = TRUE;
 }
 
+void	distortion(t_cub3d *c)
+{
+	c->distortion = !c->distortion;
+}
+
 int	key_press(int keycode, t_cub3d *c)
 {
 	key_movements(keycode, c);
@@ -41,6 +46,8 @@ int	key_press(int keycode, t_cub3d *c)
 		camera_speed(-0.25, 0.25, c);
 	else if (keycode == KEY_L)
 		brightness(c);
+	else if (keycode == KEY_E)
+		distortion(c);
 	else if (keycode == KEY_F11)
 		change_win_size(c);
 	return (0);
