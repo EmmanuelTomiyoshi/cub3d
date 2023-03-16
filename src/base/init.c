@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:57:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:20:26 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,10 @@ static void	mlx(t_cub3d *c)
 		&c->mlx.screen_width, &c->mlx.screen_height);
 	c->mlx.screen_width -= 16;
 	c->mlx.screen_height -= 32;
+	c->menu.quit.height = 0;
+	c->menu.quit.width = 0;
+	c->menu.quit.x = 0;
+	c->menu.quit.y = 0;
 }
 
 static void	map_and_player(char *file, t_cub3d *c)
