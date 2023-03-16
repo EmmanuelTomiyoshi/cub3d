@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:50:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:29:48 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	walk_backwards(t_cub3d *c)
 		temp_dir.y * 0.15)] == '8')
 		c->player.pos.y = temp_pos.y;
 	if (c->map.map[(int)floor(temp_pos.x + \
-		temp_dir.y * 0.15)][(int)floor(temp_y)] == '8')
+		temp_dir.x * 0.15)][(int)floor(temp_y)] == '8')
 		c->player.pos.x = temp_pos.x;
 }
 
