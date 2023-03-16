@@ -6,7 +6,7 @@
 #    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/16 13:45:33 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/16 18:49:57 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ FILES				=	base/destroy.c			\
 						algorithms/init.c		\
 						algorithms/queue.c		\
 						minimap/minimap.c		\
+						minimap/init_minimap.c	\
 						button.c				\
 						main.c					\
 						menu.c					\

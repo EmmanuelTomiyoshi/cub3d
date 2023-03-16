@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 16:37:35 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:42:41 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ int	draw(t_cub3d *c)
 			c->dda.pixel++;
 		}
 		c->dda.pixel = 0;
-		draw_minimap(c);
 		pixel(c);
 		// crosshair(c);
 		animate_sprite(c);
+		draw_minimap(c);
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);
 	}
 	return (0);
