@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 11:23:21 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:44:26 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,13 @@ typedef struct s_temp
 	char	*line;
 }	t_temp;
 
+typedef struct s_minimap
+{
+	char	**map;
+	int		width;
+	int		height;
+}	t_minimap;
+
 typedef struct s_draw
 {
 	int			wall_line_height;
@@ -187,6 +194,7 @@ typedef struct s_cub3d
 	t_dda		dda;
 	t_player	player;
 	t_menu		menu;
+	t_minimap	minimap;
 	t_bool		hovering;
 	t_temp		temp;
 }	t_cub3d;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:55:39 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:15:31 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:01:19 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,8 @@ static void	verify_map_char(char *one_line, t_cub3d *c)
 
 void	init_map(t_cub3d *c, char *one_line)
 {
-	size_t	i;
-
 	verify_map_char(one_line, c);
 	c->map.map = ft_split(one_line, '\n');
 	free(one_line);
 	verify_map(c);
-	i = 0;
-	while (c->map.map[i])
-		i++;
 }

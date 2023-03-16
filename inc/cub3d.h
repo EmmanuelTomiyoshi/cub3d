@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 11:41:51 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/16 13:38:28 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,11 @@ void		camera(t_cub3d *c);
 void		get_btn_pos(t_button *btn, int x, int y);
 void		get_btn_size(t_button *btn, int width, int height);
 
+//draw/draw.c
 void		draw_texture(t_cub3d *c, int pixel, t_draw *draw);
+
+//minimap/minimap.c
+void	draw_minimap(t_cub3d *c);
+void	init_minimap(t_cub3d *c);
 
 #endif
