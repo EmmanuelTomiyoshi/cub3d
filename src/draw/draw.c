@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 12:58:33 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 14:11:12 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,14 @@ int	draw(t_cub3d *c)
 	{
 		if (c->menu.fullscreen.toggle)
 		{
-			// get_btn_pos(&c->menu.quit, (int)(c->menu.quit.x * c->menu.width_ratio), (int)(c->menu.quit.y * c->menu.height_ratio));
-			// get_btn_size(&c->menu.quit, (int)(c->menu.quit.width * c->menu.width_ratio), (int)(c->menu.quit.height * c->menu.height_ratio));
-			draw_button(c->menu.quit, c->menu.resize);
+			get_btn_pos(&c->menu.quit, (int)(BTN_X * c->menu.width_ratio), (int)(BTN_Y * c->menu.height_ratio));
+			get_btn_size(&c->menu.quit, (int)(BTN_WIDTH * c->menu.width_ratio), (int)(BTN_HEIGHT * c->menu.height_ratio));
 			mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.resize.ptr, 0, 0);
 		}
 		else
 		{
 			get_btn_pos(&c->menu.quit, BTN_X, BTN_Y);
 			get_btn_size(&c->menu.quit, BTN_WIDTH, BTN_HEIGHT);
-			draw_button(c->menu.quit, c->menu.img);
 			mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->menu.img.ptr, 0, 0);
 		}
 	}
