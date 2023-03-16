@@ -6,12 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 15:37:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:27:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
 
 t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 {
@@ -25,12 +24,6 @@ t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 	return (TRUE);
 }
 
-// static void	update_color(t_rgb *object, int *color, float light, t_map *map)
-// {
-// 	blend(map->foreground, *object, light, object);
-// 	*color = get_rgb(object->r, object->g, object->b);
-// }
-
 int	brightness(t_cub3d *c)
 {
 	static int	light_floor;
@@ -42,8 +35,8 @@ int	brightness(t_cub3d *c)
 	{
 		light_floor = c->map.f_color;
 		light_ceiling = c->map.c_color;
-		c->map.c_color = blending(c->map.c_color, ADD_LIGHT);
-		c->map.f_color = blending(c->map.f_color, ADD_LIGHT);
+		c->map.c_color = blending(c->map.c_color, ADD_LIGHT, c);
+		c->map.f_color = blending(c->map.f_color, ADD_LIGHT, c);
 	}
 	else
 	{
