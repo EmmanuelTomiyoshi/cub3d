@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 17:33:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:26:38 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,6 @@ typedef struct s_texture
 
 typedef struct s_mlx
 {
-	t_texture	ea_tex;
-	t_texture	so_tex;
-	t_texture	no_tex;
-	t_texture	we_tex;
 	t_image		img;
 	t_win		win;
 	void		*ptr;
@@ -185,6 +181,10 @@ typedef struct s_map
 	char		*we_path;
 	char		*so_path;
 	char		*no_path;
+	t_texture	ea_tex;
+	t_texture	so_tex;
+	t_texture	no_tex;
+	t_texture	we_tex;
 	t_player	player;
 	t_minimap	minimap;
 }	t_map;
@@ -223,7 +223,6 @@ typedef struct s_cub3d
 	t_menu			menu;
 	t_levels		level;
 	t_keyhandle		key;
-	t_bool			update_level;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

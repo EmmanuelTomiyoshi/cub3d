@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 14:18:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:07:20 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,4 @@ void	invalid_args(int argc, char **argv, t_cub3d *c)
 		exit_error(MSG_ERR_FILENAME, TRUE);
 	if (can_open_file(c, argv[1]) == FALSE)
 		exit_error(MSG_ERR_OPEN_FILE, TRUE);
-	get_level_info(c);
 }

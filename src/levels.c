@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 17:10:10 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:26:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ void	get_level_fd(t_cub3d *c)
 	}
 }
 
+void	init_texture(t_map *map)
+{
+	map->ea_tex.img.ptr = NULL;
+	map->so_tex.img.ptr = NULL;
+	map->no_tex.img.ptr = NULL;
+	map->we_tex.img.ptr = NULL;
+}
+
 void	get_level_colors_and_coordinates(t_cub3d *c)
 {
 	int		i;
@@ -46,6 +54,8 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 		get_map_content(&c->level.name[i], &one_line, c);
 		init_map(&c->level.name[i], c, one_line);
 		init_minimap(&c->level.name[i]);
+		init_texture(&c->level.name[i]);
+		get_texture(&c->level.name[i], c);
 		printf("%s: %d", c->level.files[i], c->level.name[i].c_color);
 		printf("| EA_PATH: %s ", c->level.name[i].ea_path);
 		printf("| SO_PATH: %s\n", c->level.name[i].so_path);
@@ -79,12 +89,8 @@ t_map	update_level(t_cub3d *c)
 		i = 0;
 		c->map = temp;
 	}
-	if (c->update_level == TRUE)
-	{
-		c->map = c->level.name[i];
-		i++;
-	}
-	// printf("%d) |%d|\n", i, c->map.fd);
+	c->map = c->level.name[i];
+	i++;
 	return (c->map);
 }
 

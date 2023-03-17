@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 18:40:38 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:56:25 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	animate_sprite(t_cub3d *c)
 	{
 		if (frame % 60 == 0)
 		{
-			temp = c->mlx.ea_tex;
-			c->mlx.ea_tex = c->mlx.no_tex;
-			c->mlx.no_tex = c->mlx.we_tex;
-			c->mlx.we_tex = c->mlx.so_tex;
-			c->mlx.so_tex = temp;
+			temp = c->map.ea_tex;
+			c->map.ea_tex = c->map.no_tex;
+			c->map.no_tex = c->map.we_tex;
+			c->map.we_tex = c->map.so_tex;
+			c->map.so_tex = temp;
 		}
 		frame++;
 	}
