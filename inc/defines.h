@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 11:08:34 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:28:30 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,7 @@ typedef struct s_cub3d
 	t_player	player;
 	t_minimap	minimap;
 	t_levels	level;
+	t_bool		update_level;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

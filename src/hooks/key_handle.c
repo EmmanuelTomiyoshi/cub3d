@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 14:25:44 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:02:17 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ void	show_minimap(t_cub3d *c)
 	c->mini_map = !c->mini_map;
 }
 
-void	update_level(t_cub3d *c)
+void	level(t_cub3d *c)
 {
-	(void)c;
+	c->update_level = !c->update_level;
+	if (c->update_level)
+		update_level(c);
 }
 
 int	key_press(int keycode, t_cub3d *c)
@@ -68,7 +70,7 @@ int	key_press(int keycode, t_cub3d *c)
 	else if (keycode == KEY_T)
 		animate(c);
 	else if (keycode == KEY_M)
-		update_level(c);
+		level(c);
 	else if (keycode == KEY_F11)
 		change_win_size(c);
 	return (0);

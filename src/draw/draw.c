@@ -6,12 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:57:15 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:03:52 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
 
 static void	background(t_cub3d *c)
 {
@@ -117,6 +116,25 @@ void	mlx_put_image_pixel(t_image *img, int x, int y, int argb)
 			pixel[bytes] = byte_color;
 	}
 }
+
+// void	animate_sprite(t_cub3d *c)
+// {
+// 	static int	frame = 0;
+// 	t_texture	temp;
+
+// 	if (c->animate == TRUE)
+// 	{
+// 		if (frame % 60 == 0)
+// 		{
+// 			temp = c->mlx.ea_tex;
+// 			c->mlx.ea_tex = c->mlx.no_tex;
+// 			c->mlx.no_tex = c->mlx.we_tex;
+// 			c->mlx.we_tex = c->mlx.so_tex;
+// 			c->mlx.so_tex = temp;
+// 		}
+// 		frame++;
+// 	}
+// }
 
 int	draw(t_cub3d *c)
 {
