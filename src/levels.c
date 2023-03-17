@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 18:26:46 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:23:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "messages.h"
 
 void	get_level_fd(t_cub3d *c)
 {
@@ -28,7 +29,6 @@ void	get_level_fd(t_cub3d *c)
 			exit_error(MSG_ERR_LEVEL_FILE, FALSE);
 		}
 		free(c->level.temp);
-		printf("%s: %d\n", c->level.files[i], c->level.name[i].fd);
 		i++;
 	}
 }
@@ -47,7 +47,6 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 	char	*one_line;
 	
 	i = 0;
-	printf("\n");
 	while (i < c->level.count)
 	{
 		get_colors_and_coordinates(&c->level.name[i], c);
@@ -56,9 +55,6 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 		init_minimap(&c->level.name[i]);
 		init_texture(&c->level.name[i]);
 		get_texture(&c->level.name[i], c);
-		printf("%s: %d", c->level.files[i], c->level.name[i].c_color);
-		printf("| EA_PATH: %s ", c->level.name[i].ea_path);
-		printf("| SO_PATH: %s\n", c->level.name[i].so_path);
 		i++;
 	}
 }
@@ -107,7 +103,7 @@ void	get_level_info(t_cub3d *c)
 		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
 	temp_line = get_next_line(fd);
 	if (temp_line == NULL)
-		printf("NULL\n");
+		exit_error(MSG_ERR_EMPY_LEVEL_FILE, FALSE);
 	c->level.count = 0;
 	one_line = ft_strdup("");
 	while (temp_line)
@@ -119,12 +115,7 @@ void	get_level_info(t_cub3d *c)
 	}
 	free(temp_line);
 	c->level.files = ft_split(one_line, '\n');
-
 	c->level.name = ft_calloc(c->level.count, sizeof(t_map));
-	
-	printf("%s %d\n", one_line, c->level.count);
-	printf("\n%s %s\n", c->level.files[1], c->level.files[3]);
-
 	get_level_fd(c);
 	get_level_colors_and_coordinates(c);
 	free(one_line);

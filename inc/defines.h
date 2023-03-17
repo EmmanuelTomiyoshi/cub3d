@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 18:26:38 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:21:14 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,9 +235,9 @@ typedef struct s_cub3d
 # define SPEED_THRESHOLD		0.16
 # define ADD_LIGHT 				0.3
 # define SUB_LIGHT 				-0.6
-# define DEF_PLAYER_SPEED 		0.054
-# define DEF_CAM_SPEED_X		1.2799
-# define DEF_CAM_SPEED_Y		358.7201
+# define DEF_PLAYER_SPEED 		0.09
+# define DEF_CAM_SPEED_X		2.4
+# define DEF_CAM_SPEED_Y		357.6
 # define BTN_X 					54
 # define BTN_Y 					580
 # define BTN_WIDTH 				180
