@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:15:35 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 13:10:53 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:12:34 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	resize_menu(t_cub3d *c)
 	int	y;
 
 	x = 0;
+	y = 0;
 	c->menu.width_ratio = (float) c->mlx.img.win_width / c->menu.img.win_width;
 	c->menu.height_ratio = (float) c->mlx.img.win_height \
 		/ c->menu.img.win_height;
