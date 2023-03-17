@@ -6,13 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:59:40 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 21:40:17 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	get_color_value(int id, char **rgb, t_cub3d *c)
+void	get_color_value(t_map *map, int id, char **rgb)
 {
 	int	r;
 	int	g;
@@ -23,35 +23,35 @@ void	get_color_value(int id, char **rgb, t_cub3d *c)
 	b = ft_atoi(rgb[2]);
 	if (id == 'C')
 	{
-		c->map.ceiling.r = r;
-		c->map.ceiling.g = g;
-		c->map.ceiling.b = b;
-		c->map.c_color = get_rgb(r, g, b);
+		map->ceiling.r = r;
+		map->ceiling.g = g;
+		map->ceiling.b = b;
+		map->c_color = get_rgb(r, g, b);
 	}
 	if (id == 'F')
 	{
-		c->map.floor.r = r;
-		c->map.floor.g = g;
-		c->map.floor.b = b;
-		c->map.f_color = get_rgb(r, g, b);
+		map->floor.r = r;
+		map->floor.g = g;
+		map->floor.b = b;
+		map->f_color = get_rgb(r, g, b);
 	}
 }
 
-char	**init_rgb(char *line, int *i)
+void	check_color_value(char **rgb, t_cub3d *c)
 {
-	char	**rgb;
-	int		j;
+	int	i;
 
-	*i += 1;
-	ft_ignore_spaces(line, i);
-	rgb = ft_calloc(4, sizeof(char *));
-	j = 0;
-	while (j != 3)
+	i = 0;
+	while (rgb[i])
 	{
-		rgb[j] = ft_calloc(4, sizeof(char));
-		j++;
+		if (!rgb[i][0])
+		{
+			ft_free_array(rgb);
+			destroy_all(c);
+			exit_error(MSG_ERR_MISSING_RGB, FALSE);
+		}
+		i++;
 	}
-	return (rgb);
 }
 
 void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
@@ -83,24 +83,24 @@ void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 	rgb[j] = NULL;
 }
 
-void	check_color_value(char **rgb, t_cub3d *c)
+char	**init_rgb(char *line, int *i)
 {
-	int	i;
+	char	**rgb;
+	int		j;
 
-	i = 0;
-	while (rgb[i])
+	*i += 1;
+	ft_ignore_spaces(line, i);
+	rgb = ft_calloc(4, sizeof(char *));
+	j = 0;
+	while (j != 3)
 	{
-		if (!rgb[i][0])
-		{
-			ft_free_array(rgb);
-			destroy_all(c);
-			exit_error(MSG_ERR_MISSING_RGB, FALSE);
-		}
-		i++;
+		rgb[j] = ft_calloc(4, sizeof(char));
+		j++;
 	}
+	return (rgb);
 }
 
-void	get_colors(char *line, int *i, int id, t_cub3d *c)
+void	get_colors(t_map *map, char *line, int *i, int id, t_cub3d *c)
 {
 	char	**rgb;
 
@@ -113,6 +113,6 @@ void	get_colors(char *line, int *i, int id, t_cub3d *c)
 		destroy_all(c);
 		exit_error(MSG_ERR_COLOR, FALSE);
 	}
-	get_color_value(id, rgb, c);
+	get_color_value(map, id, rgb);
 	ft_free_array(rgb);
 }

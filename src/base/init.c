@@ -6,52 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 20:20:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 21:30:24 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void	intorgb(int *r, int *g, int *b, unsigned int *color)
-{
-	*r = (*color >> 16) & 0xFF;
-	*g = (*color >> 8) & 0xFF;
-	*b = *color & 0xFF;
-}
-
-unsigned int	increase_brightness(unsigned int *color, float opacity)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	intorgb(&r, &g, &b, color);
-	r *= opacity;
-	g *= opacity;
-	b *= opacity;
-	return (r << 16) | (g << 8) | b;
-}
-
-unsigned int	decrease_brightness(unsigned int *color, float opacity)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	intorgb(&r, &g, &b, color);
-	r /= opacity;
-	g /= opacity;
-	b /= opacity;
-	return (r << 16) | (g << 8) | b;
-}
-
-static void	square_colors(t_cub3d *c)
-{
-	itorgb(DARK_BLUE, &c->map.c_cube1);
-	itorgb(LIGHT_BLUE, &c->map.c_cube2);
-	c->map.cube1 = DARK_BLUE;
-	c->map.cube2 = LIGHT_BLUE;
-}
 
 static void	menu(t_cub3d *c)
 {
@@ -96,19 +55,21 @@ static void	mlx(t_cub3d *c)
 	c->menu.quit.y = 0;
 }
 
-static void	map_and_player(char *file, t_cub3d *c)
+void	map_init(t_map *map, char *file)
 {
-	c->map.file = ft_strdup(file);
-	c->map.infos = 0;
-	c->map.f_color = 0;
-	c->map.c_color = 0;
-	c->map.cube1 = 0;
-	c->map.cube2 = 0;
-	c->map.map = NULL;
-	c->map.ea_path = NULL;
-	c->map.we_path = NULL;
-	c->map.so_path = NULL;
-	c->map.no_path = NULL;
+	map->file = ft_strdup(file);
+	map->infos = 0;
+	map->f_color = 0;
+	map->c_color = 0;
+	map->map = NULL;
+	map->ea_path = NULL;
+	map->we_path = NULL;
+	map->so_path = NULL;
+	map->no_path = NULL;
+}
+
+static void	player(t_cub3d *c)
+{
 	c->dda.pixel = 0;
 	c->dda.perpendicular = 0;
 	c->player.camera.speed.x = DEF_CAM_SPEED_X;
@@ -118,7 +79,6 @@ static void	map_and_player(char *file, t_cub3d *c)
 	c->animate = FALSE;
 	c->mini_map = FALSE;
 	c->player.speed = DEF_PLAYER_SPEED;
-	itorgb(0, &c->map.foreground);
 }
 
 static void	textures(t_cub3d *c)
@@ -132,9 +92,9 @@ static void	textures(t_cub3d *c)
 
 void	init(char **argv, t_cub3d *c)
 {
-	map_and_player(argv[1], c);
+	player(c);
+	map_init(&c->map, argv[1]);
 	textures(c);
 	mlx(c);
-	square_colors(c);
 	menu(c);
 }

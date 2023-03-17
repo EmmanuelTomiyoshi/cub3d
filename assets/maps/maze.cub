@@ -1,9 +1,9 @@
 C           39,      76,       119
-NO ./assets/textures/BRICK_3D.xpm
+NO ./assets/textures/fractal1.xpm
 F           231,      236,      239
-WE         ./assets/textures/BRICK_3D.xpm
-SO ./assets/textures/BRICK_3D.xpm
-EA ./assets/textures/BRICK_3D.xpm
+WE         ./assets/textures/fractal2.xpm
+SO ./assets/textures/fractal3.xpm
+EA ./assets/textures/fractal4.xpm
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001
@@ -17,7 +17,7 @@ EA ./assets/textures/BRICK_3D.xpm
 10000001000101000011010100101
 11000001010101000000010000001
 10000001000001011000000010001
-1000000000N000000110101001001
+1000000000W000000110101001001
 11000001000001111110111100001
 11110111110111101111010001111
 111111111111111111111111111

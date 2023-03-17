@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 20:01:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 21:30:26 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,27 +118,6 @@ typedef struct s_line
 	int	dx;
 }	t_line;
 
-typedef struct s_map
-{
-	int		fd;
-	int		infos;
-	int		f_color;
-	int		c_color;
-	int		cube1;
-	int		cube2;
-	t_rgb	c_cube1;
-	t_rgb	c_cube2;
-	t_rgb	floor;
-	t_rgb	ceiling;
-	t_rgb	foreground;
-	char	*file;
-	char	**map;
-	char	*ea_path;
-	char	*we_path;
-	char	*so_path;
-	char	*no_path;
-}	t_map;
-
 typedef struct s_win
 {
 	void	*ptr;
@@ -200,6 +179,33 @@ typedef struct	s_argb
 	int	argb;
 }	t_argb;
 
+typedef struct s_map
+{
+	int		fd;
+	int		infos;
+	int		f_color;
+	int		c_color;
+	t_rgb	floor;
+	t_rgb	ceiling;
+	char	*file;
+	char	**map;
+	char	*ea_path;
+	char	*we_path;
+	char	*so_path;
+	char	*no_path;
+}	t_map;
+
+typedef	struct s_level
+{
+	t_map	circle;
+	t_map	maze;
+	t_map	perpendicular;
+	t_map	random;
+	t_map	room;
+	t_map	walls;
+	t_map	zigzag;
+}	t_level;
+
 typedef struct s_cub3d
 {
 	t_mlx		mlx;
@@ -214,6 +220,7 @@ typedef struct s_cub3d
 	t_bool		light_mode;
 	t_bool		animate;
 	t_bool		mini_map;
+	t_level		level;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

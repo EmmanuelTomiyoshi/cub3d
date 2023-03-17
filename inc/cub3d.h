@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:26:17 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/16 21:40:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int				is_coordinate(int c);
 void			get_coordinates(char *line, int *i, int id, t_cub3d *c);
 
 //get_colors.c
-void			get_colors(char *line, int *i, int id, t_cub3d *c);
+void			get_colors(t_map *map, char *line, int *i, int id, t_cub3d *c);
 int				is_floor_or_ceiling(int c);
 
 //map.c
@@ -143,8 +143,6 @@ void			blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
 unsigned int	blending(unsigned int color, float opacity, t_cub3d *c);
 void			draw_texture(t_cub3d *c, int pixel);
 
-unsigned int	increase_brightness(unsigned int *color, float opacity);
-unsigned int	decrease_brightness(unsigned int *color, float opacity);
 int				mouse_callback(int button, int x, int y, t_cub3d *c);
 int				draw_button(t_button button, t_image img);
 
