@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:45:47 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:09:33 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,22 @@ void	init_perpendicular(t_cub3d *c)
 		c->dda.perpendicular = c->dda.line_size.x - c->dda.delta.x;
 	else
 		c->dda.perpendicular = c->dda.line_size.y - c->dda.delta.y;
+	if (c->distortion == TRUE)
+	{
+		if (c->dda.hit.side == 0)
+			c->draw.wall_x = c->player.pos.y + c->dda.perpendicular + \
+					c->dda.raydir.y;
+		else
+			c->draw.wall_x = c->player.pos.x + c->dda.perpendicular + \
+				c->dda.raydir.x;
+	}
+	else
+	{
+		if (c->dda.hit.side == 0)
+			c->draw.wall_x = c->player.pos.y + c->dda.perpendicular * \
+				c->dda.raydir.y;
+		else
+			c->draw.wall_x = c->player.pos.x + c->dda.perpendicular * \
+				c->dda.raydir.x;
+	}
 }

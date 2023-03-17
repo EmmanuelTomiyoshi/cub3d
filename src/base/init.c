@@ -3,55 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:09:15 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:20:52 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void	intorgb(int *r, int *g, int *b, unsigned int *color)
-{
-	*r = (*color >> 16) & 0xFF;
-	*g = (*color >> 8) & 0xFF;
-	*b = *color & 0xFF;
-}
-
-unsigned int	increase_brightness(unsigned int *color, float opacity)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	intorgb(&r, &g, &b, color);
-	r *= opacity;
-	g *= opacity;
-	b *= opacity;
-	return (r << 16) | (g << 8) | b;
-}
-
-unsigned int	decrease_brightness(unsigned int *color, float opacity)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	intorgb(&r, &g, &b, color);
-	r /= opacity;
-	g /= opacity;
-	b /= opacity;
-	return (r << 16) | (g << 8) | b;
-}
-
-static void	square_colors(t_cub3d *c)
-{
-	itorgb(DARK_BLUE, &c->map.c_cube1);
-	itorgb(LIGHT_BLUE, &c->map.c_cube2);
-	c->map.cube1 = DARK_BLUE;
-	c->map.cube2 = LIGHT_BLUE;
-}
 
 static void	menu(t_cub3d *c)
 {
@@ -70,13 +29,6 @@ static void	menu(t_cub3d *c)
 	c->menu.resize.addr = NULL;
 	c->menu.width_ratio = 0;
 	c->menu.height_ratio = 0;
-	c->crosshair.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
-			"./assets/images/crosshair.xpm",
-			&c->crosshair.win_width,
-			&c->crosshair.win_height);
-	c->crosshair.addr = mlx_get_data_addr(c->crosshair.ptr,
-			&c->crosshair.bits_per_pixel, &c->crosshair.line_length,
-			&c->crosshair.endian);
 }
 
 static void	mlx(t_cub3d *c)

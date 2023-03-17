@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 18:34:38 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:10:03 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	destroy_map(t_cub3d *c)
 		ft_free_array(c->minimap.map);
 	destroy_file(c);
 	close(c->map.fd);
-
 }
 
 static void	destroy_texture(t_image	tex, t_cub3d *c)

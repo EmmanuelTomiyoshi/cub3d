@@ -1,99 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   button.c                                           :+:      :+:    :+:   */
+/*   resize.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 18:40:38 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/17 12:15:35 by mtomomit          #+#    #+#             */
+/*   Updated: 2023/03/17 12:25:30 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	animate_sprite(t_cub3d *c)
-{
-	static int	frame = 0;
-	t_texture	temp;
-
-	if (c->animate == TRUE)
-	{
-		if (frame % 60 == 0)
-		{
-			temp = c->mlx.ea_tex;
-			c->mlx.ea_tex = c->mlx.no_tex;
-			c->mlx.no_tex = c->mlx.we_tex;
-			c->mlx.we_tex = c->mlx.so_tex;
-			c->mlx.so_tex = temp;
-		}
-		frame++;
-	}
-}
-
-void	get_btn_pos(t_button *btn, int x, int y)
-{
-	if (!btn)
-		return ;
-	btn->x = x;
-	btn->y = y;
-	if (btn->x)
-		return ;
-}
-
-void	get_btn_size(t_button *btn, int width, int height)
-{
-	if (!btn)
-		return ;
-	btn->width = width;
-	btn->height = height;
-}
-
-int	draw_button(t_button button, t_image img)
-{
-	int	i;
-	int	j;
-	int color;
-
-	if (button.toggle)
-		color = MARINE_BLUE;
-	else
-		color = AQUA;
-	i = 0;
-	while (i < button.width)
-	{
-		j = 0;
-		while (j < button.height)
-		{
-			my_pixel_put(&img, i + button.x, j + button.y, color);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-t_bool	clickable(t_button btn, int x, int y)
-{
-	if (x >= btn.x && x <= btn.x + btn.width)
-	{
-		if (y >= btn.y && y <= btn.y + btn.height)
-		{
-			return (TRUE);
-		}
-	}
-	return (FALSE);
-}
-
-int	mouse_callback(int button, int x, int y, t_cub3d *c)
-{
-	if (button == LEFT_CLICK)
-	{
-		if (clickable(c->menu.quit, x, y))
-			end_loop(c);
-	}
-	return (0);
-}
 
 void	resize_window(t_cub3d *c)
 {
@@ -127,8 +44,7 @@ void	resize_menu(t_cub3d *c)
 		y = 0;
 		while (y < c->menu.img.win_height)
 		{
-			color = *(unsigned int *)(c->menu.img.addr + \
-					(y * c->menu.img.line_length + x * (c->menu.img.bits_per_pixel) / 8));
+			color = return_color(&c->menu.img, x, y);
 			sqrx = x * c->menu.width_ratio;
 			while (sqrx < x * c->menu.width_ratio + c->menu.width_ratio)
 			{
@@ -171,18 +87,12 @@ int	change_win_size(t_cub3d *c)
 	}
 	mlx_destroy_image(c->mlx.ptr, c->mlx.img.ptr);
 	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
-
-	//novo tamanho da janela
 	c->mlx.win.width = width;
 	c->mlx.win.height = height;
-	//novo tamanho da imagem do menu
 	c->menu.resize.win_width = width;
 	c->menu.resize.win_height = height;
-	//novo tamanho da imagem da mlx
 	c->mlx.img.win_width = width;
 	c->mlx.img.win_height = height;
-
-	//criando a nova janela
 	resize_window(c);
 	resize_menu(c);
 	loop(c);
