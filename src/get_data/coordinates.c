@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 16:42:51 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:42:02 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_bool	check_path(char *path)
 	return (TRUE);
 }
 
-void	get_path(int id, char *path, t_cub3d *c)
+void	get_path(t_map *map, int id, char *path, t_cub3d *c)
 {
 	if (check_path(path) == FALSE)
 	{
@@ -31,16 +31,16 @@ void	get_path(int id, char *path, t_cub3d *c)
 		exit_error(MSG_ERR_OPEN_FILE, FALSE);
 	}
 	if (id == 'N')
-		c->map.no_path = ft_strdup(path);
+		map->no_path = ft_strdup(path);
 	else if (id == 'S')
-		c->map.so_path = ft_strdup(path);
+		map->so_path = ft_strdup(path);
 	else if (id == 'W')
-		c->map.we_path = ft_strdup(path);
+		map->we_path = ft_strdup(path);
 	else if (id == 'E')
-		c->map.ea_path = ft_strdup(path);
+		map->ea_path = ft_strdup(path);
 }
 
-void	get_coordinates(char *line, int *i, int id, t_cub3d *c)
+void	get_coordinates(t_map *map, char *line, int *i, int id, t_cub3d *c)
 {
 	char	*path;
 	int		j;
@@ -61,6 +61,6 @@ void	get_coordinates(char *line, int *i, int id, t_cub3d *c)
 		*i += 1;
 		j++;
 	}
-	get_path(id, path, c);
+	get_path(map, id, path, c);
 	free(path);
 }

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 21:30:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:08:34 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,32 +195,29 @@ typedef struct s_map
 	char	*no_path;
 }	t_map;
 
-typedef	struct s_level
+typedef struct s_levels
 {
-	t_map	circle;
-	t_map	maze;
-	t_map	perpendicular;
-	t_map	random;
-	t_map	room;
-	t_map	walls;
-	t_map	zigzag;
-}	t_level;
+	char	**files;
+	char	*temp;
+	int		count;
+	t_map	*name;
+}	t_levels;
 
 typedef struct s_cub3d
 {
 	t_mlx		mlx;
 	t_map		map;
 	t_dda		dda;
-	t_player	player;
-	t_menu		menu;
-	t_minimap	minimap;
 	t_draw		draw;
 	t_temp		temp;
 	t_bool		distortion;
 	t_bool		light_mode;
 	t_bool		animate;
 	t_bool		mini_map;
-	t_level		level;
+	t_menu		menu;
+	t_player	player;
+	t_minimap	minimap;
+	t_levels	level;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 21:43:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:17:38 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	check_type_identifier(char *line, t_map *map, t_cub3d *c)
 	if (id_floor_ceiling > 0 && ft_strlen(line) > 5)
 		get_colors(map, line, &i, id_floor_ceiling, c);
 	else if (id_coordinate > 0 && ft_strlen(line) > 2)
-		get_coordinates(line, &i, id_coordinate, c);
+		get_coordinates(map, line, &i, id_coordinate, c);
 	else
 	{
 		destroy_all(c);
@@ -72,5 +72,5 @@ void	get_data(t_cub3d *c)
 
 	get_colors_and_coordinates(&c->map, c);
 	get_map_content(&c->map, &one_line, c);
-	init_map(c, one_line);
+	init_map(&c->map, c, one_line);
 }

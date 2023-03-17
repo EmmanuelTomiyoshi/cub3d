@@ -7,3 +7,11 @@ Opcional
 - Mostrar mira (transparência)
 - Botão distorção (deixar a conta de antes que estava dando errado)
 
+
+
+Ler o arquivo "levels" com gnl. Conferir quantos arquivos tem.
+Verificar se todos existem, alocar com a quantidade de arquivos.
+
+Popular com as informações
+
+Quando Key_handle, mudar de mapa.

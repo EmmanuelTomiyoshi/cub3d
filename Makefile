@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/16 18:49:57 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/17 14:18:51 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				=	cub3d
+NAME				=	cub3D
 
 LFT					=	./libs/libft/libft.a
 LFTDIR				=	./libs/libft/
@@ -19,7 +19,7 @@ SRCDIR				=	src/
 OBJDIR				=	obj/
 INCDIR				=	inc/
 
-BIN					=	bin/cub3d
+BIN					=	bin/cub3D
 REQUIRED_DIRS		=	$(OBJDIR) bin/
 
 LFTFLAGS			=	-lft -lmlx -lm -lbsd -lXext -lX11 -lft
@@ -59,7 +59,8 @@ FILES				=	base/destroy.c			\
 						button.c				\
 						main.c					\
 						menu.c					\
-						rotate.c
+						rotate.c				\
+						levels.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 

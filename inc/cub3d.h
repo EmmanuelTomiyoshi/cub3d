@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 21:40:36 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:22:43 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void			init(char **argv, t_cub3d *c);
 
 //loop.c
 void			loop(t_cub3d *c);
+void			destroy_level(t_cub3d *c);
+
+void			get_map_content(t_map *map, char **one_line, t_cub3d *c);
+void			get_colors_and_coordinates(t_map *map, t_cub3d *c);
 
 //parse.c
 void			invalid_args(int argc, char **argv, t_cub3d *c);
@@ -66,34 +70,36 @@ void			get_data(t_cub3d *c);
 
 //get_coordinates.c
 int				is_coordinate(int c);
-void			get_coordinates(char *line, int *i, int id, t_cub3d *c);
+void			get_coordinates(t_map *map, char *line, int *i, int id, t_cub3d *c);
 
 //get_colors.c
 void			get_colors(t_map *map, char *line, int *i, int id, t_cub3d *c);
 int				is_floor_or_ceiling(int c);
 
 //map.c
-void			init_map(t_cub3d *c, char *one_line);
+void			init_map(t_map *map, t_cub3d *c, char *one_line);
+void			destroy_coordinates(t_map *map);
+void			destroy_file(t_map *map, t_cub3d *c);
 
 //queue.c
 t_queue			*queue_put(t_queue *f_queue, size_t m, size_t n);
 t_queue			*queue_get(t_queue *f_queue, size_t *m, size_t *n);
 int				queue_empty(t_queue *f_queue);
 void			queue_clear(t_queue *f_queue);
+size_t			count_lines(t_map *map);
 
 //flood_fill.c
-void			flood_fill(t_cub3d *c, size_t n, size_t i, size_t j);
-void			verify_map(t_cub3d *c);
-t_bool			verify_char(t_cub3d *c, size_t i, size_t j);
-void			verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j);
+void			flood_fill(t_map *map, t_cub3d *c, size_t n, size_t i, size_t j);
+void			verify_map(t_map *map, t_cub3d *c);
+t_bool			verify_char(t_map *map, size_t i, size_t j);
+void			verify_surrounding(t_map *map, t_cub3d *c, t_queue *queue, size_t i, size_t j);
 
 //map_utils.c
 char			*ft_merge(char *str1, char *str2);
-size_t			count_lines(t_cub3d *c);
-void			verify_up(t_queue *queue, size_t i, size_t j, t_cub3d *c);
+void			verify_up(t_map *map, t_queue *queue, size_t i, size_t j, t_cub3d *c);
 
 //get_player_data.c
-void			get_player_data(t_cub3d *c, int x, int y);
+void			get_player_data(t_map *map, t_cub3d *c, int x, int y);
 
 //bresenham.c
 void			bresenham(t_vector *point1, t_vector *point2, \
@@ -118,8 +124,11 @@ void			itorgb(int color, t_rgb *result);
 ///dda/dda.c
 int				draw(t_cub3d *c);
 
+void			get_level_info(t_cub3d *c);
+
 //rotate.c
 void			rotate_vector(t_vector *vector, double ang);
+void			init_texture(t_map *map, t_cub3d *c);
 
 //key_handle.c
 int				key_press(int keycode, t_cub3d *c);

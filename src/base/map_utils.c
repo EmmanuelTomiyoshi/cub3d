@@ -6,18 +6,18 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 04:22:48 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 00:13:14 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:25:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-size_t	count_lines(t_cub3d *c)
+size_t	count_lines(t_map *map)
 {
 	size_t	i;
 
 	i = 0;
-	while (c->map.map[i])
+	while (map->map[i])
 		i++;
 	return (i);
 }
@@ -49,9 +49,9 @@ char	*ft_merge(char *str1, char *str2)
 	return (line);
 }
 
-void	verify_up(t_queue *queue, size_t i, size_t j, t_cub3d *c)
+void	verify_up(t_map *map, t_queue *queue, size_t i, size_t j, t_cub3d *c)
 {
-	if (verify_char(c, i + 1, j))
+	if (verify_char(map, i + 1, j))
 	{
 		if (queue)
 			queue_clear(queue);

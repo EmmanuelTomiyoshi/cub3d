@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/15 10:21:42 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:27:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	rotate_player(t_cub3d *c, int x, int y)
+void	rotate_player(t_map *map, t_cub3d *c, int x, int y)
 {
-	if (c->map.map[x][y] == 'N')
+	if (map->map[x][y] == 'N')
 	{
 		rotate_vector(&c->player.dir, 270);
 		rotate_vector(&c->player.camera.plane, 270);
 	}
-	if (c->map.map[x][y] == 'E')
+	if (map->map[x][y] == 'E')
 	{
 		rotate_vector(&c->player.dir, 180);
 		rotate_vector(&c->player.camera.plane, 180);
 	}
-	if (c->map.map[x][y] == 'S')
+	if (map->map[x][y] == 'S')
 	{
 		rotate_vector(&c->player.dir, 90);
 		rotate_vector(&c->player.camera.plane, 90);
 	}
-	if (c->map.map[x][y] == 'W')
+	if (map->map[x][y] == 'W')
 	{
 		rotate_vector(&c->player.dir, 0.01);
 		rotate_vector(&c->player.camera.plane, 0.01);
 	}
 }
 
-void	get_player_data(t_cub3d *c, int x, int y)
+void	get_player_data(t_map *map, t_cub3d *c, int x, int y)
 {
-	verify_surrounding(c, NULL, x, y);
+	verify_surrounding(map, c, NULL, x, y);
 	c->player.pos.x = x + 0.5;
 	c->player.pos.y = y + 0.5;
 	c->player.dir.x = 0;
@@ -54,6 +54,6 @@ void	get_player_data(t_cub3d *c, int x, int y)
 	c->player.move_left = FALSE;
 	c->player.move_right = FALSE;
 	c->player.run = FALSE;
-	rotate_player(c, x, y);
-	c->map.map[x][y] = '8';
+	rotate_player(map, c, x, y);
+	map->map[x][y] = '8';
 }

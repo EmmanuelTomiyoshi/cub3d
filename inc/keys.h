@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:01:30 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 20:09:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:24:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define KEY_N				110
 # define KEY_G				103
 # define KEY_F11			65480
+# define KEY_TAB            65289
 # define SCROLL_UP			4
 # define SCROLL_DOWN		5
 

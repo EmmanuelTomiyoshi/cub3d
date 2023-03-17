@@ -1,3 +1,3 @@
 # cub3d
 
-- Usage: ./cub3d <path_to_map>
+- Usage: ./cub3D <path_to_map>

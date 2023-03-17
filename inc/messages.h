@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:01:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/14 17:28:41 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:10:30 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@
 # define MSG_ERR_UNEXPECTED_CHAR "Unexpected charactere found in the map"
 # define MSG_ERR_MAP_BORDER "The map has no enclosing borders"
 # define MSG_ERR_MISSING_RGB "missing RGB color values"
+# define MSG_ERR_LEVEL_FILE "the file \"level\" in assets/maps/ is missing or incorrect"
 
 #endif
