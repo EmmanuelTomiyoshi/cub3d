@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 16:10:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:41:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	dda(t_cub3d *c)
 void	raycasting(t_cub3d *c, int pixel)
 {
 	c->draw.wall_line_height = (int) c->mlx.win.height / c->dda.perpendicular;
-	c->draw.start = -c->draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
+	c->draw.start = -c->draw.wall_line_height / 2 + (double) \
+		c->mlx.win.height / 2;
 	if (c->draw.start < 0)
 		c->draw.start = 0;
 	c->draw.end = c->draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;

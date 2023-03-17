@@ -6,9 +6,10 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/17 14:18:51 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/17 20:52:33 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME				=	cub3D
 
@@ -27,40 +28,45 @@ CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
-FILES				=	base/destroy.c			\
-						base/exit.c				\
-						base/init.c				\
-						base/map_utils.c		\
-						base/map.c				\
-						base/mlx.c				\
-						base/parse.c			\
-						color/conversions.c		\
-						color/brightness.c		\
-						draw/draw.c				\
-						draw/texture.c			\
-						get_data/colors.c		\
-						get_data/coordinates.c	\
-						get_data/data.c			\
-						get_data/player.c		\
-						get_data/validations.c	\
-						hooks/key_handle.c		\
-						hooks/loop.c			\
-						hooks/mouse.c			\
-						player/camera.c			\
-						player/movements.c		\
-						player/speed.c			\
-						algorithms/bresenham.c	\
-						algorithms/dda.c		\
-						algorithms/flood_fill.c	\
-						algorithms/init.c		\
-						algorithms/queue.c		\
-						minimap/minimap.c		\
-						minimap/init_minimap.c	\
-						button.c				\
-						main.c					\
-						menu.c					\
-						rotate.c				\
-						levels.c
+FILES				=	base/destroy.c				\
+						base/exit.c					\
+						base/init.c					\
+						base/map_utils.c			\
+						base/map.c					\
+						base/mlx.c					\
+						base/parse.c				\
+						color/conversions.c			\
+						color/brightness.c			\
+						draw/draw.c					\
+						draw/texture.c				\
+						get_data/colors.c			\
+						get_data/coordinates.c		\
+						get_data/data.c				\
+						get_data/player.c			\
+						get_data/validations.c		\
+						hooks/key_handle.c			\
+						hooks/loop.c				\
+						hooks/mouse.c				\
+						player/camera.c				\
+						player/movements.c			\
+						player/speed.c				\
+						algorithms/bresenham.c		\
+						algorithms/dda.c			\
+						algorithms/flood_fill.c		\
+						algorithms/init.c			\
+						algorithms/queue.c			\
+						minimap/minimap.c			\
+						minimap/init_minimap.c		\
+						main.c						\
+						menu.c						\
+						rotate.c					\
+						levels.c					\
+						color/int_to_rgb.c			\
+						draw/transparency.c			\
+						hooks/key_handle_utils.c	\
+						resize/resize.c				\
+						button/button.c				\
+						button/button_utils.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
@@ -85,6 +91,8 @@ $(REQUIRED_DIRS):
 	@mkdir -p $@hooks
 	@mkdir -p $@player
 	@mkdir -p $@minimap
+	@mkdir -p $@resize
+	@mkdir -p $@button
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@echo -n "$(COLOR_YELLOW)Compiling $(NAME) $(COLOR_WHITE)$$(( \

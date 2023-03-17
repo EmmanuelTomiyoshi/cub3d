@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 18:26:00 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:44:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,6 @@ static void	key_movements(int keycode, t_cub3d *c)
 		c->key.look_right = TRUE;
 	else if (keycode == KEY_SHIFT)
 		c->key.run = TRUE;
-}
-
-void	distortion(t_cub3d *c)
-{
-	c->distortion = !c->distortion;
-}
-
-void	animate(t_cub3d *c)
-{
-	c->animate = !c->animate;
-}
-
-void	show_minimap(t_cub3d *c)
-{
-	c->mini_map = !c->mini_map;
 }
 
 int	key_press(int keycode, t_cub3d *c)

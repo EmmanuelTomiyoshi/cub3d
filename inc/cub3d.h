@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 18:27:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:41:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,10 +146,15 @@ void			look_right(t_map *map);
 void			camera_speed(double x, double y, t_cub3d *c);
 void			camera_move(int keycode, double x, double y, t_cub3d *c);
 
+//color/conversions.c
+void			intorgb(int *r, int *g, int *b, unsigned int *color);
 void			blend(t_rgb fg, t_rgb bg, float opacity, t_rgb *result);
 unsigned int	blending(unsigned int color, float opacity, t_cub3d *c);
-void			draw_texture(t_cub3d *c, int pixel);
 
+//color/brightness.c
+unsigned int	increase_brightness(unsigned int *color, float opacity);
+unsigned int	decrease_brightness(unsigned int *color, float opacity);
+void			square_colors(t_cub3d *c);
 int				mouse_callback(int button, int x, int y, t_cub3d *c);
 int				draw_button(t_button button, t_image img);
 
@@ -163,15 +168,22 @@ void			walk_backwards(t_map *map, t_cub3d *c);
 void			walk_right(t_map *map, t_cub3d *c);
 
 
+//button/button_utils.c
 void			get_btn_pos(t_button *btn, int x, int y);
 void			get_btn_size(t_button *btn, int width, int height);
 
 //draw/draw.c
 void			pixel(t_cub3d *c);
 void			animate_sprite(t_cub3d *c);
+void			draw_texture(t_cub3d *c, int pixel);
 
 //minimap/minimap.c
 void	draw_minimap(t_cub3d *c);
 void	init_minimap(t_map *map);
+
+//hooks/key_handle_utils.c
+void			distortion(t_cub3d *c);
+void			animate(t_cub3d *c);
+void			show_minimap(t_cub3d *c);
 
 #endif

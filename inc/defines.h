@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:21:14 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:41:42 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ typedef struct s_draw
 	unsigned int	color;
 }	t_draw;
 
-typedef struct	s_argb
+typedef struct s_argb
 {
 	int	a;
 	int	r;

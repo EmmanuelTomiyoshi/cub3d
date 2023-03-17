@@ -6,11 +6,45 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:27:32 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:42:53 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+unsigned int	increase_brightness(unsigned int *color, float opacity)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	intorgb(&r, &g, &b, color);
+	r *= opacity;
+	g *= opacity;
+	b *= opacity;
+	return ((r << 16) | (g << 8) | b);
+}
+
+unsigned int	decrease_brightness(unsigned int *color, float opacity)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	intorgb(&r, &g, &b, color);
+	r /= opacity;
+	g /= opacity;
+	b /= opacity;
+	return ((r << 16) | (g << 8) | b);
+}
+
+// void	square_colors(t_cub3d *c)
+// {
+// 	itorgb(DARK_BLUE, &c->map.c_cube1);
+// 	itorgb(LIGHT_BLUE, &c->map.c_cube2);
+// 	c->map.cube1 = DARK_BLUE;
+// 	c->map.cube2 = LIGHT_BLUE;
+// }
 
 t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 {
@@ -30,7 +64,6 @@ int	brightness(t_cub3d *c)
 	static int	light_ceiling;
 
 	c->light_mode = !c->light_mode;
-
 	if (c->light_mode == TRUE)
 	{
 		light_floor = c->map.f_color;
