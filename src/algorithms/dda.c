@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 14:59:36 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:10:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	dda(t_cub3d *c)
 {
-	c->dda.wall_pos.x = floor((double)c->player.pos.x);
-	c->dda.wall_pos.y = floor((double)c->player.pos.y);
+	c->dda.wall_pos.x = floor((double)c->map.player.pos.x);
+	c->dda.wall_pos.y = floor((double)c->map.player.pos.y);
 	c->dda.hit.hit = FALSE;
 	c->dda.line_size.x = c->dda.to_side.x;
 	c->dda.line_size.y = c->dda.to_side.y;

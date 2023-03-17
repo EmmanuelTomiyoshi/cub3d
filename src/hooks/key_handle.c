@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 15:02:17 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:33:42 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static void	key_movements(int keycode, t_cub3d *c)
 {
 	if (keycode == KEY_A)
-		c->player.move_left = TRUE;
+		c->key.move_left = TRUE;
 	else if (keycode == KEY_W)
-		c->player.move_foward = TRUE;
+		c->key.move_foward = TRUE;
 	else if (keycode == KEY_S)
-		c->player.move_backwards = TRUE;
+		c->key.move_backwards = TRUE;
 	else if (keycode == KEY_D)
-		c->player.move_right = TRUE;
+		c->key.move_right = TRUE;
 	else if (keycode == KEY_ARROW_LEFT)
-		c->player.look_left = TRUE;
+		c->key.look_left = TRUE;
 	else if (keycode == KEY_ARROW_RIGHT)
-		c->player.look_right = TRUE;
+		c->key.look_right = TRUE;
 	else if (keycode == KEY_SHIFT)
-		c->player.run = TRUE;
+		c->key.run = TRUE;
 }
 
 void	distortion(t_cub3d *c)
@@ -79,21 +79,21 @@ int	key_press(int keycode, t_cub3d *c)
 int	key_release(int keycode, t_cub3d *c)
 {
 	if (keycode == KEY_A)
-		c->player.move_left = FALSE;
+		c->key.move_left = FALSE;
 	else if (keycode == KEY_W)
-		c->player.move_foward = FALSE;
+		c->key.move_foward = FALSE;
 	else if (keycode == KEY_S)
-		c->player.move_backwards = FALSE;
+		c->key.move_backwards = FALSE;
 	else if (keycode == KEY_D)
-		c->player.move_right = FALSE;
+		c->key.move_right = FALSE;
 	else if (keycode == KEY_ARROW_LEFT)
-		c->player.look_left = FALSE;
+		c->key.look_left = FALSE;
 	else if (keycode == KEY_ARROW_RIGHT)
-		c->player.look_right = FALSE;
+		c->key.look_right = FALSE;
 	else if (keycode == KEY_SHIFT)
 	{
-		c->player.run = FALSE;
-		c->player.speed = DEF_PLAYER_SPEED;
+		c->key.run = FALSE;
+		c->key.speed = DEF_PLAYER_SPEED;
 	}
 	else if (keycode == KEY_F11)
 		c->menu.fullscreen.toggle = FALSE;

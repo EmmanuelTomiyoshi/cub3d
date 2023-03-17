@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:35:23 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:35:38 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:02:51 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	handle_mouse(int x, int y, t_cub3d *c)
 	if (!c->menu.active)
 	{
 		if (x < prev)
-			look_left(c);
+			look_left(&c->map);
 		else if (x > prev)
-			look_right(c);
+			look_right(&c->map);
 		prev = x;
 	}
 	else

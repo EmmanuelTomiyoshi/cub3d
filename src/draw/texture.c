@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 19:27:38 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:10:45 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,16 @@ void	draw_texture(t_cub3d *c, int pixel)
 	if (c->distortion == TRUE)
 	{
 		if (c->dda.hit.side == 0)
-			c->draw.wall_x = c->player.pos.y + c->dda.perpendicular + c->dda.raydir.y;
+			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular + c->dda.raydir.y;
 		else
-			c->draw.wall_x = c->player.pos.x + c->dda.perpendicular + c->dda.raydir.x;
+			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular + c->dda.raydir.x;
 	}
 	else
 	{
 		if (c->dda.hit.side == 0)
-			c->draw.wall_x = c->player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
+			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
 		else
-			c->draw.wall_x = c->player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
+			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
 	}
 	c->draw.wall_x -= floor((c->draw.wall_x));
 	c->draw.tex_x = (double)(c->draw.wall_x * (double)c->mlx.ea_tex.width);

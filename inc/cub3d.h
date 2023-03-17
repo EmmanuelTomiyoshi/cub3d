@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 15:03:42 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:38:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int				get_rgb(int r, int g, int b);
 
 ///dda/init.c
 void			init_dist_to_side(t_cub3d *c);
-void			init_camera(t_cub3d *c);
+void			init_camera(t_map *map, t_cub3d *c);
 void			init_raydir_and_delta(t_cub3d *c);
 void			init_perpendicular(t_cub3d *c);
 
@@ -139,15 +139,10 @@ int				key_release(int keycode, t_cub3d *c);
 
 int				change_win_size(t_cub3d *c);
 
-//movements.c
-void			walk_left(t_cub3d *c);
-void			walk_forward(t_cub3d *c);
-void			walk_backwards(t_cub3d *c);
-void			walk_right(t_cub3d *c);
-
 //camera.c
-void			look_left(t_cub3d *c);
-void			look_right(t_cub3d *c);
+void			camera(t_map *map, t_cub3d *c);
+void			look_left(t_map *map);
+void			look_right(t_map *map);
 void			camera_speed(double x, double y, t_cub3d *c);
 void			camera_move(int keycode, double x, double y, t_cub3d *c);
 
@@ -161,8 +156,12 @@ int				draw_button(t_button button, t_image img);
 int				show_menu(t_cub3d *c);
 void			dda(t_cub3d *c);
 void			raycasting(t_cub3d *c, int pixel);
-void			movements(t_cub3d *c);
-void			camera(t_cub3d *c);
+void			movements(t_map *map, t_cub3d *c);
+void			walk_left(t_map *map, t_cub3d *c);
+void			walk_forward(t_map *map, t_cub3d *c);
+void			walk_backwards(t_map *map, t_cub3d *c);
+void			walk_right(t_map *map, t_cub3d *c);
+
 
 void			get_btn_pos(t_button *btn, int x, int y);
 void			get_btn_size(t_button *btn, int width, int height);
@@ -173,6 +172,6 @@ void			animate_sprite(t_cub3d *c);
 
 //minimap/minimap.c
 void	draw_minimap(t_cub3d *c);
-void	init_minimap(t_cub3d *c);
+void	init_minimap(t_map *map);
 
 #endif

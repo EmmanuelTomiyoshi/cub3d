@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 14:16:50 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:53:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	destroy_coordinates(t_map *map)
 static void	destroy_map(t_cub3d *c)
 {
 	destroy_coordinates(&c->map);
-	if (c->minimap.map)
-		ft_free_array(c->minimap.map);
+	// ft_free_array(c->map.minimap.map);
 	destroy_file(&c->map, c);
 	close(c->map.fd);
 }
@@ -75,6 +74,8 @@ void	destroy_level_infos(t_cub3d *c)
 		destroy_coordinates(&c->level.name[i]);
 		destroy_file(&c->level.name[i], c);
 		ft_free_array(c->level.name[i].map);
+		if (c->level.name[i].minimap.map)
+			ft_free_array(c->level.name[i].minimap.map);
 		i++;
 	}
 }
@@ -90,7 +91,7 @@ void	destroy_all(t_cub3d *c)
 {
 	destroy_images(c);
 	destroy_map(c);
-	destroy_level(c);
+	// destroy_level(c);
 
 	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
 	mlx_destroy_display(c->mlx.ptr);

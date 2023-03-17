@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 15:03:52 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:37:43 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,6 @@ static void	background(t_cub3d *c)
 		point1.y++;
 		point2.y++;
 	}
-}
-
-void	pixel(t_cub3d *c)
-{
-	while (c->dda.pixel < c->mlx.win.width)
-	{
-		init_camera(c);
-		init_raydir_and_delta(c);
-		init_dist_to_side(c);
-		dda(c);
-		init_perpendicular(c);
-		raycasting(c, c->dda.pixel);
-		c->dda.pixel++;
-	}
-	c->dda.pixel = 0;
 }
 
 t_argb	create_argb_color(int a, int r, int g, int b)
@@ -156,11 +141,11 @@ int	draw(t_cub3d *c)
 	else
 	{
 		background(c);
-		movements(c);
-		camera(c);
+		movements(&c->map, c);
+		camera(&c->map, c);
 		while (c->dda.pixel < c->mlx.win.width)
 		{
-			init_camera(c);
+			init_camera(&c->map, c);
 			init_raydir_and_delta(c);
 			init_dist_to_side(c);
 			dda(c);
@@ -169,7 +154,6 @@ int	draw(t_cub3d *c)
 			c->dda.pixel++;
 		}
 		c->dda.pixel = 0;
-		pixel(c);
 		animate_sprite(c);
 		draw_minimap(c);
 		mlx_put_image_to_window(c->mlx.ptr, c->mlx.win.ptr, c->mlx.img.ptr, 0, 0);

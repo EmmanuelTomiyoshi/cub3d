@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:20:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 15:42:49 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:38:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	check_speed(double x, t_cub3d *c)
 {
-	if (c->player.camera.speed.x + x > 1 && c->player.camera.speed.x + x < 11)
+	if (c->map.player.camera.speed.x + x > 1 && c->map.player.camera.speed.x + x < 11)
 		return (TRUE);
 	return (FALSE);
 }
@@ -23,15 +23,15 @@ void	camera_speed(double x, double y, t_cub3d *c)
 {
 	if (check_speed(x, c) == FALSE)
 		return ;
-	c->player.camera.speed.x += x;
-	c->player.camera.speed.y += y;
+	c->map.player.camera.speed.x += x;
+	c->map.player.camera.speed.y += y;
 }
 
 void	player_speed(t_cub3d *c)
 {
 	float	temp;
 
-	temp = c->player.speed * 1.05;
+	temp = c->key.speed * 1.05;
 	if (temp < SPEED_THRESHOLD)
-		c->player.speed *= 1.05;
+		c->key.speed *= 1.05;
 }

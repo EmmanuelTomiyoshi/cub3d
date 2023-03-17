@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:17:25 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/16 19:09:33 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:37:47 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static void	complete_minimap(t_cub3d *c)
 	t_vector	pos;
 	t_vector	temp_pos;
 
-	pos.x = floor(c->player.pos.x);
-	pos.y = floor(c->player.pos.y);
+	pos.x = floor(c->map.player.pos.x);
+	pos.y = floor(c->map.player.pos.y);
 	temp_pos.x = (int)pos.x + 10;
 	temp_pos.y = (int)pos.y + 10;
 	point2.x = 41;
@@ -68,12 +68,12 @@ static void	complete_minimap(t_cub3d *c)
 	{
 		while ((int)pos.y <= (int)temp_pos.y)
 		{
-			if (c->minimap.map[(int)pos.x][(int)pos.y] == '8')
+			if (c->map.minimap.map[(int)pos.x][(int)pos.y] == '8')
 				draw_white_rect(c, 11, 11, point2);
 			point2.x = point2.x + 11;
 			pos.y = pos.y + 1;
 		}
-		pos.y = floor(c->player.pos.y);
+		pos.y = floor(c->map.player.pos.y);
 		temp_pos.y = (int)pos.y + 10;
 		point2.x = 41;
 		point2.y = point2.y + 11;

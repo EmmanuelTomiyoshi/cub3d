@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/15 00:45:47 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:13:22 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,32 @@ void	init_dist_to_side(t_cub3d *c)
 {
 	t_vector	map_pos;
 
-	map_pos.x = floor(c->player.pos.x);
-	map_pos.y = floor(c->player.pos.y);
+	map_pos.x = floor(c->map.player.pos.x);
+	map_pos.y = floor(c->map.player.pos.y);
 	if (c->dda.raydir.x < 0)
-		c->dda.to_side.x = (c->player.pos.x - map_pos.x) * c->dda.delta.x;
+		c->dda.to_side.x = (c->map.player.pos.x - map_pos.x) * c->dda.delta.x;
 	else
-		c->dda.to_side.x = (map_pos.x + 1 - c->player.pos.x) * c->dda.delta.x;
+		c->dda.to_side.x = (map_pos.x + 1 - c->map.player.pos.x) * c->dda.delta.x;
 	if (c->dda.raydir.y < 0)
-		c->dda.to_side.y = (c->player.pos.y - map_pos.y) * c->dda.delta.y;
+		c->dda.to_side.y = (c->map.player.pos.y - map_pos.y) * c->dda.delta.y;
 	else
-		c->dda.to_side.y = (map_pos.y + 1 - c->player.pos.y) * c->dda.delta.y;
+		c->dda.to_side.y = (map_pos.y + 1 - c->map.player.pos.y) * c->dda.delta.y;
 	init_step_xy(c);
 }
 
-void	init_camera(t_cub3d *c)
+void	init_camera(t_map *map, t_cub3d *c)
 {
 	double	multiplier;
 
 	multiplier = 2 * ((double)c->dda.pixel / (double) c->mlx.win.width) - 1;
-	c->player.camera.pixel.x = c->player.camera.plane.x * multiplier;
-	c->player.camera.pixel.y = c->player.camera.plane.y * multiplier;
+	map->player.camera.pixel.x = map->player.camera.plane.x * multiplier;
+	map->player.camera.pixel.y = map->player.camera.plane.y * multiplier;
 }
 
 void	init_raydir_and_delta(t_cub3d *c)
 {
-	c->dda.raydir.x = c->player.camera.pixel.x + c->player.dir.x;
-	c->dda.raydir.y = c->player.camera.pixel.y + c->player.dir.y;
+	c->dda.raydir.x = c->map.player.camera.pixel.x + c->map.player.dir.x;
+	c->dda.raydir.y = c->map.player.camera.pixel.y + c->map.player.dir.y;
 	if (c->dda.raydir.x == 0)
 	{
 		c->dda.delta.x = 1;

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 15:04:43 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:10:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,18 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 		get_colors_and_coordinates(&c->level.name[i], c);
 		get_map_content(&c->level.name[i], &one_line, c);
 		init_map(&c->level.name[i], c, one_line);
+		init_minimap(&c->level.name[i]);
 		printf("%s: %d", c->level.files[i], c->level.name[i].c_color);
 		printf("| EA_PATH: %s ", c->level.name[i].ea_path);
 		printf("| SO_PATH: %s\n", c->level.name[i].so_path);
 		i++;
 	}
 }
+
+
+//mlx.map -> aponta para outro level
+//map.level -> 
+
 
 // void	get_data(t_cub3d *c)
 // {
@@ -60,6 +66,28 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 // 	get_map_content(&c->map, &one_line, c);
 // 	init_map(c, one_line);
 // }
+
+t_map	update_level(t_cub3d *c)
+{
+	static int	i = 0;
+	t_map	temp;
+
+	if (i == 0)
+		temp = c->map;
+	if (i == c->level.count)
+	{
+		i = 0;
+		c->map = temp;
+	}
+	if (c->update_level == TRUE)
+	{
+		c->map = c->level.name[i];
+		i++;
+	}
+	// printf("%d) |%d|\n", i, c->map.fd);
+	return (c->map);
+}
+
 
 void	get_level_info(t_cub3d *c)
 {
@@ -71,7 +99,6 @@ void	get_level_info(t_cub3d *c)
 	fd = open("assets/maps/levels", O_RDONLY);
 	if (fd == -1)
 		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
-	
 	temp_line = get_next_line(fd);
 	if (temp_line == NULL)
 		printf("NULL\n");
@@ -95,24 +122,4 @@ void	get_level_info(t_cub3d *c)
 	get_level_fd(c);
 	get_level_colors_and_coordinates(c);
 	free(one_line);
-}
-
-t_map	update_level(t_cub3d *c)
-{
-	static int	i = 0;
-	t_map	temp;
-
-	if (i == 0)
-		temp = c->map;
-	if (i == c->level.count)
-	{
-		i = 0;
-		c->map = temp;
-	}
-	if (c->update_level == TRUE)
-	{
-		c->map = c->level.name[i];
-		i++;
-	}
-	return (c->map);
 }

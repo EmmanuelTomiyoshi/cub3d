@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:58 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 14:23:18 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:23:50 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	init(argv, &cub3d);
 	get_data(&cub3d);
 	init_texture(&cub3d.map, &cub3d);
-	init_minimap(&cub3d);
+	// init_minimap(&cub3d);
 	loop(&cub3d);
 	destroy_all(&cub3d);
 	return (EXIT_SUCCESS);
