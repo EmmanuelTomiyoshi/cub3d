@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 19:26:17 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 09:57:20 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void			queue_clear(t_queue *f_queue);
 void			flood_fill(t_cub3d *c, size_t n, size_t i, size_t j);
 void			verify_map(t_cub3d *c);
 t_bool			verify_char(t_cub3d *c, size_t i, size_t j);
-void			verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, size_t j);
+void			verify_surrounding(t_cub3d *c, t_queue *queue, size_t i, \
+								size_t j);
 
 //map_utils.c
 char			*ft_merge(char *str1, char *str2);
@@ -162,7 +163,7 @@ void			pixel(t_cub3d *c);
 void			animate_sprite(t_cub3d *c);
 
 //minimap/minimap.c
-void	draw_minimap(t_cub3d *c);
-void	init_minimap(t_cub3d *c);
+void			draw_minimap(t_cub3d *c);
+void			init_minimap(t_cub3d *c);
 
 #endif
