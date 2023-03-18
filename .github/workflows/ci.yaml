@@ -16,8 +16,8 @@ jobs:
       run: sudo apt install gcc make xorg libxext-dev libbsd-dev libcriterion-dev
     - name: install mlx
       run: |
-        make -C minilibx_linux
-        cd minilibx_linux
+        make -C ./libs/minilibx_linux
+        cd ./libs/minilibx_linux
         sudo cp libmlx.a libmlx_*.a /usr/local/lib/
         sudo cp mlx.h /usr/local/include/
         sudo mkdir -p /usr/local/man/man3 /usr/local/man/man1
