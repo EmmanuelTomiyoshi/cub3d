@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 21:01:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:21:48 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void			destroy_level(t_cub3d *c);
 void			get_map_content(t_map *map, char **one_line, t_cub3d *c);
 void			get_colors_and_coordinates(t_map *map, t_cub3d *c);
 
-t_map			update_level(t_cub3d *c);
+void			update_level(t_cub3d *c);
 void			level(t_cub3d *c);
 
 //parse.c

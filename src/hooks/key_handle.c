@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 20:44:55 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:12:44 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	key_press(int keycode, t_cub3d *c)
 {
 	key_movements(keycode, c);
 	if (keycode == KEY_ESC)
+		end_loop(c);
+	if (keycode == KEY_ENTER)
 		show_menu(c);
 	else if (keycode == KEY_TAB)
 		show_minimap(c);

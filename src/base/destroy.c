@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 21:03:11 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:35:29 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,22 @@ void	destroy_coordinates(t_map *map)
 	free(map->so_path);
 }
 
-static void	destroy_map(t_cub3d *c)
-{
-	destroy_coordinates(&c->map);
-	destroy_file(&c->map, c);
-	close(c->map.fd);
-}
 
 static void	destroy_texture(t_image	tex, t_cub3d *c)
 {
 	if (tex.ptr)
 		mlx_destroy_image(c->mlx.ptr, tex.ptr);
+}
+
+static void	destroy_map(t_cub3d *c)
+{
+	destroy_coordinates(&c->map);
+	destroy_file(&c->map, c);
+	destroy_texture(c->map.ea_tex.img, c);
+	destroy_texture(c->map.so_tex.img, c);
+	destroy_texture(c->map.no_tex.img, c);
+	destroy_texture(c->map.we_tex.img, c);
+	close(c->map.fd);
 }
 
 static void	destroy_images(t_cub3d *c)
@@ -89,6 +94,7 @@ void	destroy_all(t_cub3d *c)
 {
 	destroy_images(c);
 	destroy_map(c);
+	destroy_level(c);
 	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
 	mlx_destroy_display(c->mlx.ptr);
 	free(c->mlx.ptr);

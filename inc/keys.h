@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:01:30 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 14:24:33 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:11:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define KEY_E				101
 # define KEY_T				116
 # define KEY_ESC			65307
+# define KEY_ENTER			65293
 # define KEY_M				109
 # define KEY_N				110
 # define KEY_G				103
