@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:34:46 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:53:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,6 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 		i++;
 	}
 }
-
-//mlx.map -> aponta para outro level
-//map.level -> 
-
-// void	get_data(t_cub3d *c)
-// {
-// 	char	*one_line;
-
-// 	get_colors_and_coordinates(&c->map, c);
-// 	get_map_content(&c->map, &one_line, c);
-// 	init_map(c, one_line);
-// }
 
 void	update_level(t_cub3d *c)
 {

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:01:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 21:01:28 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 12:04:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@
 # define MSG_ERR_LEVEL_FILE "the file \"level\" in assets/maps/\
             is missing or incorrect"
 # define MSG_ERR_EMPY_LEVEL_FILE "file \"level\" is empty"
+# define MSG_ERR_MISSING_MENU "the image of the menu is missing at the \
+location \"./assets/images/\". Please contact the game \
+developers ETOMIYOS and/or MTOMOMIT"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 10:09:27 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:26:59 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ unsigned int	decrease_brightness(unsigned int *color, float opacity)
 
 void	change_brightness(t_cub3d *c)
 {
-	if (c->light_mode == TRUE)
+	if (c->state.light_mode == TRUE)
 	{
 		c->draw.color = blending(c->draw.color, ADD_LIGHT, c);
 	}
@@ -63,8 +63,8 @@ int	brightness(t_cub3d *c)
 	static int	light_floor;
 	static int	light_ceiling;
 
-	c->light_mode = !c->light_mode;
-	if (c->light_mode == TRUE)
+	c->state.light_mode = !c->state.light_mode;
+	if (c->state.light_mode == TRUE)
 	{
 		light_floor = c->map.f_color;
 		light_ceiling = c->map.c_color;

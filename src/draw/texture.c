@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 10:09:16 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:27:06 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 
 void	check_distortion(t_cub3d *c)
 {
-	if (c->distortion == TRUE)
+	if (c->state.distortion == TRUE)
 	{
 		if (c->dda.hit.side == 0)
 			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular

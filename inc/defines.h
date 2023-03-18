@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:56:36 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 13:37:40 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_button
 	int		y;
 	int		width;
 	int		height;
-	int		color_active;
-	int		color_normal;
 	t_bool	toggle;
 }	t_button;
 
@@ -46,13 +44,13 @@ typedef struct s_image
 
 typedef struct s_menu
 {
-	t_image		img;
+	float		width_ratio;
+	float		height_ratio;
 	t_bool		active;
+	t_image		img;
 	t_image		resize;
 	t_button	fullscreen;
 	t_button	quit;
-	float		width_ratio;
-	float		height_ratio;
 }	t_menu;
 
 typedef struct s_rgb
@@ -76,15 +74,15 @@ typedef struct s_hit
 
 typedef struct s_dda
 {
+	int			pixel;
+	double		perpendicular;
+	t_hit		hit;
 	t_vector	delta;
 	t_vector	to_side;
 	t_vector	step;
 	t_vector	raydir;
 	t_vector	line_size;
 	t_vector	wall_pos;
-	t_hit		hit;
-	int			pixel;
-	double		perpendicular;
 }	t_dda;
 
 typedef struct s_camera
@@ -141,9 +139,9 @@ typedef struct s_temp
 
 typedef struct s_minimap
 {
-	char	**map;
 	int		width;
 	int		height;
+	char	**map;
 }	t_minimap;
 
 typedef struct s_draw
@@ -172,19 +170,19 @@ typedef struct s_map
 {
 	int			fd;
 	int			infos;
-	int			f_color;
 	int			c_color;
-	t_rgb		floor;
+	int			f_color;
 	t_rgb		ceiling;
+	t_rgb		floor;
 	char		*file;
 	char		**map;
 	char		*ea_path;
-	char		*we_path;
-	char		*so_path;
 	char		*no_path;
+	char		*so_path;
+	char		*we_path;
 	t_texture	ea_tex;
-	t_texture	so_tex;
 	t_texture	no_tex;
+	t_texture	so_tex;
 	t_texture	we_tex;
 	t_player	player;
 	t_minimap	minimap;
@@ -210,6 +208,15 @@ typedef struct s_keyhandle
 	float	speed;
 }	t_keyhandle;
 
+
+typedef struct s_toggle
+{
+	t_bool	animate;
+	t_bool	distortion;
+	t_bool	light_mode;
+	t_bool	mini_map;
+}	t_toggle;
+
 typedef struct s_cub3d
 {
 	t_mlx			mlx;
@@ -217,14 +224,11 @@ typedef struct s_cub3d
 	t_dda			dda;
 	t_draw			draw;
 	t_temp			temp;
-	t_bool			distortion;
-	t_bool			light_mode;
-	t_bool			animate;
-	t_bool			mini_map;
+	t_toggle		state;
 	t_menu			menu;
-	t_levels		level;
 	t_keyhandle		key;
 	t_queue			*f_queue;
+	t_levels		level;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

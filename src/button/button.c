@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:49:56 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:53:04 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:27:53 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	animate_sprite(t_cub3d *c)
 	static int	frame = 0;
 	t_texture	temp;
 
-	if (c->animate == TRUE)
+	if (c->state.animate == TRUE)
 	{
 		if (frame % 60 == 0)
 		{

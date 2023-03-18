@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/18 10:16:18 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/18 15:35:38 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ CC 					+=	-march=native -mno-vzeroupper
 FILES				=	base/destroy.c				\
 						base/destroy_level.c		\
 						base/exit.c					\
-						base/init.c					\
 						base/map_utils.c			\
 						base/map.c					\
 						base/mlx.c					\
@@ -48,6 +47,8 @@ FILES				=	base/destroy.c				\
 						hooks/key_handle.c			\
 						hooks/loop.c				\
 						hooks/mouse.c				\
+						init/init.c					\
+						init/mlx.c					\
 						player/camera.c				\
 						player/movements.c			\
 						player/speed.c				\
@@ -60,6 +61,7 @@ FILES				=	base/destroy.c				\
 						minimap/init_minimap.c		\
 						main.c						\
 						menu.c						\
+						init.c						\
 						rotate.c					\
 						levels.c					\
 						color/int_to_rgb.c			\
@@ -94,6 +96,7 @@ $(REQUIRED_DIRS):
 	@mkdir -p $@minimap
 	@mkdir -p $@resize
 	@mkdir -p $@button
+	@mkdir -p $@init
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@echo -n "$(COLOR_YELLOW)Compiling $(NAME) $(COLOR_WHITE)$$(( \

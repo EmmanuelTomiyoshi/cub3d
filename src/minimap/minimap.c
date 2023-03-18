@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:17:25 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 16:37:47 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:27:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	complete_minimap(t_cub3d *c)
 
 void	draw_minimap(t_cub3d *c)
 {
-	if (c->mini_map == TRUE)
+	if (c->state.mini_map == TRUE)
 	{
 		complete_minimap(c);
 		draw_player(c, 11, 11);

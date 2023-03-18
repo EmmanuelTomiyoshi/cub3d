@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 10:18:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 12:06:05 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ static void	destroy_map(t_cub3d *c)
 
 static void	destroy_images(t_cub3d *c)
 {
-	mlx_destroy_image(c->mlx.ptr, c->mlx.img.ptr);
-	mlx_destroy_image(c->mlx.ptr, c->menu.img.ptr);
+	if (c->mlx.img.ptr)
+		mlx_destroy_image(c->mlx.ptr, c->mlx.img.ptr);
+	if (c->menu.img.ptr)
+		mlx_destroy_image(c->mlx.ptr, c->menu.img.ptr);
 	if (c->menu.resize.ptr)
 		mlx_destroy_image(c->mlx.ptr, c->menu.resize.ptr);
 }

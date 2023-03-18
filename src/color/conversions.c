@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:47:01 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 11:24:04 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:26:44 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ unsigned int	blending(unsigned int color, float opacity, t_cub3d *c)
 	rgb.r = 0 * opacity + rgb.r * (1 - opacity);
 	rgb.g = 0 * opacity + rgb.g * (1 - opacity);
 	rgb.b = 0 * opacity + rgb.b * (1 - opacity);
-	if (c->light_mode == TRUE)
+	if (c->state.light_mode == TRUE)
 		apply_night_filter(&rgb);
 	return ((unsigned int) get_rgb(rgb.r, rgb.g, rgb.b));
 }
