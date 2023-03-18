@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 20:44:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:04:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,20 @@ static unsigned int	get_pixel_color(t_cub3d *c)
 	if (c->dda.hit.side == 0)
 	{
 		if (c->dda.raydir.x < 0)
-			color = return_color(&c->map.no_tex.img, c->draw.tex_x, c->draw.tex_y);
+			color = return_color(&c->map.no_tex.img,
+				c->draw.tex_x, c->draw.tex_y);
 		else
-			color = return_color(&c->map.so_tex.img, c->draw.tex_x, c->draw.tex_y);
+			color = return_color(&c->map.so_tex.img,
+				c->draw.tex_x, c->draw.tex_y);
 	}
 	else
 	{
 		if (c->dda.raydir.y < 0)
-			color = return_color(&c->map.we_tex.img, c->draw.tex_x, c->draw.tex_y);
+			color = return_color(&c->map.we_tex.img,
+					c->draw.tex_x, c->draw.tex_y);
 		else
-			color = return_color(&c->map.ea_tex.img, c->draw.tex_x, c->draw.tex_y);
+			color = return_color(&c->map.ea_tex.img,
+					c->draw.tex_x, c->draw.tex_y);
 	}
 	return (color);
 }
@@ -75,16 +79,20 @@ void	draw_texture(t_cub3d *c, int pixel)
 	if (c->distortion == TRUE)
 	{
 		if (c->dda.hit.side == 0)
-			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular + c->dda.raydir.y;
+			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular
+				+ c->dda.raydir.y;
 		else
-			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular + c->dda.raydir.x;
+			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular
+				+ c->dda.raydir.x;
 	}
 	else
 	{
 		if (c->dda.hit.side == 0)
-			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular * c->dda.raydir.y;
+			c->draw.wall_x = c->map.player.pos.y + c->dda.perpendicular
+				* c->dda.raydir.y;
 		else
-			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular * c->dda.raydir.x;
+			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular
+				* c->dda.raydir.x;
 	}
 	c->draw.wall_x -= floor((c->draw.wall_x));
 	c->draw.tex_x = (double)(c->draw.wall_x * (double)c->map.ea_tex.width);

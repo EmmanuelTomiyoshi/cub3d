@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 12:26:22 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:02:12 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ t_bool	verify_char(t_map *map, size_t i, size_t j)
 	return (FALSE);
 }
 
-void	verify_surrounding(t_map *map, t_cub3d *c, t_queue *queue, size_t i, size_t j)
+void	verify_surrounding(t_map *map, t_cub3d *c, t_queue *queue,
+			size_t i, size_t j)
 {
 	size_t	n;
 

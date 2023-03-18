@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:20:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:19:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:05:29 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_bool	check_speed(double x, t_cub3d *c)
 {
-	if (c->map.player.camera.speed.x + x > 1 && c->map.player.camera.speed.x + x < 11)
+	if (c->map.player.camera.speed.x + x > 1
+		&& c->map.player.camera.speed.x + x < 11)
 		return (TRUE);
 	return (FALSE);
 }

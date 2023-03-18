@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:49:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:06:06 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 {
 	int		i;
 	char	*one_line;
-	
+
 	i = 0;
 	while (i < c->level.count)
 	{
@@ -58,10 +58,8 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 	}
 }
 
-
 //mlx.map -> aponta para outro level
 //map.level -> 
-
 
 // void	get_data(t_cub3d *c)
 // {
@@ -75,7 +73,7 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 t_map	update_level(t_cub3d *c)
 {
 	static int	i = 0;
-	t_map	temp;
+	t_map		temp;
 
 	if (i == 0)
 		temp = c->map;
@@ -88,7 +86,6 @@ t_map	update_level(t_cub3d *c)
 	i++;
 	return (c->map);
 }
-
 
 void	get_level_info(t_cub3d *c)
 {

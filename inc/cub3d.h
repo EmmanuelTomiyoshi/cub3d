@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:41:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:01:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void			get_data(t_cub3d *c);
 
 //get_coordinates.c
 int				is_coordinate(int c);
-void			get_coordinates(t_map *map, char *line, int *i, int id, t_cub3d *c);
+void			get_coordinates(t_map *map, char *line, int *i, int id,
+					t_cub3d *c);
 
 //get_colors.c
 void			get_colors(t_map *map, char *line, int *i, int id, t_cub3d *c);
@@ -92,14 +93,17 @@ void			queue_clear(t_queue *f_queue);
 size_t			count_lines(t_map *map);
 
 //flood_fill.c
-void			flood_fill(t_map *map, t_cub3d *c, size_t n, size_t i, size_t j);
+void			flood_fill(t_map *map, t_cub3d *c, size_t n,
+					size_t i, size_t j);
 void			verify_map(t_map *map, t_cub3d *c);
 t_bool			verify_char(t_map *map, size_t i, size_t j);
-void			verify_surrounding(t_map *map, t_cub3d *c, t_queue *queue, size_t i, size_t j);
+void			verify_surrounding(t_map *map, t_cub3d *c,
+					t_queue *queue, size_t i, size_t j);
 
 //map_utils.c
 char			*ft_merge(char *str1, char *str2);
-void			verify_up(t_map *map, t_queue *queue, size_t i, size_t j, t_cub3d *c);
+void			verify_up(t_map *map, t_queue *queue,
+					size_t i, size_t j, t_cub3d *c);
 
 //get_player_data.c
 void			get_player_data(t_map *map, t_cub3d *c, int x, int y);
@@ -167,7 +171,6 @@ void			walk_forward(t_map *map, t_cub3d *c);
 void			walk_backwards(t_map *map, t_cub3d *c);
 void			walk_right(t_map *map, t_cub3d *c);
 
-
 //button/button_utils.c
 void			get_btn_pos(t_button *btn, int x, int y);
 void			get_btn_size(t_button *btn, int width, int height);
@@ -178,8 +181,8 @@ void			animate_sprite(t_cub3d *c);
 void			draw_texture(t_cub3d *c, int pixel);
 
 //minimap/minimap.c
-void	draw_minimap(t_cub3d *c);
-void	init_minimap(t_map *map);
+void			draw_minimap(t_cub3d *c);
+void			init_minimap(t_map *map);
 
 //hooks/key_handle_utils.c
 void			distortion(t_cub3d *c);

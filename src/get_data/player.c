@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 18:21:25 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:05:01 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,6 @@ void	get_player_data(t_map *map, t_cub3d *c, int x, int y)
 	map->player.camera.plane.y = 0;
 	map->player.camera.pixel.x = 0;
 	map->player.camera.pixel.y = 0;
-	// map->player.look_left = FALSE;
-	// map->player.look_right = FALSE;
-	// map->player.move_foward = FALSE;
-	// map->player.move_backwards = FALSE;
-	// map->player.move_left = FALSE;
-	// map->player.move_right = FALSE;
-	// map->player.run = FALSE;
 	rotate_player(map, x, y);
 	map->map[x][y] = '8';
 }

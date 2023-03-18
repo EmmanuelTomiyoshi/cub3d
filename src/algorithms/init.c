@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:22:41 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:42:21 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:02:38 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,14 @@ void	init_dist_to_side(t_cub3d *c)
 	if (c->dda.raydir.x < 0)
 		c->dda.to_side.x = (c->map.player.pos.x - map_pos.x) * c->dda.delta.x;
 	else
-		c->dda.to_side.x = (map_pos.x + 1 - c->map.player.pos.x) * c->dda.delta.x;
+		c->dda.to_side.x = (map_pos.x + 1 - c->map.player.pos.x)
+			* c->dda.delta.x;
 	if (c->dda.raydir.y < 0)
-		c->dda.to_side.y = (c->map.player.pos.y - map_pos.y) * c->dda.delta.y;
+		c->dda.to_side.y = (c->map.player.pos.y - map_pos.y)
+			* c->dda.delta.y;
 	else
-		c->dda.to_side.y = (map_pos.y + 1 - c->map.player.pos.y) * c->dda.delta.y;
+		c->dda.to_side.y = (map_pos.y + 1 - c->map.player.pos.y)
+			* c->dda.delta.y;
 	init_step_xy(c);
 }
 
