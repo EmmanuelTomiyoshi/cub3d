@@ -6,28 +6,28 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 21:02:12 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:00:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_queue	*verify_line(t_map *map, t_queue *f_queue, size_t i, size_t j)
+static t_queue	*verify_line(t_map *map, size_t i, size_t j, t_cub3d *c)
 {
 	size_t	m;
 
 	m = strlen(map->map[i]);
 	if (m >= j - 1)
 	{
-		f_queue = queue_put(f_queue, j - 1, i);
+		c->f_queue = queue_put(j - 1, i, c);
 		if (m >= j)
 		{
-			f_queue = queue_put(f_queue, j, i);
+			c->f_queue = queue_put(j, i, c);
 			if (m >= j + 1)
-				f_queue = queue_put(f_queue, j + 1, i);
+				c->f_queue = queue_put(j + 1, i, c);
 		}
 	}
-	return (f_queue);
+	return (c->f_queue);
 }
 
 t_bool	verify_char(t_map *map, size_t i, size_t j)
@@ -82,37 +82,36 @@ void	verify_surrounding(t_map *map, t_cub3d *c, t_queue *queue,
 	}
 }
 
-void	flood_fill(t_map *map, t_cub3d *c, size_t n, size_t i, size_t j)
+void	flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j)
 {
-	t_queue	*f_queue;
+	size_t	n;
 	size_t	temp_i;
 	size_t	temp_j;
 
-	f_queue = NULL;
-	f_queue = queue_put(f_queue, j, i);
-	while (queue_empty(f_queue))
+	n = count_lines(map);
+	c->f_queue = NULL;
+	c->f_queue = queue_put(j, i, c);
+	while (queue_empty(c->f_queue))
 	{
-		f_queue = queue_get(f_queue, &temp_j, &temp_i);
+		c->f_queue = queue_get(&temp_j, &temp_i, c);
 		if (map->map[temp_i][temp_j] == '0')
 		{
-			verify_surrounding(map, c, f_queue, temp_i, temp_j);
+			verify_surrounding(map, c, c->f_queue, temp_i, temp_j);
 			map->map[temp_i][temp_j] = '8';
-			f_queue = verify_line(map, f_queue, temp_i, temp_j);
+			c->f_queue = verify_line(map, temp_i, temp_j, c);
 			if (temp_i < n)
-				f_queue = verify_line(map, f_queue, temp_i + 1, temp_j);
+				c->f_queue = verify_line(map, temp_i + 1, temp_j, c);
 			if (temp_i > 0)
-				f_queue = verify_line(map, f_queue, temp_i - 1, temp_j);
+				c->f_queue = verify_line(map, temp_i - 1, temp_j, c);
 		}
 	}
 }
 
 void	verify_map(t_map *map, t_cub3d *c)
 {
-	size_t	n;
 	size_t	i;
 	size_t	j;
 
-	n = count_lines(map);
 	i = 0;
 	j = 0;
 	while (map->map[i])
@@ -122,7 +121,7 @@ void	verify_map(t_map *map, t_cub3d *c)
 			if (strchr("NESW", map->map[i][j]))
 				get_player_data(map, c, i, j);
 			if (map->map[i][j] == '0')
-				flood_fill(map, c, n, i, j);
+				flood_fill(map, c, i, j);
 			j++;
 		}
 		i++;

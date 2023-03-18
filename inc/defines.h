@@ -6,13 +6,14 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:34:28 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:56:36 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
+#include "bresenham.h"
 # include <stdio.h>
 
 typedef enum e_bool
@@ -223,6 +224,7 @@ typedef struct s_cub3d
 	t_menu			menu;
 	t_levels		level;
 	t_keyhandle		key;
+	t_queue			*f_queue;
 }	t_cub3d;
 
 # define WIN_NAME 				"cub3d"

@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   queue.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 10:45:58 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/02/25 05:21:21 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:58:37 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_queue	*queue_put(t_queue *f_queue, size_t m, size_t n)
+t_queue	*queue_put(size_t m, size_t n, t_cub3d *c)
 {
 	t_queue	*new;
 	t_queue	*temp;
 
-	if (f_queue == NULL)
+	if (c->f_queue == NULL)
 	{
-		f_queue = (t_queue *)malloc(sizeof(t_queue) * 1);
-		f_queue->m = m;
-		f_queue->n = n;
-		f_queue->next = NULL;
+		c->f_queue = (t_queue *)malloc(sizeof(t_queue) * 1);
+		c->f_queue->m = m;
+		c->f_queue->n = n;
+		c->f_queue->next = NULL;
 	}
 	else
 	{
-		temp = f_queue;
+		temp = c->f_queue;
 		while (temp->next != NULL)
 			temp = temp->next;
 		new = (t_queue *)malloc(sizeof(t_queue) * 1);
@@ -35,24 +35,24 @@ t_queue	*queue_put(t_queue *f_queue, size_t m, size_t n)
 		new->next = NULL;
 		temp->next = new;
 	}
-	return (f_queue);
+	return (c->f_queue);
 }
 
-t_queue	*queue_get(t_queue *f_queue, size_t *m, size_t *n)
+t_queue	*queue_get(size_t *m, size_t *n, t_cub3d *c)
 {
 	t_queue	*temp;
 
-	*m = f_queue->m;
-	*n = f_queue->n;
-	if (f_queue->next != NULL)
+	*m = c->f_queue->m;
+	*n = c->f_queue->n;
+	if (c->f_queue->next != NULL)
 	{
-		temp = f_queue->next;
-		free(f_queue);
+		temp = c->f_queue->next;
+		free(c->f_queue);
 		return (temp);
 	}
 	else
 	{
-		free(f_queue);
+		free(c->f_queue);
 		return (NULL);
 	}
 }

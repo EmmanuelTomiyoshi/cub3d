@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 11:42:02 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:46:18 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ void	get_path(t_map *map, int id, char *path, t_cub3d *c)
 		map->ea_path = ft_strdup(path);
 }
 
-void	get_coordinates(t_map *map, char *line, int *i, int id, t_cub3d *c)
+void	get_coordinates(t_map *map, int *i, int id, t_cub3d *c)
 {
 	char	*path;
 	int		j;
 
 	*i += 1;
-	if (line[*i] != 'O' && line[*i] != 'E' && line[*i] != 'A')
+	if (c->temp.line[*i] != 'O' && c->temp.line[*i] != 'E'
+		&& c->temp.line[*i] != 'A')
 	{
 		destroy_all(c);
 		exit_error(MSG_ERR_TYPE_ID, FALSE);
@@ -54,10 +55,10 @@ void	get_coordinates(t_map *map, char *line, int *i, int id, t_cub3d *c)
 	path = ft_calloc(255, sizeof(char));
 	j = 0;
 	*i += 1;
-	ft_ignore_spaces(line, i);
-	while (line[*i] != ' ' && line[*i] != '\n')
+	ft_ignore_spaces(c->temp.line, i);
+	while (c->temp.line[*i] != ' ' && c->temp.line[*i] != '\n')
 	{
-		path[j] = line[*i];
+		path[j] = c->temp.line[*i];
 		*i += 1;
 		j++;
 	}

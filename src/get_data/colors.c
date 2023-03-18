@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/16 21:40:17 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:45:49 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ char	**init_rgb(char *line, int *i)
 	return (rgb);
 }
 
-void	get_colors(t_map *map, char *line, int *i, int id, t_cub3d *c)
+void	get_colors(t_map *map, int *i, int id, t_cub3d *c)
 {
 	char	**rgb;
 
-	rgb = init_rgb(line, i);
-	handle_rgb(rgb, line, i, c);
+	rgb = init_rgb(c->temp.line, i);
+	handle_rgb(rgb, c->temp.line, i, c);
 	check_color_value(rgb, c);
 	if (ft_atoi(rgb[0]) > 255 || ft_atoi(rgb[1]) > 255 || ft_atoi(rgb[2]) > 255)
 	{

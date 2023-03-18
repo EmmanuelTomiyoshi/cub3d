@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:21:48 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:58:45 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,10 @@ void			get_data(t_cub3d *c);
 
 //get_coordinates.c
 int				is_coordinate(int c);
-void			get_coordinates(t_map *map, char *line, int *i, int id,
-					t_cub3d *c);
+void			get_coordinates(t_map *map, int *i, int id, t_cub3d *c);
 
 //get_colors.c
-void			get_colors(t_map *map, char *line, int *i, int id, t_cub3d *c);
+void			get_colors(t_map *map, int *i, int id, t_cub3d *c);
 int				is_floor_or_ceiling(int c);
 
 //map.c
@@ -86,15 +85,14 @@ void			destroy_coordinates(t_map *map);
 void			destroy_file(t_map *map, t_cub3d *c);
 
 //queue.c
-t_queue			*queue_put(t_queue *f_queue, size_t m, size_t n);
-t_queue			*queue_get(t_queue *f_queue, size_t *m, size_t *n);
+t_queue			*queue_put(size_t m, size_t n, t_cub3d *c);
+t_queue			*queue_get(size_t *m, size_t *n, t_cub3d *c);
 int				queue_empty(t_queue *f_queue);
 void			queue_clear(t_queue *f_queue);
 size_t			count_lines(t_map *map);
 
 //flood_fill.c
-void			flood_fill(t_map *map, t_cub3d *c, size_t n,
-					size_t i, size_t j);
+void			flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j);
 void			verify_map(t_map *map, t_cub3d *c);
 t_bool			verify_char(t_map *map, size_t i, size_t j);
 void			verify_surrounding(t_map *map, t_cub3d *c,
