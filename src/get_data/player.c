@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 21:05:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:03:33 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rotate_player(t_map *map, int x, int y)
 
 void	get_player_data(t_map *map, t_cub3d *c, int x, int y)
 {
-	verify_surrounding(map, c, NULL, x, y);
+	verify_surrounding(map, c, x, y);
 	map->player.pos.x = x + 0.5;
 	map->player.pos.y = y + 0.5;
 	map->player.dir.x = 0;

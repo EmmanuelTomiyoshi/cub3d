@@ -6,19 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 21:04:32 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:09:16 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	change_brightness(t_cub3d *c)
-{
-	if (c->light_mode == TRUE)
-	{
-		c->draw.color = blending(c->draw.color, ADD_LIGHT, c);
-	}
-}
 
 unsigned int	return_color(t_image *img, int x, int y)
 {
@@ -37,10 +29,10 @@ static unsigned int	get_pixel_color(t_cub3d *c)
 	{
 		if (c->dda.raydir.x < 0)
 			color = return_color(&c->map.no_tex.img,
-				c->draw.tex_x, c->draw.tex_y);
+					c->draw.tex_x, c->draw.tex_y);
 		else
 			color = return_color(&c->map.so_tex.img,
-				c->draw.tex_x, c->draw.tex_y);
+					c->draw.tex_x, c->draw.tex_y);
 	}
 	else
 	{
@@ -74,7 +66,7 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 	}
 }
 
-void	draw_texture(t_cub3d *c, int pixel)
+void	check_distortion(t_cub3d *c)
 {
 	if (c->distortion == TRUE)
 	{
@@ -94,6 +86,11 @@ void	draw_texture(t_cub3d *c, int pixel)
 			c->draw.wall_x = c->map.player.pos.x + c->dda.perpendicular
 				* c->dda.raydir.x;
 	}
+}
+
+void	draw_texture(t_cub3d *c, int pixel)
+{
+	check_distortion(c);
 	c->draw.wall_x -= floor((c->draw.wall_x));
 	c->draw.tex_x = (double)(c->draw.wall_x * (double)c->map.ea_tex.width);
 	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)

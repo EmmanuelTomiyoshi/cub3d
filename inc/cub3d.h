@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:58:45 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:14:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,13 @@ size_t			count_lines(t_map *map);
 void			flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j);
 void			verify_map(t_map *map, t_cub3d *c);
 t_bool			verify_char(t_map *map, size_t i, size_t j);
-void			verify_surrounding(t_map *map, t_cub3d *c,
-					t_queue *queue, size_t i, size_t j);
+void			verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j);
 
 //map_utils.c
 char			*ft_merge(char *str1, char *str2);
-void			verify_up(t_map *map, t_queue *queue,
-					size_t i, size_t j, t_cub3d *c);
+void			verify_up(t_map *map, size_t i, size_t j, t_cub3d *c);
+void			change_brightness(t_cub3d *c);
+void			destroy_texture(t_image	tex, t_cub3d *c);
 
 //get_player_data.c
 void			get_player_data(t_map *map, t_cub3d *c, int x, int y);

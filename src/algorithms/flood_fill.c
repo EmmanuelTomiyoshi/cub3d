@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 10:00:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:04:29 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,26 @@ t_bool	verify_char(t_map *map, size_t i, size_t j)
 	return (FALSE);
 }
 
-void	verify_surrounding(t_map *map, t_cub3d *c, t_queue *queue,
-			size_t i, size_t j)
+void	verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j)
 {
 	size_t	n;
 
 	n = count_lines(map);
 	if (verify_char(map, i, j))
 	{
-		if (queue)
-			queue_clear(queue);
+		if (c->f_queue)
+			queue_clear(c->f_queue);
 		destroy_all(c);
 		exit_error(MSG_ERR_MAP_BORDER, FALSE);
 	}
 	if (i < n)
-		verify_up(map, queue, i, j, c);
+		verify_up(map, i, j, c);
 	if (i > 0)
 	{
 		if (verify_char(map, i - 1, j))
 		{
-			if (queue)
-				queue_clear(queue);
+			if (c->f_queue)
+				queue_clear(c->f_queue);
 			destroy_all(c);
 			exit_error(MSG_ERR_MAP_BORDER, FALSE);
 		}
@@ -96,7 +95,7 @@ void	flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j)
 		c->f_queue = queue_get(&temp_j, &temp_i, c);
 		if (map->map[temp_i][temp_j] == '0')
 		{
-			verify_surrounding(map, c, c->f_queue, temp_i, temp_j);
+			verify_surrounding(map, c, temp_i, temp_j);
 			map->map[temp_i][temp_j] = '8';
 			c->f_queue = verify_line(map, temp_i, temp_j, c);
 			if (temp_i < n)

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:29:06 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:42:53 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:09:27 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ unsigned int	decrease_brightness(unsigned int *color, float opacity)
 	return ((r << 16) | (g << 8) | b);
 }
 
-// void	square_colors(t_cub3d *c)
-// {
-// 	itorgb(DARK_BLUE, &c->map.c_cube1);
-// 	itorgb(LIGHT_BLUE, &c->map.c_cube2);
-// 	c->map.cube1 = DARK_BLUE;
-// 	c->map.cube2 = LIGHT_BLUE;
-// }
+void	change_brightness(t_cub3d *c)
+{
+	if (c->light_mode == TRUE)
+	{
+		c->draw.color = blending(c->draw.color, ADD_LIGHT, c);
+	}
+}
 
 t_bool	check_exposure(t_rgb fg, float opacity, t_rgb color)
 {

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:49:31 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 20:47:52 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:12:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ static void	copy_map(t_map *map, int *i, int o)
 				map_o++;
 			}
 		}
-		// while (o < map->minimap.width)
-		// 	map->minimap.map[*i][o++] = '1';
-		// map->minimap.map[*i][o] = '\0';
-		// if (map->minimap.map[map_i])
-		// 	map_i++;
 		*i = *i + 1;
 		map_o = 0;
 		o = 0;

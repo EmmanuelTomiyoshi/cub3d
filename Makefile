@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/17 20:52:33 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/18 10:16:18 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
 FILES				=	base/destroy.c				\
+						base/destroy_level.c		\
 						base/exit.c					\
 						base/init.c					\
 						base/map_utils.c			\
