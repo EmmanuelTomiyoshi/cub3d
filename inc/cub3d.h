@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 13:07:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 15:54:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,8 @@ void			get_level_info(t_cub3d *c);
 //rotate.c
 void			rotate_vector(t_vector *vector, double ang);
 void			get_texture(t_map *map, t_cub3d *c);
+void			get_level_fd(t_cub3d *c);
+void			get_level_colors_and_coordinates(t_cub3d *c);
 
 //key_handle.c
 int				key_press(int keycode, t_cub3d *c);

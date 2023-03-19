@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 13:07:00 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 13:40:37 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:25:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void	is_directory(const char *path)
 
 	fd = open(path, O_RDONLY | O_DIRECTORY);
     if (fd > 0)
+	{
+    	close(fd);
 		exit_error(MSG_ERR_IS_DIR, FALSE);
-    close(fd);
+	}
 }
 
 void	check_argv_flag_levels(char *flag_level, t_cub3d *c)
