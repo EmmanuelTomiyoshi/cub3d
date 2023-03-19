@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 13:37:40 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:39:22 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,8 +192,10 @@ typedef struct s_levels
 {
 	char	**files;
 	char	*temp;
+	int		fd;
 	int		count;
 	t_map	*name;
+	t_bool	flag;
 }	t_levels;
 
 typedef struct s_keyhandle

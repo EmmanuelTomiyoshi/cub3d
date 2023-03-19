@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/19 12:44:57 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/19 13:08:43 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ FILES				=	system/destroy.c				\
 						system/map_utils.c				\
 						system/map.c					\
 						system/mlx.c					\
-						system/parse.c					\
 						color/conversions.c				\
 						color/brightness.c				\
 						draw/draw.c						\
@@ -50,6 +49,8 @@ FILES				=	system/destroy.c				\
 						hooks/mouse.c					\
 						init/init_original.c			\
 						init/mlx.c						\
+						parse/check_args.c				\
+						parse/parse.c					\
 						player/camera.c					\
 						player/movements.c				\
 						player/speed.c					\
@@ -94,6 +95,7 @@ $(REQUIRED_DIRS):
 	@mkdir -p $@get_data
 	@mkdir -p $@hooks
 	@mkdir -p $@player
+	@mkdir -p $@parse
 	@mkdir -p $@minimap
 	@mkdir -p $@resize
 	@mkdir -p $@button

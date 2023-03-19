@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 15:53:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:39:37 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void	update_level(t_cub3d *c)
 
 void	get_level_info(t_cub3d *c)
 {
-	int		fd;
 	char	*temp_line;
 	char	*one_line;
+	
+	//
+	// fd = open("assets/maps/levels", O_RDONLY);
+	// if (fd == -1)
+	// 	exit_error(MSG_ERR_LEVEL_FILE, FALSE);
 
-	(void)c;
-	fd = open("assets/maps/levels", O_RDONLY);
-	if (fd == -1)
-		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
-	temp_line = get_next_line(fd);
+	temp_line = get_next_line(c->level.fd);
 	if (temp_line == NULL)
 		exit_error(MSG_ERR_EMPY_LEVEL_FILE, FALSE);
 	c->level.count = 0;
@@ -93,12 +93,19 @@ void	get_level_info(t_cub3d *c)
 	{
 		one_line = ft_merge(one_line, temp_line);
 		free(temp_line);
-		temp_line = get_next_line(fd);
+		temp_line = get_next_line(c->level.fd);
 		c->level.count++;
 	}
 	free(temp_line);
+	//
+	
+
+	//
 	c->level.files = ft_split(one_line, '\n');
 	c->level.name = ft_calloc(c->level.count, sizeof(t_map));
+	//
+
+	
 	get_level_fd(c);
 	get_level_colors_and_coordinates(c);
 	free(one_line);
