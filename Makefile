@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/18 22:55:39 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/19 12:44:57 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,13 @@ CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
-FILES				=	base/destroy.c					\
-						base/destroy_level.c			\
-						base/exit.c						\
-						base/map_utils.c				\
-						base/map.c						\
-						base/mlx.c						\
-						base/parse.c					\
+FILES				=	system/destroy.c				\
+						system/destroy_level.c			\
+						system/exit.c					\
+						system/map_utils.c				\
+						system/map.c					\
+						system/mlx.c					\
+						system/parse.c					\
 						color/conversions.c				\
 						color/brightness.c				\
 						draw/draw.c						\
@@ -88,7 +88,7 @@ all: $(NAME)
 $(REQUIRED_DIRS):
 	@mkdir -p $@
 	@mkdir -p $@algorithms
-	@mkdir -p $@base
+	@mkdir -p $@system
 	@mkdir -p $@color
 	@mkdir -p $@draw
 	@mkdir -p $@get_data
