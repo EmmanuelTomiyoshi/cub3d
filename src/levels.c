@@ -6,31 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 15:54:30 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:40:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	get_level_fd(t_cub3d *c)
-{
-	int	i;
-
-	i = 0;
-	while (i < c->level.count)
-	{
-		c->level.temp = ft_strjoin("assets/maps/", c->level.files[i]);
-		c->level.name[i].fd = open(c->level.temp, O_RDONLY);
-		if (c->level.name[i].fd == -1)
-		{
-			free(c->level.temp);
-			destroy_level(c);
-			exit_error(MSG_ERR_LEVEL_FILE, FALSE);
-		}
-		free(c->level.temp);
-		i++;
-	}
-}
 
 void	init_texture(t_map *map)
 {

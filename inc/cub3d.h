@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 15:54:55 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:56:35 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 void			destroy_all(t_cub3d *c);
 void			free_array(char **array);
 void			free_file_data(t_cub3d *c);
+void			validate_level_name(char *input_file, t_cub3d *c);
+void			validate_level_file(char *input_file, t_cub3d *c);
 
 //exit.c
 void			exit_error(char *msg, t_bool usage);
