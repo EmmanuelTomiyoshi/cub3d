@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 12:19:38 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/20 12:53:00 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ FILES				=	algorithms/bresenham.c				\
 						mlx/pixel_put.c						\
 						player/camera.c						\
 						player/movements.c					\
+						player/speed.c						\
 						player/rotate.c						\
 						player/speed.c						\
 						init.c								\
