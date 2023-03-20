@@ -1,6 +1,6 @@
-C           39,      76,       119
+C           180,      159,       204
 NO ./assets/textures/space5.xpm
-F           231,      236,      239
+F           113,      128,      172
 WE         ./assets/textures/space6.xpm
 SO ./assets/textures/space7.xpm
 EA ./assets/textures/space8.xpm

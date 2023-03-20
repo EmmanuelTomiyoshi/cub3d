@@ -1,6 +1,6 @@
-C           39,      76,       119
+C           11,      79,       108
 NO ./assets/textures/SUPPORT_2D.xpm
-F           231,      236,      239
+F           0,      204,      153
 WE         ./assets/textures/SLIME_1A.xpm
 SO ./assets/textures/SUPPORT_3D.xpm
 EA ./assets/textures/SLIME_1B.xpm

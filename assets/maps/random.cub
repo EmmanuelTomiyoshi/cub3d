@@ -1,9 +1,9 @@
 C           39,      76,       119
 NO ./assets/textures/BRICK_3D.xpm
 F           231,      236,      239
-WE         ./assets/textures/BRICK_3D.xpm
-SO ./assets/textures/BRICK_3D.xpm
-EA ./assets/textures/BRICK_3D.xpm
+WE         ./assets/textures/SLIME_1A.xpm
+SO ./assets/textures/SUPPORT_2D.xpm
+EA ./assets/textures/Tile1.xpm
 
 111111111111111
 100001000010001
