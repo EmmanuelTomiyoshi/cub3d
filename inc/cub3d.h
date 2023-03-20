@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 12:04:52 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:41:49 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void			draw_texture(t_cub3d *c, int pixel, t_texture *tex);
 
 //get_data/colors.c
 void			get_colors(t_map *map, int *i, int id, t_cub3d *c);
+void			rgb_error(char **rgb, t_cub3d *c);
 
 //get_data/coordinates.c
 void			get_coordinates(t_map *map, int *i, int id, t_cub3d *c);
@@ -123,9 +124,11 @@ void			get_player_data(t_map *map, t_cub3d *c, int x, int y);
 //get_data/texture.c
 void			get_texture(t_map *map, t_cub3d *c);
 
-//get_data/get_coordinates.c
+//get_data/validations.c
 int				is_coordinate(int c);
 int				is_floor_or_ceiling(int c);
+void			check_color_value(char **rgb, t_cub3d *c);
+void			verify_rgb(char **rgb, char *line, int *i, t_cub3d *c);
 
 //init/dda.c
 void			inithit(t_hit *hit);

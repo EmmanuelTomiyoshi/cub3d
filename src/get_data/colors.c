@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 12:15:13 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:41:20 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,11 @@ static void	get_color_value(t_map *map, int id, char **rgb)
 	}
 }
 
-static void	check_color_value(char **rgb, t_cub3d *c)
+void	rgb_error(char **rgb, t_cub3d *c)
 {
-	int	i;
-
-	i = 0;
-	while (rgb[i])
-	{
-		if (!rgb[i][0])
-		{
-			ft_free_array(rgb);
-			destroy_all(c);
-			exit_error(MSG_ERR_MISSING_RGB, FALSE);
-		}
-		i++;
-	}
+	ft_free_array(rgb);
+	destroy_all(c);
+	exit_error(MSG_ERR_TYPE_ID, FALSE);
 }
 
 static void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
@@ -65,18 +55,17 @@ static void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 	{
 		ft_ignore_spaces(line, i);
 		k = 0;
+		verify_rgb(rgb, line, i, c);
 		while (ft_isdigit(line[*i]) && k != 3)
 		{
 			rgb[j][k++] = line[*i];
 			*i += 1;
+			ft_ignore_spaces(line, i);
 		}
 		ft_ignore_spaces(line, i);
+		verify_rgb(rgb, line, i, c);
 		if (line[*i] != ',' && j != 2)
-		{
-			ft_free_array(rgb);
-			destroy_all(c);
-			exit_error(MSG_ERR_TYPE_ID, FALSE);
-		}
+			rgb_error(rgb, c);
 		*i += 1;
 		j++;
 	}
