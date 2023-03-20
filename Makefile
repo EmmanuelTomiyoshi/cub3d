@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/19 16:58:07 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/19 21:07:16 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,10 @@ FILES				=	system/destroy.c				\
 						hooks/key_handle.c				\
 						hooks/loop.c					\
 						hooks/mouse.c					\
+						init/init_1.c					\
+						init/init_2.c					\
+						init/init_3.c					\
 						init/init_original.c			\
-						init/mlx.c						\
 						parse/check_args.c				\
 						parse/parse.c					\
 						parse/validations.c				\

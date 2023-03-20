@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 16:56:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 21:03:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,5 +197,24 @@ void			show_minimap(t_cub3d *c);
 void			iall(t_cub3d *c);
 
 void			new_mlx(t_cub3d *c);
+
+void    inithit(t_hit *hit);
+void	initvector(t_vector *v);
+void    initdda(t_dda *dda);
+void	initdraw(t_draw *draw);
+void	initmaprgb(t_rgb *color);
+void	initbutton(t_button *btn);
+void	inittemp(t_temp *tmp);
+void	initimage(t_image *img);
+void	initmenu(t_menu *menu);
+void	inittoggle(t_toggle *state);
+void	initkeys(t_keyhandle *key);
+void	menu(t_cub3d *c);
+void	initmaptexture(t_texture *tex);
+void    initminimap(t_minimap *minimap);
+void	initmap(t_map *map);
+void	initplayer(t_player *player);
+void    initcamera(t_camera *cam);
+void    initmlx(t_cub3d *c);
 
 #endif

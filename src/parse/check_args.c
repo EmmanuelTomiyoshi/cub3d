@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 13:07:00 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 16:25:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:22:03 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,13 @@ void	check_argv_flag_levels(char *flag_level, t_cub3d *c)
 		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
 	else
 		c->level.flag = TRUE;
+}
+
+void	invalid_args(int argc, char **argv, t_cub3d *c)
+{
+	check_argc(argc);
+	if (argc == 3)
+		check_argv_flag_levels(argv[2], c);
+	else
+		c->level.flag = FALSE;
 }
