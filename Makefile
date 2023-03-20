@@ -6,7 +6,7 @@
 #    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 12:56:30 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/20 19:00:25 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,8 @@ CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
 FILES				=	algorithms/bresenham.c				\
 						algorithms/dda.c					\
-						algorithms/flood_fill.c				\
+						algorithms/map_parse.c				\
 						algorithms/init.c					\
-						algorithms/queue.c					\
 						button/button_utils.c				\
 						button/button.c						\
 						color/brightness.c					\

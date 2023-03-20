@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 13:43:46 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:01:01 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void			bresenham(t_vector *point1, t_vector *point2, \
 					t_cub3d *c, int color);
 
 //algorithms/flood_fill.c
-void			flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j);
+void			verify_up(t_map *map, size_t i, size_t j, t_cub3d *c);
 void			verify_map(t_map *map, t_cub3d *c);
 t_bool			verify_char(t_map *map, size_t i, size_t j);
 void			verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j);
@@ -52,12 +52,6 @@ void			init_dist_to_side(t_cub3d *c);
 void			init_camera(t_map *map, t_cub3d *c);
 void			init_raydir_and_delta(t_cub3d *c);
 void			init_perpendicular(t_cub3d *c);
-
-//algorithms/queue.c
-t_queue			*queue_put(size_t m, size_t n, t_cub3d *c);
-t_queue			*queue_get(size_t *m, size_t *n, t_cub3d *c);
-int				queue_empty(t_queue *f_queue);
-void			queue_clear(t_queue *f_queue);
 
 //button/button_utils.c
 void			get_btn_pos(t_button *btn, int x, int y);
@@ -160,7 +154,6 @@ void			get_level_info(t_cub3d *c);
 //map/map_utils.c
 size_t			count_lines(t_map *map);
 char			*ft_merge(char *str1, char *str2);
-void			verify_up(t_map *map, size_t i, size_t j, t_cub3d *c);
 
 //map/map.c
 void			get_map(t_map *map, t_cub3d *c, char *one_line);
