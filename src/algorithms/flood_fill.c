@@ -6,41 +6,28 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 15:30:14 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:54:31 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_queue	*verify_line(t_map *map, size_t i, size_t j, t_cub3d *c)
+void	verify_up(t_map *map, size_t i, size_t j, t_cub3d *c)
 {
-	size_t	m;
-
-	if (map->map[i] != NULL)
-		m = strlen(map->map[i]);
-	else
-		m = 0;
-	if (m >= j - 1)
+	if (verify_char(map, i + 1, j))
 	{
-		c->f_queue = queue_put(j - 1, i, c);
-		if (m >= j)
-		{
-			c->f_queue = queue_put(j, i, c);
-			if (m >= j + 1)
-				c->f_queue = queue_put(j + 1, i, c);
-		}
+		destroy_all(c);
+		exit_error(MSG_ERR_MAP_BORDER, FALSE);
 	}
-	return (c->f_queue);
 }
 
 t_bool	verify_char(t_map *map, size_t i, size_t j)
 {
 	size_t	m;
 
-	if (map->map[i] != NULL)
-		m = strlen(map->map[i]);
-	else
-		m = 0;
+	m = ft_strlen(map->map[i]);
+	if (m <= j - 1)
+		return (TRUE);
 	if (m >= j - 1)
 	{
 		if (!ft_strchr("018ENWS", map->map[i][j - 1]))
@@ -66,10 +53,13 @@ void	verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j)
 	size_t	n;
 
 	n = count_lines(map);
+	if ((i == n) || (i == 0))
+	{
+		destroy_all(c);
+		exit_error(MSG_ERR_MAP_BORDER, FALSE);
+	}
 	if (verify_char(map, i, j))
 	{
-		if (c->f_queue)
-			queue_clear(c->f_queue);
 		destroy_all(c);
 		exit_error(MSG_ERR_MAP_BORDER, FALSE);
 	}
@@ -79,35 +69,8 @@ void	verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j)
 	{
 		if (verify_char(map, i - 1, j))
 		{
-			if (c->f_queue)
-				queue_clear(c->f_queue);
 			destroy_all(c);
 			exit_error(MSG_ERR_MAP_BORDER, FALSE);
-		}
-	}
-}
-
-void	flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j)
-{
-	size_t	n;
-	size_t	temp_i;
-	size_t	temp_j;
-
-	n = count_lines(map);
-	c->f_queue = NULL;
-	c->f_queue = queue_put(j, i, c);
-	while (queue_empty(c->f_queue))
-	{
-		c->f_queue = queue_get(&temp_j, &temp_i, c);
-		if (map->map[temp_i][temp_j] == '0')
-		{
-			verify_surrounding(map, c, temp_i, temp_j);
-			map->map[temp_i][temp_j] = '8';
-			c->f_queue = verify_line(map, temp_i, temp_j, c);
-			if (temp_i < n)
-				c->f_queue = verify_line(map, temp_i + 1, temp_j, c);
-			if (temp_i > 0)
-				c->f_queue = verify_line(map, temp_i - 1, temp_j, c);
 		}
 	}
 }
@@ -126,7 +89,7 @@ void	verify_map(t_map *map, t_cub3d *c)
 			if (strchr("NESW", map->map[i][j]))
 				get_player_data(map, c, i, j);
 			if (map->map[i][j] == '0')
-				flood_fill(map, c, i, j);
+				verify_surrounding(map, c, i, j);
 			j++;
 		}
 		i++;
