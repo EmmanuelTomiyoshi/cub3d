@@ -6,13 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:20:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:41:23 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:43:24 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	check_speed(double x, t_cub3d *c)
+static t_bool	check_speed(double x, t_cub3d *c)
 {
 	if (c->map.player.camera.speed.x + x > 1
 		&& c->map.player.camera.speed.x + x < 11)
@@ -32,7 +32,7 @@ void	player_speed(t_cub3d *c)
 {
 	float	temp;
 
-	temp = c->key.speed * 1.0064;
+	temp = c->key.speed * 1.0016;
 	if (temp < SPEED_THRESHOLD)
-		c->key.speed *= 1.0064;
+		c->key.speed *= 1.0016;
 }

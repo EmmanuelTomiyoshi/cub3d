@@ -6,13 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:15:35 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 00:03:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:27:46 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	resize_window(t_cub3d *c)
+static void	resize_window(t_cub3d *c)
 {
 	c->mlx.win.ptr = mlx_new_window(c->mlx.ptr,
 			c->mlx.win.width,
@@ -26,7 +26,7 @@ void	resize_window(t_cub3d *c)
 			&c->mlx.img.endian);
 }
 
-void	resize_count(t_cub3d *c, int x, int y)
+static void	resize_count(t_cub3d *c, int x, int y)
 {
 	int					sqrx;
 	int					sqry;
@@ -55,7 +55,7 @@ void	resize_count(t_cub3d *c, int x, int y)
 	}
 }
 
-void	resize_menu(t_cub3d *c)
+static void	resize_menu(t_cub3d *c)
 {
 	int	x;
 	int	y;
