@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 09:12:44 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:08:53 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	key_press(int keycode, t_cub3d *c)
 		distortion(c);
 	else if (keycode == KEY_T)
 		animate(c);
-	else if (keycode == KEY_M)
+	else if (keycode == KEY_M && c->level.flag)
 		update_level(c);
 	else if (keycode == KEY_F11)
 		change_win_size(c);

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 21:50:49 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:07:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ typedef struct s_levels
 	char	**files;
 	char	*temp;
 	int		count;
+	t_bool	flag;
 	t_map	*name;
 }	t_levels;
 
@@ -228,7 +229,6 @@ typedef struct s_cub3d
 	t_menu			menu;
 	t_keyhandle		key;
 	t_queue			*f_queue;
-	t_map			lifesaver;
 	t_levels		level;
 }	t_cub3d;
 

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 22:39:23 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:47:05 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,40 @@ void	update_level(t_cub3d *c)
 	i++;
 }
 
+void	check_level_filenames(char **one_line, t_cub3d *c)
+{
+	int	i;
+
+	i = 0;
+	while (i < c->level.count)
+	{
+		if (ft_strchr(c->level.files[i], '\n')
+			&& c->level.files[i][ft_strlen(c->level.files[i])] != EOF)
+		{
+			c->level.files[i][ft_strlen(c->level.files[i]) - 1] = '\0';
+		}
+		if (is_valid_file_extension(c->level.files[i]) == FALSE)
+		{
+			free(*one_line);
+			destroy_all(c);
+			exit_error(MSG_ERR_FILE_NAME, FALSE);
+		}
+		i++;
+	}
+}
+
+
+	// if (ft_strchr(temp_line, '\n') && temp_line[ft_strlen(temp_line)] != EOF)
+	// {
+	// 	temp_line[ft_strlen(temp_line) - 1] = '\0';
+	// }
+	// if (is_valid_file_extension(temp_line) == FALSE)
+	// {
+	// 	free(temp_line);
+	// 	free(c->level.one_line);
+	// 	exit_error(MSG_ERR_FILENAME, TRUE);
+	// }
+
 void	get_level_info(t_cub3d *c)
 {
 	int		fd;
@@ -80,12 +114,18 @@ void	get_level_info(t_cub3d *c)
 	char	*one_line;
 
 	(void)c;
+	c->level.count = 0;
 	fd = open("assets/maps/levels", O_RDONLY);
 	if (fd == -1)
 		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
 	temp_line = get_next_line(fd);
 	if (temp_line == NULL)
+	{
+		free(temp_line);
+		destroy_all(c);
+		ft_free_array(c->map.map);
 		exit_error(MSG_ERR_EMPY_LEVEL_FILE, FALSE);
+	}
 	c->level.count = 0;
 	one_line = ft_strdup("");
 	while (temp_line)
@@ -98,6 +138,7 @@ void	get_level_info(t_cub3d *c)
 	free(temp_line);
 	c->level.files = ft_split(one_line, '\n');
 	c->level.name = ft_calloc(c->level.count, sizeof(t_map));
+	check_level_filenames(&one_line, c);
 	get_level_fd(c);
 	get_level_colors_and_coordinates(c);
 	free(one_line);

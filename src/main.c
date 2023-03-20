@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:58 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 22:01:08 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:30:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	get_texture(t_map *map, t_cub3d *c)
 		mlx_get_data_addr(map->we_tex.img.ptr, \
 			&map->we_tex.img.bits_per_pixel, \
 			&map->we_tex.img.line_length, &map->we_tex.img.endian);
-	c->lifesaver = c->map;
 }
 
 int	main(int argc, char **argv)
@@ -49,8 +48,8 @@ int	main(int argc, char **argv)
 	init(argv, &cub3d);
 	get_data(&cub3d);
 	init_minimap(&cub3d.map);
-	get_level_info(&cub3d);
 	get_texture(&cub3d.map, &cub3d);
+	get_level_info(&cub3d);
 	loop(&cub3d);
 	destroy_all(&cub3d);
 	return (EXIT_SUCCESS);
