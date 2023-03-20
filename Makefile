@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 00:35:25 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/20 10:08:16 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ FILES				=	destroy/destroy.c					\
 						get_data/coordinates.c				\
 						get_data/data.c						\
 						get_data/player.c					\
+						get_data/texture.c					\
 						get_data/validations.c				\
 						mlx/hooks/key_handle.c				\
 						mlx/hooks/loop.c					\
