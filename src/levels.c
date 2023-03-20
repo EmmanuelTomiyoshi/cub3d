@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 09:46:20 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:02:48 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,14 @@ void	get_level_info(t_cub3d *c)
 
 	(void)c;
 	c->level.count = 0;
-	fd = open(c->level.file_path, O_RDONLY);
+	if (c->level.flag == TRUE)
+		fd = open(c->level.file_path, O_RDONLY);
+	else
+		fd = open("/assets/maps/levels", O_RDONLY);
 	if (fd == -1)
 	{
-		free(c->level.file_path);
+		if (c->level.flag == TRUE)
+			free(c->level.file_path);
 		destroy_all(c);
 		ft_free_array(c->map.map);
 		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
