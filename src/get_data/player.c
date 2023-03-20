@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 18:53:55 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:54:03 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	rotate_player(t_map *map, int x, int y)
 		rotate_vector(&map->player.dir, 0.01);
 		rotate_vector(&map->player.camera.plane, 0.01);
 	}
+	rotate_vector(&map->player.dir, 0.01);
+	rotate_vector(&map->player.camera.plane, 0.01);
 }
 
 void	get_player_data(t_map *map, t_cub3d *c, int x, int y)
