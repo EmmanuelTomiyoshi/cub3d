@@ -6,7 +6,7 @@
 #    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 12:53:20 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/20 12:54:48 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ FILES				=	algorithms/bresenham.c				\
 						mlx/pixel_put.c						\
 						player/camera.c						\
 						player/movements.c					\
+						player/movements_utlis.c			\
 						player/rotate.c						\
 						player/speed.c						\
 						init.c								\
