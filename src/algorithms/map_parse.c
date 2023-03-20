@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   map_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 18:54:31 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:53:25 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j)
 			exit_error(MSG_ERR_MAP_BORDER, FALSE);
 		}
 	}
+	map->map[i][j] = '8';
 }
 
 void	verify_map(t_map *map, t_cub3d *c)
