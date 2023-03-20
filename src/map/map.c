@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:55:39 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 18:14:55 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:18:23 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	verify_map_char(char *one_line, t_cub3d *c)
 		map_error(one_line, nbr_player, i, c);
 }
 
-void	init_map(t_map *map, t_cub3d *c, char *one_line)
+void	get_map(t_map *map, t_cub3d *c, char *one_line)
 {
 	map->player.camera.speed.x = DEF_CAM_SPEED_X;
 	map->player.camera.speed.y = DEF_CAM_SPEED_Y;

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:03:51 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/19 23:08:53 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:59:51 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	key_movements(int keycode, t_cub3d *c)
 	if (keycode == KEY_A)
 		c->key.move_left = TRUE;
 	else if (keycode == KEY_W)
-		c->key.move_foward = TRUE;
+		c->key.move_forward = TRUE;
 	else if (keycode == KEY_S)
 		c->key.move_backwards = TRUE;
 	else if (keycode == KEY_D)
@@ -61,7 +61,7 @@ int	key_release(int keycode, t_cub3d *c)
 	if (keycode == KEY_A)
 		c->key.move_left = FALSE;
 	else if (keycode == KEY_W)
-		c->key.move_foward = FALSE;
+		c->key.move_forward = FALSE;
 	else if (keycode == KEY_S)
 		c->key.move_backwards = FALSE;
 	else if (keycode == KEY_D)

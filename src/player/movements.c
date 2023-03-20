@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 17:39:22 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:59:56 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	movements(t_map *map, t_cub3d *c)
 		player_speed(c);
 	if (c->key.move_backwards)
 		walk_backwards(map, c);
-	if (c->key.move_foward)
+	if (c->key.move_forward)
 		walk_forward(map, c);
 	if (c->key.move_left)
 		walk_left(map, c);

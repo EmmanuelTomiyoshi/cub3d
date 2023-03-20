@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:07:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:29:00 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_image
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-	int			win_width;
-	int			win_height;
+	int			width;
+	int			height;
 }	t_image;
 
 typedef struct s_menu
@@ -201,7 +201,7 @@ typedef struct s_keyhandle
 {
 	t_bool	move_left;
 	t_bool	move_right;
-	t_bool	move_foward;
+	t_bool	move_forward;
 	t_bool	move_backwards;
 	t_bool	look_right;
 	t_bool	look_left;

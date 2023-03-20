@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transparency.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:06:40 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 12:07:21 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:03:17 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_argb	transparency(t_image *img, int x, int y)
 	int		bytes;
 
 	pixel = img->addr + (y * img->line_length + x * img->bits_per_pixel);
-	if (x < 0 || x >= img->win_width || y < 0 || y >= img->win_height || !pixel)
+	if (x < 0 || x >= img->width || y < 0 || y >= img->height || !pixel)
 		return (separate_argb_color(0));
 	ft_memset(&argb, 0, 4);
 	bytes = img->bits_per_pixel;

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:23:32 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:53:06 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:03:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	initimage(t_image *img)
 	img->bits_per_pixel = 0;
 	img->line_length = 0;
 	img->endian = 0;
-	img->win_width = 0;
-	img->win_height = 0;
+	img->width = 0;
+	img->height = 0;
 }
 
 void	initmaprgb(t_rgb *color)

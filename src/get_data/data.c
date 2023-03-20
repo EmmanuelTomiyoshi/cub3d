@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:14 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 09:45:32 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:18:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,8 @@ void	get_data(t_cub3d *c)
 
 	get_colors_and_coordinates(&c->map, c);
 	get_map_content(&c->map, &one_line, c);
-	init_map(&c->map, c, one_line);
+	get_map(&c->map, c, one_line);
+	get_minimap(&c->map);
+	get_texture(&c->map, c);
+	get_level_info(c);
 }

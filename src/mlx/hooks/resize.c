@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:15:35 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 20:54:41 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:03:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	resize_count(t_cub3d *c, int x, int y)
 	int					sqry;
 	unsigned int		color;
 
-	while (x < c->menu.img.win_width)
+	while (x < c->menu.img.width)
 	{
 		y = 0;
-		while (y < c->menu.img.win_height)
+		while (y < c->menu.img.height)
 		{
 			color = return_color(&c->menu.img, x, y);
 			sqrx = x * c->menu.width_ratio;
@@ -62,9 +62,9 @@ void	resize_menu(t_cub3d *c)
 
 	x = 0;
 	y = 0;
-	c->menu.width_ratio = (float) c->mlx.img.win_width / c->menu.img.win_width;
-	c->menu.height_ratio = (float) c->mlx.img.win_height \
-		/ c->menu.img.win_height;
+	c->menu.width_ratio = (float) c->mlx.img.width / c->menu.img.width;
+	c->menu.height_ratio = (float) c->mlx.img.height \
+		/ c->menu.img.height;
 	get_btn_pos(&c->menu.quit, (int)(c->menu.quit.x * c->menu.width_ratio), \
 		(int)(c->menu.quit.y * c->menu.height_ratio));
 	get_btn_size(&c->menu.quit, (int)(c->menu.quit.width * \
@@ -105,10 +105,10 @@ int	change_win_size(t_cub3d *c)
 	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
 	c->mlx.win.width = width;
 	c->mlx.win.height = height;
-	c->menu.resize.win_width = width;
-	c->menu.resize.win_height = height;
-	c->mlx.img.win_width = width;
-	c->mlx.img.win_height = height;
+	c->menu.resize.width = width;
+	c->menu.resize.height = height;
+	c->mlx.img.width = width;
+	c->mlx.img.height = height;
 	resize_window(c);
 	resize_menu(c);
 	loop(c);

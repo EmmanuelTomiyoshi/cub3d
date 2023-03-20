@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 20:43:52 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:02:26 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	mlx_put_image_pixel(t_image *img, int x, int y, int argb)
 	int		bytes;
 
 	pixel = img->addr + (y * img->line_length + x * img->bits_per_pixel);
-	if (x < 0 || x >= img->win_width || y < 0 || y >= img->win_height || !pixel)
+	if (x < 0 || x >= img->width || y < 0 || y >= img->height || !pixel)
 		return ;
 	bytes = img->bits_per_pixel;
 	while (bytes-- > 0)

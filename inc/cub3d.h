@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 15:30:09 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:18:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void			get_colors(t_map *map, int *i, int id, t_cub3d *c);
 int				is_floor_or_ceiling(int c);
 
 //map.c
-void			init_map(t_map *map, t_cub3d *c, char *one_line);
+void			get_map(t_map *map, t_cub3d *c, char *one_line);
 void			destroy_coordinates(t_map *map);
 void			destroy_file(t_map *map, t_cub3d *c);
 
@@ -160,7 +160,7 @@ void			square_colors(t_cub3d *c);
 int				mouse_callback(int button, int x, int y, t_cub3d *c);
 int				draw_button(t_button button, t_image img);
 
-int				show_menu(t_cub3d *c);
+void			show_menu(t_cub3d *c);
 void			dda(t_cub3d *c);
 void			raycasting(t_cub3d *c, int pixel);
 void			movements(t_map *map, t_cub3d *c);
@@ -180,7 +180,7 @@ void			draw_texture(t_cub3d *c, int pixel);
 
 //minimap/minimap.c
 void			draw_minimap(t_cub3d *c);
-void			init_minimap(t_map *map);
+void			get_minimap(t_map *map);
 
 //hooks/key_handle_utils.c
 void			distortion(t_cub3d *c);

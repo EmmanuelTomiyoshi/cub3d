@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:51:50 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:02:47 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	menu(t_cub3d *c)
 	c->menu.fullscreen.toggle = FALSE;
 	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
 			"./assets/images/paused.xpm",
-			&c->menu.img.win_width,
-			&c->menu.img.win_height);
+			&c->menu.img.width,
+			&c->menu.img.height);
 	if (c->menu.img.ptr == NULL)
 	{
 		destroy_all(c);
@@ -28,8 +28,8 @@ static void	menu(t_cub3d *c)
 	c->menu.img.addr = mlx_get_data_addr(c->menu.img.ptr,
 			&c->menu.img.bits_per_pixel, &c->menu.img.line_length,
 			&c->menu.img.endian);
-	c->menu.img.win_width = c->mlx.win.width;
-	c->menu.img.win_height = c->mlx.win.height;
+	c->menu.img.width = c->mlx.win.width;
+	c->menu.img.height = c->mlx.win.height;
 	c->menu.resize.ptr = NULL;
 	c->menu.resize.addr = NULL;
 	c->menu.width_ratio = 0;
@@ -121,7 +121,7 @@ void	initkeys(t_keyhandle *key)
 {
 	key->move_left = FALSE;
 	key->move_right = FALSE;
-	key->move_foward = FALSE;
+	key->move_forward = FALSE;
 	key->move_backwards = FALSE;
 	key->look_right = FALSE;
 	key->look_left = FALSE;

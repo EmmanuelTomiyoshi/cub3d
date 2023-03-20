@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:49:31 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 10:12:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:18:50 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	make_minimap(t_map *map)
 	map->minimap.map[5][i] = '\0';
 }
 
-void	init_minimap(t_map *map)
+void	get_minimap(t_map *map)
 {
 	int		o;
 

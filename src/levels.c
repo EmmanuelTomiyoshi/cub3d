@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:48:47 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:33:37 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ void	get_level_fd(t_cub3d *c)
 	}
 }
 
-void	init_texture(t_map *map)
-{
-	map->ea_tex.img.ptr = NULL;
-	map->so_tex.img.ptr = NULL;
-	map->no_tex.img.ptr = NULL;
-	map->we_tex.img.ptr = NULL;
-}
-
 void	get_level_colors_and_coordinates(t_cub3d *c)
 {
 	int		i;
@@ -50,9 +42,8 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 	{
 		get_colors_and_coordinates(&c->level.name[i], c);
 		get_map_content(&c->level.name[i], &one_line, c);
-		init_map(&c->level.name[i], c, one_line);
-		init_minimap(&c->level.name[i]);
-		init_texture(&c->level.name[i]);
+		get_map(&c->level.name[i], c, one_line);
+		get_minimap(&c->level.name[i]);
 		get_texture(&c->level.name[i], c);
 		i++;
 	}
