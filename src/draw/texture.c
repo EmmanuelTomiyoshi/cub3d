@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 14:27:06 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:33:26 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,16 @@ unsigned int	return_color(t_image *img, int x, int y)
 	return (color);
 }
 
-static unsigned int	get_pixel_color(t_cub3d *c)
+static unsigned int	get_pixel_color(t_cub3d *c, t_texture *tex)
 {
 	unsigned int	color;
 
-	if (c->dda.hit.side == 0)
-	{
-		if (c->dda.raydir.x < 0)
-			color = return_color(&c->map.no_tex.img,
+	color = return_color(&tex->img,
 					c->draw.tex_x, c->draw.tex_y);
-		else
-			color = return_color(&c->map.so_tex.img,
-					c->draw.tex_x, c->draw.tex_y);
-	}
-	else
-	{
-		if (c->dda.raydir.y < 0)
-			color = return_color(&c->map.we_tex.img,
-					c->draw.tex_x, c->draw.tex_y);
-		else
-			color = return_color(&c->map.ea_tex.img,
-					c->draw.tex_x, c->draw.tex_y);
-	}
 	return (color);
 }
 
-static void	draw_pixel(t_cub3d *c, int pixel)
+static void	draw_pixel(t_cub3d *c, int pixel, t_texture *tex)
 {
 	char	*dst;
 	int		y;
@@ -56,7 +40,7 @@ static void	draw_pixel(t_cub3d *c, int pixel)
 	{
 		c->draw.tex_y = (int)c->draw.tex_pos & (c->map.ea_tex.height - 1);
 		c->draw.tex_pos += c->draw.step;
-		c->draw.color = get_pixel_color(c);
+		c->draw.color = get_pixel_color(c, tex);
 		dst = c->mlx.img.addr + (y * c->mlx.img.line_length + \
 				(c->mlx.win.width - pixel) \
 				* (c->mlx.img.bits_per_pixel) / 8);
@@ -88,17 +72,17 @@ void	check_distortion(t_cub3d *c)
 	}
 }
 
-void	draw_texture(t_cub3d *c, int pixel)
+void	draw_texture(t_cub3d *c, int pixel, t_texture *tex)
 {
 	check_distortion(c);
 	c->draw.wall_x -= floor((c->draw.wall_x));
-	c->draw.tex_x = (double)(c->draw.wall_x * (double)c->map.ea_tex.width);
+	c->draw.tex_x = (double)(c->draw.wall_x * (double)tex->width);
 	if (c->dda.hit.side == 0 && c->dda.raydir.x > 0)
-		c->draw.tex_x = c->map.ea_tex.width - c->draw.tex_x - 1;
+		c->draw.tex_x = tex->width - c->draw.tex_x - 1;
 	if (c->dda.hit.side == 1 && c->dda.raydir.y < 0)
-		c->draw.tex_x = c->map.ea_tex.width - c->draw.tex_x - 1;
-	c->draw.step = 1 * (double)c->map.ea_tex.height / c->draw.wall_line_height;
+		c->draw.tex_x = tex->width - c->draw.tex_x - 1;
+	c->draw.step = 1 * (double)tex->height / c->draw.wall_line_height;
 	c->draw.tex_pos = (c->draw.start - (double) c->mlx.win.height / 2 + \
 		(double) c->draw.wall_line_height / 2) * c->draw.step;
-	draw_pixel(c, pixel);
+	draw_pixel(c, pixel, tex);
 }

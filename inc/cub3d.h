@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:20:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:53:16 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ void			get_btn_size(t_button *btn, int width, int height);
 //draw/draw.c
 void			pixel(t_cub3d *c);
 void			animate_sprite(t_cub3d *c);
-void			draw_texture(t_cub3d *c, int pixel);
+void			draw_texture(t_cub3d *c, int pixel, t_texture *tex);
 
 //minimap/minimap.c
 void			draw_minimap(t_cub3d *c);

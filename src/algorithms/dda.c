@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:48:49 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/17 20:41:56 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:33:02 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,28 @@ void	dda(t_cub3d *c)
 	}
 }
 
+static t_texture	get_direction_texture(t_cub3d *c)
+{
+	if (c->dda.hit.side == 0)
+	{
+		if (c->dda.raydir.x < 0)
+			return (c->map.no_tex);
+		else
+			 return (c->map.so_tex);
+	}
+	else
+	{
+		if (c->dda.raydir.y < 0)
+			 return (c->map.we_tex);
+		else
+			 return (c->map.ea_tex);
+	}
+}
+
 void	raycasting(t_cub3d *c, int pixel)
 {
+	t_texture	tex;
+
 	c->draw.wall_line_height = (int) c->mlx.win.height / c->dda.perpendicular;
 	c->draw.start = -c->draw.wall_line_height / 2 + (double) \
 		c->mlx.win.height / 2;
@@ -48,5 +68,6 @@ void	raycasting(t_cub3d *c, int pixel)
 	c->draw.end = c->draw.wall_line_height / 2 + (double) c->mlx.win.height / 2;
 	if (c->draw.end >= c->mlx.win.height)
 		c->draw.end = c->mlx.win.height - 1;
-	draw_texture(c, pixel);
+	tex = get_direction_texture(c);
+	draw_texture(c, pixel, &tex);
 }
