@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:37:25 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:15:13 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 			*i += 1;
 		}
 		ft_ignore_spaces(line, i);
-		if (line[*i] != ',' && line[*i] != '\n')
+		if (line[*i] != ',' && j != 2)
 		{
 			ft_free_array(rgb);
 			destroy_all(c);
