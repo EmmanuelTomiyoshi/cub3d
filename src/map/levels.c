@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:22:25 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:01:11 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	get_level_info(t_cub3d *c)
 	char	*one_line;
 
 	(void)c;
-	c->level.count = 0;
 	fd = verify_level(c);
 	temp_line = get_next_line(fd);
 	verify_empty_file(c, &temp_line);

@@ -1,0 +1,12 @@
+NO ./xpm //colocar uma textura valida
+SO ./xpm //colocar uma textura valida
+EA ./xpm //colocar uma textura valida
+WE ./xpm //colocar uma textura valida
+
+C 0,0,0
+F 255,255,255
+
+111
+1X1
+1N1
+111

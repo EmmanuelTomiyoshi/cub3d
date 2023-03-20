@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:29:45 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:02:19 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static void	destroy_map(t_cub3d *c)
 	destroy_texture(c->map.so_tex.img, c);
 	destroy_texture(c->map.no_tex.img, c);
 	destroy_texture(c->map.we_tex.img, c);
-	ft_free_array(c->map.minimap.map);
+	if (c->level.count != 0)
+		ft_free_array(c->map.minimap.map);
 	close(c->map.fd);
 }
 
