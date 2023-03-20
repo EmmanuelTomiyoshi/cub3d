@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 19:01:01 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:09:03 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void			destroy_file(t_map *map, t_cub3d *c);
 void			destroy_all(t_cub3d *c);
 void			destroy_texture(t_image	tex, t_cub3d *c);
 void			destroy_coordinates(t_map *map);
+void			destroy_mlx(t_cub3d *c);
 
 //destroy/exit.c
 void			exit_error(char *msg, t_bool usage);
@@ -221,7 +222,8 @@ void			initbutton(t_button *btn);
 void			initmenu(t_menu *menu);
 
 //parse.c
-t_bool			is_valid_file_extension(char *filename);
+t_bool			is_valid_file_extension(char *filename, char lastchar,
+					char *extension);
 void			is_directory(const char *path);
 void			invalid_args(int argc, char **argv, t_cub3d *c);
 

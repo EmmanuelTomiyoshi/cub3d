@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   levels.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 15:30:12 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:46:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_level_filenames(char **one_line, t_cub3d *c)
 		{
 			c->level.files[i][ft_strlen(c->level.files[i]) - 1] = '\0';
 		}
-		if (is_valid_file_extension(c->level.files[i]) == FALSE)
+		if (is_valid_file_extension(c->level.files[i], 'b', ".cub") == FALSE)
 		{
 			free(*one_line);
 			destroy_all(c);

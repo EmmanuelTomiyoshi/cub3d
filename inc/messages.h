@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:01:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:52:10 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:50:23 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # define MSG_MANY_ARGS "\tToo many arguments"
 # define MSG_INVALID_FILE "\tFile is invalid\n"
 # define MSG_INVALID_FILE_FORMAT "\tFile format is invalid\n"
-# define MSG_ERR_FILENAME "\tMap filename or path is invalid"
+# define MSG_ERR_FILENAME "\tMap filename or path is invalid. \
+Please ensure it is on the correct path and has a \".cub\" extension."
 # define MSG_ERR_MLX_INIT "\tError at mlx init. Please try again\n"
 # define MSG_ERR_OPEN_FILE "\tMap has wrongs permissions or doesn't exist\n"
 # define MSG_ERR_TYPE_ID "\tInvalid floor or ceiling"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 15:30:16 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:09:25 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ static void	destroy_map(t_cub3d *c)
 	ft_free_array(c->map.map);
 }
 
-static void	destroy_images(t_cub3d *c)
+void	destroy_mlx(t_cub3d *c)
+{
+	mlx_destroy_display(c->mlx.ptr);
+	free(c->mlx.ptr);
+}
+
+void	destroy_all(t_cub3d *c)
 {
 	if (c->mlx.img.ptr)
 		mlx_destroy_image(c->mlx.ptr, c->mlx.img.ptr);
@@ -48,14 +54,8 @@ static void	destroy_images(t_cub3d *c)
 		mlx_destroy_image(c->mlx.ptr, c->menu.img.ptr);
 	if (c->menu.resize.ptr)
 		mlx_destroy_image(c->mlx.ptr, c->menu.resize.ptr);
-}
-
-void	destroy_all(t_cub3d *c)
-{
-	destroy_images(c);
 	destroy_map(c);
 	destroy_level(c);
 	mlx_destroy_window(c->mlx.ptr, c->mlx.win.ptr);
-	mlx_destroy_display(c->mlx.ptr);
-	free(c->mlx.ptr);
+	destroy_mlx(c);
 }

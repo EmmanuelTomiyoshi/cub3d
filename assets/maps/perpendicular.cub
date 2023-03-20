@@ -1,6 +1,6 @@
 C           39,      76,       119
 NO ./assets/textures/Tile1.xpm
-F           231,      236, 239            
+F           231,      236, 239      
 WE         ./assets/textures/Tile2.xpm
 SO ./assets/textures/Tile3.xpm
 EA ./assets/textures/Tile4.xpm

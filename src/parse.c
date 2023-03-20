@@ -6,19 +6,19 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 19:35:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:09:42 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	is_valid_file_extension(char *filename)
+t_bool	is_valid_file_extension(char *filename, char lastchar, char *extension)
 {
 	if (!ft_strchr(filename, '.') || ft_strlen(filename) < 5)
 		return (FALSE);
-	if (filename[ft_strlen(filename) - 1] != 'b')
+	if (filename[ft_strlen(filename) - 1] != lastchar)
 		return (FALSE);
-	if (ft_strcmp(ft_strrchr(filename, '.'), ".cub"))
+	if (ft_strcmp(ft_strrchr(filename, '.'), extension))
 		return (FALSE);
 	return (TRUE);
 }
@@ -69,8 +69,14 @@ void	invalid_args(int argc, char **argv, t_cub3d *c)
 	}
 	else
 		c->level.flag = FALSE;
-	if (is_valid_file_extension(argv[1]) == FALSE)
+	if (is_valid_file_extension(argv[1], 'b', ".cub") == FALSE)
+	{
+		destroy_mlx(c);
 		exit_error(MSG_ERR_FILENAME, TRUE);
+	}
 	if (can_open_file(c, argv[1]) == FALSE)
+	{
+		destroy_mlx(c);
 		exit_error(MSG_ERR_OPEN_FILE, TRUE);
+	}
 }
