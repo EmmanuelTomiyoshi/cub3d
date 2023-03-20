@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 19:00:25 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/20 20:24:24 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ LFTFLAGS			=	-lft -lmlx -lm -lbsd -lXext -lX11 -lft
 CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
-CC 					+=	-march=native -mno-vzeroupper
+CC 					+=	-mno-vzeroupper
 FILES				=	algorithms/bresenham.c				\
 						algorithms/dda.c					\
 						algorithms/map_parse.c				\

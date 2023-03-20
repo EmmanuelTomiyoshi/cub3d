@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 20:09:42 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:40:07 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_bool	is_valid_file_extension(char *filename, char lastchar, char *extension)
 		return (FALSE);
 	if (filename[ft_strlen(filename) - 1] != lastchar)
 		return (FALSE);
-	if (ft_strcmp(ft_strrchr(filename, '.'), extension))
+	if (ft_strcmp(ft_strchr(filename, '.'), extension))
 		return (FALSE);
 	return (TRUE);
 }
@@ -72,7 +72,7 @@ void	invalid_args(int argc, char **argv, t_cub3d *c)
 	if (is_valid_file_extension(argv[1], 'b', ".cub") == FALSE)
 	{
 		destroy_mlx(c);
-		exit_error(MSG_ERR_FILENAME, TRUE);
+		exit_error(MSG_ERR_FILE_CUB, TRUE);
 	}
 	if (can_open_file(c, argv[1]) == FALSE)
 	{

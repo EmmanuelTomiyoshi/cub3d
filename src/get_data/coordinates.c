@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 14:31:18 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:32:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "messages.h"
 
 static t_bool	check_path(char *path)
 {
@@ -20,6 +21,16 @@ static t_bool	check_path(char *path)
 	if (fd == -1)
 		return (FALSE);
 	return (TRUE);
+}
+
+void	verify_path(char *path, t_cub3d *c)
+{
+	if (is_valid_file_extension(path, 'm', ".xpm") == FALSE)
+	{
+		free(path);
+		destroy_all(c);
+		exit_error(MSG_ERR_FILE_XPM, FALSE);
+	}
 }
 
 static void	get_path(t_map *map, int id, char *path, t_cub3d *c)
@@ -38,6 +49,7 @@ static void	get_path(t_map *map, int id, char *path, t_cub3d *c)
 		map->we_path = ft_strdup(path);
 	else if (id == 'E' && map->ea_path == NULL)
 		map->ea_path = ft_strdup(path);
+	verify_path(path, c);
 }
 
 void	get_coordinates(t_map *map, int *i, int id, t_cub3d *c)

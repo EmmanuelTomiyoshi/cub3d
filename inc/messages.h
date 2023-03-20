@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:01:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 19:50:23 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:40:30 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ is missing or incorrect"
 # define MSG_ERR_MISSING_MENU "\tthe image of the menu is missing at the \
 location \"./assets/images/\". Please contact the game \
 developers ETOMIYOS and/or MTOMOMIT"
-# define MSG_ERR_IS_DIR "\tthe path for the level is a directory"
-# define MSG_ERR_FILE_NAME "\tone of the maps at the level file is incorrect"
+# define MSG_ERR_IS_DIR "\tThe path for the level is a directory"
+# define MSG_ERR_FILE_NAME "\tOne of the maps at the level file is incorrect"
+# define MSG_ERR_FILE_XPM "\tTexture file extension must be .xpm"
+# define MSG_ERR_FILE_CUB "\tMap extension must be .cub"
 
 #endif
