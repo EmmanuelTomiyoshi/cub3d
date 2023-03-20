@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:49:39 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:41:55 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	invalid_args(int argc, char **argv, t_cub3d *c)
 	{
 		is_directory(argv[2]);
 		c->level.flag = TRUE;
+		c->level.file_path = ft_strdup(argv[2]);
 	}
 	else
 		c->level.flag = FALSE;
