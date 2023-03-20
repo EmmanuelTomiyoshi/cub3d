@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:45:49 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:37:25 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	get_color_value(t_map *map, int id, char **rgb)
+static void	get_color_value(t_map *map, int id, char **rgb)
 {
 	int	r;
 	int	g;
@@ -37,7 +37,7 @@ void	get_color_value(t_map *map, int id, char **rgb)
 	}
 }
 
-void	check_color_value(char **rgb, t_cub3d *c)
+static void	check_color_value(char **rgb, t_cub3d *c)
 {
 	int	i;
 
@@ -54,7 +54,7 @@ void	check_color_value(char **rgb, t_cub3d *c)
 	}
 }
 
-void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
+static void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 {
 	int		j;
 	int		k;
@@ -83,7 +83,7 @@ void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 	rgb[j] = NULL;
 }
 
-char	**init_rgb(char *line, int *i)
+static char	**init_rgb(char *line, int *i)
 {
 	char	**rgb;
 	int		j;

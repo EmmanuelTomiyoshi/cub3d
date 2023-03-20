@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 11:12:02 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:33:14 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	draw_pixel(t_cub3d *c, int pixel, t_texture *tex)
 	}
 }
 
-void	check_distortion(t_cub3d *c)
+static void	check_distortion(t_cub3d *c)
 {
 	if (c->state.distortion == TRUE)
 	{
