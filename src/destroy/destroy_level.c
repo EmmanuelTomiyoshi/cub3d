@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:13:46 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:27:37 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:30:15 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static void	destroy_level_infos(t_cub3d *c)
 		destroy_texture(c->level.name[i].we_tex.img, c);
 		i++;
 	}
-	ft_free_array(c->map.map);
 }
 
 void	destroy_level(t_cub3d *c)

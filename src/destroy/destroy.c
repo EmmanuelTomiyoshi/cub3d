@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:26:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 12:02:19 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:30:16 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	destroy_map(t_cub3d *c)
 	if (c->level.count != 0)
 		ft_free_array(c->map.minimap.map);
 	close(c->map.fd);
+	ft_free_array(c->map.map);
 }
 
 static void	destroy_images(t_cub3d *c)
