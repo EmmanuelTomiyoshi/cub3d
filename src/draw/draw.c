@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:10:21 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 00:02:26 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:31:37 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,6 @@ static void	background(t_cub3d *c)
 			bresenham(&point1, &point2, c, c->map.f_color);
 		point1.y++;
 		point2.y++;
-	}
-}
-
-void	mlx_put_image_pixel(t_image *img, int x, int y, int argb)
-{
-	char	*pixel;
-	char	byte_color;
-	int		bytes;
-
-	pixel = img->addr + (y * img->line_length + x * img->bits_per_pixel);
-	if (x < 0 || x >= img->width || y < 0 || y >= img->height || !pixel)
-		return ;
-	bytes = img->bits_per_pixel;
-	while (bytes-- > 0)
-	{
-		byte_color = (argb >> (bytes * 8)) & 0xFF;
-		if (img->endian)
-			*pixel++ = byte_color;
-		else
-			pixel[bytes] = byte_color;
 	}
 }
 

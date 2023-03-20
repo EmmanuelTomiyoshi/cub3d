@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   coordinates.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 09:46:18 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:38:53 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	check_path(char *path)
+static t_bool	check_path(char *path)
 {
 	int	fd;
 
@@ -22,7 +22,7 @@ t_bool	check_path(char *path)
 	return (TRUE);
 }
 
-void	get_path(t_map *map, int id, char *path, t_cub3d *c)
+static void	get_path(t_map *map, int id, char *path, t_cub3d *c)
 {
 	if (check_path(path) == FALSE)
 	{

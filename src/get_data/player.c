@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/18 10:03:33 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:41:46 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	rotate_player(t_map *map, int x, int y)
+static void	rotate_player(t_map *map, int x, int y)
 {
 	if (map->map[x][y] == 'N')
 	{
