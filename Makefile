@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 11:53:14 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/20 12:19:38 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,52 +28,52 @@ CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
 CC 					+=	-march=native -mno-vzeroupper
-FILES				=	destroy/destroy.c					\
-						destroy/destroy_level.c				\
-						destroy/exit.c						\
-						map/map_utils.c						\
-						map/map.c							\
-						map/levels.c						\
-						parse.c								\
-						color/conversions.c					\
+FILES				=	algorithms/bresenham.c				\
+						algorithms/dda.c					\
+						algorithms/flood_fill.c				\
+						algorithms/init.c					\
+						algorithms/queue.c					\
+						button/button_utils.c				\
+						button/button.c						\
 						color/brightness.c					\
+						color/conversions.c					\
+						color/int_to_rgb.c					\
+						destroy/destroy_level.c				\
+						destroy/destroy.c					\
+						destroy/exit.c						\
 						draw/draw.c							\
 						draw/texture.c						\
 						get_data/colors.c					\
 						get_data/coordinates.c				\
 						get_data/data.c						\
+						get_data/levels.c					\
 						get_data/player.c					\
 						get_data/texture.c					\
 						get_data/validations.c				\
-						get_data/levels.c					\
+						init/dda.c							\
+						init/init.c							\
+						init/keys.c							\
+						init/map.c							\
+						init/mlx.c							\
+						map/levels.c						\
+						map/map_utils.c						\
+						map/map.c							\
+						minimap/init.c						\
+						minimap/minimap.c					\
 						mlx/hooks/key_handle.c				\
+						mlx/hooks/level.c					\
 						mlx/hooks/loop.c					\
 						mlx/hooks/mouse.c					\
 						mlx/hooks/resize.c					\
 						mlx/hooks/toggle.c					\
-						mlx/hooks/level.c					\
 						mlx/pixel_put.c						\
-						init/dda.c							\
-						init/init.c							\
-						init/keys.c							\
-						init/mlx.c							\
-						init/map.c							\
 						player/camera.c						\
 						player/movements.c					\
-						player/speed.c						\
 						player/rotate.c						\
-						algorithms/bresenham.c				\
-						algorithms/dda.c					\
-						algorithms/flood_fill.c				\
-						algorithms/init.c					\
-						algorithms/queue.c					\
-						minimap/minimap.c					\
-						minimap/init.c						\
-						main.c								\
+						player/speed.c						\
 						init.c								\
-						color/int_to_rgb.c					\
-						button/button.c						\
-						button/button_utils.c
+						main.c								\
+						parse.c
 SRC					=	$(addprefix $(SRCDIR), $(FILES))
 OBJ					=	$(addprefix $(OBJDIR), $(FILES:.c=.o))
 
