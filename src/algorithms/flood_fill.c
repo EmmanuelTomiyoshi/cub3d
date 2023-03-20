@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:56:46 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 11:15:01 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:30:14 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ static t_queue	*verify_line(t_map *map, size_t i, size_t j, t_cub3d *c)
 {
 	size_t	m;
 
-	m = strlen(map->map[i]);
+	if (map->map[i] != NULL)
+		m = strlen(map->map[i]);
+	else
+		m = 0;
 	if (m >= j - 1)
 	{
 		c->f_queue = queue_put(j - 1, i, c);
@@ -34,7 +37,10 @@ t_bool	verify_char(t_map *map, size_t i, size_t j)
 {
 	size_t	m;
 
-	m = strlen(map->map[i]);
+	if (map->map[i] != NULL)
+		m = strlen(map->map[i]);
+	else
+		m = 0;
 	if (m >= j - 1)
 	{
 		if (!ft_strchr("018ENWS", map->map[i][j - 1]))
