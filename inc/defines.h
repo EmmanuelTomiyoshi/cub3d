@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:12:00 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:45:11 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,7 @@ typedef struct s_cub3d
 # define BTN_FULLSCREEN			0
 # define COLOR_THRESHOLD_MAX 	224
 # define COLOR_THRESHOLD_MIN 	64
-# define SPEED_THRESHOLD		0.16
+# define SPEED_THRESHOLD		0.12
 # define ADD_LIGHT 				0.3
 # define SUB_LIGHT 				-0.6
 # define DEF_PLAYER_SPEED 		0.06
