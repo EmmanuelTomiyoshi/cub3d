@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:53:35 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 13:41:20 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:40:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ static void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 	k = 0;
 	while (line[*i])
 	{
+		if (j == 3)
+			rgb_error(rgb, c);
 		ft_ignore_spaces(line, i);
 		k = 0;
 		verify_rgb(rgb, line, i, c);
@@ -60,7 +62,6 @@ static void	handle_rgb(char **rgb, char *line, int *i, t_cub3d *c)
 		{
 			rgb[j][k++] = line[*i];
 			*i += 1;
-			ft_ignore_spaces(line, i);
 		}
 		ft_ignore_spaces(line, i);
 		verify_rgb(rgb, line, i, c);
