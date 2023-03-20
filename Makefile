@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 00:16:27 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/20 00:35:25 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ FILES				=	destroy/destroy.c					\
 						mlx/hooks/mouse.c					\
 						mlx/hooks/resize.c					\
 						mlx/hooks/toggle.c					\
+						mlx/hooks/level.c					\
 						mlx/pixel_put.c						\
 						init/init.c							\
 						init/mlx.c							\

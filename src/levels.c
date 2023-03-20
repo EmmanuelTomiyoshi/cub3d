@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 00:33:37 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:43:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,6 @@ void	get_level_colors_and_coordinates(t_cub3d *c)
 		get_texture(&c->level.name[i], c);
 		i++;
 	}
-}
-
-void	update_level(t_cub3d *c)
-{
-	static int	i = 0;
-	t_map		temp;
-
-	if (i == c->level.count)
-	{
-		i = 0;
-	}
-	temp = c->map;
-	c->map = c->level.name[i];
-	c->level.name[i] = temp;
-	i++;
 }
 
 void	check_level_filenames(char **one_line, t_cub3d *c)
