@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:50:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/08 19:51:56 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:41:50 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_free_array(char **array)
 		i++;
 	}
 	free(array);
+	array = NULL;
 }

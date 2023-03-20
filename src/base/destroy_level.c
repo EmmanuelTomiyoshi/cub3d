@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:13:46 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 10:15:10 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:46:57 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	destroy_file(t_map *map, t_cub3d *c)
 	}
 	if (c->temp.line)
 		free(c->temp.line);
-	if (map->file)
-		ft_free_array(map->map);
 	free(map->file);
 }
 
@@ -38,7 +36,8 @@ void	destroy_level_infos(t_cub3d *c)
 	{
 		destroy_coordinates(&c->level.name[i]);
 		destroy_file(&c->level.name[i], c);
-		ft_free_array(c->level.name[i].map);
+		if (c->level.name[i].map)
+			ft_free_array(c->level.name[i].map);
 		if (c->level.name[i].minimap.map)
 			ft_free_array(c->level.name[i].minimap.map);
 		destroy_texture(c->level.name[i].ea_tex.img, c);
@@ -47,6 +46,7 @@ void	destroy_level_infos(t_cub3d *c)
 		destroy_texture(c->level.name[i].we_tex.img, c);
 		i++;
 	}
+	ft_free_array(c->map.map);
 }
 
 void	destroy_level(t_cub3d *c)

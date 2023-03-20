@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 15:53:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:39:23 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,13 @@ void	update_level(t_cub3d *c)
 	static int	i = 0;
 	t_map		temp;
 
-	if (i == 0)
-		temp = c->map;
 	if (i == c->level.count)
 	{
 		i = 0;
-		c->map = temp;
 	}
+	temp = c->map;
 	c->map = c->level.name[i];
+	c->level.name[i] = temp;
 	i++;
 }
 
