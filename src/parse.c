@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 20:40:07 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:52:31 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 t_bool	is_valid_file_extension(char *filename, char lastchar, char *extension)
 {
+	if (filename[0] == '.' && ft_strchr_count(filename, '.') > 2)
+		return (FALSE);
 	if (!ft_strchr(filename, '.') || ft_strlen(filename) < 5)
 		return (FALSE);
 	if (filename[ft_strlen(filename) - 1] != lastchar)
 		return (FALSE);
-	if (ft_strcmp(ft_strchr(filename, '.'), extension))
+	if (ft_strcmp(ft_strrchr(filename, '.'), extension))
 		return (FALSE);
 	return (TRUE);
 }
