@@ -6,11 +6,12 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 12:01:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:24:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "messages.h"
 
 t_bool	is_valid_file_extension(char *filename)
 {
@@ -46,12 +47,20 @@ void	is_directory(const char *path)
 	}
 }
 
+void	check_mlx_init(t_cub3d *c)
+{
+	c->mlx.ptr = mlx_init();
+	if (c->mlx.ptr == NULL)
+		exit_error(MSG_ERR_MLX_INIT, FALSE);
+}
+
 void	invalid_args(int argc, char **argv, t_cub3d *c)
 {
 	if (argc < 2)
 		exit_error(MSG_FEW_ARGS, TRUE);
 	if (argc > 3)
 		exit_error(MSG_MANY_ARGS, TRUE);
+	check_mlx_init(c);
 	c->level.count = 0;
 	if (argc == 3)
 	{
