@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:20:03 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/17 21:05:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:41:23 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	player_speed(t_cub3d *c)
 {
 	float	temp;
 
-	temp = c->key.speed * 1.06;
+	temp = c->key.speed * 1.0064;
 	if (temp < SPEED_THRESHOLD)
-		c->key.speed *= 1.06;
+		c->key.speed *= 1.0064;
 }

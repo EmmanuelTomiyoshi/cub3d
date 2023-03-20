@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:06:22 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:43:08 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_level_fd(t_cub3d *c)
 		{
 			free(c->level.temp);
 			destroy_level(c);
-			exit_error(MSG_ERR_LEVEL_FILE, FALSE);
+			exit_error(MSG_ERR_LEVEL_FILE, TRUE);
 		}
 		free(c->level.temp);
 		i++;
@@ -82,12 +82,12 @@ void	get_level_info(t_cub3d *c)
 	if (c->level.flag == TRUE)
 		fd = open(c->level.file_path, O_RDONLY);
 	else
-		fd = open("/assets/maps/levels", O_RDONLY);
+		fd = open("./assets/maps/levels", O_RDONLY);
 	if (fd == -1)
 	{
 		destroy_all(c);
 		ft_free_array(c->map.map);
-		exit_error(MSG_ERR_LEVEL_FILE, FALSE);
+		exit_error(MSG_ERR_LEVEL_FILE, TRUE);
 	}
 	temp_line = get_next_line(fd);
 	if (temp_line == NULL)

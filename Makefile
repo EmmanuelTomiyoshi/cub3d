@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 10:08:16 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/20 10:21:31 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,9 @@ FILES				=	destroy/destroy.c					\
 						mlx/hooks/toggle.c					\
 						mlx/hooks/level.c					\
 						mlx/pixel_put.c						\
+						init/dda.c							\
 						init/init.c							\
+						init/keys.c							\
 						init/mlx.c							\
 						player/camera.c						\
 						player/movements.c					\

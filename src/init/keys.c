@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   toggle.c                                           :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 12:10:43 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 10:22:10 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/20 10:17:29 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/20 10:19:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	distortion(t_cub3d *c)
+void	inittoggle(t_toggle *state)
 {
-	c->state.distortion = !c->state.distortion;
+	state->animate = FALSE;
+	state->distortion = FALSE;
+	state->light_mode = FALSE;
+	state->mini_map = FALSE;
 }
 
-void	animate(t_cub3d *c)
+void	initkeys(t_keyhandle *key)
 {
-	c->state.animate = !c->state.animate;
-}
-
-void	show_minimap(t_cub3d *c)
-{
-	c->state.mini_map = !c->state.mini_map;
-}
-
-void	show_menu(t_cub3d *c)
-{
-	c->menu.active = !c->menu.active;
+	key->move_left = FALSE;
+	key->move_right = FALSE;
+	key->move_forward = FALSE;
+	key->move_backwards = FALSE;
+	key->look_right = FALSE;
+	key->look_left = FALSE;
+	key->run = FALSE;
+	key->speed = DEF_PLAYER_SPEED;
 }

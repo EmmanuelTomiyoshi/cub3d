@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   toggle.c                                           :+:      :+:    :+:   */
+/*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 12:10:43 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 10:22:10 by etomiyos         ###   ########.fr       */
+/*   Created: 2023/03/20 10:19:45 by etomiyos          #+#    #+#             */
+/*   Updated: 2023/03/20 10:22:05 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	distortion(t_cub3d *c)
+void	inithit(t_hit *hit)
 {
-	c->state.distortion = !c->state.distortion;
+	hit->hit = FALSE;
+	hit->side = 0;
 }
 
-void	animate(t_cub3d *c)
+void	initvector(t_vector *v)
 {
-	c->state.animate = !c->state.animate;
+	v->x = 0;
+	v->y = 0;
 }
 
-void	show_minimap(t_cub3d *c)
+void	initdda(t_dda *dda)
 {
-	c->state.mini_map = !c->state.mini_map;
-}
-
-void	show_menu(t_cub3d *c)
-{
-	c->menu.active = !c->menu.active;
+	dda->pixel = 0;
+	dda->perpendicular = 0;
+	inithit(&dda->hit);
+	initvector(&dda->delta);
+	initvector(&dda->to_side);
+	initvector(&dda->step);
+	initvector(&dda->raydir);
+	initvector(&dda->line_size);
+	initvector(&dda->wall_pos);
 }

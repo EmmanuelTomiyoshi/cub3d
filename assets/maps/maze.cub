@@ -1,7 +1,7 @@
 C           39,      76,       119
 NO ./assets/textures/fractal1.xpm
 F           231,      236,      239
-WE         ./assets/textures/fractal2.xpm
+WE         ./assets/textures/fractal1.xpm
 SO ./assets/textures/fractal3.xpm
 EA ./assets/textures/fractal4.xpm
         1111111111111111111111111

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 00:02:47 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:20:09 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,31 +66,6 @@ static void	player(t_cub3d *c)
 	c->map.player.camera.speed.y = DEF_CAM_SPEED_Y;
 }
 
-void	inithit(t_hit *hit)
-{
-	hit->hit = FALSE;
-	hit->side = 0;
-}
-
-void	initvector(t_vector *v)
-{
-	v->x = 0;
-	v->y = 0;
-}
-
-void	initdda(t_dda *dda)
-{
-	dda->pixel = 0;
-	dda->perpendicular = 0;
-	inithit(&dda->hit);
-	initvector(&dda->delta);
-	initvector(&dda->to_side);
-	initvector(&dda->step);
-	initvector(&dda->raydir);
-	initvector(&dda->line_size);
-	initvector(&dda->wall_pos);
-}
-
 void	initdraw(t_draw *draw)
 {
 	draw->wall_line_height = 0;
@@ -104,40 +79,15 @@ void	initdraw(t_draw *draw)
 	draw->color = 0;
 }
 
-void	inittemp(t_temp *tmp)
-{
-	tmp->line = NULL;
-}
-
-void	inittoggle(t_toggle *state)
-{
-	state->animate = FALSE;
-	state->distortion = FALSE;
-	state->light_mode = FALSE;
-	state->mini_map = FALSE;
-}
-
-void	initkeys(t_keyhandle *key)
-{
-	key->move_left = FALSE;
-	key->move_right = FALSE;
-	key->move_forward = FALSE;
-	key->move_backwards = FALSE;
-	key->look_right = FALSE;
-	key->look_left = FALSE;
-	key->run = FALSE;
-	key->speed = DEF_PLAYER_SPEED;
-}
-
 void	init(char **argv, t_cub3d *c)
 {
 	new_mlx(c);
 	player(c);
 	initdda(&c->dda);
 	initdraw(&c->draw);
-	inittemp(&c->temp);
 	inittoggle(&c->state);
 	initkeys(&c->key);
 	map_init(&c->map, argv[1]);
 	menu(c);
+	c->temp.line = NULL;
 }

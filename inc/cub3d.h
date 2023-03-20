@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 00:44:00 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:20:29 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,5 +190,8 @@ void			show_minimap(t_cub3d *c);
 void			iall(t_cub3d *c);
 
 void			new_mlx(t_cub3d *c);
+void			inittoggle(t_toggle *state);
+void			initkeys(t_keyhandle *key);
+void			initdda(t_dda *dda);
 
 #endif
