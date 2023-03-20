@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   levels.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:06:22 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:25:07 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	get_level_info(t_cub3d *c)
 	if (c->level.flag == TRUE)
 		fd = open(c->level.file_path, O_RDONLY);
 	else
-		fd = open("/assets/maps/levels", O_RDONLY);
+		fd = open("./assets/maps/levels", O_RDONLY);
 	if (fd == -1)
 	{
 		destroy_all(c);
