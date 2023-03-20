@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 13:31:56 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:45:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	movements(t_map *map, t_cub3d *c)
 		walk_backwards(map, c);
 	if (c->key.move_forward && !c->key.move_backwards)
 		walk_forward(map, c);
-	if ((!c->key.move_backwards && !c->key.move_forward) ||
-		(c->key.move_backwards && c->key.move_forward))
+	if ((!c->key.move_backwards && !c->key.move_forward)
+		|| (c->key.move_backwards && c->key.move_forward))
 	{
 		if (c->key.move_left)
 			walk_left(map, c);
