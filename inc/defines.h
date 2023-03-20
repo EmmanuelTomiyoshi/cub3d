@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:22:43 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:33:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:12:00 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
-#include "bresenham.h"
+# include "bresenham.h"
 
 typedef enum e_bool
 {
@@ -208,7 +208,6 @@ typedef struct s_keyhandle
 	t_bool	run;
 	float	speed;
 }	t_keyhandle;
-
 
 typedef struct s_toggle
 {

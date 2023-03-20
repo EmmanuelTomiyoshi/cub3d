@@ -6,48 +6,11 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:53:30 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:11:53 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	get_level_fd(t_cub3d *c)
-{
-	int	i;
-
-	i = 0;
-	while (i < c->level.count)
-	{
-		c->level.temp = ft_strjoin("assets/maps/", c->level.files[i]);
-		c->level.name[i].fd = open(c->level.temp, O_RDONLY);
-		if (c->level.name[i].fd == -1)
-		{
-			free(c->level.temp);
-			destroy_level(c);
-			exit_error(MSG_ERR_LEVEL_FILE, TRUE);
-		}
-		free(c->level.temp);
-		i++;
-	}
-}
-
-void	get_level_colors_and_coordinates(t_cub3d *c)
-{
-	int		i;
-	char	*one_line;
-
-	i = 0;
-	while (i < c->level.count)
-	{
-		get_colors_and_coordinates(&c->level.name[i], c);
-		get_map_content(&c->level.name[i], &one_line, c);
-		get_map(&c->level.name[i], c, one_line);
-		get_minimap(&c->level.name[i]);
-		get_texture(&c->level.name[i], c);
-		i++;
-	}
-}
 
 void	check_level_filenames(char **one_line, t_cub3d *c)
 {
@@ -71,14 +34,10 @@ void	check_level_filenames(char **one_line, t_cub3d *c)
 	}
 }
 
-void	get_level_info(t_cub3d *c)
+int	verify_level(t_cub3d *c)
 {
-	int		fd;
-	char	*temp_line;
-	char	*one_line;
+	int	fd;
 
-	(void)c;
-	c->level.count = 0;
 	if (c->level.flag == TRUE)
 		fd = open(c->level.file_path, O_RDONLY);
 	else
@@ -89,14 +48,31 @@ void	get_level_info(t_cub3d *c)
 		ft_free_array(c->map.map);
 		exit_error(MSG_ERR_LEVEL_FILE, TRUE);
 	}
-	temp_line = get_next_line(fd);
-	if (temp_line == NULL)
+	return (fd);
+}
+
+void	verify_empty_file(t_cub3d *c, char **temp_line)
+{
+	if (*temp_line == NULL)
 	{
-		free(temp_line);
+		free(*temp_line);
 		destroy_all(c);
 		ft_free_array(c->map.map);
 		exit_error(MSG_ERR_EMPY_LEVEL_FILE, FALSE);
 	}
+}
+
+void	get_level_info(t_cub3d *c)
+{
+	int		fd;
+	char	*temp_line;
+	char	*one_line;
+
+	(void)c;
+	c->level.count = 0;
+	fd = verify_level(c);
+	temp_line = get_next_line(fd);
+	verify_empty_file(c, &temp_line);
 	c->level.count = 0;
 	one_line = ft_strdup("");
 	while (temp_line)

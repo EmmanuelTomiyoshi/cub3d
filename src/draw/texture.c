@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:55:20 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 10:33:26 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:12:02 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static unsigned int	get_pixel_color(t_cub3d *c, t_texture *tex)
 {
 	unsigned int	color;
 
-	color = return_color(&tex->img,
-					c->draw.tex_x, c->draw.tex_y);
+	color = return_color(&tex->img, c->draw.tex_x, c->draw.tex_y);
 	return (color);
 }
 

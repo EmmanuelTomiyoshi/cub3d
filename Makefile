@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 10:21:31 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/20 11:11:55 by mtomomit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ FILES				=	destroy/destroy.c					\
 						destroy/exit.c						\
 						map/map_utils.c						\
 						map/map.c							\
+						map/levels.c						\
 						parse.c								\
 						color/conversions.c					\
 						color/brightness.c					\
@@ -44,6 +45,7 @@ FILES				=	destroy/destroy.c					\
 						get_data/player.c					\
 						get_data/texture.c					\
 						get_data/validations.c				\
+						get_data/levels.c					\
 						mlx/hooks/key_handle.c				\
 						mlx/hooks/loop.c					\
 						mlx/hooks/mouse.c					\
@@ -55,6 +57,7 @@ FILES				=	destroy/destroy.c					\
 						init/init.c							\
 						init/keys.c							\
 						init/mlx.c							\
+						init/map.c							\
 						player/camera.c						\
 						player/movements.c					\
 						player/speed.c						\
@@ -68,7 +71,6 @@ FILES				=	destroy/destroy.c					\
 						minimap/init_minimap.c				\
 						main.c								\
 						init.c								\
-						levels.c							\
 						color/int_to_rgb.c					\
 						draw/transparency.c					\
 						button/button.c						\

@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:53:16 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:11:51 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void			exit_error(char *msg, t_bool usage);
 
 //init.c
 void			init(char **argv, t_cub3d *c);
+void			initimage(t_image *img);
+void			initplayer(t_player *player);
 
 //loop.c
 void			loop(t_cub3d *c);
@@ -70,6 +72,10 @@ int				handle_mouse(int x, int y, t_cub3d *c);
 
 //get_data.c
 void			get_data(t_cub3d *c);
+
+//get_data/levels.c
+void			get_level_colors_and_coordinates(t_cub3d *c);
+void			get_level_fd(t_cub3d *c);
 
 //get_coordinates.c
 int				is_coordinate(int c);
@@ -193,5 +199,11 @@ void			new_mlx(t_cub3d *c);
 void			inittoggle(t_toggle *state);
 void			initkeys(t_keyhandle *key);
 void			initdda(t_dda *dda);
+
+//init/map.c
+void			initmap(t_map *map);
+void			initminimap(t_minimap *minimap);
+void			initmaptexture(t_texture *tex);
+void			initmaprgb(t_rgb *color);
 
 #endif
