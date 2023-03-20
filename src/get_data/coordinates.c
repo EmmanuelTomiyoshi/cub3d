@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coordinates.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:38:53 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:31:18 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static void	get_path(t_map *map, int id, char *path, t_cub3d *c)
 		destroy_all(c);
 		exit_error(MSG_ERR_OPEN_FILE, FALSE);
 	}
-	if (id == 'N')
+	if (id == 'N' && map->no_path == NULL)
 		map->no_path = ft_strdup(path);
-	else if (id == 'S')
+	else if (id == 'S' && map->so_path == NULL)
 		map->so_path = ft_strdup(path);
-	else if (id == 'W')
+	else if (id == 'W' && map->we_path == NULL)
 		map->we_path = ft_strdup(path);
-	else if (id == 'E')
+	else if (id == 'E' && map->ea_path == NULL)
 		map->ea_path = ft_strdup(path);
 }
 
