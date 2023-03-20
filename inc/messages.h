@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:01:34 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 09:51:20 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:52:10 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ is missing or incorrect"
 # define MSG_ERR_MISSING_MENU "\tthe image of the menu is missing at the \
 location \"./assets/images/\". Please contact the game \
 developers ETOMIYOS and/or MTOMOMIT"
-# define MSG_ERR_FLAG_LEVEL "\tWrong flag level. Did you mean \
-\'--levels=yes\' ?"
 # define MSG_ERR_IS_DIR "\tthe path for the level is a directory"
 # define MSG_ERR_FILE_NAME "\tone of the maps at the level file is incorrect"
 

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 10:06:01 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:52:18 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	is_directory(const char *path)
 	if (fd > 0)
 	{
 		close(fd);
-		exit_error(MSG_ERR_IS_DIR, FALSE);
+		exit_error(MSG_ERR_IS_DIR, TRUE);
 	}
 }
 
