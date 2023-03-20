@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:11:23 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:49:39 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static t_bool	can_open_file(t_cub3d *c, char *filename)
 
 void	is_directory(const char *path)
 {
-    int	fd;
+	int	fd;
 
 	fd = open(path, O_RDONLY | O_DIRECTORY);
-    if (fd > 0)
+	if (fd > 0)
 	{
-    	close(fd);
+		close(fd);
 		exit_error(MSG_ERR_IS_DIR, FALSE);
 	}
 }

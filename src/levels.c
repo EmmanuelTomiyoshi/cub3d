@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:47:05 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:48:47 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,6 @@ void	check_level_filenames(char **one_line, t_cub3d *c)
 		i++;
 	}
 }
-
-
-	// if (ft_strchr(temp_line, '\n') && temp_line[ft_strlen(temp_line)] != EOF)
-	// {
-	// 	temp_line[ft_strlen(temp_line) - 1] = '\0';
-	// }
-	// if (is_valid_file_extension(temp_line) == FALSE)
-	// {
-	// 	free(temp_line);
-	// 	free(c->level.one_line);
-	// 	exit_error(MSG_ERR_FILENAME, TRUE);
-	// }
 
 void	get_level_info(t_cub3d *c)
 {

@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:23:32 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 15:52:37 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:53:06 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	initmaptexture(t_texture *tex)
 	initimage(&tex->img);
 }
 
-void    initcamera(t_camera *cam)
+void	initcamera(t_camera *cam)
 {
 	cam->pixel = (t_vector){0};
 	cam->plane = (t_vector){0};
@@ -52,7 +52,7 @@ void	initplayer(t_player *player)
 	player->pos = (t_vector){0};
 }
 
-void    initminimap(t_minimap *minimap)
+void	initminimap(t_minimap *minimap)
 {
 	minimap->height = 0;
 	minimap->width = 0;
@@ -100,31 +100,3 @@ void	initmenu(t_menu *menu)
 	initbutton(&menu->fullscreen);
 	initbutton(&menu->quit);
 }
-
-void	iall(t_cub3d *c)
-{
-	(void)c;
-
-	
-	// initdda(&c->dda);
-	// initdraw(&c->draw);
-	// inittemp(&c->temp);
-	// inittoggle(&c->state);
-	// initkeys(&c->key);
-
-
-	//faltam
-	// initmap(&c->map);
-	// initmenu(&c->menu);
-
-
-	//falta initlevels
-}
-
-
-// void	initlevels(t_levels *lvl)
-// {
-// 	lvl->files = NULL;
-// 	lvl->temp = NULL;
-// 	lvl->count = 0;
-// }

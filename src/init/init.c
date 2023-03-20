@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:36 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/19 23:43:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:51:50 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 static void	menu(t_cub3d *c)
 {
-	//
 	c->menu.active = FALSE;
 	c->menu.fullscreen.toggle = FALSE;
-
-	//
 	c->menu.img.ptr = mlx_xpm_file_to_image(c->mlx.ptr,
 			"./assets/images/paused.xpm",
 			&c->menu.img.win_width,
@@ -33,9 +30,6 @@ static void	menu(t_cub3d *c)
 			&c->menu.img.endian);
 	c->menu.img.win_width = c->mlx.win.width;
 	c->menu.img.win_height = c->mlx.win.height;
-
-
-	//
 	c->menu.resize.ptr = NULL;
 	c->menu.resize.addr = NULL;
 	c->menu.width_ratio = 0;
@@ -45,8 +39,6 @@ static void	menu(t_cub3d *c)
 void	map_init(t_map *map, char *file)
 {
 	map->file = ft_strdup(file);
-
-	//
 	map->infos = 0;
 	map->f_color = 0;
 	map->c_color = 0;
@@ -65,24 +57,16 @@ static void	player(t_cub3d *c)
 {
 	c->dda.pixel = 0;
 	c->dda.perpendicular = 0;
-
 	c->state.light_mode = FALSE;
 	c->state.distortion = FALSE;
 	c->state.animate = FALSE;
 	c->state.mini_map = FALSE;
-
-	//
 	c->key.speed = DEF_PLAYER_SPEED;
 	c->map.player.camera.speed.x = DEF_CAM_SPEED_X;
 	c->map.player.camera.speed.y = DEF_CAM_SPEED_Y;
 }
 
-
-
-
-
-
-void    inithit(t_hit *hit)
+void	inithit(t_hit *hit)
 {
 	hit->hit = FALSE;
 	hit->side = 0;
@@ -94,7 +78,7 @@ void	initvector(t_vector *v)
 	v->y = 0;
 }
 
-void    initdda(t_dda *dda)
+void	initdda(t_dda *dda)
 {
 	dda->pixel = 0;
 	dda->perpendicular = 0;
@@ -147,21 +131,13 @@ void	initkeys(t_keyhandle *key)
 
 void	init(char **argv, t_cub3d *c)
 {
-	//
 	new_mlx(c);
-	player(c);								//
+	player(c);
 	initdda(&c->dda);
 	initdraw(&c->draw);
 	inittemp(&c->temp);
 	inittoggle(&c->state);
 	initkeys(&c->key);
 	map_init(&c->map, argv[1]);
-	menu(c);								//
-	// iall(c);
+	menu(c);
 }
-
-
-	// c->menu.quit.height = 0;
-	// c->menu.quit.width = 0;
-	// c->menu.quit.x = 0;
-	// c->menu.quit.y = 0;

@@ -6,13 +6,13 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 15:29:15 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/18 15:38:35 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:50:22 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void    new_mlx(t_cub3d *c)
+void	new_mlx(t_cub3d *c)
 {
 	c->mlx.ptr = mlx_init();
 	c->mlx.win.ptr = mlx_new_window(c->mlx.ptr, WIDTH, HEIGHT, WIN_NAME);
