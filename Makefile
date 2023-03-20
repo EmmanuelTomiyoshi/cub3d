@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 11:11:55 by mtomomit         ###   ########.fr        #
+#    Updated: 2023/03/20 11:23:56 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ FILES				=	destroy/destroy.c					\
 						algorithms/init.c					\
 						algorithms/queue.c					\
 						minimap/minimap.c					\
-						minimap/init_minimap.c				\
+						minimap/init.c						\
 						main.c								\
 						init.c								\
 						color/int_to_rgb.c					\

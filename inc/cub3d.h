@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:11:51 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:39:28 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,34 +41,14 @@ void			free_file_data(t_cub3d *c);
 //exit.c
 void			exit_error(char *msg, t_bool usage);
 
-//init.c
-void			init(char **argv, t_cub3d *c);
-void			initimage(t_image *img);
-void			initplayer(t_player *player);
-
-//loop.c
-void			loop(t_cub3d *c);
 void			destroy_level(t_cub3d *c);
 
 void			get_map_content(t_map *map, char **one_line, t_cub3d *c);
 void			get_colors_and_coordinates(t_map *map, t_cub3d *c);
 
-void			update_level(t_cub3d *c);
 void			level(t_cub3d *c);
 
-//parse.c
-void			invalid_args(int argc, char **argv, t_cub3d *c);
-
-//render.c
-int				render(t_cub3d *c);
-int				end_loop(t_cub3d *c);
-
-//validations.c
-t_bool			is_valid_file_extension(char *filename);
-
 int				brightness(t_cub3d *c);
-
-int				handle_mouse(int x, int y, t_cub3d *c);
 
 //get_data.c
 void			get_data(t_cub3d *c);
@@ -86,7 +66,6 @@ void			get_colors(t_map *map, int *i, int id, t_cub3d *c);
 int				is_floor_or_ceiling(int c);
 
 //map.c
-void			get_map(t_map *map, t_cub3d *c, char *one_line);
 void			destroy_coordinates(t_map *map);
 void			destroy_file(t_map *map, t_cub3d *c);
 
@@ -95,7 +74,6 @@ t_queue			*queue_put(size_t m, size_t n, t_cub3d *c);
 t_queue			*queue_get(size_t *m, size_t *n, t_cub3d *c);
 int				queue_empty(t_queue *f_queue);
 void			queue_clear(t_queue *f_queue);
-size_t			count_lines(t_map *map);
 
 //flood_fill.c
 void			flood_fill(t_map *map, t_cub3d *c, size_t i, size_t j);
@@ -104,8 +82,6 @@ t_bool			verify_char(t_map *map, size_t i, size_t j);
 void			verify_surrounding(t_map *map, t_cub3d *c, size_t i, size_t j);
 
 //map_utils.c
-char			*ft_merge(char *str1, char *str2);
-void			verify_up(t_map *map, size_t i, size_t j, t_cub3d *c);
 void			change_brightness(t_cub3d *c);
 void			destroy_texture(t_image	tex, t_cub3d *c);
 
@@ -117,7 +93,6 @@ void			bresenham(t_vector *point1, t_vector *point2, \
 					t_cub3d *c, int color);
 
 //mlx.c
-void			my_pixel_put(t_image *img, int x, int y, int color);
 int				get_rgb(int r, int g, int b);
 
 ///dda/init.c
@@ -128,30 +103,15 @@ void			init_perpendicular(t_cub3d *c);
 
 unsigned int	return_color(t_image *img, int x, int y);
 
-void			player_speed(t_cub3d *c);
-
 void			itorgb(int color, t_rgb *result);
 
 ///dda/dda.c
 int				draw(t_cub3d *c);
 
-void			get_level_info(t_cub3d *c);
-
 //rotate.c
-void			rotate_vector(t_vector *vector, double ang);
 void			get_texture(t_map *map, t_cub3d *c);
 
-//key_handle.c
-int				key_press(int keycode, t_cub3d *c);
-int				key_release(int keycode, t_cub3d *c);
-
-int				change_win_size(t_cub3d *c);
-
 //camera.c
-void			camera(t_map *map, t_cub3d *c);
-void			look_left(t_map *map);
-void			look_right(t_map *map);
-void			camera_speed(double x, double y, t_cub3d *c);
 void			camera_move(int keycode, double x, double y, t_cub3d *c);
 
 //color/conversions.c
@@ -166,14 +126,8 @@ void			square_colors(t_cub3d *c);
 int				mouse_callback(int button, int x, int y, t_cub3d *c);
 int				draw_button(t_button button, t_image img);
 
-void			show_menu(t_cub3d *c);
 void			dda(t_cub3d *c);
 void			raycasting(t_cub3d *c, int pixel);
-void			movements(t_map *map, t_cub3d *c);
-void			walk_left(t_map *map, t_cub3d *c);
-void			walk_forward(t_map *map, t_cub3d *c);
-void			walk_backwards(t_map *map, t_cub3d *c);
-void			walk_right(t_map *map, t_cub3d *c);
 
 //button/button_utils.c
 void			get_btn_pos(t_button *btn, int x, int y);
@@ -184,26 +138,119 @@ void			pixel(t_cub3d *c);
 void			animate_sprite(t_cub3d *c);
 void			draw_texture(t_cub3d *c, int pixel, t_texture *tex);
 
-//minimap/minimap.c
-void			draw_minimap(t_cub3d *c);
-void			get_minimap(t_map *map);
 
-//hooks/key_handle_utils.c
-void			distortion(t_cub3d *c);
-void			animate(t_cub3d *c);
-void			show_minimap(t_cub3d *c);
 
-void			iall(t_cub3d *c);
 
-void			new_mlx(t_cub3d *c);
-void			inittoggle(t_toggle *state);
-void			initkeys(t_keyhandle *key);
-void			initdda(t_dda *dda);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//init/dda.c
+void	inithit(t_hit *hit);
+void	initvector(t_vector *v);
+void	initdda(t_dda *dda);
+
+//init/init.c
+void	map_init(t_map *map, char *file);
+void	initdraw(t_draw *draw);
+void	init(char **argv, t_cub3d *c);
+
+//init/keys.c
+void	inittoggle(t_toggle *state);
+void	initkeys(t_keyhandle *key);
 
 //init/map.c
-void			initmap(t_map *map);
-void			initminimap(t_minimap *minimap);
-void			initmaptexture(t_texture *tex);
-void			initmaprgb(t_rgb *color);
+void	initmaprgb(t_rgb *color);
+void	initmaptexture(t_texture *tex);
+void	initminimap(t_minimap *minimap);
+void	initmap(t_map *map);
+
+//init/mlx.c
+void	new_mlx(t_cub3d *c);
+
+//map/levels.c
+void	check_level_filenames(char **one_line, t_cub3d *c);
+void	get_level_info(t_cub3d *c);
+
+//map/map_utils.c
+size_t	count_lines(t_map *map);
+char	*ft_merge(char *str1, char *str2);
+void	verify_up(t_map *map, size_t i, size_t j, t_cub3d *c);
+
+//map/map.c
+void	get_map(t_map *map, t_cub3d *c, char *one_line);
+
+//minimap/init.c
+void	get_minimap(t_map *map);
+
+//minimap/minimap.c
+void	draw_minimap(t_cub3d *c);
+
+//mlx/hooks/key_handle.c
+int		key_press(int keycode, t_cub3d *c);
+int		key_release(int keycode, t_cub3d *c);
+
+//mlx/hooks/level.c
+void	update_level(t_cub3d *c);
+
+//mlx/hooks/loop.c
+int		end_loop(t_cub3d *c);
+void	loop(t_cub3d *c);
+
+//mlx/hooks/mouse.c
+int		handle_mouse(int x, int y, t_cub3d *c);
+
+//mlx/hooks/resize.c
+int		change_win_size(t_cub3d *c);
+
+//mlx/hooks/toggle.c
+void	distortion(t_cub3d *c);
+void	animate(t_cub3d *c);
+void	show_minimap(t_cub3d *c);
+void	show_menu(t_cub3d *c);
+
+//mlx/pixel_put.c
+void	my_pixel_put(t_image *img, int x, int y, int color);
+
+//player/camera.c
+void	camera(t_map *map, t_cub3d *c);
+void	look_left(t_map *map);
+void	look_right(t_map *map);
+
+//player/movements.c
+void	movements(t_map *map, t_cub3d *c);
+void	walk_left(t_map *map, t_cub3d *c);
+void	walk_forward(t_map *map, t_cub3d *c);
+void	walk_backwards(t_map *map, t_cub3d *c);
+void	walk_right(t_map *map, t_cub3d *c);
+
+//player/rotate.c
+double	rad(double num);
+void	rotate_vector(t_vector *vector, double ang);
+
+//player/speed.c
+void	camera_speed(double x, double y, t_cub3d *c);
+void	player_speed(t_cub3d *c);
+
+//init.c
+void	initimage(t_image *img);
+void	initcamera(t_camera *cam);
+void	initplayer(t_player *player);
+void	initbutton(t_button *btn);
+void	initmenu(t_menu *menu);
+
+//parse.c
+t_bool	is_valid_file_extension(char *filename);
+void	is_directory(const char *path);
+void	invalid_args(int argc, char **argv, t_cub3d *c);
 
 #endif

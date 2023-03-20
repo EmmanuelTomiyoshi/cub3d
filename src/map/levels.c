@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   levels.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:11:53 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:22:25 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_level_filenames(char **one_line, t_cub3d *c)
 	}
 }
 
-int	verify_level(t_cub3d *c)
+static int	verify_level(t_cub3d *c)
 {
 	int	fd;
 
@@ -51,7 +51,7 @@ int	verify_level(t_cub3d *c)
 	return (fd);
 }
 
-void	verify_empty_file(t_cub3d *c, char **temp_line)
+static void	verify_empty_file(t_cub3d *c, char **temp_line)
 {
 	if (*temp_line == NULL)
 	{
