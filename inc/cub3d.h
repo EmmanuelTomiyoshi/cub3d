@@ -6,7 +6,7 @@
 /*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 11:43:08 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:46:07 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,43 +32,6 @@
 # include <mlx.h>
 # include <X11/X.h>
 # include "../libs/libft/libft.h"
-
-//destroy.c
-void			destroy_all(t_cub3d *c);
-void			free_array(char **array);
-void			free_file_data(t_cub3d *c);
-
-//init.c
-void			init(char **argv, t_cub3d *c);
-void			initimage(t_image *img);
-void			initplayer(t_player *player);
-
-//loop.c
-void			loop(t_cub3d *c);
-
-void			update_level(t_cub3d *c);
-void			level(t_cub3d *c);
-
-//parse.c
-void			invalid_args(int argc, char **argv, t_cub3d *c);
-
-//render.c
-int				render(t_cub3d *c);
-int				end_loop(t_cub3d *c);
-
-//validations.c
-t_bool			is_valid_file_extension(char *filename);
-
-int				handle_mouse(int x, int y, t_cub3d *c);
-
-//map.c
-void			get_map(t_map *map, t_cub3d *c, char *one_line);
-
-size_t			count_lines(t_map *map);
-
-//map_utils.c
-char			*ft_merge(char *str1, char *str2);
-void			verify_up(t_map *map, size_t i, size_t j, t_cub3d *c);
 
 //algorithms/bresenham.c
 void			bresenham(t_vector *point1, t_vector *point2, \
@@ -162,60 +125,5 @@ void			get_texture(t_map *map, t_cub3d *c);
 //get_data/get_coordinates.c
 int				is_coordinate(int c);
 int				is_floor_or_ceiling(int c);
-
-
-//mlx.c
-void			my_pixel_put(t_image *img, int x, int y, int color);
-int				get_rgb(int r, int g, int b);
-
-void			player_speed(t_cub3d *c);
-
-void			get_level_info(t_cub3d *c);
-
-//rotate.c
-void			rotate_vector(t_vector *vector, double ang);
-
-//key_handle.c
-int				key_press(int keycode, t_cub3d *c);
-int				key_release(int keycode, t_cub3d *c);
-int				change_win_size(t_cub3d *c);
-
-void			square_colors(t_cub3d *c);
-
-//camera.c
-void			camera(t_map *map, t_cub3d *c);
-void			look_left(t_map *map);
-void			look_right(t_map *map);
-void			camera_speed(double x, double y, t_cub3d *c);
-void			camera_move(int keycode, double x, double y, t_cub3d *c);
-
-void			show_menu(t_cub3d *c);
-void			movements(t_map *map, t_cub3d *c);
-void			walk_left(t_map *map, t_cub3d *c);
-void			walk_forward(t_map *map, t_cub3d *c);
-void			walk_backwards(t_map *map, t_cub3d *c);
-void			walk_right(t_map *map, t_cub3d *c);
-
-//minimap/minimap.c
-void			draw_minimap(t_cub3d *c);
-void			get_minimap(t_map *map);
-
-//hooks/key_handle_utils.c
-void			distortion(t_cub3d *c);
-void			animate(t_cub3d *c);
-void			show_minimap(t_cub3d *c);
-
-void			iall(t_cub3d *c);
-
-void			new_mlx(t_cub3d *c);
-void			inittoggle(t_toggle *state);
-void			initkeys(t_keyhandle *key);
-void			initdda(t_dda *dda);
-
-//init/map.c
-void			initmap(t_map *map);
-void			initminimap(t_minimap *minimap);
-void			initmaptexture(t_texture *tex);
-void			initmaprgb(t_rgb *color);
 
 #endif
