@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_level.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:13:46 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 21:26:29 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:20:05 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ static void	destroy_level_infos(t_cub3d *c)
 		destroy_texture(c->level.name[i].we_tex.img, c);
 		i++;
 	}
+}
+
+void	destroy_fds(void)
+{
+	int	i;
+
+	i = 4;
+	while (close(i))
+		i++;
 }
 
 void	destroy_level(t_cub3d *c)
