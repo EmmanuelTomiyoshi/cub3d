@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:57:01 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 19:54:03 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:09:52 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void	rotate_player(t_map *map, int x, int y)
 
 void	get_player_data(t_map *map, t_cub3d *c, int x, int y)
 {
-	verify_surrounding(map, c, x, y);
 	map->player.pos.x = x + 0.5;
 	map->player.pos.y = y + 0.5;
 	map->player.dir.x = 0;
@@ -50,5 +49,6 @@ void	get_player_data(t_map *map, t_cub3d *c, int x, int y)
 	map->player.camera.pixel.x = 0;
 	map->player.camera.pixel.y = 0;
 	rotate_player(map, x, y);
+	verify_surrounding(map, c, x, y);
 	map->map[x][y] = '8';
 }
