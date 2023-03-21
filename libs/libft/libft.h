@@ -18,7 +18,7 @@
 # include <unistd.h>
 
 # define BUFFER_SIZE 42
-# define OPEN_MAX 20
+# define OPEN_MAX 64
 
 typedef struct s_list
 {

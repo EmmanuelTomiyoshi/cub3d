@@ -6,12 +6,11 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 01:51:47 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 20:52:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/20 21:49:47 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "messages.h"
 
 static t_bool	check_path(char *path)
 {
@@ -25,12 +24,23 @@ static t_bool	check_path(char *path)
 
 void	verify_path(char *path, t_cub3d *c)
 {
+	char	temp;
+	int		fd;
+
 	if (is_valid_file_extension(path, 'm', ".xpm") == FALSE)
 	{
 		free(path);
 		destroy_all(c);
 		exit_error(MSG_ERR_FILE_XPM, FALSE);
 	}
+	fd = open(path, O_RDONLY);
+	if (read(fd, &temp, 1) < 1)
+	{
+		free(path);
+		destroy_all(c);
+		exit_error(MSG_ERR_EMPTY_FILE, FALSE);
+	}
+	close(fd);
 }
 
 static void	get_path(t_map *map, int id, char *path, t_cub3d *c)

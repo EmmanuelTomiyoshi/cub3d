@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_level.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:13:46 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 15:30:15 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/20 21:26:29 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	destroy_file(t_map *map, t_cub3d *c)
 	}
 	if (c->temp.line)
 		free(c->temp.line);
+	c->temp.line = NULL;
 	free(map->file);
 }
 
