@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:10:38 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 21:21:21 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:38:26 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_bool	can_open_file(t_cub3d *c, char *filename)
 	return (TRUE);
 }
 
-void	is_directory(const char *path)
+void	is_directory(const char *path, t_cub3d *c)
 {
 	int	fd;
 
@@ -44,6 +44,7 @@ void	is_directory(const char *path)
 	if (fd > 0)
 	{
 		close(fd);
+		destroy_mlx(c);
 		exit_error(MSG_ERR_IS_DIR, TRUE);
 	}
 }
@@ -65,7 +66,7 @@ void	invalid_args(int argc, char **argv, t_cub3d *c)
 	c->level.count = 0;
 	if (argc == 3)
 	{
-		is_directory(argv[2]);
+		is_directory(argv[2], c);
 		c->level.flag = TRUE;
 		c->level.file_path = argv[2];
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/22 09:38:26 by mtomomit         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:38:21 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,7 @@ void			initmenu(t_menu *menu);
 //parse.c
 t_bool			is_valid_file_extension(char *filename, char lastchar,
 					char *extension);
-void			is_directory(const char *path);
+void			is_directory(const char *path, t_cub3d *c);
 void			invalid_args(int argc, char **argv, t_cub3d *c);
 
 #endif

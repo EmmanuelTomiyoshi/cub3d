@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:17:24 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 19:46:57 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:37:00 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ static int	verify_level(t_cub3d *c)
 	if (fd == -1)
 	{
 		destroy_all(c);
-		ft_free_array(c->map.map);
+		if (c->level.count != 0)
+			ft_free_array(c->map.map);
+		if (c->map.minimap.map)
+			ft_free_array(c->map.minimap.map);
 		exit_error(MSG_ERR_LEVEL_FILE, TRUE);
 	}
 	return (fd);
