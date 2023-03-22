@@ -6,7 +6,7 @@
 /*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:55:39 by mtomomit          #+#    #+#             */
-/*   Updated: 2023/03/20 00:18:23 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:47:32 by etomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	map_error(char *one_line, size_t nbr_player, size_t i, t_cub3d *c)
 {
 	destroy_all(c);
-	(void)c;
 	if (one_line[i] && !strchr("NSEW\n 01", one_line[i]))
 	{
 		free(one_line);
