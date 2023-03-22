@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mtomomit <mtomomit@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:07:55 by etomiyos          #+#    #+#             */
-/*   Updated: 2023/03/20 20:09:03 by etomiyos         ###   ########.fr       */
+/*   Updated: 2023/03/22 09:38:26 by mtomomit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void			itorgb(int color, t_rgb *result);
 //destroy/destroy_level.c
 void			destroy_level(t_cub3d *c);
 void			destroy_file(t_map *map, t_cub3d *c);
+void			destroy_fds(void);
 
 //destroy/destroy.c
 void			destroy_all(t_cub3d *c);
