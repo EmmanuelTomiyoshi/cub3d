@@ -6,7 +6,7 @@
 #    By: etomiyos <etomiyos@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 10:47:36 by etomiyos          #+#    #+#              #
-#    Updated: 2023/03/20 20:24:24 by etomiyos         ###   ########.fr        #
+#    Updated: 2023/03/22 23:13:21 by etomiyos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ LFTFLAGS			=	-lft -lmlx -lm -lbsd -lXext -lX11 -lft
 CFLAGS				=	-Wall -Werror -Wextra
 CFLAGS				+=	-g -I $(LFTDIR) -I $(INCDIR)
 CC 					= 	cc -O3
-CC 					+=	-mno-vzeroupper
+CC                  +=  -mno-vzeroupper -funroll-loops -flto -finline-functions
 FILES				=	algorithms/bresenham.c				\
 						algorithms/dda.c					\
 						algorithms/map_parse.c				\
